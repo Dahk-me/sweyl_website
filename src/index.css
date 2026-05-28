@@ -81,6 +81,28 @@ img { display: block; max-width: 100%; }
 ::-webkit-scrollbar-thumb { background: var(--fg-4); border-radius: 5px; }
 ::-webkit-scrollbar-track { background: transparent; }
 
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .container, .container-narrow, .container-wide { padding: 0 20px; }
+
+  .hide-mobile { display: none !important; }
+
+  .btn-primary { padding: 11px 18px; font-size: 13px; }
+  .btn-ghost   { padding: 10px 16px; font-size: 13px; }
+}
+
+input, textarea, select {
+  -webkit-appearance: none;
+  border-radius: 2px;
+  font-size: 16px; /* prevent iOS zoom on focus */
+}
+
+/* Touch targets */
+@media (max-width: 768px) {
+  button, a { min-height: 44px; }
+  .btn-primary, .btn-ghost { min-height: 44px; display: inline-flex; align-items: center; }
+}
+
 /* ── Thème Clair ── */
 [data-theme="light"] {
   --bg: #f4f1eb;

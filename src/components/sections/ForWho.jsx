@@ -1,4 +1,5 @@
 import React from 'react'
+import { useMobile } from '../../hooks/useMobile'
 import { PointsLeaderboard, CalendarWidget, PlayerCard, LiveScoreboard } from '../Instruments'
 
 const targets = [
@@ -19,7 +20,7 @@ const targets = [
   {
     tag: '03',
     t: 'Joueurs',
-    d: 'Suivez votre progression match après match. Partagez vos meilleures performances avec des visuels prêts à l\'emploi.',
+    d: "Suivez votre progression match après match. Partagez vos meilleures performances avec des visuels prêts à l'emploi.",
     h: ['Fiche joueur détaillée', 'Comparatifs équipe', 'Partage social instantané'],
     instrument: <PlayerCard />,
   },
@@ -33,27 +34,32 @@ const targets = [
 ]
 
 export default function ForWho() {
+  const mobile = useMobile()
   return (
-    <section style={{ padding: '140px 0', background: 'var(--bg-2)', borderTop: '1px solid var(--line)' }}>
-      <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 32px' }}>
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1.4fr', gap: '80px', alignItems: 'flex-start' }}>
-          <div style={{ position: 'sticky', top: '120px' }}>
-            <div className="eyebrow" style={{ marginBottom: '24px' }}>—— Pour qui</div>
-            <h2 className="display" style={{ fontSize: 'clamp(48px, 6vw, 88px)', marginBottom: '24px' }}>
+    <section style={{ padding: mobile ? '80px 0' : '140px 0', background: 'var(--bg-2)', borderTop: '1px solid var(--line)' }}>
+      <div style={{ maxWidth: '1280px', margin: '0 auto', padding: mobile ? '0 20px' : '0 32px' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: mobile ? '1fr' : '1fr 1.4fr', gap: mobile ? '36px' : '80px', alignItems: 'flex-start' }}>
+
+          {/* Sticky title */}
+          <div style={{ position: mobile ? 'static' : 'sticky', top: '120px' }}>
+            <div className="eyebrow" style={{ marginBottom: '20px', fontSize: mobile ? '11px' : '13px' }}>—— Pour qui</div>
+            <h2 className="display" style={{ fontSize: mobile ? 'clamp(36px, 10vw, 56px)' : 'clamp(48px, 6vw, 88px)', marginBottom: '16px' }}>
               Conçu pour<br />tous <span style={{ color: 'var(--orange)' }}>les acteurs</span><br />du terrain.
             </h2>
-            <div className="mono" style={{ fontSize: '10px', color: 'var(--fg-3)', letterSpacing: '0.18em' }}>04 PROFILS</div>
+            {!mobile && <div className="mono" style={{ fontSize: '10px', color: 'var(--fg-3)', letterSpacing: '0.18em' }}>04 PROFILS</div>}
           </div>
+
+          {/* Cards */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: '1px', background: 'var(--line)', overflow: 'hidden' }}>
             {targets.map(target => (
-              <div key={target.tag} style={{ background: 'var(--bg-2)', padding: '52px 36px' }}>
-                <div className="mono" style={{ fontSize: '11px', color: 'var(--orange)', letterSpacing: '0.2em', marginBottom: '12px' }}>{target.tag}</div>
-                <div className="display" style={{ fontSize: 'clamp(36px,4vw,54px)', marginBottom: '14px', lineHeight: 1 }}>{target.t}</div>
-                <p style={{ fontSize: '14px', color: 'var(--fg-2)', lineHeight: 1.55, marginBottom: '18px' }}>{target.d}</p>
-                <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '8px', marginBottom: '28px' }}>
+              <div key={target.tag} style={{ background: 'var(--bg-2)', padding: mobile ? '32px 20px' : '52px 36px' }}>
+                <div className="mono" style={{ fontSize: '11px', color: 'var(--orange)', letterSpacing: '0.2em', marginBottom: '10px' }}>{target.tag}</div>
+                <div className="display" style={{ fontSize: mobile ? 'clamp(26px, 7vw, 40px)' : 'clamp(36px,4vw,54px)', marginBottom: '12px', lineHeight: 1 }}>{target.t}</div>
+                <p style={{ fontSize: mobile ? '13px' : '14px', color: 'var(--fg-2)', lineHeight: 1.55, marginBottom: '16px' }}>{target.d}</p>
+                <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '8px', marginBottom: '24px' }}>
                   {target.h.map(h => (
                     <li key={h} style={{ display: 'flex', alignItems: 'center', gap: '10px', fontSize: '13px', color: 'var(--fg-3)' }}>
-                      <span style={{ width: '20px', height: '1px', background: 'var(--orange)', flexShrink: 0 }} />{h}
+                      <span style={{ width: '16px', height: '1px', background: 'var(--orange)', flexShrink: 0 }} />{h}
                     </li>
                   ))}
                 </ul>
