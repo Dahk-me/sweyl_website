@@ -4,7 +4,7 @@ export const ThemeCtx = React.createContext({ theme: 'dark', toggleTheme: () => 
 
 export const ThemeProvider = ({ children }) => {
   const [theme, setTheme] = React.useState(
-    () => localStorage.getItem('gts-theme') || 'dark'
+    () => localStorage.getItem('sweyl-theme') || 'dark'
   )
 
   const toggleTheme = React.useCallback(() => {
@@ -13,7 +13,7 @@ export const ThemeProvider = ({ children }) => {
 
   React.useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme)
-    localStorage.setItem('gts-theme', theme)
+    localStorage.setItem('sweyl-theme', theme)
   }, [theme])
 
   return (

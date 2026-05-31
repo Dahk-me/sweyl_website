@@ -2,7 +2,7 @@ import React from 'react'
 import { useTheme } from '../../contexts/theme'
 import { IconArrow } from '../Icons'
 import { useMobile } from '../../hooks/useMobile'
-import logoSvg from '/assets/LogoGts.svg'
+import logoSvg from '/assets/LogoSweyl.svg'
 
 export default function Header() {
   const { theme, toggleTheme } = useTheme()
@@ -30,8 +30,8 @@ export default function Header() {
       }}>
         {/* Logo */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-          <img src={logoSvg} alt="GTS" style={{ height: '22px', width: 'auto', filter: theme === 'light' ? 'none' : 'brightness(0) invert(1)' }} />
-          {!mobile && <span className="mono" style={{ fontSize: '10px', color: 'var(--fg-3)', letterSpacing: '0.2em' }}>GIMMETHESCORE</span>}
+          <img src={logoSvg} alt="SWEYL" style={{ height: '22px', width: 'auto', filter: theme === 'light' ? 'none' : 'brightness(0) invert(1)' }} />
+          {!mobile && <span className="mono" style={{ fontSize: '10px', color: 'var(--fg-3)', letterSpacing: '0.2em' }}>SWEYL</span>}
         </div>
 
         {/* Nav — desktop only */}

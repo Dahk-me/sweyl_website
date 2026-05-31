@@ -23,11 +23,11 @@ export default function Hero() {
               Le club<br />est <span style={{ color: 'var(--orange)' }}>plus grand</span><br />que le score.
             </h1>
             <p style={{ fontSize: mobile ? '15px' : '17px', lineHeight: 1.55, color: 'var(--fg-2)', marginBottom: '32px' }}>
-              GimmeTheScore relie coachs, joueurs, dirigeants et bénévoles autour d'un projet commun — la vie du club, sur la saison entière.
+              SWEYL relie coachs, joueurs, dirigeants et bénévoles autour d'un projet commun — la vie du club, sur la saison entière.
             </p>
             <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
               <a href="#join" className="btn-primary">Réserver une démo<IconArrow size={14} /></a>
-              {!mobile && <a href="#vision" className="btn-ghost">La vision GTS</a>}
+              {!mobile && <a href="#vision" className="btn-ghost">La vision SWEYL</a>}
             </div>
           </div>
 
@@ -43,7 +43,7 @@ export default function Hero() {
                 </div>
                 <div style={{ background: 'var(--bg-2)', border: '1px solid var(--line)', padding: '16px', borderRadius: '4px' }}>
                   <div className="mono" style={{ fontSize: '9px', color: 'var(--fg-3)', letterSpacing: '0.15em', marginBottom: '6px' }}>SPECTATEURS</div>
-                  <div className="display-narrow" style={{ fontSize: '18px' }}>284</div>
+                  <div className="display-narrow" style={{ fontSize: '18px' }}>84</div>
                   <div className="mono" style={{ fontSize: '10px', color: 'var(--fg-3)', marginTop: '4px' }}>EN DIRECT</div>
                 </div>
               </div>

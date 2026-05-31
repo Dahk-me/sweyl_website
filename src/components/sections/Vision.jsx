@@ -31,7 +31,7 @@ export default function Vision() {
               Un coach qui arrive le samedi matin, ouvre son téléphone, voit son effectif, son calendrier FFBB synchronisé, prépare son match. Un joueur qui consulte sa fiche, partage son meilleur tir sur Instagram.
             </p>
             <p style={{ fontSize: mobile ? '14px' : '15px', lineHeight: 1.7, color: 'var(--fg-2)', marginBottom: '36px' }}>
-              GTS ne remplace pas les humains du club. Il leur rend visible le travail invisible. Il transforme une saison en histoire collective.
+              SWEYL ne remplace pas les humains du club. Il leur rend visible le travail invisible. Il transforme une saison en histoire collective.
             </p>
             <div style={{ display: 'grid', gridTemplateColumns: mobile ? '1fr' : 'repeat(3,1fr)', gap: '1px', background: 'var(--line)', border: '1px solid var(--line)' }}>
               {pillars.map(([n, t, d]) => (

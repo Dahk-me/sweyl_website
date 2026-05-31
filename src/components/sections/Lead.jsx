@@ -40,7 +40,7 @@ export default function Lead() {
           <div>
             <div className="eyebrow" style={{ marginBottom: '20px', fontSize: mobile ? '11px' : '13px' }}>—— Réserver une démo</div>
             <h2 className="display" style={{ fontSize: mobile ? 'clamp(36px, 10vw, 56px)' : 'clamp(48px, 6vw, 80px)', marginBottom: '20px' }}>
-              Voyons ensemble<br />ce que <span style={{ color: 'var(--orange)' }}>GTS</span><br />peut faire pour<br />votre club.
+              Voyons ensemble<br />ce que <span style={{ color: 'var(--orange)' }}>SWEYL</span><br />peut faire pour<br />votre <span style={{ color: 'var(--orange)' }}>club</span>.
             </h2>
             <p style={{ fontSize: mobile ? '14px' : '15px', color: 'var(--fg-2)', lineHeight: 1.6, marginBottom: '28px' }}>
               30 minutes avec vous. On vous montre l'app sur votre cas réel gratuitement. Sans engagement.

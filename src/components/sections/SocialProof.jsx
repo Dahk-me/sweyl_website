@@ -3,16 +3,14 @@ import { useMobile } from '../../hooks/useMobile'
 import logoAbgr from '/assets/clubs/LogoAbgr.png'
 import logoRuc from '/assets/clubs/LogoRuc.png'
 import logoWitry from '/assets/clubs/LogoWitry.png'
-import logoRecy from '/assets/clubs/LogoRecy.png'
 
 const clubs = [
   { name: 'ABGR', logo: logoAbgr },
   { name: 'RUC', logo: logoRuc },
   { name: 'Witry', logo: logoWitry },
-  { name: 'Recy', logo: logoRecy },
 ]
 
-const stats = [['120+', 'TESTEURS'], ['15+', 'COACHS'], ['6', 'CLUBS'], ['180+', 'MATCHS']]
+const stats = [['400+', 'UTILISATEURS'], ['15+', 'COACHS'], ['10+', 'CLUBS'], ['100+', 'MATCHS / SEM']]
 
 export default function SocialProof() {
   const mobile = useMobile()

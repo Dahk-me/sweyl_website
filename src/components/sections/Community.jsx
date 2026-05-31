@@ -18,7 +18,7 @@ export default function Community() {
         <div style={{ display: 'grid', gridTemplateColumns: mobile ? '1fr' : '1fr 1fr', gap: mobile ? '36px' : '60px', alignItems: 'flex-start' }}>
           <div>
             <p style={{ fontSize: mobile ? '15px' : '19px', lineHeight: 1.5, marginBottom: '16px', fontWeight: 500 }}>
-              Un système de récompense communautaire <strong>EXCLUSIF GTS</strong>. Chaque action bénéfique au club génère des points convertibles en bons d'achat chez vos partenaires.
+              Un système de récompense communautaire <strong>EXCLUSIF SWEYL</strong>. Chaque action bénéfique au club génère des points convertibles en bons d'achat chez vos partenaires.
             </p>
             <p style={{ fontSize: '14px', lineHeight: 1.6, opacity: 0.85 }}>
               Les bénévoles sont récompensés. Les commerces locaux gagnent en visibilité. Le club construit une vraie économie de la fidélité.

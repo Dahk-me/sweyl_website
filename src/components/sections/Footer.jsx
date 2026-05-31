@@ -1,12 +1,12 @@
 import React from 'react'
 import { useTheme } from '../../contexts/theme'
 import { useMobile } from '../../hooks/useMobile'
-import logoSvg from '/assets/LogoGts.svg'
+import logoSvg from '/assets/LogoSweyl.svg'
 
 const columns = [
   { t: 'Produit', l: ['Vision', 'Capacités', 'Saison 26/27', 'FAQ'] },
   { t: 'Club', l: ['Présidents', 'Coachs', 'Joueurs', 'Partenaires'] },
-  { t: 'Contact', l: ['Demander une démo', 'contact@gimmethescore.com', 'Mentions légales'] },
+  { t: 'Contact', l: ['Demander une démo', 'contact@sweyl.com', 'Mentions légales'] },
 ]
 
 export default function Footer() {
@@ -20,7 +20,7 @@ export default function Footer() {
           /* Mobile layout: logo full width, then 3 cols 3 */
           <div style={{ marginBottom: '40px' }}>
             <div style={{ marginBottom: '28px' }}>
-              <img src={logoSvg} alt="GTS" style={{ height: '24px', width: 'auto', marginBottom: '12px', filter: theme === 'light' ? 'none' : 'brightness(0) invert(1)' }} />
+              <img src={logoSvg} alt="SWEYL" style={{ height: '24px', width: 'auto', marginBottom: '12px', filter: theme === 'light' ? 'none' : 'brightness(0) invert(1)' }} />
               <p style={{ fontSize: '12px', color: 'var(--fg-3)', lineHeight: 1.6 }}>
                 La plateforme du basket amateur français.
               </p>
@@ -38,7 +38,7 @@ export default function Footer() {
           /* Desktop layout: 4 columns */
           <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr 1fr 1fr', gap: '60px', marginBottom: '48px' }}>
             <div>
-              <img src={logoSvg} alt="GTS" style={{ height: '28px', width: 'auto', marginBottom: '14px', filter: theme === 'light' ? 'none' : 'brightness(0) invert(1)' }} />
+              <img src={logoSvg} alt="SWEYL" style={{ height: '28px', width: 'auto', marginBottom: '14px', filter: theme === 'light' ? 'none' : 'brightness(0) invert(1)' }} />
               <p style={{ fontSize: '13px', color: 'var(--fg-3)', lineHeight: 1.6, maxWidth: '280px' }}>
                 La plateforme du basket amateur français. Plus qu'un outil — l'écosystème de votre club.
               </p>
@@ -53,8 +53,8 @@ export default function Footer() {
         )}
 
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', paddingTop: '16px', borderTop: '1px solid var(--line)', flexWrap: 'wrap', gap: '8px' }}>
-          <span className="mono" style={{ fontSize: '10px', color: 'var(--fg-4)', letterSpacing: '0.12em' }}>© 2026 GIMMETHESCORE</span>
-          <span className="mono" style={{ fontSize: '10px', color: 'var(--fg-4)', letterSpacing: '0.12em' }}>FAIT À REIMS · POUR LES CLUBS</span>
+          <span className="mono" style={{ fontSize: '10px', color: 'var(--fg-4)', letterSpacing: '0.12em' }}>© 2026 SWEYL</span>
+          <span className="mono" style={{ fontSize: '10px', color: 'var(--fg-4)', letterSpacing: '0.12em' }}>FAIT PAR LES CLUBS, POUR LES CLUBS</span>
         </div>
       </div>
     </footer>

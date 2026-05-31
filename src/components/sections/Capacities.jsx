@@ -4,7 +4,7 @@ import { useMobile } from '../../hooks/useMobile'
 const caps = [
   { n: '01', t: 'Stats temps réel', d: 'Saisie pendant le match par un joueur non-titulaire, guidée étape par étape.' },
   { n: '02', t: 'FFBB synchronisé', d: 'Calendrier officiel importé en un lien, mis à jour automatiquement.' },
-  { n: '03', t: 'Lecture PDF', d: 'Glissez la feuille de match, GTS extrait les stats et les attache aux joueurs.' },
+  { n: '03', t: 'Lecture PDF', d: 'Glissez la feuille de match, SWEYL extrait les stats et les attache aux joueurs.' },
   { n: '04', t: 'Fiches joueurs', d: 'Statistiques, évolution, meilleures performances — chaque joueur a sa page.' },
   { n: '05', t: 'Comparatifs', d: "Identifiez forces et axes de progression au sein de chaque équipe." },
   { n: '06', t: 'Visuels sociaux', d: 'Partagez automatiquement les performances sur Instagram, X, TikTok.' },

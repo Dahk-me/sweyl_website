@@ -2,10 +2,10 @@ import React from 'react'
 import { useMobile } from '../../hooks/useMobile'
 
 const roadmap = [
-  ['JUIN', 'Onboarding du club, formation coachs'],
-  ['JUILLET', 'Paramétrage des effectifs et partenaires'],
-  ['AOÛT', 'Tests internes, ajustements'],
-  ['SEPT.', 'Démarrage de saison, tout est prêt'],
+  ['Étape 1', 'Onboarding du club, formation coachs'],
+  ['Étape 2', 'Paramétrage des effectifs et partenaires'],
+  ['Étape 3', 'Tests internes, ajustements'],
+  ['Étape finale', 'Démarrage de saison, tout est prêt'],
 ]
 
 export default function Season() {
@@ -30,7 +30,7 @@ export default function Season() {
           <span className="live-dot" />SAISON 2026 / 2027 · INSCRIPTIONS OUVERTES
         </div>
         <h2 className="display" style={{ fontSize: mobile ? 'clamp(38px, 11vw, 64px)' : 'clamp(56px, 8vw, 120px)', marginBottom: '36px' }}>
-          Le coup d'envoi<br />de <span style={{ color: 'var(--orange)' }}>la saison</span> —<br /><span style={{ color: 'var(--orange)' }}>dans</span>
+          Début de <br /><span style={{ color: 'var(--orange)' }}>la saison</span><br />dans
         </h2>
 
         {/* Countdown — 2×2 on mobile, 4 cols on desktop */}
