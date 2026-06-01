@@ -10,11 +10,6 @@ const CARDS = [
     desc: "Donnez une dimension digitale à votre club. Visualisez l'engagement, valorisez vos bénévoles, attirez vos partenaires.",
     highlights: ['Tableau de bord club', 'Page club publique', 'Système de fidélité partenaires'],
     instrument: <PointsLeaderboard />,
-    bg: '#161616',
-    textColor: 'var(--fg)',
-    accentColor: 'var(--orange)',
-    subColor: 'var(--fg-2)',
-    hlColor: 'var(--fg-3)',
   },
   {
     tag: '02',
@@ -23,11 +18,6 @@ const CARDS = [
     desc: 'Gérez vos effectifs, préparez vos matchs et décidez avec les données. Avant, pendant, après — tout est centralisé.',
     highlights: ['Feuilles de match digitales', 'Suivi de performances', 'Feedback joueur individualisé'],
     instrument: <CalendarWidget />,
-    bg: '#1c1c1c',
-    textColor: 'var(--fg)',
-    accentColor: 'var(--orange)',
-    subColor: 'var(--fg-2)',
-    hlColor: 'var(--fg-3)',
   },
   {
     tag: '03',
@@ -36,11 +26,6 @@ const CARDS = [
     desc: "Suivez votre saison match après match. Partagez vos meilleures perfs avec des visuels prêts à l'emploi.",
     highlights: ['Fiche joueur détaillée', 'Comparatifs équipe', 'Partage social instantané'],
     instrument: <PlayerCard />,
-    bg: '#111111',
-    textColor: 'var(--fg)',
-    accentColor: 'var(--orange)',
-    subColor: 'var(--fg-2)',
-    hlColor: 'var(--fg-3)',
   },
   {
     tag: '04',
@@ -49,20 +34,19 @@ const CARDS = [
     desc: 'Vivez les matchs en direct depuis les tribunes ou de chez vous. Suivez vos joueurs, recevez les notifications.',
     highlights: ['Scores en temps réel', 'Notifications de match', 'Stats de vos joueurs préférés'],
     instrument: <LiveScoreboard />,
-    bg: 'var(--orange)',
-    textColor: '#0a0a0a',
-    accentColor: '#0a0a0a',
-    subColor: 'rgba(0,0,0,0.65)',
-    hlColor: 'rgba(0,0,0,0.55)',
   },
 ]
 
-// Final resting Y (px) for each card — creates the peek stack effect
-const FINAL_Y = [-90, -60, -30, 0]
+// How many px of a previous card peek above the current one
+const PEEK = 48
+
+// CountdownBar (36px fixed) + Header (56px mobile / 72px desktop)
+const HEADER_H = { mobile: 92, desktop: 108 }
 
 export default function ForWho() {
   const mobile = useMobile()
   const wrapperRef = useRef(null)
+  const stickyRef = useRef(null)
   const cardRefs = useRef([])
 
   useEffect(() => {
@@ -75,17 +59,17 @@ export default function ForWho() {
       const rect = wrapper.getBoundingClientRect()
       const scrollable = wrapper.offsetHeight - window.innerHeight
       if (scrollable <= 0) return
-      // progress = 0 when sticky kicks in (card 0 at top), 1 at end of section
       const progress = Math.max(0, Math.min(1, -rect.top / scrollable))
-      const n = CARDS.length - 1  // 3 animated cards
+      const containerH = stickyRef.current?.offsetHeight ?? 0
+      const n = CARDS.length - 1  // 3 animated cards (1, 2, 3)
 
       CARDS.forEach((_, i) => {
         const el = cardRefs.current[i]
-        if (!el) return
-        if (i === 0) return  // card 0 is always at its final position
+        if (!el || i === 0) return  // card 0 stays fixed at translateY(0)
         const k = i - 1
         const p = Math.max(0, Math.min(1, (progress - k / n) / (1 / n)))
-        const y = window.innerHeight + (FINAL_Y[i] - window.innerHeight) * p
+        // slides from below the container to its peek resting position
+        const y = containerH + (i * PEEK - containerH) * p
         el.style.transform = `translateY(${y}px)`
       })
     }
@@ -102,8 +86,11 @@ export default function ForWho() {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
+  const headerH = mobile ? HEADER_H.mobile : HEADER_H.desktop
+
   return (
     <section>
+
       {/* ─── Intro ─── */}
       <div data-reveal style={{ background: 'var(--bg-2)', borderTop: '1px solid var(--line)', padding: mobile ? '80px 22px 64px' : '120px 52px 80px' }}>
         <div className="eyebrow" style={{ marginBottom: '20px', fontSize: mobile ? '11px' : '13px' }}>—— Pour qui</div>
@@ -115,52 +102,66 @@ export default function ForWho() {
         </p>
       </div>
 
-      {/* ─── Card stack ─── */}
+      {/* ─── Stack wrapper ─── */}
+      {/* height: 500vh gives ~1000px dwell per animated card on a 800px viewport */}
       <div ref={wrapperRef} style={{ height: '500vh', position: 'relative' }}>
-        <div style={{ position: 'sticky', top: 0, height: '100vh', overflow: 'hidden', background: '#161616' }}>
+
+        {/* Sticky container: sticks right below the fixed header */}
+        <div
+          ref={stickyRef}
+          style={{
+            position: 'sticky',
+            top: headerH,
+            height: `calc(100svh - ${headerH}px)`,
+            overflow: 'hidden',
+            borderRadius: '20px 20px 0 0',
+            border: '1px solid rgba(255,255,255,0.12)',
+          }}
+        >
           {CARDS.map((card, i) => (
             <div
               key={card.tag}
               ref={el => { cardRefs.current[i] = el }}
               style={{
                 position: 'absolute',
-                bottom: 0,
-                width: '100%',
+                inset: 0,
+                background: 'var(--bg-2)',
+                // Each card shows its rounded top edge in the peek strip above it
                 borderRadius: '20px 20px 0 0',
-                background: card.bg,
-                padding: mobile ? '36px 22px 44px' : '52px 48px 60px',
+                borderTop: i > 0 ? '1px solid rgba(255,255,255,0.14)' : 'none',
+                padding: mobile ? '20px 22px 36px' : '28px 48px 48px',
                 boxSizing: 'border-box',
                 zIndex: i + 1,
-                transform: i === 0 ? `translateY(${FINAL_Y[0]}px)` : 'translateY(100%)',
+                // Card 0: always visible (base of the stack)
+                // Cards 1–3: start off-screen below, JS animates them in
+                transform: i === 0 ? 'translateY(0)' : 'translateY(100%)',
+                overflowY: 'auto',
               }}
             >
-              {/* Card header */}
-              <div style={{ display: 'flex', alignItems: 'baseline', gap: '12px', marginBottom: '16px' }}>
-                <span className="mono" style={{ fontSize: '11px', letterSpacing: '0.18em', textTransform: 'uppercase', color: card.accentColor, opacity: 0.7 }}>{card.tag}</span>
-                <span style={{ fontSize: '11px', fontFamily: 'JetBrains Mono, monospace', letterSpacing: '0.12em', textTransform: 'uppercase', color: card.hlColor }}>— {card.label}</span>
+              {/* Tag + label — visible in the 48px peek strip */}
+              <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '16px' }}>
+                <span className="mono" style={{ fontSize: '11px', letterSpacing: '0.18em', textTransform: 'uppercase', color: 'var(--orange)' }}>{card.tag}</span>
+                <span style={{ width: '14px', height: '1px', background: 'var(--line-2)', flexShrink: 0 }} />
+                <span style={{ fontSize: '11px', fontFamily: 'JetBrains Mono, monospace', letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--fg-4)' }}>{card.label}</span>
               </div>
 
-              {/* Title */}
-              <h3 className="display" style={{ fontSize: mobile ? 'clamp(56px, 17vw, 80px)' : 'clamp(72px, 9vw, 110px)', color: card.textColor, marginBottom: '20px', lineHeight: 0.9 }}>
+              <h3 className="display" style={{ fontSize: mobile ? 'clamp(48px, 15vw, 68px)' : 'clamp(56px, 7vw, 88px)', color: 'var(--fg)', marginBottom: '16px', lineHeight: 0.9 }}>
                 {card.title}
               </h3>
 
-              {/* Description */}
-              <p style={{ fontSize: mobile ? '13px' : '15px', color: card.subColor, lineHeight: 1.55, maxWidth: '480px', marginBottom: '20px' }}>
+              <p style={{ fontSize: mobile ? '13px' : '15px', color: 'var(--fg-2)', lineHeight: 1.55, maxWidth: '480px', marginBottom: '16px' }}>
                 {card.desc}
               </p>
 
-              {/* Highlights */}
-              <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '10px', marginBottom: '28px' }}>
+              <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '8px', marginBottom: '20px' }}>
                 {card.highlights.map(h => (
-                  <li key={h} style={{ display: 'flex', alignItems: 'center', gap: '12px', fontSize: '13px', color: card.hlColor }}>
-                    <span style={{ width: '18px', height: '1px', background: card.accentColor, flexShrink: 0 }} />
+                  <li key={h} style={{ display: 'flex', alignItems: 'center', gap: '10px', fontSize: '13px', color: 'var(--fg-3)' }}>
+                    <span style={{ width: '16px', height: '1px', background: 'var(--orange)', flexShrink: 0 }} />
                     {h}
                   </li>
                 ))}
               </ul>
 
-              {/* Instrument */}
               <div style={{ width: '100%', overflow: 'hidden' }}>
                 {card.instrument}
               </div>
@@ -168,6 +169,7 @@ export default function ForWho() {
           ))}
         </div>
       </div>
+
     </section>
   )
 }
