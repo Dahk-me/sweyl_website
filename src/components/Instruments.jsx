@@ -30,12 +30,12 @@ export const LiveScoreboard = ({ animate = true }) => {
         <span style={{ fontSize: '10px', color: 'var(--fg-4)', letterSpacing: '0.15em' }}>NM3 · J14</span>
       </div>
       <div style={{ display: 'grid', gridTemplateColumns: '1fr auto 1fr', gap: '8px', alignItems: 'center' }}>
-        <div>
+        <div style={{ textAlign: 'center' }}>
           <div style={{ fontSize: '11px', color: 'var(--fg-3)', marginBottom: '4px', letterSpacing: '0.1em' }}>ABGR</div>
           <div className="display" style={{ fontSize: 'clamp(36px, 10vw, 72px)', color: home > away ? 'var(--orange)' : 'var(--fg)', transition: 'color 0.4s' }}>{home}</div>
         </div>
         <div className="display" style={{ fontSize: 'clamp(14px, 4vw, 24px)', color: 'var(--fg-4)', padding: '0 4px' }}>—</div>
-        <div style={{ textAlign: 'right' }}>
+        <div style={{ textAlign: 'center' }}>
           <div style={{ fontSize: '11px', color: 'var(--fg-3)', marginBottom: '4px', letterSpacing: '0.1em' }}>RUC</div>
           <div className="display" style={{ fontSize: 'clamp(36px, 10vw, 72px)', color: away > home ? 'var(--orange)' : 'var(--fg)', transition: 'color 0.4s' }}>{away}</div>
         </div>
