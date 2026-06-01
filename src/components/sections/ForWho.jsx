@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { useMobile } from '../../hooks/useMobile'
 import { PointsLeaderboard, CalendarWidget, PlayerCard, LiveScoreboard } from '../Instruments'
 
@@ -40,79 +40,129 @@ const CARDS = [
 // How many px of a previous card peek above the current one once stacked
 const PEEK = 48
 
-// CountdownBar (36px fixed) + Header (56px mobile / 72px desktop)
-const HEADER_H = { mobile: 92, desktop: 108 }
+// CountdownBar (36px fixed) + Header (56px mobile / 72px desktop) + 1px border
+const HEADER_H = { mobile: 93, desktop: 109 }
 
 export default function ForWho() {
   const mobile = useMobile()
-  const headerH = mobile ? HEADER_H.mobile : HEADER_H.desktop
+  const fallback = mobile ? HEADER_H.mobile : HEADER_H.desktop
+  const [headerH, setHeaderH] = useState(fallback)
 
+  useEffect(() => {
+    const measure = () => {
+      const header = document.querySelector('header')
+      if (!header) return
+      const rect = header.getBoundingClientRect()
+      // header.top is from viewport — its bottom = top + height. Use that as the
+      // total occluded area (countdown bar + header + border).
+      setHeaderH(Math.ceil(rect.bottom))
+    }
+    measure()
+    window.addEventListener('resize', measure)
+    return () => window.removeEventListener('resize', measure)
+  }, [])
+
+  const intro = (
+    <>
+      <div className="eyebrow" style={{ marginBottom: '20px', fontSize: mobile ? '11px' : '13px' }}>—— Pour qui</div>
+      <h2 className="display" style={{ fontSize: mobile ? 'clamp(36px, 10vw, 56px)' : 'clamp(48px, 6vw, 88px)', marginBottom: '24px' }}>
+        Conçu pour<br />tous <span style={{ color: 'var(--orange)' }}>les acteurs</span><br />du terrain.
+      </h2>
+      <p style={{ fontSize: mobile ? '14px' : '15px', color: 'var(--fg-2)', maxWidth: '400px', lineHeight: 1.6 }}>
+        Coach, joueur ou dirigeant — SWEYL s&apos;adapte à votre rôle et à votre saison.
+      </p>
+    </>
+  )
+
+  const card = (c, i) => (
+    <div
+      key={c.tag}
+      style={{
+        position: 'sticky',
+        top: headerH + i * PEEK,
+        background: 'var(--bg-2)',
+        borderRadius: '20px 20px 0 0',
+        borderTop: '1px solid rgba(255,255,255,0.14)',
+        borderLeft: '1px solid rgba(255,255,255,0.12)',
+        borderRight: '1px solid rgba(255,255,255,0.12)',
+        padding: mobile ? '20px 22px 36px' : '28px 48px 48px',
+        boxSizing: 'border-box',
+        zIndex: i + 1,
+      }}
+    >
+      <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '16px' }}>
+        <span className="mono" style={{ fontSize: '11px', letterSpacing: '0.18em', textTransform: 'uppercase', color: 'var(--orange)' }}>{c.tag}</span>
+        <span style={{ width: '14px', height: '1px', background: 'var(--line-2)', flexShrink: 0 }} />
+        <span style={{ fontSize: '11px', fontFamily: 'JetBrains Mono, monospace', letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--fg-4)' }}>{c.label}</span>
+      </div>
+
+      <h3 className="display" style={{ fontSize: mobile ? 'clamp(48px, 15vw, 68px)' : 'clamp(56px, 7vw, 88px)', color: 'var(--fg)', marginBottom: '16px', lineHeight: 0.9 }}>
+        {c.title}
+      </h3>
+
+      <p style={{ fontSize: mobile ? '13px' : '15px', color: 'var(--fg-2)', lineHeight: 1.55, maxWidth: '480px', marginBottom: '16px' }}>
+        {c.desc}
+      </p>
+
+      <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '8px', marginBottom: '20px' }}>
+        {c.highlights.map(h => (
+          <li key={h} style={{ display: 'flex', alignItems: 'center', gap: '10px', fontSize: '13px', color: 'var(--fg-3)' }}>
+            <span style={{ width: '16px', height: '1px', background: 'var(--orange)', flexShrink: 0 }} />
+            {h}
+          </li>
+        ))}
+      </ul>
+
+      <div style={{ width: '100%', overflow: 'hidden' }}>
+        {c.instrument}
+      </div>
+    </div>
+  )
+
+  // ─── Mobile: vertical layout — intro on top, stack below ───
+  if (mobile) {
+    return (
+      <section>
+        <div data-reveal style={{ background: 'var(--bg-2)', borderTop: '1px solid var(--line)', padding: '80px 22px 64px' }}>
+          {intro}
+        </div>
+        <div style={{ position: 'relative' }}>
+          {CARDS.map(card)}
+        </div>
+      </section>
+    )
+  }
+
+  // ─── Desktop: 2-col layout — sticky intro on left, sticky cards stack on right ───
+  // The intro stays pinned at top: headerH for the full duration of the grid row,
+  // which is determined by the right column's natural height (sum of all card heights).
   return (
     <section>
-
-      {/* ─── Intro ─── */}
-      <div data-reveal style={{ background: 'var(--bg-2)', borderTop: '1px solid var(--line)', padding: mobile ? '80px 22px 64px' : '120px 52px 80px' }}>
-        <div className="eyebrow" style={{ marginBottom: '20px', fontSize: mobile ? '11px' : '13px' }}>—— Pour qui</div>
-        <h2 className="display" style={{ fontSize: mobile ? 'clamp(36px, 10vw, 56px)' : 'clamp(48px, 6vw, 88px)', marginBottom: '24px' }}>
-          Conçu pour<br />tous <span style={{ color: 'var(--orange)' }}>les acteurs</span><br />du terrain.
-        </h2>
-        <p style={{ fontSize: mobile ? '14px' : '15px', color: 'var(--fg-2)', maxWidth: '400px', lineHeight: 1.6 }}>
-          Coach, joueur ou dirigeant — SWEYL s&apos;adapte à votre rôle et à votre saison.
-        </p>
+      <div
+        data-reveal
+        style={{
+          display: 'grid',
+          gridTemplateColumns: '1fr 1fr',
+          background: 'var(--bg-2)',
+          borderTop: '1px solid var(--line)',
+        }}
+      >
+        <div
+          style={{
+            position: 'sticky',
+            top: headerH,
+            alignSelf: 'start',
+            height: `calc(100svh - ${headerH}px)`,
+            padding: '80px 52px 0',
+            boxSizing: 'border-box',
+          }}
+        >
+          {intro}
+        </div>
+        <div style={{ position: 'relative', paddingRight: '52px' }}>
+          {CARDS.map(card)}
+        </div>
       </div>
-
-      {/* ─── Stack ─── */}
-      {/* Each card is its own sticky element with natural content height,
-          so the next card starts immediately after the previous content
-          and slides up to dock at headerH + i*PEEK */}
-      <div style={{ position: 'relative' }}>
-        {CARDS.map((card, i) => (
-          <div
-            key={card.tag}
-            style={{
-              position: 'sticky',
-              top: headerH + i * PEEK,
-              background: 'var(--bg-2)',
-              borderRadius: '20px 20px 0 0',
-              borderTop: '1px solid rgba(255,255,255,0.14)',
-              borderLeft: '1px solid rgba(255,255,255,0.12)',
-              borderRight: '1px solid rgba(255,255,255,0.12)',
-              padding: mobile ? '20px 22px 36px' : '28px 48px 48px',
-              boxSizing: 'border-box',
-              zIndex: i + 1,
-            }}
-          >
-            {/* Tag + label — visible in the 48px peek strip once a later card docks above */}
-            <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '16px' }}>
-              <span className="mono" style={{ fontSize: '11px', letterSpacing: '0.18em', textTransform: 'uppercase', color: 'var(--orange)' }}>{card.tag}</span>
-              <span style={{ width: '14px', height: '1px', background: 'var(--line-2)', flexShrink: 0 }} />
-              <span style={{ fontSize: '11px', fontFamily: 'JetBrains Mono, monospace', letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--fg-4)' }}>{card.label}</span>
-            </div>
-
-            <h3 className="display" style={{ fontSize: mobile ? 'clamp(48px, 15vw, 68px)' : 'clamp(56px, 7vw, 88px)', color: 'var(--fg)', marginBottom: '16px', lineHeight: 0.9 }}>
-              {card.title}
-            </h3>
-
-            <p style={{ fontSize: mobile ? '13px' : '15px', color: 'var(--fg-2)', lineHeight: 1.55, maxWidth: '480px', marginBottom: '16px' }}>
-              {card.desc}
-            </p>
-
-            <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '8px', marginBottom: '20px' }}>
-              {card.highlights.map(h => (
-                <li key={h} style={{ display: 'flex', alignItems: 'center', gap: '10px', fontSize: '13px', color: 'var(--fg-3)' }}>
-                  <span style={{ width: '16px', height: '1px', background: 'var(--orange)', flexShrink: 0 }} />
-                  {h}
-                </li>
-              ))}
-            </ul>
-
-            <div style={{ width: '100%', overflow: 'hidden' }}>
-              {card.instrument}
-            </div>
-          </div>
-        ))}
-      </div>
-
     </section>
   )
 }
