@@ -1,5 +1,4 @@
 import React from 'react'
-import { IconArrow } from '../Icons'
 import { useMobile } from '../../hooks/useMobile'
 
 export default function Hero() {
