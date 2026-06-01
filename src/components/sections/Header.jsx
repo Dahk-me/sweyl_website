@@ -14,7 +14,6 @@ export default function Header() {
       top: '36px',
       left: 0, right: 0,
       zIndex: 50,
-      background: 'var(--bg-glass)',
       backdropFilter: 'blur(20px)',
       borderBottom: '1px solid var(--line)',
       transition: 'all 0.3s',
@@ -31,7 +30,7 @@ export default function Header() {
         {/* Logo */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
           <img src={logoSvg} alt="SWEYL" style={{ height: '22px', width: 'auto', filter: theme === 'light' ? 'none' : 'brightness(0) invert(1)' }} />
-          {!mobile && <span className="mono" style={{ fontSize: '10px', color: 'var(--fg-3)', letterSpacing: '0.2em' }}>SWEYL</span>}
+          <span style={{ fontFamily: 'Montserrat, sans-serif', fontSize: '20px', fontWeight: 600, color: 'var(--fg)', letterSpacing: '0.3em' }}>SWEYL</span>
         </div>
 
         {/* Nav — desktop only */}
