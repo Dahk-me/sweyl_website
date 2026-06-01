@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react'
+import React from 'react'
 import { useMobile } from '../../hooks/useMobile'
 import { PointsLeaderboard, CalendarWidget, PlayerCard, LiveScoreboard } from '../Instruments'
 
@@ -37,7 +37,7 @@ const CARDS = [
   },
 ]
 
-// How many px of a previous card peek above the current one
+// How many px of a previous card peek above the current one once stacked
 const PEEK = 48
 
 // CountdownBar (36px fixed) + Header (56px mobile / 72px desktop)
@@ -45,47 +45,6 @@ const HEADER_H = { mobile: 92, desktop: 108 }
 
 export default function ForWho() {
   const mobile = useMobile()
-  const wrapperRef = useRef(null)
-  const stickyRef = useRef(null)
-  const cardRefs = useRef([])
-
-  useEffect(() => {
-    const wrapper = wrapperRef.current
-    if (!wrapper) return
-
-    let ticking = false
-
-    const update = () => {
-      const rect = wrapper.getBoundingClientRect()
-      const scrollable = wrapper.offsetHeight - window.innerHeight
-      if (scrollable <= 0) return
-      const progress = Math.max(0, Math.min(1, -rect.top / scrollable))
-      const containerH = stickyRef.current?.offsetHeight ?? 0
-      const n = CARDS.length - 1  // 3 animated cards (1, 2, 3)
-
-      CARDS.forEach((_, i) => {
-        const el = cardRefs.current[i]
-        if (!el || i === 0) return  // card 0 stays fixed at translateY(0)
-        const k = i - 1
-        const p = Math.max(0, Math.min(1, (progress - k / n) / (1 / n)))
-        // slides from below the container to its peek resting position
-        const y = containerH + (i * PEEK - containerH) * p
-        el.style.transform = `translateY(${y}px)`
-      })
-    }
-
-    const onScroll = () => {
-      if (!ticking) {
-        requestAnimationFrame(() => { update(); ticking = false })
-        ticking = true
-      }
-    }
-
-    window.addEventListener('scroll', onScroll, { passive: true })
-    update()
-    return () => window.removeEventListener('scroll', onScroll)
-  }, [])
-
   const headerH = mobile ? HEADER_H.mobile : HEADER_H.desktop
 
   return (
@@ -102,72 +61,56 @@ export default function ForWho() {
         </p>
       </div>
 
-      {/* ─── Stack wrapper ─── */}
-      {/* height: 500vh gives ~1000px dwell per animated card on a 800px viewport */}
-      <div ref={wrapperRef} style={{ height: '500vh', position: 'relative' }}>
-
-        {/* Sticky container: sticks right below the fixed header */}
-        <div
-          ref={stickyRef}
-          style={{
-            position: 'sticky',
-            top: headerH,
-            height: `calc(100svh - ${headerH}px)`,
-            overflow: 'hidden',
-            borderRadius: '20px 20px 0 0',
-            border: '1px solid rgba(255,255,255,0.12)',
-          }}
-        >
-          {CARDS.map((card, i) => (
-            <div
-              key={card.tag}
-              ref={el => { cardRefs.current[i] = el }}
-              style={{
-                position: 'absolute',
-                inset: 0,
-                background: 'var(--bg-2)',
-                // Each card shows its rounded top edge in the peek strip above it
-                borderRadius: '20px 20px 0 0',
-                borderTop: i > 0 ? '1px solid rgba(255,255,255,0.14)' : 'none',
-                padding: mobile ? '20px 22px 36px' : '28px 48px 48px',
-                boxSizing: 'border-box',
-                zIndex: i + 1,
-                // Card 0: always visible (base of the stack)
-                // Cards 1–3: start off-screen below, JS animates them in
-                transform: i === 0 ? 'translateY(0)' : 'translateY(100%)',
-                overflowY: 'auto',
-              }}
-            >
-              {/* Tag + label — visible in the 48px peek strip */}
-              <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '16px' }}>
-                <span className="mono" style={{ fontSize: '11px', letterSpacing: '0.18em', textTransform: 'uppercase', color: 'var(--orange)' }}>{card.tag}</span>
-                <span style={{ width: '14px', height: '1px', background: 'var(--line-2)', flexShrink: 0 }} />
-                <span style={{ fontSize: '11px', fontFamily: 'JetBrains Mono, monospace', letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--fg-4)' }}>{card.label}</span>
-              </div>
-
-              <h3 className="display" style={{ fontSize: mobile ? 'clamp(48px, 15vw, 68px)' : 'clamp(56px, 7vw, 88px)', color: 'var(--fg)', marginBottom: '16px', lineHeight: 0.9 }}>
-                {card.title}
-              </h3>
-
-              <p style={{ fontSize: mobile ? '13px' : '15px', color: 'var(--fg-2)', lineHeight: 1.55, maxWidth: '480px', marginBottom: '16px' }}>
-                {card.desc}
-              </p>
-
-              <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '8px', marginBottom: '20px' }}>
-                {card.highlights.map(h => (
-                  <li key={h} style={{ display: 'flex', alignItems: 'center', gap: '10px', fontSize: '13px', color: 'var(--fg-3)' }}>
-                    <span style={{ width: '16px', height: '1px', background: 'var(--orange)', flexShrink: 0 }} />
-                    {h}
-                  </li>
-                ))}
-              </ul>
-
-              <div style={{ width: '100%', overflow: 'hidden' }}>
-                {card.instrument}
-              </div>
+      {/* ─── Stack ─── */}
+      {/* Each card is its own sticky element with natural content height,
+          so the next card starts immediately after the previous content
+          and slides up to dock at headerH + i*PEEK */}
+      <div style={{ position: 'relative' }}>
+        {CARDS.map((card, i) => (
+          <div
+            key={card.tag}
+            style={{
+              position: 'sticky',
+              top: headerH + i * PEEK,
+              background: 'var(--bg-2)',
+              borderRadius: '20px 20px 0 0',
+              borderTop: '1px solid rgba(255,255,255,0.14)',
+              borderLeft: '1px solid rgba(255,255,255,0.12)',
+              borderRight: '1px solid rgba(255,255,255,0.12)',
+              padding: mobile ? '20px 22px 36px' : '28px 48px 48px',
+              boxSizing: 'border-box',
+              zIndex: i + 1,
+            }}
+          >
+            {/* Tag + label — visible in the 48px peek strip once a later card docks above */}
+            <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '16px' }}>
+              <span className="mono" style={{ fontSize: '11px', letterSpacing: '0.18em', textTransform: 'uppercase', color: 'var(--orange)' }}>{card.tag}</span>
+              <span style={{ width: '14px', height: '1px', background: 'var(--line-2)', flexShrink: 0 }} />
+              <span style={{ fontSize: '11px', fontFamily: 'JetBrains Mono, monospace', letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--fg-4)' }}>{card.label}</span>
             </div>
-          ))}
-        </div>
+
+            <h3 className="display" style={{ fontSize: mobile ? 'clamp(48px, 15vw, 68px)' : 'clamp(56px, 7vw, 88px)', color: 'var(--fg)', marginBottom: '16px', lineHeight: 0.9 }}>
+              {card.title}
+            </h3>
+
+            <p style={{ fontSize: mobile ? '13px' : '15px', color: 'var(--fg-2)', lineHeight: 1.55, maxWidth: '480px', marginBottom: '16px' }}>
+              {card.desc}
+            </p>
+
+            <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '8px', marginBottom: '20px' }}>
+              {card.highlights.map(h => (
+                <li key={h} style={{ display: 'flex', alignItems: 'center', gap: '10px', fontSize: '13px', color: 'var(--fg-3)' }}>
+                  <span style={{ width: '16px', height: '1px', background: 'var(--orange)', flexShrink: 0 }} />
+                  {h}
+                </li>
+              ))}
+            </ul>
+
+            <div style={{ width: '100%', overflow: 'hidden' }}>
+              {card.instrument}
+            </div>
+          </div>
+        ))}
       </div>
 
     </section>
