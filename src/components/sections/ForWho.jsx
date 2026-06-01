@@ -84,20 +84,14 @@ export default function ForWho() {
         padding: mobile ? '22px 24px 36px' : '30px 48px 48px',
         boxSizing: 'border-box',
         zIndex: i + 1,
-        marginTop: i === 0 ? 0 : (mobile ? 16 : 24),
-        // Last card needs extra scroll room after it so its sticky "lands" visibly
-        // (sticky lifetime = bottom space after the card inside the container).
-        marginBottom: i === CARDS.length - 1
-          ? (mobile ? '30vh' : '32vh')
-          : (mobile ? 16 : 24),
+        marginTop: 20,
+        marginBottom: 20,
         marginLeft: mobile ? 16 : 0,
         marginRight: mobile ? 16 : 0,
       }}
     >
       <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '16px' }}>
-        <span className="mono" style={{ fontSize: '11px', letterSpacing: '0.18em', textTransform: 'uppercase', color: 'var(--orange)' }}>{c.tag}</span>
-        <span style={{ width: '14px', height: '1px', background: 'var(--line-2)', flexShrink: 0 }} />
-        <span style={{ fontSize: '11px', fontFamily: 'JetBrains Mono, monospace', letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--fg-4)' }}>{c.label}</span>
+        <span className="mono" style={{ fontSize: '11px', letterSpacing: '0.18em', textTransform: 'uppercase', color: 'var(--orange)' }}>{c.tag} • {c.label}</span>
       </div>
 
       <h3 className="display" style={{ fontSize: mobile ? 'clamp(48px, 15vw, 68px)' : 'clamp(56px, 7vw, 88px)', color: 'var(--fg)', marginBottom: '16px', lineHeight: 0.9 }}>

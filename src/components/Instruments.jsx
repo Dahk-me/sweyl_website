@@ -1,13 +1,35 @@
 import React from 'react'
 
+const ACTION_POOL = [
+  { type: 'AST',  player: 'L. Martin',  color: '#ff6a00' },
+  { type: 'STL',  player: 'M. Rossi',   color: '#4ec9ff' },
+  { type: 'OREB', player: 'T. Chaves',  color: '#3ddc97' },
+  { type: 'BLK',  player: 'L. Martin',  color: '#ffb547' },
+  { type: 'AST',  player: 'P. Ledoux',  color: '#ff6a00' },
+  { type: 'STL',  player: 'J. Durand',  color: '#4ec9ff' },
+  { type: 'OREB', player: 'L. Martin',  color: '#3ddc97' },
+  { type: 'TO',   player: 'M. Rossi',   color: '#ff5050' },
+  { type: 'BLK',  player: 'T. Chaves',  color: '#ffb547' },
+  { type: 'AST',  player: 'J. Durand',  color: '#ff6a00' },
+  { type: 'STL',  player: 'L. Martin',  color: '#4ec9ff' },
+  { type: 'OREB', player: 'P. Ledoux',  color: '#3ddc97' },
+]
+
+const seedAction = (id) => {
+  const a = ACTION_POOL[Math.floor(Math.random() * ACTION_POOL.length)]
+  return { ...a, n: 1 + Math.floor(Math.random() * 8), id }
+}
+
 export const LiveScoreboard = ({ animate = true }) => {
   const [scores, setScores] = React.useState({ home: 60, away: 50 })
   const [q] = React.useState(3)
   const [time] = React.useState('06:24')
+  const [feed, setFeed] = React.useState(() => Array.from({ length: 4 }, (_, i) => seedAction(i)))
+  const nextId = React.useRef(100)
 
   React.useEffect(() => {
     if (!animate) return
-    const id = setInterval(() => {
+    const scoreId = setInterval(() => {
       setScores(prev => {
         const bump = Math.random() > 0.7 ? 3 : 2
         const addHome = Math.random() > 0.5
@@ -17,7 +39,10 @@ export const LiveScoreboard = ({ animate = true }) => {
         return { home: nh, away: na }
       })
     }, 4200)
-    return () => clearInterval(id)
+    const feedId = setInterval(() => {
+      setFeed(prev => [seedAction(nextId.current++), ...prev].slice(0, 4))
+    }, 2100)
+    return () => { clearInterval(scoreId); clearInterval(feedId) }
   }, [animate])
 
   const { home, away } = scores
@@ -42,6 +67,38 @@ export const LiveScoreboard = ({ animate = true }) => {
       </div>
       <div style={{ marginTop: '12px', paddingTop: '10px', borderTop: '1px solid var(--line)', display: 'flex', justifyContent: 'space-between', fontSize: '10px', color: 'var(--fg-3)', letterSpacing: '0.1em', flexWrap: 'wrap', gap: '4px' }}>
         <span>FG% 47.2</span><span>3PT 8/22</span><span>REB 31</span><span>AST 14</span>
+      </div>
+      <div style={{ marginTop: '12px', paddingTop: '12px', borderTop: '1px solid var(--line)' }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
+          <span style={{ fontSize: '9px', color: 'var(--fg-3)', letterSpacing: '0.15em' }}>FLUX TEMPS RÉEL</span>
+          <span style={{ fontSize: '9px', color: 'var(--fg-4)', letterSpacing: '0.1em' }}>ABGR</span>
+        </div>
+        <div>
+          {feed.map((a, idx) => (
+            <div
+              key={a.id}
+              style={{
+                display: 'grid',
+                gridTemplateColumns: '48px 1fr auto',
+                alignItems: 'center',
+                gap: '10px',
+                padding: '5px 0',
+                opacity: 1 - idx * 0.15,
+                animation: idx === 0 ? 'feed-slide-in 0.45s ease-out' : undefined,
+              }}
+            >
+              <span style={{ fontSize: '9px', textAlign: 'center', padding: '3px 0', borderRadius: '2px', background: a.color + '22', color: a.color, letterSpacing: '0.06em', fontWeight: 600 }}>
+                {a.type}
+              </span>
+              <span style={{ fontSize: '11px', fontFamily: 'Inter, system-ui, sans-serif', color: 'var(--fg-2)', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+                {a.player}
+              </span>
+              <span style={{ fontSize: '11px', color: 'var(--fg-3)' }}>
+                {a.n}
+              </span>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   )
