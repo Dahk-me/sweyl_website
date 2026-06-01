@@ -1,9 +1,12 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { useMobile } from '../../hooks/useMobile'
 import { supabase } from '../../lib/supabase'
 import { STORAGE } from '../../lib/storageConfig'
 
 const stats = [['400+', 'UTILISATEURS'], ['15+', 'COACHS'], ['10+', 'CLUBS'], ['100+', 'MATCHS / SEM']]
+
+// CountdownBar (36px fixed) + Header (56px mobile / 72px desktop) + 1px border
+const HEADER_H = { mobile: 93, desktop: 109 }
 
 function useCountUp(target, duration = 1800) {
   const [count, setCount] = React.useState(0)
@@ -40,7 +43,7 @@ function StatCell({ value, label, mobile }) {
   return (
     <div ref={ref} style={{ background: 'var(--bg-2)', padding: mobile ? '28px 20px' : '40px 32px' }}>
       <div className="mono" style={{ fontSize: '10px', color: 'var(--orange)', letterSpacing: '0.18em', marginBottom: '8px' }}>★ {label}</div>
-      <div className="display" style={{ fontSize: mobile ? 'clamp(48px,13vw,72px)' : 'clamp(72px,8vw,120px)', color: 'var(--fg)', lineHeight: 0.9 }}>
+      <div className="display" style={{ fontSize: mobile ? 'clamp(48px,13vw,72px)' : 'clamp(64px,6vw,96px)', color: 'var(--fg)', lineHeight: 0.9 }}>
         {count}{suffix}
       </div>
     </div>
@@ -49,8 +52,21 @@ function StatCell({ value, label, mobile }) {
 
 export default function SocialProof() {
   const mobile = useMobile()
+  const fallback = mobile ? HEADER_H.mobile : HEADER_H.desktop
+  const [headerH, setHeaderH] = useState(fallback)
   const [logos, setLogos] = React.useState([])
   const [sponsors, setSponsors] = React.useState([])
+
+  useEffect(() => {
+    const measure = () => {
+      const header = document.querySelector('header')
+      if (!header) return
+      setHeaderH(Math.ceil(header.getBoundingClientRect().bottom))
+    }
+    measure()
+    window.addEventListener('resize', measure)
+    return () => window.removeEventListener('resize', measure)
+  }, [])
 
   const fetchFolder = (folder) =>
     supabase.storage
@@ -73,55 +89,98 @@ export default function SocialProof() {
     fetchFolder(STORAGE.SPONSORS_FOLDER).then(setSponsors)
   }, [])
 
-  return (
-    <section style={{ padding: mobile ? '60px 0' : '80px 0', background: 'var(--bg-2)' }}>
-      <div style={{ maxWidth: '1440px', margin: '0 auto', padding: mobile ? '0 0' : '0 32px' }}>
-        {/* Header */}
-        <div style={{ padding: mobile ? '0 20px 48px' : '0 0 64px' }} data-reveal>
-          <div className="eyebrow" style={{ marginBottom: '16px', fontSize: mobile ? '11px' : '13px' }}>—— Ils nous font confiance</div>
-          <h2 className="display" style={{ fontSize: mobile ? 'clamp(28px, 8vw, 48px)' : 'clamp(36px, 4vw, 64px)', maxWidth: '700px', lineHeight: 1 }}>
-            L'<span style={{ color: 'var(--orange)' }}>exigence</span> mène à l'<span style={{ color: 'var(--orange)' }}>excellence</span>, ils l'ont déjà compris.
-          </h2>
-        </div>
+  const heading = (
+    <>
+      <div className="eyebrow" style={{ marginBottom: '16px', fontSize: mobile ? '11px' : '13px' }}>—— Ils nous font confiance</div>
+      <h2 className="display" style={{ fontSize: mobile ? 'clamp(28px, 8vw, 48px)' : 'clamp(36px, 4vw, 64px)', maxWidth: '700px', lineHeight: 1 }}>
+        L'<span style={{ color: 'var(--orange)' }}>exigence</span> mène à l'<span style={{ color: 'var(--orange)' }}>excellence</span>, ils l'ont déjà compris.
+      </h2>
+    </>
+  )
 
-        {/* Stats grid */}
-        <div style={{ display: 'grid', gridTemplateColumns: mobile ? 'repeat(2,1fr)' : 'repeat(4,1fr)', gap: '2px', marginBottom: '40px' }}>
-          {stats.map(([n, l]) => (
-            <StatCell key={l} value={n} label={l} mobile={mobile} />
+  const statsBlock = (
+    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, minmax(0, 1fr))', gap: '2px', marginBottom: '40px' }}>
+      {stats.map(([n, l]) => (
+        <StatCell key={l} value={n} label={l} mobile={mobile} />
+      ))}
+    </div>
+  )
+
+  const logosBlock = logos.length > 0 && (
+    <>
+      <div style={{ padding: mobile ? '24px 20px 12px' : '32px 0 16px' }}>
+        <div className="eyebrow" style={{ fontSize: mobile ? '11px' : '12px' }}>—— Les clubs</div>
+      </div>
+      <div style={{ overflow: 'hidden', padding: mobile ? '20px 0' : '32px 0' }}>
+        <div className="marquee" style={{ willChange: 'transform' }}>
+          {[...logos, ...logos, ...logos, ...logos].map((c, i) => (
+            <img key={i} src={c.url} alt={c.name} style={{ height: mobile ? '64px' : '88px', width: 'auto', objectFit: 'contain', opacity: 0.85, marginRight: mobile ? '56px' : '96px', flexShrink: 0 }} />
           ))}
         </div>
-
-        {/* Club logos — marquee */}
-        {logos.length > 0 && (
-            <>
-                <div style={{ padding: mobile ? '24px 20px 12px' : '32px 0 16px' }}>
-                    <div className="eyebrow" style={{ fontSize: mobile ? '11px' : '12px' }}>—— Les clubs</div>
-                </div>
-          <div style={{ overflow: 'hidden', padding: mobile ? '20px 0' : '32px 0' }}>
-            <div className="marquee" style={{ willChange: 'transform' }}>
-              {[...logos, ...logos, ...logos, ...logos].map((c, i) => (
-                <img key={i} src={c.url} alt={c.name} style={{ height: mobile ? '64px' : '88px', width: 'auto', objectFit: 'contain', opacity: 0.85, marginRight: mobile ? '56px' : '96px', flexShrink: 0 }} />
-              ))}
-            </div>
-          </div>
+      </div>
     </>
-        )}
+  )
 
-        {/* Sponsors — marquee inversé */}
-        {sponsors.length > 0 && (
-          <>
-            <div style={{ padding: mobile ? '24px 20px 12px' : '32px 0 16px' }}>
-              <div className="eyebrow" style={{ fontSize: mobile ? '11px' : '12px' }}>—— Nos partenaires</div>
-            </div>
-            <div style={{ overflow: 'hidden', padding: mobile ? '8px 0 20px' : '12px 0 32px' }}>
-              <div className="marquee-reverse" style={{ willChange: 'transform' }}>
-                {[...sponsors, ...sponsors, ...sponsors, ...sponsors].map((s, i) => (
-                  <img key={i} src={s.url} alt={s.name} style={{ height: mobile ? '40px' : '56px', width: 'auto', objectFit: 'contain', opacity: 0.7, marginRight: mobile ? '56px' : '96px', flexShrink: 0 }} />
-                ))}
-              </div>
-            </div>
-          </>
-        )}
+  const sponsorsBlock = sponsors.length > 0 && (
+    <>
+      <div style={{ padding: mobile ? '24px 20px 12px' : '32px 0 16px' }}>
+        <div className="eyebrow" style={{ fontSize: mobile ? '11px' : '12px' }}>—— Nos partenaires</div>
+      </div>
+      <div style={{ overflow: 'hidden', padding: mobile ? '8px 0 20px' : '12px 0 32px' }}>
+        <div className="marquee-reverse" style={{ willChange: 'transform' }}>
+          {[...sponsors, ...sponsors, ...sponsors, ...sponsors].map((s, i) => (
+            <img key={i} src={s.url} alt={s.name} style={{ height: mobile ? '40px' : '56px', width: 'auto', objectFit: 'contain', opacity: 0.7, marginRight: mobile ? '56px' : '96px', flexShrink: 0 }} />
+          ))}
+        </div>
+      </div>
+    </>
+  )
+
+  // ─── Mobile: vertical layout ───
+  if (mobile) {
+    return (
+      <section style={{ padding: '60px 0', background: 'var(--bg-2)' }}>
+        <div style={{ margin: '0 auto' }}>
+          <div style={{ padding: '0 20px 48px' }} data-reveal>
+            {heading}
+          </div>
+          {statsBlock}
+          {logosBlock}
+          {sponsorsBlock}
+        </div>
+      </section>
+    )
+  }
+
+  // ─── Desktop: sticky heading on the left, content on the right ───
+  return (
+    <section style={{ padding: '80px 0', background: 'var(--bg-2)' }}>
+      <div
+        data-reveal
+        style={{
+          display: 'grid',
+          gridTemplateColumns: 'minmax(0, 1fr) minmax(0, 1fr)',
+          maxWidth: '1440px',
+          margin: '0 auto',
+        }}
+      >
+        {/* Outer cell stretches to row height — inner sticky stays until section ends */}
+        <div>
+          <div
+            style={{
+              position: 'sticky',
+              top: headerH,
+              padding: '0 52px',
+            }}
+          >
+            {heading}
+          </div>
+        </div>
+        <div style={{ paddingRight: '32px' }}>
+          {statsBlock}
+          {logosBlock}
+          {sponsorsBlock}
+        </div>
       </div>
     </section>
   )

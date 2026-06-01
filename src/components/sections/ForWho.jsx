@@ -77,17 +77,17 @@ export default function ForWho() {
   const card = (c, i) => (
     <div
       key={c.tag}
+      className="forwho-card"
       style={{
         position: 'sticky',
         top: headerH + i * PEEK,
-        background: 'var(--bg-2)',
-        borderRadius: '20px 20px 0 0',
-        borderTop: '1px solid rgba(255,255,255,0.14)',
-        borderLeft: '1px solid rgba(255,255,255,0.12)',
-        borderRight: '1px solid rgba(255,255,255,0.12)',
-        padding: mobile ? '20px 22px 36px' : '28px 48px 48px',
+        padding: mobile ? '22px 24px 36px' : '30px 48px 48px',
         boxSizing: 'border-box',
         zIndex: i + 1,
+        marginTop: i === 0 ? 0 : (mobile ? 16 : 24),
+        marginBottom: mobile ? 16 : 24,
+        marginLeft: mobile ? 16 : 0,
+        marginRight: mobile ? 16 : 0,
       }}
     >
       <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '16px' }}>
@@ -147,17 +147,18 @@ export default function ForWho() {
           borderTop: '1px solid var(--line)',
         }}
       >
-        <div
-          style={{
-            position: 'sticky',
-            top: headerH,
-            alignSelf: 'start',
-            height: `calc(100svh - ${headerH}px)`,
-            padding: '80px 52px 0',
-            boxSizing: 'border-box',
-          }}
-        >
-          {intro}
+        {/* Outer cell stretches to row height (= cards column natural height) so
+            the inner sticky stays pinned until the very bottom of the section. */}
+        <div>
+          <div
+            style={{
+              position: 'sticky',
+              top: headerH,
+              padding: '80px 52px 0',
+            }}
+          >
+            {intro}
+          </div>
         </div>
         <div style={{ position: 'relative', paddingRight: '52px' }}>
           {CARDS.map(card)}
