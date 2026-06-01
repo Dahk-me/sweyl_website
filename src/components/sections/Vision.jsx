@@ -40,14 +40,11 @@ export default function Vision() {
 
           {/* Texte + cartes desktop */}
           <div style={{ paddingTop: mobile ? '0' : '40px' }}>
-            <p className="serif" style={{ fontSize: mobile ? '17px' : '24px', lineHeight: 1.45, color: 'var(--fg)', marginBottom: '24px', fontWeight: 500 }}>
-              Les outils de statistiques existent. Ce qui n'existait pas, c'est une plateforme qui pense le club comme un écosystème — joueurs, coachs, parents, dirigeants, bénévoles, partenaires.
-            </p>
-            <p style={{ fontSize: mobile ? '14px' : '15px', lineHeight: 1.7, color: 'var(--fg-2)', marginBottom: '20px' }}>
-              Un coach qui arrive le samedi matin, ouvre son téléphone, voit son effectif, son calendrier FFBB synchronisé, prépare son match. Un joueur qui consulte sa fiche, partage son meilleur tir sur Instagram.
+            <p className="serif" style={{ fontSize: mobile ? '17px' : '22px', lineHeight: 1.45, color: 'var(--fg)', marginBottom: '20px', fontWeight: 500 }}>
+              Aucun outil n'a jamais été pensé pour le coach amateur. Aucun standard n'existe.<br />SWEYL est le premier.
             </p>
             <p style={{ fontSize: mobile ? '14px' : '15px', lineHeight: 1.7, color: 'var(--fg-2)', marginBottom: mobile ? '0' : '36px' }}>
-              SWEYL ne remplace pas les humains du club. Il leur rend visible le travail invisible. Il transforme une saison en histoire collective.
+              Un seul outil pour le coach, les joueurs et les dirigeants — chacun avec sa vision, tous dans la même direction.
             </p>
 
             {/* Grille desktop uniquement */}

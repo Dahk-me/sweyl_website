@@ -5,6 +5,48 @@ import { STORAGE } from '../../lib/storageConfig'
 
 const stats = [['400+', 'UTILISATEURS'], ['15+', 'COACHS'], ['10+', 'CLUBS'], ['100+', 'MATCHS / SEM']]
 
+function useCountUp(target, duration = 1800) {
+  const [count, setCount] = React.useState(0)
+  const ref = React.useRef(null)
+
+  React.useEffect(() => {
+    const el = ref.current
+    if (!el) return
+    const obs = new IntersectionObserver(([entry]) => {
+      if (!entry.isIntersecting) return
+      obs.disconnect()
+      const start = performance.now()
+      const tick = (now) => {
+        const elapsed = now - start
+        const progress = Math.min(elapsed / duration, 1)
+        const eased = 1 - Math.pow(1 - progress, 3)
+        setCount(Math.floor(eased * target))
+        if (progress < 1) requestAnimationFrame(tick)
+        else setCount(target)
+      }
+      requestAnimationFrame(tick)
+    }, { threshold: 0, rootMargin: '0px 0px -25% 0px' })
+    obs.observe(el)
+    return () => obs.disconnect()
+  }, [target, duration])
+
+  return [count, ref]
+}
+
+function StatCell({ value, label, mobile }) {
+  const num = parseInt(value)
+  const suffix = value.replace(String(num), '')
+  const [count, ref] = useCountUp(num)
+  return (
+    <div ref={ref} style={{ background: 'var(--bg-2)', padding: mobile ? '28px 20px' : '40px 32px' }}>
+      <div className="mono" style={{ fontSize: '10px', color: 'var(--orange)', letterSpacing: '0.18em', marginBottom: '8px' }}>★ {label}</div>
+      <div className="display" style={{ fontSize: mobile ? 'clamp(48px,13vw,72px)' : 'clamp(72px,8vw,120px)', color: 'var(--fg)', lineHeight: 0.9 }}>
+        {count}{suffix}
+      </div>
+    </div>
+  )
+}
+
 export default function SocialProof() {
   const mobile = useMobile()
   const [logos, setLogos] = React.useState([])
@@ -43,12 +85,9 @@ export default function SocialProof() {
         </div>
 
         {/* Stats grid */}
-        <div style={{ display: 'grid', gridTemplateColumns: mobile ? 'repeat(2,1fr)' : 'repeat(4,1fr)', gap: '2px', background: 'var(--orange)', marginBottom: '40px' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: mobile ? 'repeat(2,1fr)' : 'repeat(4,1fr)', gap: '2px', marginBottom: '40px' }}>
           {stats.map(([n, l]) => (
-            <div key={l} style={{ background: 'var(--bg-2)', padding: mobile ? '28px 20px' : '40px 32px' }}>
-              <div className="mono" style={{ fontSize: '10px', color: 'var(--orange)', letterSpacing: '0.18em', marginBottom: '8px' }}>★ {l}</div>
-              <div className="display" style={{ fontSize: mobile ? 'clamp(48px,13vw,72px)' : 'clamp(72px,8vw,120px)', color: 'var(--fg)', lineHeight: 0.9 }}>{n}</div>
-            </div>
+            <StatCell key={l} value={n} label={l} mobile={mobile} />
           ))}
         </div>
 
