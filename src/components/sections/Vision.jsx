@@ -2,11 +2,13 @@ import React from 'react'
 import { useMobile } from '../../hooks/useMobile'
 
 const PLACEHOLDER_IMG = 'https://fybnpenwtzvjwlbnbmrq.supabase.co/storage/v1/object/public/images/vision/Mobile.png'
+const PLACEHOLDER_IMG2 = 'https://fybnpenwtzvjwlbnbmrq.supabase.co/storage/v1/object/public/images/vision/classement.png'
+const PLACEHOLDER_IMG3 = 'https://fybnpenwtzvjwlbnbmrq.supabase.co/storage/v1/object/public/images/vision/GameBoard.png'
 
 const pillars = [
   { n: 'UN',    title: 'Plateforme',      desc: "Pas un outil un écosystème pour toutes les voix du club.", img: PLACEHOLDER_IMG },
-  { n: 'DEUX',  title: 'Saison entière',  desc: 'Pensé pour le long terme, pas pour un match isolé.',        img: PLACEHOLDER_IMG },
-  { n: 'TROIS', title: "Focus", desc: "Optimisé pour rester concentré sur le jeu.",         img: PLACEHOLDER_IMG },
+  { n: 'DEUX',  title: 'Saison entière',  desc: 'Pensé pour le long terme, pas pour un match isolé.',        img: PLACEHOLDER_IMG2 },
+  { n: 'TROIS', title: "Focus", desc: "Optimisé pour rester concentré sur le jeu.",         img: PLACEHOLDER_IMG3 },
 ]
 
 const Card = ({ p, mobile }) => (
