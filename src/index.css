@@ -82,6 +82,7 @@ img { display: block; max-width: 100%; }
 ::-webkit-scrollbar { width: 10px; height: 10px; }
 ::-webkit-scrollbar-thumb { background: var(--fg-4); border-radius: 5px; }
 ::-webkit-scrollbar-track { background: transparent; }
+.scroll-hidden::-webkit-scrollbar { display: none; }
 
 /* ── Responsive ── */
 @media (max-width: 768px) {
