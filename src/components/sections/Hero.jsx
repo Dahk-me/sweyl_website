@@ -25,7 +25,7 @@ export default function Hero() {
       {/* Content */}
       <div style={{ position: 'absolute', bottom: '20px', zIndex: 3, maxWidth: '1280px', margin: '0 auto', width: '100%', padding: mobile ? `${pt} 20px 20px` : `${pt} 32px 100px` }}>
         <div className="eyebrow" style={{ marginBottom: '20px', fontSize: mobile ? '11px' : '13px' }}>—— SWEYL</div>
-        <h1 className="display" style={{ fontSize: mobile ? 'clamp(44px, 13vw, 72px)' : 'clamp(60px, 9vw, 132px)', marginBottom: '40px', maxWidth: mobile ? '100%' : '65%' }}>
+        <h1 className="display" style={{ fontSize: mobile ? 'clamp(44px, 13vw, 72px)' : 'clamp(60px, 9vw, 132px)', marginBottom: '40px', maxWidth: mobile ? '100%' : '65%', color: '#f5f4f1' }}>
           Le club<br />est <span style={{ color: 'var(--orange)' }}>plus grand</span><br />que le score.
         </h1>
       </div>

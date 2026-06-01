@@ -7,6 +7,13 @@ import logoSvg from '/assets/LogoSweyl.svg'
 export default function Header() {
   const { theme, toggleTheme } = useTheme()
   const mobile = useMobile()
+  const [inHero, setInHero] = React.useState(true)
+
+  React.useEffect(() => {
+    const onScroll = () => setInHero(window.scrollY < window.innerHeight * 0.85)
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
 
   return (
     <header style={{
@@ -21,30 +28,34 @@ export default function Header() {
       <div style={{
         display: 'flex',
         alignItems: 'center',
-        justifyContent: 'space-between',
         height: mobile ? '56px' : '72px',
         padding: mobile ? '0 20px' : '0 32px',
         maxWidth: '1280px',
         margin: '0 auto',
+        gap: '16px',
       }}>
-        {/* Logo */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-          <img src={logoSvg} alt="SWEYL" style={{ height: '22px', width: 'auto', filter: theme === 'light' ? 'none' : 'brightness(0) invert(1)' }} />
-          <span style={{ fontFamily: 'Montserrat, sans-serif', fontSize: '20px', fontWeight: 600, color: 'var(--fg)', letterSpacing: '0.3em' }}>SWEYL</span>
+        {/* Logo — toujours à gauche */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: '10px', flexShrink: 0 }}>
+          <img src={logoSvg} alt="SWEYL" style={{ height: '22px', width: 'auto', transition: 'filter 0.3s', filter: inHero || theme === 'dark' ? 'brightness(0) invert(1)' : 'none' }} />
+          {!mobile && <span style={{ fontFamily: 'Montserrat, sans-serif', fontSize: '20px', fontWeight: 600, letterSpacing: '0.3em', transition: 'color 0.3s', color: inHero || theme === 'dark' ? '#f5f4f1' : '#100f0d' }}>SWEYL</span>}
         </div>
 
-        {/* Nav — desktop only */}
-        {!mobile && (
-          <nav style={{ display: 'flex', gap: '28px', fontSize: '13px', color: 'var(--fg-2)' }}>
-            <a href="#vision">Vision</a>
-            <a href="#capacities">Capacités</a>
-            <a href="#community">Club</a>
-            <a href="#season">Saison 26/27</a>
-          </nav>
-        )}
+        {/* Centre — SWEYL sur mobile, nav sur desktop */}
+        <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+          {mobile ? (
+            <span style={{ fontFamily: 'Montserrat, sans-serif', fontSize: '20px', fontWeight: 600, letterSpacing: '0.3em', transition: 'color 0.3s', color: inHero || theme === 'dark' ? '#f5f4f1' : '#100f0d' }}>SWEYL</span>
+          ) : (
+            <nav style={{ display: 'flex', gap: '28px', fontSize: '13px', color: 'var(--fg-2)' }}>
+              <a href="#vision">Vision</a>
+              <a href="#capacities">Capacités</a>
+              <a href="#community">Club</a>
+              <a href="#season">Saison 26/27</a>
+            </nav>
+          )}
+        </div>
 
-        {/* Actions */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: mobile ? '8px' : '16px' }}>
+        {/* Actions — toujours à droite */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: mobile ? '8px' : '16px', flexShrink: 0 }}>
           <button
             onClick={toggleTheme}
             style={{
