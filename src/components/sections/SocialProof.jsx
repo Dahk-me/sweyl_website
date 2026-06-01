@@ -15,12 +15,12 @@ const stats = [['400+', 'UTILISATEURS'], ['15+', 'COACHS'], ['10+', 'CLUBS'], ['
 export default function SocialProof() {
   const mobile = useMobile()
   return (
-    <section style={{ padding: mobile ? '60px 0' : '80px 0', background: 'var(--bg)' }}>
+    <section style={{ padding: mobile ? '60px 0' : '80px 0', background: 'var(--bg-2)' }}>
       <div style={{ maxWidth: '1440px', margin: '0 auto', padding: mobile ? '0 0' : '0 32px' }}>
         {/* Stats grid — 2×2 on mobile, 4 col on desktop */}
         <div style={{ display: 'grid', gridTemplateColumns: mobile ? 'repeat(2,1fr)' : 'repeat(4,1fr)', gap: '2px', background: 'var(--orange)', marginBottom: '40px' }}>
           {stats.map(([n, l]) => (
-            <div key={l} style={{ background: 'var(--bg)', padding: mobile ? '28px 20px' : '40px 32px' }}>
+            <div key={l} style={{ background: 'var(--bg-2)', padding: mobile ? '28px 20px' : '40px 32px' }}>
               <div className="mono" style={{ fontSize: '10px', color: 'var(--orange)', letterSpacing: '0.18em', marginBottom: '8px' }}>★ {l}</div>
               <div className="display" style={{ fontSize: mobile ? 'clamp(48px,13vw,72px)' : 'clamp(72px,8vw,120px)', color: 'var(--fg)', lineHeight: 0.9 }}>{n}</div>
             </div>

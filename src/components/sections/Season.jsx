@@ -23,7 +23,7 @@ export default function Season() {
   }, [])
 
   return (
-    <section id="season" style={{ padding: mobile ? '80px 0' : '140px 0', position: 'relative', overflow: 'hidden', borderTop: '1px solid var(--line)' }}>
+    <section id="season" style={{ padding: mobile ? '80px 0' : '140px 0', position: 'relative', overflow: 'hidden', background: 'var(--bg-2)' }}>
       <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(ellipse at 80% 50%, rgba(255,102,0,0.08), transparent 60%)' }} />
       <div style={{ position: 'relative', maxWidth: '1280px', margin: '0 auto', padding: mobile ? '0 20px' : '0 32px' }}>
         <div className="mono" style={{ fontSize: '10px', color: 'var(--orange)', letterSpacing: '0.2em', marginBottom: '20px', display: 'flex', alignItems: 'center', gap: '8px' }}>

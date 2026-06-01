@@ -13,7 +13,7 @@ const caps = [
 export default function Capacities() {
   const mobile = useMobile()
   return (
-    <section id="capacities" style={{ padding: mobile ? '80px 0' : '140px 0' }}>
+    <section id="capacities" style={{ padding: mobile ? '80px 0' : '140px 0', background: 'var(--bg)' }}>
       <div style={{ maxWidth: '1280px', margin: '0 auto', padding: mobile ? '0 20px' : '0 32px' }}>
         <div style={{ display: 'grid', gridTemplateColumns: mobile ? '1fr' : '1fr 1.4fr', gap: mobile ? '32px' : '80px', alignItems: 'flex-start' }}>
 

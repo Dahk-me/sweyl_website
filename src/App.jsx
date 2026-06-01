@@ -8,7 +8,6 @@ import SocialProof from './components/sections/SocialProof'
 import Vision from './components/sections/Vision'
 import ForWho from './components/sections/ForWho'
 import Capacities from './components/sections/Capacities'
-import Community from './components/sections/Community'
 import Season from './components/sections/Season'
 import Lead from './components/sections/Lead'
 import FAQ from './components/sections/FAQ'
@@ -33,7 +32,6 @@ const Page = () => {
       <Vision />
       <ForWho />
       <Capacities />
-      <Community />
       <Season />
       <Lead />
       <FAQ />
