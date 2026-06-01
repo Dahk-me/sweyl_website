@@ -47,8 +47,7 @@ export default function Header() {
           ) : (
             <nav style={{ display: 'flex', gap: '28px', fontSize: '13px', color: 'var(--fg-2)' }}>
               <a href="#vision">Vision</a>
-              <a href="#capacities">Capacités</a>
-              <a href="#community">Club</a>
+              <a href="#capacities">Fonctionalités</a>
               <a href="#season">Saison 26/27</a>
             </nav>
           )}

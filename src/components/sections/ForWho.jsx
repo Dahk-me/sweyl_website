@@ -85,7 +85,11 @@ export default function ForWho() {
         boxSizing: 'border-box',
         zIndex: i + 1,
         marginTop: i === 0 ? 0 : (mobile ? 16 : 24),
-        marginBottom: mobile ? 16 : 24,
+        // Last card needs extra scroll room after it so its sticky "lands" visibly
+        // (sticky lifetime = bottom space after the card inside the container).
+        marginBottom: i === CARDS.length - 1
+          ? (mobile ? '30vh' : '32vh')
+          : (mobile ? 16 : 24),
         marginLeft: mobile ? 16 : 0,
         marginRight: mobile ? 16 : 0,
       }}
