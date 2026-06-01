@@ -70,7 +70,7 @@ export default function Vision() {
             WebkitOverflowScrolling: 'touch',
             scrollbarWidth: 'none',
             msOverflowStyle: 'none',
-            touchAction: 'pan-x',
+            touchAction: 'pan-x pan-y',
             paddingLeft: 'calc((100vw - 78vw) / 2)',
             paddingRight: 'calc((100vw - 78vw) / 2)',
             paddingBottom: '4px',
