@@ -7,7 +7,7 @@ const PLACEHOLDER_IMG3 = 'https://fybnpenwtzvjwlbnbmrq.supabase.co/storage/v1/ob
 
 const pillars = [
   { n: 'UN',    title: 'Plateforme',      desc: "Pas un outil un écosystème pour toutes les voix du club.", img: PLACEHOLDER_IMG },
-  { n: 'DEUX',  title: 'Saison entière',  desc: 'Pensé pour le long terme, pas pour un match isolé.',        img: PLACEHOLDER_IMG2 },
+  { n: 'DEUX',  title: 'Saison entière',  desc: 'Pensé pour le long terme, un match seul n\'est qu\'un chiffre dans l\'équation. C\'est tout le chemin parcouru ensemble.',        img: PLACEHOLDER_IMG2 },
   { n: 'TROIS', title: "Focus", desc: "Optimisé pour rester concentré sur le jeu.",         img: PLACEHOLDER_IMG3 },
 ]
 
