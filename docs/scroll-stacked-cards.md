@@ -80,8 +80,8 @@ Carte i doit apparaître à 15-20px sous le slot de la carte précédente :
 visual_top_i_au_pop = (i-1) * PEEK + H_(i-1) + ARRIVAL_GAP
 slot_top_i           = i * PEEK
 
-popInY = visual_top_au_pop - slot_top
-       = H_(i-1) + ARRIVAL_GAP - PEEK
+popInY_natural = visual_top_au_pop - slot_top
+               = H_(i-1) + ARRIVAL_GAP - PEEK
 ```
 
 Avec `PEEK = 48`, `ARRIVAL_GAP = 15`, `H_(i-1) ≈ 600` → `popInY ≈ 567`.
@@ -90,6 +90,24 @@ Avec `PEEK = 48`, `ARRIVAL_GAP = 15`, `H_(i-1) ≈ 600` → `popInY ≈ 567`.
 - `ResizeObserver` sur la `motion.div` interne (`cardRef`)
 - State `cardHeights[]` au niveau du parent
 - Re-render quand les hauteurs changent → `popInY` recalculé
+
+### Dissociation mobile / desktop pour le `popInY`
+
+Sur mobile (cartes ≈ 75% du viewport), `popInY_natural` place la carte près du bas du viewport — pop-in invisible. Sur desktop (cartes ≈ 50-60% du viewport), `popInY_natural` la place en plein milieu de l'écran → pop visible et bizarre.
+
+**Ne pas tenter de formule unifiée (genre `Math.max`)** : ça change subtilement le comportement mobile et casse le feel qu'on avait validé. Tout pont entre les deux logiques cause des régressions.
+
+Solution : `popInY` calculé dans `ForWho` (au niveau parent), avec une branche `if (mobile)` complètement isolée. `AnimatedCard` ne reçoit que la valeur finale en prop.
+
+```js
+if (mobile) {
+  popInY = prevHeight + ARRIVAL_GAP - PEEK              // just below previous card
+} else {
+  popInY = viewportH - headerH - i*PEEK - POP_PEEK_FROM_BOTTOM   // 90px above viewport bottom
+}
+```
+
+Le desktop nécessite de mesurer `window.innerHeight` (state `viewportH` + listener `resize`). Le mobile n'en a pas besoin.
 
 ## Animation scale
 

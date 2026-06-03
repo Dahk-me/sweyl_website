@@ -50,7 +50,7 @@ const HEADER_H = { mobile: 93, desktop: 109 }
 // Total scroll length of the scene. ~75vh per card gives smooth pacing.
 const SCROLL_HEIGHT_VH = 75 * CARDS.length
 
-const AnimatedCard = ({ c, i, mobile, progress, prevHeight, cardRef }) => {
+const AnimatedCard = ({ c, i, mobile, progress, popInY, cardRef }) => {
   const N = CARDS.length
   // First card is in place from start; the remaining N-1 cards share the timeline
   // equally so card i+1 starts arriving the instant card i finishes — no dead scroll.
@@ -58,8 +58,6 @@ const AnimatedCard = ({ c, i, mobile, progress, prevHeight, cardRef }) => {
   const arrivalStart = i === 0 ? 0 : (i - 1) / slots
   const arrivalEnd = i === 0 ? 0 : i / slots
 
-  // Position where the card snaps in at arrivalStart: just below the previous card's slot bottom
-  const popInY = prevHeight + ARRIVAL_GAP - PEEK
   // Off-screen value used before the card's turn so it isn't visible at the bottom of the scene
   const HIDDEN_Y = 3000
 
@@ -183,8 +181,26 @@ export default function ForWho() {
     </>
   )
 
+  // ═══ popInY computation — independent formula per platform ═══
+  // Mobile and desktop are dissociated here so changes to one don't affect the other.
+  // Both currently use a CUMULATIVE formula: each card's start position accounts for
+  // ALL previous cards' heights (not just the immediate previous), which puts cards
+  // 2, 3+ off-screen below the viewport so the snap from HIDDEN_Y is invisible — they
+  // slide in smoothly from below the visible area instead of popping mid-screen.
   const cards = CARDS.map((c, i) => {
-    const prevHeight = i === 0 ? 0 : (cardHeights[i - 1] || 600)
+    let popInY = 0
+    if (mobile) {
+      // ─── MOBILE ───
+      for (let j = 0; j < i; j++) {
+        popInY += (cardHeights[j] || 600) + ARRIVAL_GAP - PEEK
+      }
+    } else {
+      // ─── DESKTOP ───
+      for (let j = 0; j < i; j++) {
+        popInY += (cardHeights[j] || 600) + ARRIVAL_GAP - PEEK
+      }
+    }
+
     return (
       <AnimatedCard
         key={c.tag}
@@ -192,7 +208,7 @@ export default function ForWho() {
         i={i}
         mobile={mobile}
         progress={scrollYProgress}
-        prevHeight={prevHeight}
+        popInY={popInY}
         cardRef={el => { cardRefs.current[i] = el }}
       />
     )
@@ -227,7 +243,12 @@ export default function ForWho() {
     )
   }
 
-  // ─── Desktop: intro + cards inside a single sticky scene, both pinned for the whole scroll ───
+  // ─── Desktop: 2-col grid with INDEPENDENT sticky elements (Vision-like) ───
+  // - Left col: small sticky intro that stays at top:headerH until pushed by next section
+  // - Right col: full-viewport sticky scene where cards animate
+  // The two stickies have different heights so they exit at different scroll positions:
+  //   • cards scene (large) exits first when the section nears its end
+  //   • intro (small) stays sticky longer, only exits in the last bit before next section
   return (
     <section
       ref={sceneRef}
@@ -237,23 +258,29 @@ export default function ForWho() {
         height: `${SCROLL_HEIGHT_VH}vh`,
         background: 'var(--bg-2)',
         borderTop: '1px solid var(--line)',
+        display: 'grid',
+        gridTemplateColumns: '1fr 1fr',
       }}
     >
       <div
         style={{
           position: 'sticky',
           top: headerH,
-          height: `calc(100vh - ${headerH}px)`,
-          display: 'grid',
-          gridTemplateColumns: '1fr 1fr',
+          alignSelf: 'start',
+          padding: '80px 52px 0',
         }}
       >
-        <div style={{ padding: '80px 52px 0' }}>
-          {intro}
-        </div>
-        <div style={{ position: 'relative' }}>
-          {cards}
-        </div>
+        {intro}
+      </div>
+      <div
+        style={{
+          position: 'sticky',
+          top: headerH,
+          height: `calc(100vh - ${headerH}px)`,
+          alignSelf: 'start',
+        }}
+      >
+        {cards}
       </div>
     </section>
   )
