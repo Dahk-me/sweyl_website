@@ -40,7 +40,7 @@ export default function Footer() {
             <div>
               <img src={logoSvg} alt="SWEYL" style={{ height: '28px', width: 'auto', marginBottom: '14px', filter: theme === 'light' ? 'none' : 'brightness(0) invert(1)' }} />
               <p style={{ fontSize: '13px', color: 'var(--fg-3)', lineHeight: 1.6, maxWidth: '280px' }}>
-                La plateforme du basket amateur français. Plus qu'un outil — l'écosystème de votre club.
+                La plateforme du basket amateur français. Plus qu'un outil, l'écosystème de votre club.
               </p>
             </div>
             {columns.map(c => (

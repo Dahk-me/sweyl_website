@@ -69,7 +69,7 @@ export default function ForWho() {
         Conçu pour<br />tous <span style={{ color: 'var(--orange)' }}>les acteurs</span><br />du terrain.
       </h2>
       <p style={{ fontSize: mobile ? '14px' : '15px', color: 'var(--fg-2)', maxWidth: '400px', lineHeight: 1.6 }}>
-        Coach, joueur ou dirigeant — SWEYL s&apos;adapte à votre rôle et à votre saison.
+        Coach, joueur ou dirigeant, SWEYL s&apos;adapte à votre rôle et à votre saison.
       </p>
     </>
   )

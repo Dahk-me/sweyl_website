@@ -2,13 +2,13 @@ import React from 'react'
 import { useMobile } from '../../hooks/useMobile'
 
 const PLACEHOLDER_IMG = 'https://fybnpenwtzvjwlbnbmrq.supabase.co/storage/v1/object/public/images/vision/Mobile.png'
-const PLACEHOLDER_IMG2 = 'https://fybnpenwtzvjwlbnbmrq.supabase.co/storage/v1/object/public/images/vision/classement.png'
-const PLACEHOLDER_IMG3 = 'https://fybnpenwtzvjwlbnbmrq.supabase.co/storage/v1/object/public/images/vision/GameBoard.png'
+const PLACEHOLDER_IMG2 = 'https://fybnpenwtzvjwlbnbmrq.supabase.co/storage/v1/object/public/images/vision/TeamSucces.png'
+const PLACEHOLDER_IMG3 = 'https://fybnpenwtzvjwlbnbmrq.supabase.co/storage/v1/object/public/images/vision/CoachStats.png'
 
 const pillars = [
   { n: 'UN',    title: 'Plateforme',      desc: "Pas un outil un écosystème pour toutes les voix du club.", img: PLACEHOLDER_IMG },
-  { n: 'DEUX',  title: 'Saison entière',  desc: 'Pensé pour le long terme, un match seul n\'est qu\'un chiffre dans l\'équation. C\'est tout le chemin parcouru ensemble.',        img: PLACEHOLDER_IMG2 },
-  { n: 'TROIS', title: "Focus", desc: "Optimisé pour rester concentré sur le jeu.",         img: PLACEHOLDER_IMG3 },
+  { n: 'DEUX',  title: 'Saison entière',  desc: 'Pensé pour le long terme, un match seul n\'est qu\'un chiffre dans l\'équation. C\'est tout le chemin parcouru ensemble qui fait la différence.',        img: PLACEHOLDER_IMG2 },
+  { n: 'TROIS', title: "Focus", desc: "Chaque rôle a sa mission. Sweyl fournit à chacun les outils adaptés pour rester concentré sur l'essentiel",         img: PLACEHOLDER_IMG3 },
 ]
 
 const Card = ({ p, mobile }) => (
@@ -46,7 +46,7 @@ export default function Vision() {
               Aucun outil n'a jamais été pensé pour le coach amateur. Aucun standard n'existe.<br />SWEYL est le premier.
             </p>
             <p style={{ fontSize: mobile ? '14px' : '15px', lineHeight: 1.7, color: 'var(--fg-2)', marginBottom: mobile ? '0' : '36px' }}>
-              Un seul outil pour le coach, les joueurs et les dirigeants — chacun avec sa vision, tous dans la même direction.
+              Un seul outil pour le coach, les joueurs et les dirigeants. Chacun avec sa vision, tous dans la même direction.
             </p>
 
             {/* Grille desktop uniquement */}

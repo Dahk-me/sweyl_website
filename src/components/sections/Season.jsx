@@ -45,7 +45,7 @@ export default function Season() {
 
         <div style={{ display: 'grid', gridTemplateColumns: mobile ? '1fr' : '1fr 1fr', gap: mobile ? '28px' : '60px', alignItems: 'center' }}>
           <p style={{ fontSize: mobile ? '14px' : '15px', lineHeight: 1.6, color: 'var(--fg-2)' }}>
-            Pour que votre club soit prêt en septembre, l'onboarding démarre en juin. Effectifs, calendriers FFBB, formation des coachs, points partenaires — on vous accompagne.
+            Pour que votre club soit prêt, les étapes suivantes doivent êtres respéctés. Effectifs, calendriers FFBB, accès, formation des coachs, on vous accompagne.
           </p>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
             {roadmap.map(([m, txt]) => (
