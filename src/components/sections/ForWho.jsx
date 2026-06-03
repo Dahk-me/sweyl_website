@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react'
+import { motion, useScroll, useTransform } from 'framer-motion'
+import React, { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import { useMobile } from '../../hooks/useMobile'
 import { PointsLeaderboard, CalendarWidget, PlayerCard, LiveScoreboard } from '../Instruments'
 
@@ -37,30 +38,138 @@ const CARDS = [
   },
 ]
 
-// How many px of a previous card peek above the current one once stacked
+// Vertical peek between stacked cards
 const PEEK = 48
+
+// Gap between the previous card's bottom and where the arriving card starts
+const ARRIVAL_GAP = 15
 
 // CountdownBar (36px fixed) + Header (56px mobile / 72px desktop) + 1px border
 const HEADER_H = { mobile: 93, desktop: 109 }
+
+// Total scroll length of the scene. ~75vh per card gives smooth pacing.
+const SCROLL_HEIGHT_VH = 75 * CARDS.length
+
+const AnimatedCard = ({ c, i, mobile, progress, prevHeight, cardRef }) => {
+  const N = CARDS.length
+  // First card is in place from start; the remaining N-1 cards share the timeline
+  // equally so card i+1 starts arriving the instant card i finishes — no dead scroll.
+  const slots = N - 1
+  const arrivalStart = i === 0 ? 0 : (i - 1) / slots
+  const arrivalEnd = i === 0 ? 0 : i / slots
+
+  // Position where the card snaps in at arrivalStart: just below the previous card's slot bottom
+  const popInY = prevHeight + ARRIVAL_GAP - PEEK
+  // Off-screen value used before the card's turn so it isn't visible at the bottom of the scene
+  const HIDDEN_Y = 3000
+
+  // Three-phase Y: hidden far below → snaps to popInY at arrivalStart → slides up to 0 at arrivalEnd
+  const y = useTransform(
+    progress,
+    i === 0 ? [0, 1] : [arrivalStart - 0.001, arrivalStart, arrivalEnd],
+    i === 0 ? [0, 0] : [HIDDEN_Y, popInY, 0]
+  )
+
+  // Once at slot, scale down so later cards visually stack on top
+  const targetScale = Math.max(0.5, 1 - (N - i - 1) * 0.1)
+  const scale = useTransform(progress, [arrivalEnd, 1], [1, targetScale])
+
+  return (
+    <motion.div
+      style={{
+        position: 'absolute',
+        top: i * PEEK,
+        left: mobile ? 16 : 0,
+        right: mobile ? 16 : 52,
+        y,
+        scale,
+        transformOrigin: 'top',
+        zIndex: i + 1,
+      }}
+    >
+      <div
+        ref={cardRef}
+        className="forwho-card"
+        style={{
+          padding: mobile ? '22px 24px 36px' : '30px 48px 48px',
+          boxSizing: 'border-box',
+        }}
+      >
+        <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '16px' }}>
+          <span className="mono" style={{ fontSize: '11px', letterSpacing: '0.18em', textTransform: 'uppercase', color: 'var(--orange)' }}>{c.tag} • {c.label}</span>
+        </div>
+
+        <h3 className="display" style={{ fontSize: mobile ? 'clamp(48px, 15vw, 68px)' : 'clamp(56px, 7vw, 88px)', color: 'var(--fg)', marginBottom: '16px', lineHeight: 0.9 }}>
+          {c.title}
+        </h3>
+
+        <p style={{ fontSize: mobile ? '13px' : '15px', color: 'var(--fg-2)', lineHeight: 1.55, maxWidth: '480px', marginBottom: '16px' }}>
+          {c.desc}
+        </p>
+
+        <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '8px', marginBottom: '20px' }}>
+          {c.highlights.map(h => (
+            <li key={h} style={{ display: 'flex', alignItems: 'center', gap: '10px', fontSize: '13px', color: 'var(--fg-3)' }}>
+              <span style={{ width: '16px', height: '1px', background: 'var(--orange)', flexShrink: 0 }} />
+              {h}
+            </li>
+          ))}
+        </ul>
+
+        <div style={{ width: '100%', overflow: 'hidden' }}>
+          {c.instrument}
+        </div>
+      </div>
+    </motion.div>
+  )
+}
 
 export default function ForWho() {
   const mobile = useMobile()
   const fallback = mobile ? HEADER_H.mobile : HEADER_H.desktop
   const [headerH, setHeaderH] = useState(fallback)
 
+  // Each card's measured height — drives the next card's starting Y so it appears
+  // just below the previous one instead of sliding up from the bottom of the screen.
+  const [cardHeights, setCardHeights] = useState(() => CARDS.map(() => 600))
+  const cardRefs = useRef([])
+
+  const sceneRef = useRef(null)
+  const { scrollYProgress } = useScroll({
+    target: sceneRef,
+    offset: ['start start', 'end end'],
+  })
+
   useEffect(() => {
     const measure = () => {
       const header = document.querySelector('header')
       if (!header) return
       const rect = header.getBoundingClientRect()
-      // header.top is from viewport — its bottom = top + height. Use that as the
-      // total occluded area (countdown bar + header + border).
       setHeaderH(Math.ceil(rect.bottom))
     }
     measure()
     window.addEventListener('resize', measure)
     return () => window.removeEventListener('resize', measure)
   }, [])
+
+  useLayoutEffect(() => {
+    const measureHeights = () => {
+      const heights = cardRefs.current.map(el => el?.offsetHeight || 600)
+      setCardHeights(prev => {
+        if (heights.every((h, idx) => h === prev[idx])) return prev
+        return heights
+      })
+    }
+    measureHeights()
+
+    const observer = new ResizeObserver(measureHeights)
+    cardRefs.current.forEach(el => el && observer.observe(el))
+    window.addEventListener('resize', measureHeights)
+    return () => {
+      observer.disconnect()
+      window.removeEventListener('resize', measureHeights)
+    }
+  }, [mobile])
 
   const intro = (
     <>
@@ -74,92 +183,76 @@ export default function ForWho() {
     </>
   )
 
-  const card = (c, i) => (
-    <div
-      key={c.tag}
-      className="forwho-card"
-      style={{
-        position: 'sticky',
-        top: headerH + i * PEEK,
-        padding: mobile ? '22px 24px 36px' : '30px 48px 48px',
-        boxSizing: 'border-box',
-        zIndex: i + 1,
-        marginTop: 20,
-        marginBottom: 20,
-        marginLeft: mobile ? 16 : 0,
-        marginRight: mobile ? 16 : 0,
-      }}
-    >
-      <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '16px' }}>
-        <span className="mono" style={{ fontSize: '11px', letterSpacing: '0.18em', textTransform: 'uppercase', color: 'var(--orange)' }}>{c.tag} • {c.label}</span>
-      </div>
+  const cards = CARDS.map((c, i) => {
+    const prevHeight = i === 0 ? 0 : (cardHeights[i - 1] || 600)
+    return (
+      <AnimatedCard
+        key={c.tag}
+        c={c}
+        i={i}
+        mobile={mobile}
+        progress={scrollYProgress}
+        prevHeight={prevHeight}
+        cardRef={el => { cardRefs.current[i] = el }}
+      />
+    )
+  })
 
-      <h3 className="display" style={{ fontSize: mobile ? 'clamp(48px, 15vw, 68px)' : 'clamp(56px, 7vw, 88px)', color: 'var(--fg)', marginBottom: '16px', lineHeight: 0.9 }}>
-        {c.title}
-      </h3>
-
-      <p style={{ fontSize: mobile ? '13px' : '15px', color: 'var(--fg-2)', lineHeight: 1.55, maxWidth: '480px', marginBottom: '16px' }}>
-        {c.desc}
-      </p>
-
-      <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '8px', marginBottom: '20px' }}>
-        {c.highlights.map(h => (
-          <li key={h} style={{ display: 'flex', alignItems: 'center', gap: '10px', fontSize: '13px', color: 'var(--fg-3)' }}>
-            <span style={{ width: '16px', height: '1px', background: 'var(--orange)', flexShrink: 0 }} />
-            {h}
-          </li>
-        ))}
-      </ul>
-
-      <div style={{ width: '100%', overflow: 'hidden' }}>
-        {c.instrument}
-      </div>
-    </div>
-  )
-
-  // ─── Mobile: vertical layout — intro on top, stack below ───
+  // ─── Mobile: intro on top (normal flow), then scroll-driven stack ───
   if (mobile) {
     return (
       <section>
         <div data-reveal style={{ background: 'var(--bg-2)', borderTop: '1px solid var(--line)', padding: '80px 22px 64px' }}>
           {intro}
         </div>
-        <div style={{ position: 'relative' }}>
-          {CARDS.map(card)}
+        <div
+          ref={sceneRef}
+          style={{
+            position: 'relative',
+            height: `${SCROLL_HEIGHT_VH}vh`,
+            background: 'var(--bg-2)',
+          }}
+        >
+          <div
+            style={{
+              position: 'sticky',
+              top: headerH,
+              height: `calc(100vh - ${headerH}px)`,
+            }}
+          >
+            {cards}
+          </div>
         </div>
       </section>
     )
   }
 
-  // ─── Desktop: 2-col layout — sticky intro on left, sticky cards stack on right ───
-  // The intro stays pinned at top: headerH for the full duration of the grid row,
-  // which is determined by the right column's natural height (sum of all card heights).
+  // ─── Desktop: intro + cards inside a single sticky scene, both pinned for the whole scroll ───
   return (
-    <section>
+    <section
+      ref={sceneRef}
+      data-reveal
+      style={{
+        position: 'relative',
+        height: `${SCROLL_HEIGHT_VH}vh`,
+        background: 'var(--bg-2)',
+        borderTop: '1px solid var(--line)',
+      }}
+    >
       <div
-        data-reveal
         style={{
+          position: 'sticky',
+          top: headerH,
+          height: `calc(100vh - ${headerH}px)`,
           display: 'grid',
           gridTemplateColumns: '1fr 1fr',
-          background: 'var(--bg-2)',
-          borderTop: '1px solid var(--line)',
         }}
       >
-        {/* Outer cell stretches to row height (= cards column natural height) so
-            the inner sticky stays pinned until the very bottom of the section. */}
-        <div>
-          <div
-            style={{
-              position: 'sticky',
-              top: headerH,
-              padding: '80px 52px 0',
-            }}
-          >
-            {intro}
-          </div>
+        <div style={{ padding: '80px 52px 0' }}>
+          {intro}
         </div>
-        <div style={{ position: 'relative', paddingRight: '52px' }}>
-          {CARDS.map(card)}
+        <div style={{ position: 'relative' }}>
+          {cards}
         </div>
       </div>
     </section>

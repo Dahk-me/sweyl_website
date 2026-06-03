@@ -97,6 +97,7 @@ img { display: block; max-width: 100%; }
     inset 0 1px 0 rgba(255, 255, 255, 0.9);
 }
 
+
 ::-webkit-scrollbar { width: 10px; height: 10px; }
 ::-webkit-scrollbar-thumb { background: var(--fg-4); border-radius: 5px; }
 ::-webkit-scrollbar-track { background: transparent; }
