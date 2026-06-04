@@ -1,7 +1,6 @@
 import React from 'react'
 import { IconArrow, IconCheck } from '../Icons'
 import { useMobile } from '../../hooks/useMobile'
-import { supabase } from '../../lib/supabase'
 
 const FormField = ({ label, type = 'text', value, onChange, required }) => (
   <div>
@@ -34,8 +33,15 @@ export default function Lead() {
     setLoading(true)
     setError(null)
     try {
-      const { error } = await supabase.functions.invoke('submit-lead', { body: form })
-      if (error) throw error
+      const res = await fetch(
+        `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/submit-lead`,
+        {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(form),
+        }
+      )
+      if (!res.ok) throw new Error(await res.text())
       setSent(true)
     } catch {
       setError('Une erreur est survenue. Réessaie ou écris-nous directement à contact@sweyl.com')
