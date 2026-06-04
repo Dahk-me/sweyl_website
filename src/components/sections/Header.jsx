@@ -45,10 +45,10 @@ export default function Header() {
           {mobile ? (
             <span style={{ fontFamily: 'Montserrat, sans-serif', fontSize: '20px', fontWeight: 600, letterSpacing: '0.3em', transition: 'color 0.3s', color: inHero || theme === 'dark' ? '#f5f4f1' : '#100f0d' }}>SWEYL</span>
           ) : (
-            <nav style={{ display: 'flex', gap: '28px', fontSize: '13px', color: 'var(--fg-2)' }}>
+            <nav style={{ display: 'flex', gap: '28px', fontSize: '13px', transition: 'color 0.3s', color: inHero || theme === 'dark' ? '#f5f4f1' : '#100f0d' }}>
               <a href="#vision">Vision</a>
-              <a href="#capacities">Fonctionalités</a>
               <a href="#season">Saison 26/27</a>
+              <a href="#join">Contact</a>
             </nav>
           )}
         </div>
@@ -60,8 +60,8 @@ export default function Header() {
             style={{
               display: 'inline-flex', alignItems: 'center', gap: '6px',
               background: 'transparent', border: '1px solid var(--line-2)',
-              color: 'var(--fg-2)', padding: mobile ? '8px 10px' : '10px 14px',
-              fontSize: '11px', borderRadius: '999px', transition: 'all 0.2s', cursor: 'pointer',
+              color: inHero || theme === 'dark' ? '#f5f4f1' : '#100f0d', padding: mobile ? '8px 10px' : '10px 14px',
+              fontSize: '11px', borderRadius: '999px', transition: 'color 0.3s, border-color 0.3s', cursor: 'pointer',
             }}
           >
             {theme === 'dark' ? '☀️' : '🌙'}
