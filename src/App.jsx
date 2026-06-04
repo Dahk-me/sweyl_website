@@ -1,4 +1,5 @@
 import React from 'react'
+import { Analytics } from '@vercel/analytics/react'
 import { ThemeProvider } from './contexts/theme'
 import CountdownBar from './components/sections/CountdownBar'
 import Header from './components/sections/Header'
@@ -42,6 +43,7 @@ export default function App() {
   return (
     <ThemeProvider>
       <Page />
+      <Analytics />
     </ThemeProvider>
   )
 }
