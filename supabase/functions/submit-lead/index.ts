@@ -1,4 +1,4 @@
-import { createClient } from 'https://esm.sh/@supabase/supabase-js@2'
+import postgres from 'https://deno.land/x/postgresjs/mod.js'
 
 const CORS = {
   'Access-Control-Allow-Origin': '*',
@@ -17,13 +17,13 @@ Deno.serve(async (req) => {
       })
     }
 
-    // Stockage en base
-    const supabase = createClient(
-      Deno.env.get('SUPABASE_URL')!,
-      Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')!,
-    )
-    const { error: dbError } = await supabase.schema('s_lead').from('leads').insert({ name, email, club, role, message })
-    if (dbError) throw new Error(`DB: ${dbError.message}`)
+    // Stockage direct en base — bypass PostgREST, schéma custom sans config
+    const sql = postgres(Deno.env.get('SUPABASE_DB_URL')!, { prepare: false })
+    await sql`
+      INSERT INTO s_lead.leads (name, email, club, role, message)
+      VALUES (${name}, ${email}, ${club}, ${role}, ${message ?? null})
+    `
+    await sql.end()
 
     // Envoi email via Mailjet
     const mjKey = Deno.env.get('MAILJET_API_KEY')!
