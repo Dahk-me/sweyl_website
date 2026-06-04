@@ -9,7 +9,7 @@ const actions = [
 export default function Community() {
   const mobile = useMobile()
   return (
-    <section id="community" style={{ padding: mobile ? '80px 0' : '120px 0', background: 'var(--orange)', color: '#000', position: 'relative', overflow: 'hidden' }}>
+    <section id="community" style={{ padding: mobile ? '80px 0' : '120px 0', background: 'var(--primary)', color: '#000', position: 'relative', overflow: 'hidden' }}>
       <div style={{ position: 'absolute', inset: 0, background: 'repeating-linear-gradient(-45deg, transparent, transparent 60px, rgba(0,0,0,0.04) 60px, rgba(0,0,0,0.04) 62px)', pointerEvents: 'none' }} />
       <div style={{ position: 'relative', maxWidth: '1440px', margin: '0 auto', padding: mobile ? '0 20px' : '0 32px' }}>
         <h2 className="display" style={{ fontSize: mobile ? 'clamp(56px, 18vw, 100px)' : 'clamp(72px, 14vw, 220px)', lineHeight: 0.85, marginBottom: '40px' }}>
@@ -28,7 +28,7 @@ export default function Community() {
             {actions.map(([t, p]) => (
               <div key={t} style={{ background: '#000', padding: mobile ? '14px 12px' : '18px 20px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                 <span className="display" style={{ fontSize: mobile ? 'clamp(13px, 4vw, 18px)' : '22px', color: '#fff' }}>{t}</span>
-                <span className="display" style={{ fontSize: mobile ? 'clamp(13px, 4vw, 18px)' : '22px', color: 'var(--orange)' }}>{p}</span>
+                <span className="display" style={{ fontSize: mobile ? 'clamp(13px, 4vw, 18px)' : '22px', color: 'var(--primary)' }}>{p}</span>
               </div>
             ))}
           </div>

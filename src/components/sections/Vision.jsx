@@ -15,7 +15,7 @@ const Card = ({ p, mobile }) => (
   <div style={{ borderRadius: '8px', overflow: 'hidden', background: 'var(--bg-2)', border: '1px solid var(--line)', display: 'flex', flexDirection: 'column', height: '100%' }}>
     <img src={p.img} alt={p.title} style={{ width: '100%', height: '350px', flexShrink: 0, objectFit: 'cover', display: 'block' }} />
     <div style={{ padding: mobile ? '20px' : '24px', flex: 1 }}>
-      <div className="mono" style={{ fontSize: '10px', color: 'var(--orange)', letterSpacing: '0.18em', marginBottom: '10px' }}>{p.n}</div>
+      <div className="mono" style={{ fontSize: '10px', color: 'var(--primary)', letterSpacing: '0.18em', marginBottom: '10px' }}>{p.n}</div>
       <div className="display-narrow" style={{ fontSize: '22px', marginBottom: '8px' }}>{p.title}</div>
       <div style={{ fontSize: '13px', color: 'var(--fg-3)', lineHeight: 1.55 }}>{p.desc}</div>
     </div>
@@ -36,7 +36,7 @@ export default function Vision() {
           <div style={{ position: mobile ? 'static' : 'sticky', top: '120px' }}>
             <div className="eyebrow" style={{ marginBottom: '20px', fontSize: mobile ? '11px' : '13px' }}>—— La vision</div>
             <h2 className="display" style={{ fontSize: mobile ? 'clamp(36px, 10vw, 56px)' : 'clamp(48px, 6vw, 88px)', marginBottom: mobile ? '0' : '28px' }}>
-              On ne mesure pas<br />seulement<br /> des<span style={{ color: 'var(--orange)' }}> points</span>.
+              On ne mesure pas<br />seulement<br /> des<span style={{ color: 'var(--primary)' }}> points</span>.
             </h2>
           </div>
 

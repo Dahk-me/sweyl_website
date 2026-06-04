@@ -5,7 +5,7 @@ import { useMobile } from '../../hooks/useMobile'
 const FormField = ({ label, type = 'text', value, onChange, required }) => (
   <div>
     <label className="mono" style={{ fontSize: '10px', color: 'var(--fg-3)', letterSpacing: '0.15em', marginBottom: '8px', display: 'block' }}>
-      {label.toUpperCase()}{required && <span style={{ color: 'var(--orange)' }}> *</span>}
+      {label.toUpperCase()}{required && <span style={{ color: 'var(--primary)' }}> *</span>}
     </label>
     <input
       type={type} value={value} onChange={e => onChange(e.target.value)} required={required}
@@ -41,7 +41,7 @@ export default function Lead() {
           <div style={mobile ? {} : { position: 'sticky', top: '120px' }}>
             <div className="eyebrow" style={{ marginBottom: '20px', fontSize: mobile ? '11px' : '13px' }}>—— Réserver une démo</div>
             <h2 className="display" style={{ fontSize: mobile ? 'clamp(36px, 10vw, 56px)' : 'clamp(48px, 6vw, 80px)' }}>
-              Voyons ensemble<br />ce que <span style={{ color: 'var(--orange)' }}>SWEYL</span><br />peut faire pour<br />votre <span style={{ color: 'var(--orange)' }}>club</span>.
+              Voyons ensemble<br />ce que <span style={{ color: 'var(--primary)' }}>SWEYL</span><br />peut faire pour<br />votre <span style={{ color: 'var(--primary)' }}>club</span>.
             </h2>
           </div>
 
@@ -50,7 +50,7 @@ export default function Lead() {
               <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', marginBottom: '40px' }}>
                 {perks.map(h => (
                   <div key={h} style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
-                    <div style={{ width: '24px', height: '24px', border: '1px solid var(--orange)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--orange)', flexShrink: 0 }}>
+                    <div style={{ width: '24px', height: '24px', border: '1px solid var(--primary)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--primary)', flexShrink: 0 }}>
                       <IconCheck size={12} stroke={2} />
                     </div>
                     <span style={{ fontSize: '14px', color: 'var(--fg)' }}>{h}</span>
@@ -60,7 +60,7 @@ export default function Lead() {
             <form onSubmit={handleSubmit} style={{ background: 'var(--bg-3)', border: '1px solid var(--line)', padding: mobile ? '24px 20px' : '40px', borderRadius: '4px' }}>
             {sent ? (
               <div style={{ textAlign: 'center', padding: '40px 0' }}>
-                <div style={{ width: '64px', height: '64px', border: '1px solid var(--orange)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 24px', color: 'var(--orange)' }}>
+                <div style={{ width: '64px', height: '64px', border: '1px solid var(--primary)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 24px', color: 'var(--primary)' }}>
                   <IconCheck size={28} stroke={2} />
                 </div>
                 <div className="display" style={{ fontSize: '40px', marginBottom: '12px' }}>Reçu.</div>
@@ -68,7 +68,7 @@ export default function Lead() {
               </div>
             ) : (
               <>
-                <div className="mono" style={{ fontSize: '10px', color: 'var(--orange)', letterSpacing: '0.18em', marginBottom: '20px' }}>—— FORMULAIRE QUALIFIÉ</div>
+                <div className="mono" style={{ fontSize: '10px', color: 'var(--primary)', letterSpacing: '0.18em', marginBottom: '20px' }}>—— FORMULAIRE QUALIFIÉ</div>
 
                 {/* Name + Email — stacked on mobile */}
                 <div style={{ display: 'grid', gridTemplateColumns: mobile ? '1fr' : '1fr 1fr', gap: '14px', marginBottom: '14px' }}>
@@ -85,7 +85,7 @@ export default function Lead() {
                   <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: '8px' }}>
                     {[['president', 'Président'], ['coach', 'Coach'], ['other', 'Autre']].map(([k, l]) => (
                       <button type="button" key={k} onClick={() => setForm({ ...form, role: k })}
-                        style={{ padding: '12px 8px', border: '1px solid ' + (form.role === k ? 'var(--orange)' : 'var(--line)'), background: form.role === k ? 'rgba(255,102,0,0.08)' : 'transparent', color: form.role === k ? 'var(--orange)' : 'var(--fg-2)', fontSize: '12px', borderRadius: '2px', transition: 'all 0.15s', cursor: 'pointer' }}>
+                        style={{ padding: '12px 8px', border: '1px solid ' + (form.role === k ? 'var(--primary)' : 'var(--line)'), background: form.role === k ? 'color-mix(in srgb, var(--primary) 8%, transparent)' : 'transparent', color: form.role === k ? 'var(--primary)' : 'var(--fg-2)', fontSize: '12px', borderRadius: '2px', transition: 'all 0.15s', cursor: 'pointer' }}>
                         {l}
                       </button>
                     ))}

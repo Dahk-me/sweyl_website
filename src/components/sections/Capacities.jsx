@@ -21,7 +21,7 @@ export default function Capacities() {
           <div style={{ position: mobile ? 'static' : 'sticky', top: '120px' }}>
             <div className="eyebrow" style={{ marginBottom: '20px', fontSize: mobile ? '11px' : '13px' }}>—— Capacités produit</div>
             <h2 className="display" style={{ fontSize: mobile ? 'clamp(36px, 10vw, 56px)' : 'clamp(48px, 6vw, 88px)' }}>
-              Tout ce dont<br />le club <span style={{ color: 'var(--orange)' }}>a besoin.</span>
+              Tout ce dont<br />le club <span style={{ color: 'var(--primary)' }}>a besoin.</span>
             </h2>
           </div>
 
@@ -33,7 +33,7 @@ export default function Capacities() {
             <div style={{ display: 'grid', gridTemplateColumns: mobile ? '1fr' : 'repeat(2,1fr)', gap: '1px', background: 'var(--line)', border: '1px solid var(--line)' }}>
               {caps.map(c => (
                 <div key={c.n} style={{ background: 'var(--bg)', padding: mobile ? '24px 20px' : '28px 24px', minHeight: mobile ? 'auto' : '160px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', gap: '16px' }}>
-                  <div className="mono" style={{ fontSize: '10px', color: 'var(--orange)', letterSpacing: '0.2em' }}>{c.n} / 06</div>
+                  <div className="mono" style={{ fontSize: '10px', color: 'var(--primary)', letterSpacing: '0.2em' }}>{c.n} / 06</div>
                   <div>
                     <div className="display-narrow" style={{ fontSize: mobile ? '17px' : '20px', marginBottom: '6px' }}>{c.t}</div>
                     <p style={{ fontSize: '13px', color: 'var(--fg-3)', lineHeight: 1.55 }}>{c.d}</p>

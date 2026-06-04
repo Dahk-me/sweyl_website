@@ -19,7 +19,7 @@ export default function FAQ() {
       <div style={{ maxWidth: '980px', margin: '0 auto', padding: mobile ? '0 20px' : '0 32px' }}>
         <div className="eyebrow" style={{ marginBottom: '20px', fontSize: mobile ? '11px' : '13px' }}>—— FAQ</div>
         <h2 className="display" style={{ fontSize: mobile ? 'clamp(36px, 10vw, 56px)' : 'clamp(48px, 6vw, 80px)', marginBottom: '36px' }}>
-          Questions <span style={{ color: 'var(--orange)' }}>fréquentes.</span>
+          Questions <span style={{ color: 'var(--primary)' }}>fréquentes.</span>
         </h2>
         {faqs.map((f, i) => (
           <div key={i} style={{ borderTop: '1px solid var(--line)', borderBottom: i === faqs.length - 1 ? '1px solid var(--line)' : 'none' }}>
@@ -28,7 +28,7 @@ export default function FAQ() {
               style={{ width: '100%', display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '18px 0', textAlign: 'left', gap: '16px', cursor: 'pointer' }}
             >
               <span style={{ fontSize: mobile ? '14px' : '17px', fontWeight: 500, lineHeight: 1.4 }}>{f.q}</span>
-              <span style={{ color: 'var(--orange)', transition: 'transform 0.2s', transform: open === i ? 'rotate(45deg)' : 'rotate(0deg)', flexShrink: 0 }}>
+              <span style={{ color: 'var(--primary)', transition: 'transform 0.2s', transform: open === i ? 'rotate(45deg)' : 'rotate(0deg)', flexShrink: 0 }}>
                 <IconPlus size={mobile ? 18 : 20} />
               </span>
             </button>

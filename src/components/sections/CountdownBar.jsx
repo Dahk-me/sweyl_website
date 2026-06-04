@@ -21,7 +21,7 @@ export default function CountdownBar() {
   const t = useCountdown('2026-09-05T00:00:00')
 
   return (
-    <div style={{ position: 'fixed', top: 0, left: 0, right: 0, zIndex: 52, background: 'var(--orange)', height: '36px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+    <div style={{ position: 'fixed', top: 0, left: 0, right: 0, zIndex: 52, background: 'var(--primary)', height: '36px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
       <div style={{ display: 'flex', alignItems: 'center', gap: mobile ? '8px' : '12px', padding: '0 16px' }}>
         <span className="mono" style={{ fontSize: mobile ? '9px' : '11px', fontWeight: 600, letterSpacing: '0.10em', color: '#000', whiteSpace: 'nowrap' }}>
           {'DEBUT DE LA SAISON DANS'}

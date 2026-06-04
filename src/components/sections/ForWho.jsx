@@ -94,7 +94,7 @@ const AnimatedCard = ({ c, i, mobile, progress, popInY, cardRef }) => {
         }}
       >
         <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '16px' }}>
-          <span className="mono" style={{ fontSize: '11px', letterSpacing: '0.18em', textTransform: 'uppercase', color: 'var(--orange)' }}>{c.tag} • {c.label}</span>
+          <span className="mono" style={{ fontSize: '11px', letterSpacing: '0.18em', textTransform: 'uppercase', color: 'var(--primary)' }}>{c.tag} • {c.label}</span>
         </div>
 
         <h3 className="display" style={{ fontSize: mobile ? 'clamp(48px, 15vw, 68px)' : 'clamp(56px, 7vw, 88px)', color: 'var(--fg)', marginBottom: '16px', lineHeight: 0.9 }}>
@@ -108,7 +108,7 @@ const AnimatedCard = ({ c, i, mobile, progress, popInY, cardRef }) => {
         <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '8px', marginBottom: '20px' }}>
           {c.highlights.map(h => (
             <li key={h} style={{ display: 'flex', alignItems: 'center', gap: '10px', fontSize: '13px', color: 'var(--fg-3)' }}>
-              <span style={{ width: '16px', height: '1px', background: 'var(--orange)', flexShrink: 0 }} />
+              <span style={{ width: '16px', height: '1px', background: 'var(--primary)', flexShrink: 0 }} />
               {h}
             </li>
           ))}
@@ -173,7 +173,7 @@ export default function ForWho() {
     <>
       <div className="eyebrow" style={{ marginBottom: '20px', fontSize: mobile ? '11px' : '13px' }}>—— Pour qui</div>
       <h2 className="display" style={{ fontSize: mobile ? 'clamp(36px, 10vw, 56px)' : 'clamp(48px, 6vw, 88px)', marginBottom: '24px' }}>
-        Conçu pour<br />tous <span style={{ color: 'var(--orange)' }}>les acteurs</span><br />du terrain.
+        Conçu pour<br />tous <span style={{ color: 'var(--primary)' }}>les acteurs</span><br />du terrain.
       </h2>
       <p style={{ fontSize: mobile ? '14px' : '15px', color: 'var(--fg-2)', maxWidth: '400px', lineHeight: 1.6 }}>
         Coach, joueur ou dirigeant, SWEYL s&apos;adapte à votre rôle et à votre saison.

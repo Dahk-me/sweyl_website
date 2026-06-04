@@ -24,17 +24,17 @@ export default function Season() {
 
   return (
     <section id="season" style={{ padding: mobile ? '80px 0' : '140px 0', position: 'relative', background: 'var(--bg)' }}>
-      <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(ellipse at 80% 50%, rgba(255,102,0,0.08), transparent 60%)', pointerEvents: 'none' }} />
+      <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(ellipse at 80% 50%, color-mix(in srgb, var(--primary) 8%, transparent), transparent 60%)', pointerEvents: 'none' }} />
       <div style={{ position: 'relative', maxWidth: '1280px', margin: '0 auto', padding: mobile ? '0 20px' : '0 32px' }}>
         <div style={{ display: 'grid', gridTemplateColumns: mobile ? '1fr' : '1fr 1fr', gap: mobile ? '40px' : '80px', alignItems: 'start' }}>
 
           {/* Left — sticky title */}
           <div style={mobile ? {} : { position: 'sticky', top: '120px' }}>
-            <div className="mono" style={{ fontSize: '10px', color: 'var(--orange)', letterSpacing: '0.2em', marginBottom: '20px', display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <div className="mono" style={{ fontSize: '10px', color: 'var(--primary)', letterSpacing: '0.2em', marginBottom: '20px', display: 'flex', alignItems: 'center', gap: '8px' }}>
               <span className="live-dot" />SAISON 2026 / 2027 · INSCRIPTIONS OUVERTES
             </div>
             <h2 className="display" style={{ fontSize: mobile ? 'clamp(38px, 11vw, 64px)' : 'clamp(48px, 6vw, 96px)' }}>
-              Début de <br /><span style={{ color: 'var(--orange)' }}>la saison</span><br />dans
+              Début de <br /><span style={{ color: 'var(--primary)' }}>la saison</span><br />dans
             </h2>
           </div>
 
@@ -55,7 +55,7 @@ export default function Season() {
             <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
               {roadmap.map(([m, txt]) => (
                 <div key={m} style={{ display: 'grid', gridTemplateColumns: '70px 1fr', gap: '16px', alignItems: 'center', paddingBottom: '12px', borderBottom: '1px solid var(--line)' }}>
-                  <span className="mono" style={{ fontSize: '10px', color: 'var(--orange)', letterSpacing: '0.18em' }}>{m}</span>
+                  <span className="mono" style={{ fontSize: '10px', color: 'var(--primary)', letterSpacing: '0.18em' }}>{m}</span>
                   <span style={{ fontSize: '13px', color: 'var(--fg-2)' }}>{txt}</span>
                 </div>
               ))}

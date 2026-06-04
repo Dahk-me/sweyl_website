@@ -57,12 +57,12 @@ export const LiveScoreboard = ({ animate = true }) => {
       <div style={{ display: 'grid', gridTemplateColumns: '1fr auto 1fr', gap: '8px', alignItems: 'center' }}>
         <div style={{ textAlign: 'center' }}>
           <div style={{ fontSize: '11px', color: 'var(--fg-3)', marginBottom: '4px', letterSpacing: '0.1em' }}>ABGR</div>
-          <div className="display" style={{ fontSize: 'clamp(36px, 10vw, 72px)', color: home > away ? 'var(--orange)' : 'var(--fg)', transition: 'color 0.4s' }}>{home}</div>
+          <div className="display" style={{ fontSize: 'clamp(36px, 10vw, 72px)', color: home > away ? 'var(--primary)' : 'var(--fg)', transition: 'color 0.4s' }}>{home}</div>
         </div>
         <div className="display" style={{ fontSize: 'clamp(14px, 4vw, 24px)', color: 'var(--fg-4)', padding: '0 4px' }}>—</div>
         <div style={{ textAlign: 'center' }}>
           <div style={{ fontSize: '11px', color: 'var(--fg-3)', marginBottom: '4px', letterSpacing: '0.1em' }}>RUC</div>
-          <div className="display" style={{ fontSize: 'clamp(36px, 10vw, 72px)', color: away > home ? 'var(--orange)' : 'var(--fg)', transition: 'color 0.4s' }}>{away}</div>
+          <div className="display" style={{ fontSize: 'clamp(36px, 10vw, 72px)', color: away > home ? 'var(--primary)' : 'var(--fg)', transition: 'color 0.4s' }}>{away}</div>
         </div>
       </div>
       <div style={{ marginTop: '12px', paddingTop: '10px', borderTop: '1px solid var(--line)', display: 'flex', justifyContent: 'space-between', fontSize: '10px', color: 'var(--fg-3)', letterSpacing: '0.1em', flexWrap: 'wrap', gap: '4px' }}>
@@ -106,7 +106,7 @@ export const LiveScoreboard = ({ animate = true }) => {
 
 export const PlayerCard = () => (
   <div style={{ width: '100%', background: 'var(--bg-2)', border: '1px solid var(--line)', borderRadius: '4px', padding: '20px', position: 'relative', overflow: 'hidden', boxSizing: 'border-box' }}>
-    <div style={{ position: 'absolute', top: 0, right: 0, width: '100px', height: '100px', background: 'radial-gradient(circle at top right, rgba(255,102,0,0.18), transparent 70%)' }} />
+    <div style={{ position: 'absolute', top: 0, right: 0, width: '100px', height: '100px', background: 'radial-gradient(circle at top right, color-mix(in srgb, var(--primary) 18%, transparent), transparent 70%)' }} />
     <div style={{ display: 'flex', gap: '12px', marginBottom: '16px', alignItems: 'flex-end', position: 'relative', flexWrap: 'wrap' }}>
       <div className="placeholder" style={{ width: '56px', height: '56px', borderRadius: '4px', flexShrink: 0 }}>
         <span className="label" style={{ fontSize: '8px' }}>PHOTO</span>
@@ -117,7 +117,7 @@ export const PlayerCard = () => (
       </div>
       <div style={{ textAlign: 'right', flexShrink: 0 }}>
         <div className="mono" style={{ fontSize: '9px', color: 'var(--fg-3)', letterSpacing: '0.12em' }}>SAISON</div>
-        <div className="display" style={{ fontSize: 'clamp(24px, 6vw, 40px)', color: 'var(--orange)', lineHeight: 1 }}>18.4</div>
+        <div className="display" style={{ fontSize: 'clamp(24px, 6vw, 40px)', color: 'var(--primary)', lineHeight: 1 }}>18.4</div>
         <div className="mono" style={{ fontSize: '8px', color: 'var(--fg-4)', letterSpacing: '0.1em' }}>PTS / MATCH</div>
       </div>
     </div>
@@ -136,13 +136,13 @@ export const PlayerCard = () => (
       </div>
       <svg viewBox="0 0 240 50" style={{ width: '100%', height: '50px' }}>
         <polyline points="0,38 20,32 40,36 60,28 80,30 100,22 120,26 140,18 160,20 180,12 200,16 220,8 240,10"
-          fill="none" stroke="var(--orange)" strokeWidth="1.5" />
+          fill="none" stroke="var(--primary)" strokeWidth="1.5" />
         <polyline points="0,38 20,32 40,36 60,28 80,30 100,22 120,26 140,18 160,20 180,12 200,16 220,8 240,10 240,50 0,50"
           fill="url(#g1)" opacity="0.3" />
         <defs>
           <linearGradient id="g1" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0" stopColor="var(--orange)" />
-            <stop offset="1" stopColor="var(--orange)" stopOpacity="0" />
+            <stop offset="0" stopColor="var(--primary)" />
+            <stop offset="1" stopColor="var(--primary)" stopOpacity="0" />
           </linearGradient>
         </defs>
       </svg>
@@ -162,7 +162,7 @@ export const CalendarWidget = () => {
     <div style={{ width: '100%', background: 'var(--bg-2)', border: '1px solid var(--line)', borderRadius: '4px', padding: '16px', boxSizing: 'border-box', overflow: 'hidden' }}>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '12px', flexWrap: 'wrap', gap: '4px' }}>
         <span className="mono" style={{ fontSize: '10px', color: 'var(--fg-3)', letterSpacing: '0.15em' }}>CALENDRIER · NM3</span>
-        <span className="mono" style={{ fontSize: '9px', color: 'var(--orange)', letterSpacing: '0.12em' }}>FFBB · SYNC AUTO</span>
+        <span className="mono" style={{ fontSize: '9px', color: 'var(--primary)', letterSpacing: '0.12em' }}>FFBB · SYNC AUTO</span>
       </div>
       <div>
         {matches.map((m, i) => (
@@ -194,11 +194,11 @@ export const PointsLeaderboard = () => {
     <div style={{ width: '100%', background: 'var(--bg-2)', border: '1px solid var(--line)', borderRadius: '4px', padding: '16px', boxSizing: 'border-box' }}>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '10px', flexWrap: 'wrap', gap: '4px' }}>
         <span className="mono" style={{ fontSize: '10px', color: 'var(--fg-3)', letterSpacing: '0.15em' }}>HÉROS DU CLUB · OCT</span>
-        <span className="mono" style={{ fontSize: '9px', color: 'var(--orange)', letterSpacing: '0.12em' }}>+ 4 RÉCOMPENSES</span>
+        <span className="mono" style={{ fontSize: '9px', color: 'var(--primary)', letterSpacing: '0.12em' }}>+ 4 RÉCOMPENSES</span>
       </div>
       {players.map((p, i) => (
         <div key={i} style={{ display: 'grid', gridTemplateColumns: '20px 1fr auto auto', gap: '10px', alignItems: 'center', padding: '9px 0', borderTop: i ? '1px solid var(--line)' : 'none' }}>
-          <span className="display" style={{ fontSize: '15px', color: i === 0 ? 'var(--orange)' : 'var(--fg-4)' }}>{i + 1}</span>
+          <span className="display" style={{ fontSize: '15px', color: i === 0 ? 'var(--primary)' : 'var(--fg-4)' }}>{i + 1}</span>
           <div style={{ overflow: 'hidden' }}>
             <div style={{ fontSize: '13px', fontWeight: 500, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{p.n}</div>
             <div className="mono" style={{ fontSize: '8px', color: 'var(--fg-3)', letterSpacing: '0.1em', marginTop: '2px' }}>{p.role.toUpperCase()}</div>

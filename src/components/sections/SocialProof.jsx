@@ -174,7 +174,7 @@ function StatCell({ value, label, mobile }) {
   const [count, ref] = useCountUp(num)
   return (
     <div ref={ref} style={{ background: 'var(--bg-2)', padding: mobile ? '28px 20px' : '40px 32px', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', textAlign: 'center' }}>
-      <div className="mono" style={{ fontSize: '10px', color: 'var(--orange)', letterSpacing: '0.18em', marginBottom: '8px', whiteSpace: 'nowrap' }}>★ {label}</div>
+      <div className="mono" style={{ fontSize: '10px', color: 'var(--primary)', letterSpacing: '0.18em', marginBottom: '8px', whiteSpace: 'nowrap' }}>★ {label}</div>
       <div className="display" style={{ fontSize: mobile ? 'clamp(48px,13vw,72px)' : 'clamp(64px,6vw,96px)', color: 'var(--fg)', lineHeight: 0.9, fontVariantNumeric: 'tabular-nums' }}>
         {count}{suffix}
       </div>
@@ -225,7 +225,7 @@ export default function SocialProof() {
     <>
       <div className="eyebrow" style={{ marginBottom: '16px', fontSize: mobile ? '11px' : '13px' }}>—— Ils nous font confiance</div>
       <h2 className="display" style={{ fontSize: mobile ? 'clamp(28px, 8vw, 48px)' : 'clamp(36px, 4vw, 64px)', maxWidth: '700px', lineHeight: 1 }}>
-        L'<span style={{ color: 'var(--orange)' }}>exigence</span> mène à l'<span style={{ color: 'var(--orange)' }}>excellence</span>, ils l'ont déjà compris.
+        L'<span style={{ color: 'var(--primary)' }}>exigence</span> mène à l'<span style={{ color: 'var(--primary)' }}>excellence</span>, ils l'ont déjà compris.
       </h2>
     </>
   )
