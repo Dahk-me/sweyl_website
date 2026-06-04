@@ -301,34 +301,29 @@ export default function SocialProof() {
     )
   }
 
-  // ─── Desktop: sticky heading on the left, content on the right ───
+  // ─── Desktop: content LEFT 65%, sticky heading RIGHT 35% ───
   return (
     <section style={{ padding: '80px 0', background: 'var(--bg-2)' }}>
       <div
         data-reveal
         style={{
           display: 'grid',
-          gridTemplateColumns: 'minmax(0, 1fr) minmax(0, 1fr)',
-          maxWidth: '1440px',
+          gridTemplateColumns: 'minmax(0, 65fr) minmax(0, 35fr)',
+          maxWidth: '1300px',
           margin: '0 auto',
         }}
       >
-        {/* Outer cell stretches to row height — inner sticky stays until section ends */}
-        <div>
-          <div
-            style={{
-              position: 'sticky',
-              top: headerH,
-              padding: '0 52px',
-            }}
-          >
-            {heading}
-          </div>
-        </div>
-        <div style={{ paddingRight: '32px' }}>
+        {/* Left 65% — stats + logos + sponsors */}
+        <div style={{ paddingLeft: '32px' }}>
           {statsBlock}
           {logosBlock}
           {sponsorsBlock}
+        </div>
+        {/* Right 35% — sticky heading */}
+        <div>
+          <div style={{ position: 'sticky', top: headerH, padding: '0 52px' }}>
+            {heading}
+          </div>
         </div>
       </div>
     </section>

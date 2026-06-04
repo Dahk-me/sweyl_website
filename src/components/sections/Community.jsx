@@ -11,7 +11,7 @@ export default function Community() {
   return (
     <section id="community" style={{ padding: mobile ? '80px 0' : '120px 0', background: 'var(--primary)', color: '#000', position: 'relative', overflow: 'hidden' }}>
       <div style={{ position: 'absolute', inset: 0, background: 'repeating-linear-gradient(-45deg, transparent, transparent 60px, rgba(0,0,0,0.04) 60px, rgba(0,0,0,0.04) 62px)', pointerEvents: 'none' }} />
-      <div style={{ position: 'relative', maxWidth: '1440px', margin: '0 auto', padding: mobile ? '0 20px' : '0 32px' }}>
+      <div style={{ position: 'relative', maxWidth: '1300px', margin: '0 auto', padding: mobile ? '0 20px' : '0 32px' }}>
         <h2 className="display" style={{ fontSize: mobile ? 'clamp(56px, 18vw, 100px)' : 'clamp(72px, 14vw, 220px)', lineHeight: 0.85, marginBottom: '40px' }}>
           POINTS<br />CLUB ★
         </h2>

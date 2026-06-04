@@ -15,7 +15,7 @@ export default function Footer() {
 
   return (
     <footer style={{ borderTop: '1px solid var(--line)', padding: mobile ? '48px 0 28px' : '56px 0 36px' }}>
-      <div style={{ maxWidth: '1280px', margin: '0 auto', padding: mobile ? '0 20px' : '0 32px' }}>
+      <div style={{ maxWidth: '1300px', margin: '0 auto', padding: mobile ? '0 20px' : '0 32px' }}>
         {mobile ? (
           /* Mobile layout: logo full width, then 3 cols 3 */
           <div style={{ marginBottom: '40px' }}>

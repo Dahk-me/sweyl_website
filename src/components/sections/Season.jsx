@@ -25,8 +25,8 @@ export default function Season() {
   return (
     <section id="season" style={{ padding: mobile ? '80px 0' : '140px 0', position: 'relative', background: 'var(--bg)' }}>
       <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(ellipse at 80% 50%, color-mix(in srgb, var(--primary) 8%, transparent), transparent 60%)', pointerEvents: 'none' }} />
-      <div style={{ position: 'relative', maxWidth: '1280px', margin: '0 auto', padding: mobile ? '0 20px' : '0 32px' }}>
-        <div style={{ display: 'grid', gridTemplateColumns: mobile ? '1fr' : '1fr 1fr', gap: mobile ? '40px' : '80px', alignItems: 'start' }}>
+      <div style={{ position: 'relative', maxWidth: '1300px', margin: '0 auto', padding: mobile ? '0 20px' : '0 32px' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: mobile ? '1fr' : '35fr 65fr', gap: mobile ? '40px' : '80px', alignItems: 'flex-start' }}>
 
           {/* Left — sticky title */}
           <div style={mobile ? {} : { position: 'sticky', top: '120px' }}>

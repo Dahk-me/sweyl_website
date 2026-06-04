@@ -78,7 +78,7 @@ const AnimatedCard = ({ c, i, mobile, progress, popInY, cardRef }) => {
         position: 'absolute',
         top: i * PEEK,
         left: mobile ? 16 : 0,
-        right: mobile ? 16 : 52,
+        right: mobile ? 16 : 0,
         y,
         scale,
         transformOrigin: 'top',
@@ -258,29 +258,31 @@ export default function ForWho() {
         height: `${SCROLL_HEIGHT_VH}vh`,
         background: 'var(--bg-2)',
         borderTop: '1px solid var(--line)',
-        display: 'grid',
-        gridTemplateColumns: '1fr 1fr',
       }}
     >
-      <div
-        style={{
-          position: 'sticky',
-          top: headerH,
-          alignSelf: 'start',
-          padding: '80px 52px 0',
-        }}
-      >
-        {intro}
-      </div>
-      <div
-        style={{
-          position: 'sticky',
-          top: headerH,
-          height: `calc(100vh - ${headerH}px)`,
-          alignSelf: 'start',
-        }}
-      >
-        {cards}
+      <div style={{ maxWidth: '1300px', margin: '0 auto', height: '100%', display: 'grid', gridTemplateColumns: '65fr 35fr' }}>
+        {/* Cards — LEFT 65% */}
+        <div
+          style={{
+            position: 'sticky',
+            top: headerH,
+            height: `calc(100vh - ${headerH}px)`,
+            alignSelf: 'start',
+          }}
+        >
+          {cards}
+        </div>
+        {/* Intro — RIGHT 35%, sticky */}
+        <div
+          style={{
+            position: 'sticky',
+            top: headerH,
+            alignSelf: 'start',
+            padding: '80px 52px 0',
+          }}
+        >
+          {intro}
+        </div>
       </div>
     </section>
   )

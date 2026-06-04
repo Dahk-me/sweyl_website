@@ -30,7 +30,7 @@ export default function Header() {
         alignItems: 'center',
         height: mobile ? '56px' : '72px',
         padding: mobile ? '0 20px' : '0 32px',
-        maxWidth: '1280px',
+        maxWidth: '1300px',
         margin: '0 auto',
         gap: '16px',
       }}>

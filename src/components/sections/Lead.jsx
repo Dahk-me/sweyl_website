@@ -34,19 +34,19 @@ export default function Lead() {
 
   return (
     <section id="join" style={{ padding: mobile ? '80px 0' : '140px 0', background: 'var(--bg-2)' }}>
-      <div style={{ maxWidth: '1280px', margin: '0 auto', padding: mobile ? '0 20px' : '0 32px' }}>
-        <div style={{ display: 'grid', gridTemplateColumns: mobile ? '1fr' : '1fr 1.1fr', gap: mobile ? '48px' : '80px', alignItems: 'start' }}>
+      <div style={{ maxWidth: '1300px', margin: '0 auto', padding: mobile ? '0 20px' : '0 32px' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: mobile ? '1fr' : '65fr 35fr', gap: mobile ? '48px' : '80px', alignItems: 'flex-start' }}>
 
-          {/* Left — sticky title */}
-          <div style={mobile ? {} : { position: 'sticky', top: '120px' }}>
+          {/* DOM first → mobile: title first. Desktop: order:2 → RIGHT 35%, sticky */}
+          <div style={mobile ? {} : { order: 2, position: 'sticky', top: '120px' }}>
             <div className="eyebrow" style={{ marginBottom: '20px', fontSize: mobile ? '11px' : '13px' }}>—— Réserver une démo</div>
             <h2 className="display" style={{ fontSize: mobile ? 'clamp(36px, 10vw, 56px)' : 'clamp(48px, 6vw, 80px)' }}>
               Voyons ensemble<br />ce que <span style={{ color: 'var(--primary)' }}>SWEYL</span><br />peut faire pour<br />votre <span style={{ color: 'var(--primary)' }}>club</span>.
             </h2>
           </div>
 
-          {/* Right — text + form */}
-          <div>
+          {/* DOM second → mobile: content below. Desktop: order:1 → LEFT 65% */}
+          <div style={mobile ? {} : { order: 1 }}>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', marginBottom: '40px' }}>
                 {perks.map(h => (
                   <div key={h} style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
