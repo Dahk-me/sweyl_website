@@ -1,6 +1,7 @@
 import React from 'react'
 import { IconArrow, IconCheck } from '../Icons'
 import { useMobile } from '../../hooks/useMobile'
+import { supabase } from '../../lib/supabase'
 
 const FormField = ({ label, type = 'text', value, onChange, required }) => (
   <div>
@@ -25,11 +26,22 @@ export default function Lead() {
   const mobile = useMobile()
   const [form, setForm] = React.useState({ name: '', email: '', club: '', role: 'president', message: '' })
   const [sent, setSent] = React.useState(false)
+  const [loading, setLoading] = React.useState(false)
+  const [error, setError] = React.useState(null)
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    // TODO: POST to backend or Formspree endpoint
-    setSent(true)
+    setLoading(true)
+    setError(null)
+    try {
+      const { error } = await supabase.functions.invoke('submit-lead', { body: form })
+      if (error) throw error
+      setSent(true)
+    } catch {
+      setError('Une erreur est survenue. Réessaie ou écris-nous directement à contact@sweyl.com')
+    } finally {
+      setLoading(false)
+    }
   }
 
   return (
@@ -100,9 +112,10 @@ export default function Lead() {
                   </div>
                 )}
 
-                <button type="submit" className="btn-primary" style={{ width: '100%', justifyContent: 'center', padding: '16px', marginTop: '4px' }}>
-                  Envoyer ma demande<IconArrow size={14} />
+                <button type="submit" disabled={loading} className="btn-primary" style={{ width: '100%', justifyContent: 'center', padding: '16px', marginTop: '4px', opacity: loading ? 0.7 : 1 }}>
+                  {loading ? 'Envoi en cours…' : <>'Envoyer ma demande'<IconArrow size={14} /></>}
                 </button>
+                {error && <p style={{ fontSize: '12px', color: '#e55', marginTop: '10px', textAlign: 'center' }}>{error}</p>}
                 <p className="mono" style={{ fontSize: '9px', color: 'var(--fg-3)', letterSpacing: '0.12em', marginTop: '12px', textAlign: 'center' }}>RÉPONSE SOUS 24H · SANS ENGAGEMENT</p>
               </>
             )}
