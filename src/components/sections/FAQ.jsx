@@ -15,7 +15,7 @@ export default function FAQ() {
   const mobile = useMobile()
   const [open, setOpen] = React.useState(0)
   return (
-    <section style={{ padding: mobile ? '80px 0' : '140px 0', background: 'var(--bg-2)' }}>
+    <section style={{ padding: mobile ? '80px 0' : '140px 0', background: 'var(--bg)' }}>
       <div style={{ maxWidth: '980px', margin: '0 auto', padding: mobile ? '0 20px' : '0 32px' }}>
         <div className="eyebrow" style={{ marginBottom: '20px', fontSize: mobile ? '11px' : '13px' }}>—— FAQ</div>
         <h2 className="display" style={{ fontSize: mobile ? 'clamp(36px, 10vw, 56px)' : 'clamp(48px, 6vw, 80px)', marginBottom: '36px' }}>

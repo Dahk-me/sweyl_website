@@ -32,7 +32,7 @@ export default function Lead() {
   }
 
   return (
-    <section id="join" style={{ padding: mobile ? '80px 0' : '140px 0', background: 'var(--bg)' }}>
+    <section id="join" style={{ padding: mobile ? '80px 0' : '140px 0', background: 'var(--bg-2)' }}>
       <div style={{ maxWidth: '1280px', margin: '0 auto', padding: mobile ? '0 20px' : '0 32px' }}>
         <div style={{ display: 'grid', gridTemplateColumns: mobile ? '1fr' : '1fr 1.1fr', gap: mobile ? '48px' : '80px' }}>
 
@@ -60,7 +60,7 @@ export default function Lead() {
           </div>
 
           {/* Right — form */}
-          <form onSubmit={handleSubmit} style={{ background: 'var(--bg-2)', border: '1px solid var(--line)', padding: mobile ? '24px 20px' : '40px', borderRadius: '4px' }}>
+          <form onSubmit={handleSubmit} style={{ background: 'var(--bg-3)', border: '1px solid var(--line)', padding: mobile ? '24px 20px' : '40px', borderRadius: '4px' }}>
             {sent ? (
               <div style={{ textAlign: 'center', padding: '40px 0' }}>
                 <div style={{ width: '64px', height: '64px', border: '1px solid var(--orange)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 24px', color: 'var(--orange)' }}>

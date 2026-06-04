@@ -7,7 +7,6 @@ import ClubLife from './components/sections/ClubLife'
 import SocialProof from './components/sections/SocialProof'
 import Vision from './components/sections/Vision'
 import ForWho from './components/sections/ForWho'
-import Capacities from './components/sections/Capacities'
 import Season from './components/sections/Season'
 import Lead from './components/sections/Lead'
 import FAQ from './components/sections/FAQ'
@@ -31,7 +30,6 @@ const Page = () => {
       <SocialProof />
       <Vision />
       <ForWho />
-      <Capacities />
       <Season />
       <Lead />
       <FAQ />
