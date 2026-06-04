@@ -6,14 +6,6 @@ import { PointsLeaderboard, CalendarWidget, PlayerCard, LiveScoreboard } from '.
 const CARDS = [
   {
     tag: '01',
-    label: 'Présidents & dirigeants',
-    title: 'DIRIGER',
-    desc: "Donnez une dimension digitale à votre club. Visualisez l'engagement, valorisez vos bénévoles, attirez vos partenaires.",
-    highlights: ['Tableau de bord club', 'Page club publique', 'Système de fidélité partenaires'],
-    instrument: <PointsLeaderboard />,
-  },
-  {
-    tag: '02',
     label: 'Coachs',
     title: 'COACHER',
     desc: 'Gérez vos effectifs, préparez vos matchs et décidez avec les données. Avant, pendant, après — tout est centralisé.',
@@ -21,7 +13,7 @@ const CARDS = [
     instrument: <CalendarWidget />,
   },
   {
-    tag: '03',
+    tag: '02',
     label: 'Joueurs',
     title: 'PROGRESSER',
     desc: "Suivez votre saison match après match. Partagez vos meilleures perfs avec des visuels prêts à l'emploi.",
@@ -29,13 +21,21 @@ const CARDS = [
     instrument: <PlayerCard />,
   },
   {
-    tag: '04',
+    tag: '03',
     label: 'Fans & parents',
     title: 'VIVRE',
     desc: 'Vivez les matchs en direct depuis les tribunes ou de chez vous. Suivez vos joueurs, recevez les notifications.',
     highlights: ['Scores en temps réel', 'Notifications de match', 'Stats de vos joueurs préférés'],
     instrument: <LiveScoreboard />,
   },
+    {
+        tag: '04',
+        label: 'Présidents & dirigeants',
+        title: 'DIRIGER',
+        desc: "Donnez une dimension digitale à votre club. Visualisez l'engagement, valorisez vos bénévoles, attirez vos partenaires.",
+        highlights: ['Tableau de bord club', 'Page club publique', 'Système de fidélité partenaires'],
+        instrument: <PointsLeaderboard />,
+    }
 ]
 
 // Vertical peek between stacked cards

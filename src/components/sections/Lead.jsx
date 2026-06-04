@@ -15,6 +15,7 @@ const FormField = ({ label, type = 'text', value, onChange, required }) => (
 )
 
 const perks = [
+  'Reservez un échange avec notre équipe',
   'Réponse sous 24h',
   'Démo personnalisée à votre club',
   "Accès bêta gratuit jusqu'au lancement",
@@ -34,19 +35,19 @@ export default function Lead() {
   return (
     <section id="join" style={{ padding: mobile ? '80px 0' : '140px 0', background: 'var(--bg-2)' }}>
       <div style={{ maxWidth: '1280px', margin: '0 auto', padding: mobile ? '0 20px' : '0 32px' }}>
-        <div style={{ display: 'grid', gridTemplateColumns: mobile ? '1fr' : '1fr 1.1fr', gap: mobile ? '48px' : '80px' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: mobile ? '1fr' : '1fr 1.1fr', gap: mobile ? '48px' : '80px', alignItems: 'start' }}>
 
-          {/* Left — pitch */}
-          <div>
+          {/* Left — sticky title */}
+          <div style={mobile ? {} : { position: 'sticky', top: '120px' }}>
             <div className="eyebrow" style={{ marginBottom: '20px', fontSize: mobile ? '11px' : '13px' }}>—— Réserver une démo</div>
-            <h2 className="display" style={{ fontSize: mobile ? 'clamp(36px, 10vw, 56px)' : 'clamp(48px, 6vw, 80px)', marginBottom: '20px' }}>
+            <h2 className="display" style={{ fontSize: mobile ? 'clamp(36px, 10vw, 56px)' : 'clamp(48px, 6vw, 80px)' }}>
               Voyons ensemble<br />ce que <span style={{ color: 'var(--orange)' }}>SWEYL</span><br />peut faire pour<br />votre <span style={{ color: 'var(--orange)' }}>club</span>.
             </h2>
-            <p style={{ fontSize: mobile ? '14px' : '15px', color: 'var(--fg-2)', lineHeight: 1.6, marginBottom: '28px' }}>
-              30 minutes avec vous. On vous montre l'app sur votre cas réel gratuitement. Sans engagement.
-            </p>
-            {!mobile && (
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+          </div>
+
+          {/* Right — text + form */}
+          <div>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', marginBottom: '40px' }}>
                 {perks.map(h => (
                   <div key={h} style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
                     <div style={{ width: '24px', height: '24px', border: '1px solid var(--orange)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--orange)', flexShrink: 0 }}>
@@ -56,11 +57,7 @@ export default function Lead() {
                   </div>
                 ))}
               </div>
-            )}
-          </div>
-
-          {/* Right — form */}
-          <form onSubmit={handleSubmit} style={{ background: 'var(--bg-3)', border: '1px solid var(--line)', padding: mobile ? '24px 20px' : '40px', borderRadius: '4px' }}>
+            <form onSubmit={handleSubmit} style={{ background: 'var(--bg-3)', border: '1px solid var(--line)', padding: mobile ? '24px 20px' : '40px', borderRadius: '4px' }}>
             {sent ? (
               <div style={{ textAlign: 'center', padding: '40px 0' }}>
                 <div style={{ width: '64px', height: '64px', border: '1px solid var(--orange)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 24px', color: 'var(--orange)' }}>
@@ -110,6 +107,7 @@ export default function Lead() {
               </>
             )}
           </form>
+          </div>
         </div>
       </div>
     </section>
