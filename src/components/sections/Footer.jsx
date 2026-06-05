@@ -4,9 +4,23 @@ import { useMobile } from '../../hooks/useMobile'
 import logoSvg from '/assets/LogoSweyl.svg'
 
 const columns = [
-  { t: 'Produit', l: ['Vision', 'Capacités', 'Saison 26/27', 'FAQ'] },
-  { t: 'Club', l: ['Présidents', 'Coachs', 'Joueurs', 'Partenaires'] },
-  { t: 'Contact', l: ['Demander une démo', 'contact@sweyl.com', 'Mentions légales'] },
+  {
+    t: 'Produit',
+    l: [
+      { label: 'Vision', href: '#vision' },
+      { label: 'Pour qui ?', href: '#for-who' },
+      { label: 'Saison 26/27', href: '#season' },
+      { label: 'FAQ', href: '#faq' },
+    ],
+  },
+  {
+    t: 'Contact',
+    l: [
+      { label: 'Demander une démo', href: '#join' },
+      { label: 'contact@sweyl.com', href: 'mailto:contact@sweyl.com' },
+      { label: 'Mentions légales', href: '#' },
+    ],
+  },
 ]
 
 export default function Footer() {
@@ -29,14 +43,14 @@ export default function Footer() {
               {columns.map(c => (
                 <div key={c.t}>
                   <div className="mono" style={{ fontSize: '9px', color: 'var(--fg-3)', letterSpacing: '0.15em', marginBottom: '12px' }}>{c.t.toUpperCase()}</div>
-                  {c.l.map(li => <div key={li} style={{ fontSize: '12px', color: 'var(--fg-2)', marginBottom: '8px', lineHeight: 1.3 }}>{li}</div>)}
+                  {c.l.map(li => <a key={li.label} href={li.href} style={{ display: 'block', fontSize: '12px', color: 'var(--fg-2)', marginBottom: '8px', lineHeight: 1.3 }}>{li.label}</a>)}
                 </div>
               ))}
             </div>
           </div>
         ) : (
           /* Desktop layout: 4 columns */
-          <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr 1fr 1fr', gap: '60px', marginBottom: '48px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr 1fr', gap: '60px', marginBottom: '48px' }}>
             <div>
               <img src={logoSvg} alt="SWEYL" style={{ height: '28px', width: 'auto', marginBottom: '14px', filter: theme === 'light' ? 'none' : 'brightness(0) invert(1)' }} />
               <p style={{ fontSize: '13px', color: 'var(--fg-3)', lineHeight: 1.6, maxWidth: '280px' }}>
@@ -46,7 +60,7 @@ export default function Footer() {
             {columns.map(c => (
               <div key={c.t}>
                 <div className="mono" style={{ fontSize: '10px', color: 'var(--fg-3)', letterSpacing: '0.18em', marginBottom: '14px' }}>{c.t.toUpperCase()}</div>
-                {c.l.map(li => <div key={li} style={{ fontSize: '13px', color: 'var(--fg-2)', marginBottom: '8px' }}>{li}</div>)}
+                {c.l.map(li => <a key={li.label} href={li.href} style={{ display: 'block', fontSize: '13px', color: 'var(--fg-2)', marginBottom: '8px', transition: 'color 0.15s' }} onMouseEnter={e => e.currentTarget.style.color = 'var(--fg)'} onMouseLeave={e => e.currentTarget.style.color = 'var(--fg-2)'}>{li.label}</a>)}
               </div>
             ))}
           </div>

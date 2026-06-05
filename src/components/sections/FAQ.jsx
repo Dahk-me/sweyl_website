@@ -42,7 +42,7 @@ export default function FAQ() {
   ))
 
   return (
-    <section style={{ padding: mobile ? '80px 0' : '140px 0', background: 'var(--bg)' }}>
+    <section id="faq" style={{ padding: mobile ? '80px 0' : '140px 0', background: 'var(--bg)' }}>
       <div style={{ maxWidth: '1300px', margin: '0 auto', padding: mobile ? '0 20px' : '0 32px' }}>
         <div style={{ display: 'grid', gridTemplateColumns: mobile ? '1fr' : '35fr 65fr', gap: mobile ? '36px' : '80px', alignItems: 'flex-start' }}>
 

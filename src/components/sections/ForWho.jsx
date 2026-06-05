@@ -219,7 +219,7 @@ export default function ForWho() {
   // ─── Mobile: intro on top (normal flow), then scroll-driven stack ───
   if (mobile) {
     return (
-      <section>
+      <section id="for-who">
         <div data-reveal style={{ background: 'var(--bg-2)', borderTop: '1px solid var(--line)', padding: '80px 22px 64px' }}>
           {intro}
         </div>
@@ -253,6 +253,7 @@ export default function ForWho() {
   //   • intro (small) stays sticky longer, only exits in the last bit before next section
   return (
     <section
+      id="for-who"
       ref={sceneRef}
       data-reveal
       style={{
