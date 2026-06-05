@@ -1,7 +1,13 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { useTheme } from '../../contexts/theme'
 import { useMobile } from '../../hooks/useMobile'
 import logoSvg from '/assets/LogoSweyl.svg'
+
+const FooterLink = ({ href, children, style }) =>
+  href.startsWith('/')
+    ? <Link to={href} style={style}>{children}</Link>
+    : <a href={href} style={style}>{children}</a>
 
 const columns = [
   {
@@ -18,7 +24,7 @@ const columns = [
     l: [
       { label: 'Demander une démo', href: '#join' },
       { label: 'contact@sweyl.com', href: 'mailto:contact@sweyl.com' },
-      { label: 'Mentions légales', href: '#' },
+      { label: 'Mentions légales', href: '/mentions-legales' },
     ],
   },
 ]
@@ -43,7 +49,7 @@ export default function Footer() {
               {columns.map(c => (
                 <div key={c.t}>
                   <div className="mono" style={{ fontSize: '9px', color: 'var(--fg-3)', letterSpacing: '0.15em', marginBottom: '12px' }}>{c.t.toUpperCase()}</div>
-                  {c.l.map(li => <a key={li.label} href={li.href} style={{ display: 'block', fontSize: '12px', color: 'var(--fg-2)', marginBottom: '8px', lineHeight: 1.3 }}>{li.label}</a>)}
+                  {c.l.map(li => <FooterLink key={li.label} href={li.href} style={{ display: 'block', fontSize: '12px', color: 'var(--fg-2)', marginBottom: '8px', lineHeight: 1.3 }}>{li.label}</FooterLink>)}
                 </div>
               ))}
             </div>
@@ -60,7 +66,7 @@ export default function Footer() {
             {columns.map(c => (
               <div key={c.t}>
                 <div className="mono" style={{ fontSize: '10px', color: 'var(--fg-3)', letterSpacing: '0.18em', marginBottom: '14px' }}>{c.t.toUpperCase()}</div>
-                {c.l.map(li => <a key={li.label} href={li.href} style={{ display: 'block', fontSize: '13px', color: 'var(--fg-2)', marginBottom: '8px', transition: 'color 0.15s' }} onMouseEnter={e => e.currentTarget.style.color = 'var(--fg)'} onMouseLeave={e => e.currentTarget.style.color = 'var(--fg-2)'}>{li.label}</a>)}
+                {c.l.map(li => <FooterLink key={li.label} href={li.href} style={{ display: 'block', fontSize: '13px', color: 'var(--fg-2)', marginBottom: '8px', transition: 'color 0.15s' }}>{li.label}</FooterLink>)}
               </div>
             ))}
           </div>
