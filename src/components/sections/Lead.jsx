@@ -17,8 +17,7 @@ const FormField = ({ label, type = 'text', value, onChange, required }) => (
 const perks = [
   'Reservez un échange avec notre équipe',
   'Réponse sous 24h',
-  'Démo personnalisée à votre club',
-  "Accès bêta gratuit jusqu'au lancement",
+  'Démo personnalisée à votre club'
 ]
 
 export default function Lead() {
@@ -110,13 +109,11 @@ export default function Lead() {
                   </div>
                 </div>
 
-                {!mobile && (
                   <div style={{ marginBottom: '20px' }}>
                     <label className="mono" style={{ fontSize: '10px', color: 'var(--fg-3)', letterSpacing: '0.15em', marginBottom: '10px', display: 'block' }}>MESSAGE (OPTIONNEL)</label>
                     <textarea value={form.message} onChange={e => setForm({ ...form, message: e.target.value })} rows={3}
                       style={{ width: '100%', background: 'var(--bg)', border: '1px solid var(--line)', color: 'var(--fg)', padding: '14px', fontSize: '13px', fontFamily: 'inherit', resize: 'vertical', borderRadius: '2px', outline: 'none' }} />
                   </div>
-                )}
 
                 <button type="submit" disabled={loading} className="btn-primary" style={{ width: '100%', justifyContent: 'center', padding: '16px', marginTop: '4px', opacity: loading ? 0.7 : 1 }}>
                   {loading ? 'Envoi en cours…' : <>'Envoyer ma demande'<IconArrow size={14} /></>}

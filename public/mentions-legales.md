@@ -6,8 +6,8 @@ _Dernière mise à jour : 05/06/2026_
 
 Le site **www.sweyl.com** est édité par :
 
-**Ismaïl JABBOUR**
-Adresse : 28 rue Thiers, 51100 Reims, France
+**SWEYL** •
+Adresse : 28 rue Thiers, 51100 Reims, France •
 Adresse e-mail : contact@sweyl.com
 
 ## 2. Directeur de la publication
@@ -18,14 +18,11 @@ Le directeur de la publication est **Sweyl**, joignable à l'adresse contact@swe
 
 **Hébergeur du site (front-end et application) :**
 Vercel Inc.
-340 S Lemon Ave #4133, Walnut, CA 91789, États-Unis
-Téléphone : +1 (559) 288-7060 — E-mail : privacy@vercel.com
 Site web : https://vercel.com
 Région d'hébergement : Washington D.C. (États-Unis). Vercel Inc. est certifié au titre de l'EU-US Data Privacy Framework, cadre encadrant le transfert des données vers les États-Unis.
 
 **Hébergeur de l'infrastructure de données et des fichiers :**
 Supabase Inc.
-548 Market Street, San Francisco, CA 94104, États-Unis _(adresse à vérifier sur la page légale de Supabase)_
 Site web : https://supabase.com
 Région d'hébergement des données : Francfort, Allemagne (Union européenne).
 
