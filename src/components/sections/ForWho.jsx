@@ -83,6 +83,8 @@ const AnimatedCard = ({ c, i, mobile, progress, popInY, cardRef }) => {
         scale,
         transformOrigin: 'top',
         zIndex: i + 1,
+        willChange: 'transform',
+        backfaceVisibility: 'hidden',
       }}
     >
       <div
