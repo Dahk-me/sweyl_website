@@ -28,7 +28,7 @@ export default function Season() {
       <div style={{ position: 'relative', maxWidth: '1300px', margin: '0 auto', padding: mobile ? '0 20px' : '0 32px' }}>
         <div style={{ display: 'grid', gridTemplateColumns: mobile ? '1fr' : '35fr 65fr', gap: mobile ? '40px' : '80px', alignItems: 'flex-start' }}>
 
-          {/* Left — sticky title */}
+          {/* Left sticky title */}
           <div style={mobile ? {} : { position: 'sticky', top: '120px' }}>
             <div className="mono" style={{ fontSize: '10px', color: 'var(--primary)', letterSpacing: '0.2em', marginBottom: '20px', display: 'flex', alignItems: 'center', gap: '8px' }}>
               <span className="live-dot" />SAISON 2026 / 2027 · INSCRIPTIONS OUVERTES
@@ -38,7 +38,7 @@ export default function Season() {
             </h2>
           </div>
 
-          {/* Right — countdown + roadmap */}
+          {/* Right countdown + roadmap */}
           <div>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4,1fr)', gap: '1px', background: 'var(--line)', border: '1px solid var(--line)', marginBottom: '40px' }}>
               {[['JOURS', t.d], ['HEURES', String(t.h).padStart(2, '0')], ['MINUTES', String(t.m).padStart(2, '0')], ['SECONDES', String(t.s).padStart(2, '0')]].map(([k, v]) => (

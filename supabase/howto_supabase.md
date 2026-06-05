@@ -1,4 +1,4 @@
-# Supabase — Déploiement manuel
+# Supabase Déploiement manuel
 
 Toutes les manipulations se font depuis **supabase.com → projet `fybnpenwtzvjwlbnbmrq`**.
 
@@ -50,7 +50,7 @@ Colle le contenu du fichier :
 
 | Nom | Valeur |
 |-----|--------|
-| `MAILJET_API_KEY` | *(clé API Mailjet — Dashboard Mailjet → Account → API Keys)* |
+| `MAILJET_API_KEY` | *(clé API Mailjet Dashboard Mailjet → Account → API Keys)* |
 | `MAILJET_SECRET_KEY` | *(secret key Mailjet)* |
 
 ### 4. Tester
@@ -80,7 +80,7 @@ Les secrets sont accessibles dans les Edge Functions via `Deno.env.get('NOM_DU_S
 ## Modifier une table existante
 
 **SQL Editor → New query**, exécute le SQL `ALTER TABLE` souhaité.  
-Exemple — ajouter une colonne :
+Exemple ajouter une colonne :
 
 ```sql
 alter table s_lead.leads add column phone text;

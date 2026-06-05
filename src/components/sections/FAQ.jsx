@@ -3,10 +3,10 @@ import { IconPlus } from '../Icons'
 import { useMobile } from '../../hooks/useMobile'
 
 const faqs = [
-  { q: "Est-ce vraiment différent d'un outil de stats ?", a: "Oui. La stat est un sous-produit. SWEYL est conçu autour de la vie du club entière — calendrier, fidélisation, partage social, points communautaires." },
-  { q: "Comment se passe l'onboarding pour la saison ?", a: "Démo en juin, paramétrage en juillet, tests en août, démarrage en septembre. On vous accompagne sur chaque étape." },
+  { q: "Est-ce vraiment différent d'un outil de stats ?", a: "Oui. La stat est un sous-produit. SWEYL est conçu autour de la vie du club entière calendrier, fidélisation, partage social, points communautaires." },
+  { q: "Comment se passe l'onboarding pour la saison ?", a: "Démo sur demande, paramétrage de votre club, tests, démarrage en septembre. On vous accompagne sur chaque étape." },
   { q: "Faut-il un statisticien ?", a: "Non. L'interface de saisie est pensée pour un joueur non-titulaire. L'app guide pas-à-pas, aucune formation requise." },
-  { q: "Quels appareils ?", a: "SWEYL est une PWA — fonctionne comme une app native sur iOS, Android, ordinateur, sans passer par les stores." },
+  { q: "Quels appareils ?", a: "SWEYL est une PWA fonctionne comme une app native sur iOS, Android, ordinateur, sans passer par les stores." },
   { q: "Et le calendrier FFBB ?", a: "Un lien suffit. L'import et la synchronisation sont automatiques." },
   { q: "Que se passe-t-il avec mes anciens matchs ?", a: "Glissez vos feuilles de match PDF. SWEYL extrait les stats et reconstruit l'historique en quelques secondes." },
 ]
@@ -46,12 +46,12 @@ export default function FAQ() {
       <div style={{ maxWidth: '1300px', margin: '0 auto', padding: mobile ? '0 20px' : '0 32px' }}>
         <div style={{ display: 'grid', gridTemplateColumns: mobile ? '1fr' : '35fr 65fr', gap: mobile ? '36px' : '80px', alignItems: 'flex-start' }}>
 
-          {/* Left 35% — sticky title */}
+          {/* Left 35% sticky title */}
           <div style={mobile ? {} : { position: 'sticky', top: '120px' }}>
             {title}
           </div>
 
-          {/* Right 65% — questions */}
+          {/* Right 65% questions */}
           <div style={mobile ? { marginTop: '4px' } : {}}>
             {list}
           </div>

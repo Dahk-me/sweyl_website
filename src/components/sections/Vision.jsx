@@ -28,7 +28,7 @@ export default function Vision() {
   return (
     <section id="vision" style={{ padding: mobile ? '80px 0' : '140px 0', position: 'relative', background: 'var(--bg)' }}>
 
-      {/* Container paddé — titre + texte */}
+      {/* Container paddé titre + texte */}
       <div style={{ maxWidth: '1300px', margin: '0 auto', padding: mobile ? '0 20px' : '0 32px' }}>
         <div style={{ display: 'grid', gridTemplateColumns: mobile ? '1fr' : '35fr 65fr', gap: mobile ? '32px' : '80px', alignItems: 'flex-start' }}>
 
@@ -59,7 +59,7 @@ export default function Vision() {
         </div>
       </div>
 
-      {/* Carousel mobile — hors du container paddé pour éviter l'overflow page */}
+      {/* Carousel mobile hors du container paddé pour éviter l'overflow page */}
       {mobile && (
         <div style={{ overflow: 'hidden', marginTop: '32px' }}>
           <div style={{

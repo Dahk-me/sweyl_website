@@ -69,7 +69,7 @@ function InteractiveMarquee({ items, renderItem, speed = 40, reverse = false }) 
       const bw = el.scrollWidth / 4
       if (bw > 0) {
         if (!paused.current) {
-          // Accumulate fractional pixels — browsers round scrollLeft to integer,
+          // Accumulate fractional pixels browsers round scrollLeft to integer,
           // so sub-pixel increments would otherwise be lost.
           accumulator.current += ((reverse ? -1 : 1) * speed * dt) / 1000
           const intDelta = Math.trunc(accumulator.current)
@@ -313,13 +313,13 @@ export default function SocialProof() {
           margin: '0 auto',
         }}
       >
-        {/* Left 65% — stats + logos + sponsors */}
+        {/* Left 65% stats + logos + sponsors */}
         <div style={{ paddingLeft: '32px' }}>
           {statsBlock}
           {logosBlock}
           {sponsorsBlock}
         </div>
-        {/* Right 35% — sticky heading */}
+        {/* Right 35% sticky heading */}
         <div>
           <div style={{ position: 'sticky', top: headerH, padding: '0 52px' }}>
             {heading}

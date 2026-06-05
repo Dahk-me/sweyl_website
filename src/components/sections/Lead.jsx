@@ -87,7 +87,7 @@ export default function Lead() {
               <>
                 <div className="mono" style={{ fontSize: '10px', color: 'var(--primary)', letterSpacing: '0.18em', marginBottom: '20px' }}>—— FORMULAIRE QUALIFIÉ</div>
 
-                {/* Name + Email — stacked on mobile */}
+                {/* Name + Email stacked on mobile */}
                 <div style={{ display: 'grid', gridTemplateColumns: mobile ? '1fr' : '1fr 1fr', gap: '14px', marginBottom: '14px' }}>
                   <FormField label="Nom" value={form.name} onChange={v => setForm({ ...form, name: v })} required />
                   <FormField label="Email" type="email" value={form.email} onChange={v => setForm({ ...form, email: v })} required />

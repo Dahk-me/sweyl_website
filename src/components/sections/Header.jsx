@@ -34,13 +34,13 @@ export default function Header() {
         margin: '0 auto',
         gap: '16px',
       }}>
-        {/* Logo — toujours à gauche */}
+        {/* Logo toujours à gauche */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '10px', flexShrink: 0 }}>
           <img src={logoSvg} alt="SWEYL" style={{ height: '22px', width: 'auto', transition: 'filter 0.3s', filter: inHero || theme === 'dark' ? 'brightness(0) invert(1)' : 'none' }} />
           {!mobile && <span style={{ fontFamily: 'Montserrat, sans-serif', fontSize: '20px', fontWeight: 600, letterSpacing: '0.3em', transition: 'color 0.3s', color: inHero || theme === 'dark' ? '#f5f4f1' : '#100f0d' }}>SWEYL</span>}
         </div>
 
-        {/* Centre — SWEYL sur mobile, nav sur desktop */}
+        {/* Centre SWEYL sur mobile, nav sur desktop */}
         <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
           {mobile ? (
             <span style={{ fontFamily: 'Montserrat, sans-serif', fontSize: '20px', fontWeight: 600, letterSpacing: '0.3em', transition: 'color 0.3s', color: inHero || theme === 'dark' ? '#f5f4f1' : '#100f0d' }}>SWEYL</span>
@@ -53,7 +53,7 @@ export default function Header() {
           )}
         </div>
 
-        {/* Actions — toujours à droite */}
+        {/* Actions toujours à droite */}
         <div style={{ display: 'flex', alignItems: 'center', gap: mobile ? '8px' : '16px', flexShrink: 0 }}>
           <button
             onClick={toggleTheme}

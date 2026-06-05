@@ -8,7 +8,7 @@ const CARDS = [
     tag: '01',
     label: 'Coachs',
     title: 'COACHER',
-    desc: 'Gérez vos effectifs, préparez vos matchs et décidez avec les données. Avant, pendant, après — tout est centralisé.',
+    desc: 'Gérez vos effectifs, préparez vos matchs et décidez avec les données. Avant, pendant, après tout est centralisé.',
     highlights: ['Feuilles de match digitales', 'Suivi de performances', 'Feedback joueur individualisé'],
     instrument: <CalendarWidget />,
   },
@@ -53,7 +53,7 @@ const SCROLL_HEIGHT_VH = 75 * CARDS.length
 const AnimatedCard = ({ c, i, mobile, progress, popInY, cardRef }) => {
   const N = CARDS.length
   // First card is in place from start; the remaining N-1 cards share the timeline
-  // equally so card i+1 starts arriving the instant card i finishes — no dead scroll.
+  // equally so card i+1 starts arriving the instant card i finishes no dead scroll.
   const slots = N - 1
   const arrivalStart = i === 0 ? 0 : (i - 1) / slots
   const arrivalEnd = i === 0 ? 0 : i / slots
@@ -129,7 +129,7 @@ export default function ForWho() {
   const fallback = mobile ? HEADER_H.mobile : HEADER_H.desktop
   const [headerH, setHeaderH] = useState(fallback)
 
-  // Each card's measured height — drives the next card's starting Y so it appears
+  // Each card's measured height drives the next card's starting Y so it appears
   // just below the previous one instead of sliding up from the bottom of the screen.
   const [cardHeights, setCardHeights] = useState(() => CARDS.map(() => 600))
   const cardRefs = useRef([])
@@ -183,11 +183,11 @@ export default function ForWho() {
     </>
   )
 
-  // ═══ popInY computation — independent formula per platform ═══
+  // ═══ popInY computation independent formula per platform ═══
   // Mobile and desktop are dissociated here so changes to one don't affect the other.
   // Both currently use a CUMULATIVE formula: each card's start position accounts for
   // ALL previous cards' heights (not just the immediate previous), which puts cards
-  // 2, 3+ off-screen below the viewport so the snap from HIDDEN_Y is invisible — they
+  // 2, 3+ off-screen below the viewport so the snap from HIDDEN_Y is invisible they
   // slide in smoothly from below the visible area instead of popping mid-screen.
   const cards = CARDS.map((c, i) => {
     let popInY = 0
@@ -264,7 +264,7 @@ export default function ForWho() {
       }}
     >
       <div style={{ maxWidth: '1300px', margin: '0 auto', height: '100%', display: 'grid', gridTemplateColumns: '65fr 35fr' }}>
-        {/* Cards — LEFT 65% */}
+        {/* Cards LEFT 65% */}
         <div
           style={{
             position: 'sticky',
@@ -275,7 +275,7 @@ export default function ForWho() {
         >
           {cards}
         </div>
-        {/* Intro — RIGHT 35%, sticky */}
+        {/* Intro RIGHT 35%, sticky */}
         <div
           style={{
             position: 'sticky',

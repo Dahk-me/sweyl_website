@@ -1,4 +1,4 @@
-# Scroll-driven stacked cards — pattern
+# Scroll-driven stacked cards pattern
 
 Pile de cartes qui s'empile en haut au fur et à mesure du scroll. Référence d'implémentation : `src/components/sections/ForWho.jsx`.
 
@@ -32,7 +32,7 @@ C'est l'erreur naturelle. Avec `sticky` sur chaque carte :
 ```
 
 Clés :
-- **Un seul élément sticky** englobant — pas de sticky par carte
+- **Un seul élément sticky** englobant pas de sticky par carte
 - **Cartes en `position: absolute`** à leur slot final (`top: i * PEEK`), elles ne sont jamais en flow
 - **Animation pilotée par `useScroll` framer-motion** sur la section externe → `scrollYProgress` (0 → 1) sur toute la durée du scroll de la section
 - Quand la section finit, le sticky se libère **d'un coup** → toute la pile scroll ensemble, pas de carte qui passe par-dessus
@@ -56,7 +56,7 @@ Solution : `useTransform` multi-points avec un saut instantané.
 
 ```js
 const popInY = prevHeight + ARRIVAL_GAP - PEEK   // ≈ H_prev - 33
-const HIDDEN_Y = 3000                            // pixels — far below viewport
+const HIDDEN_Y = 3000                            // pixels far below viewport
 
 const y = useTransform(
   progress,
@@ -93,7 +93,7 @@ Avec `PEEK = 48`, `ARRIVAL_GAP = 15`, `H_(i-1) ≈ 600` → `popInY ≈ 567`.
 
 ### Dissociation mobile / desktop pour le `popInY`
 
-Sur mobile (cartes ≈ 75% du viewport), `popInY_natural` place la carte près du bas du viewport — pop-in invisible. Sur desktop (cartes ≈ 50-60% du viewport), `popInY_natural` la place en plein milieu de l'écran → pop visible et bizarre.
+Sur mobile (cartes ≈ 75% du viewport), `popInY_natural` place la carte près du bas du viewport pop-in invisible. Sur desktop (cartes ≈ 50-60% du viewport), `popInY_natural` la place en plein milieu de l'écran → pop visible et bizarre.
 
 **Ne pas tenter de formule unifiée (genre `Math.max`)** : ça change subtilement le comportement mobile et casse le feel qu'on avait validé. Tout pont entre les deux logiques cause des régressions.
 
@@ -126,7 +126,7 @@ const scale = useTransform(progress, [arrivalEnd, 1], [1, targetScale])
 ```js
 const PEEK = 48              // px visibles du haut de chaque carte précédente dans la pile finale
 const ARRIVAL_GAP = 15       // px entre le bas de la carte précédente et le top de la carte qui arrive
-const HIDDEN_Y = 3000        // px — assez grand pour cacher la carte hors écran
+const HIDDEN_Y = 3000        // px assez grand pour cacher la carte hors écran
 const SCROLL_HEIGHT_VH = 75 * N   // hauteur totale de la section ; règle la durée du scroll
 ```
 

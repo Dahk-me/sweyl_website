@@ -17,7 +17,7 @@ Deno.serve(async (req) => {
       })
     }
 
-    // Stockage direct en base — bypass PostgREST, schéma custom sans config
+    // Stockage direct en base bypass PostgREST, schéma custom sans config
     const sql = postgres(Deno.env.get('SUPABASE_DB_URL')!, { prepare: false })
     await sql`
       INSERT INTO s_lead.leads (name, email, club, role, message)
@@ -40,7 +40,7 @@ Deno.serve(async (req) => {
           From: { Email: 'contact@sweyl.com', Name: 'SWEYL Site' },
           To: [{ Email: 'contact@sweyl.com', Name: 'SWEYL' }],
           ReplyTo: { Email: email, Name: name },
-          Subject: `Nouvelle demande de démo — ${club}`,
+          Subject: `Nouvelle demande de démo ${club}`,
           TextPart: [
             `Nom : ${name}`,
             `Email : ${email}`,

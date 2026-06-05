@@ -4,7 +4,7 @@ dist
 .env.local
 .DS_Store
 
-# Large media — hébergés sur storage externe
+# Large media hébergés sur storage externe
 public/*.mp4
 public/*.webm
 public/*.mov
