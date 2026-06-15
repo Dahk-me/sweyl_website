@@ -15,7 +15,7 @@ const FormField = ({ label, type = 'text', value, onChange, required }) => (
 )
 
 const perks = [
-  'Reservez un échange avec notre équipe',
+  'Réservez un échange avec notre équipe',
   'Réponse sous 24h',
   'Démo personnalisée à votre club'
 ]
@@ -56,7 +56,7 @@ export default function Lead() {
 
           {/* DOM first → mobile: title first. Desktop: order:2 → RIGHT 35%, sticky */}
           <div style={mobile ? {} : { order: 2, position: 'sticky', top: '120px' }}>
-            <div className="eyebrow" style={{ marginBottom: '20px', fontSize: mobile ? '11px' : '13px' }}>—— Réserver une démo</div>
+            <div className="eyebrow" style={{ marginBottom: '20px', fontSize: mobile ? '11px' : '13px' }}>—— Rejoindre l&apos;expérience</div>
             <h2 className="display" style={{ fontSize: mobile ? 'clamp(36px, 10vw, 56px)' : 'clamp(48px, 6vw, 80px)' }}>
               Voyons ensemble<br />ce que <span style={{ color: 'var(--primary)' }}>SWEYL</span><br />peut faire pour<br />votre <span style={{ color: 'var(--primary)' }}>club</span>.
             </h2>
@@ -116,7 +116,7 @@ export default function Lead() {
                   </div>
 
                 <button type="submit" disabled={loading} className="btn-primary" style={{ width: '100%', justifyContent: 'center', padding: '16px', marginTop: '4px', opacity: loading ? 0.7 : 1 }}>
-                  {loading ? 'Envoi en cours…' : <>'Envoyer ma demande'<IconArrow size={14} /></>}
+                  {loading ? 'Envoi en cours…' : <>Envoyer ma demande<IconArrow size={14} /></>}
                 </button>
                 {error && <p style={{ fontSize: '12px', color: '#e55', marginTop: '10px', textAlign: 'center' }}>{error}</p>}
                 <p className="mono" style={{ fontSize: '9px', color: 'var(--fg-3)', letterSpacing: '0.12em', marginTop: '12px', textAlign: 'center' }}>RÉPONSE SOUS 24H · SANS ENGAGEMENT</p>

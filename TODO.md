@@ -10,25 +10,21 @@
 
 ---
 
-## Lot 1 — Bugs et corrections immédiates ⚡
+## Lot 1 — Bugs et corrections immédiates ⚡ ✅
 
-- [ ] **Lead.jsx ligne 119** : le bouton affiche `'Envoyer ma demande'` avec les apostrophes littérales. Retirer les quotes.
-- [ ] **Lead.jsx ligne 18** : typo `Reservez` → `Réservez` dans les perks.
+- [x] **Lead.jsx** : bouton `'Envoyer ma demande'` (apostrophes littérales) corrigé.
+- [x] **Lead.jsx** : typo `Reservez` → `Réservez` corrigée.
 
 ---
 
-## Lot 2 — CTA et alignement copy "Rejoindre l'expérience Sweyl"
+## Lot 2 — CTA et alignement copy ✅
 
-- [ ] **Hero** : ajouter un bouton primaire **"J'obtiens mes accès"** qui scroll vers `#join`.
-- [ ] Harmoniser **tous** les autres CTA sur `"Rejoindre l'expérience Sweyl"` :
-  - [ ] `Header.jsx` (boutons mobile et desktop, actuellement "Démo" / "Demander une démo")
-  - [ ] `Footer.jsx` (lien "Demander une démo")
-  - [ ] `Lead.jsx` eyebrow (`—— Réserver une démo`) et titre du bloc
-- [ ] Ajuster le titre du formulaire pour rester cohérent avec "Rejoindre l'expérience" (pas "réserver une démo").
+**Décision actée** : double CTA — Hero = "J'obtiens mes accès" (action), partout ailleurs = "Rejoindre l'expérience" (positionnement).
 
-> **Note** : on garde **"J'obtiens mes accès"** uniquement dans le Hero (ancrage
-> action concrète) et **"Rejoindre l'expérience Sweyl"** partout ailleurs
-> (positionnement). À confirmer si tu veux tout aligner sur une seule formule.
+- [x] **Hero** : bouton primaire **"J'obtiens mes accès"** ajouté sous le titre, ancre `#join`.
+- [x] **Header** : "Rejoindre" (mobile) / "Rejoindre l'expérience" (desktop).
+- [x] **Footer** : lien renommé en "Rejoindre l'expérience".
+- [x] **Lead** : eyebrow `—— Rejoindre l'expérience`, titre conservé.
 
 ---
 

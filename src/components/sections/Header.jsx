@@ -68,7 +68,7 @@ export default function Header() {
             {!mobile && (theme === 'dark' ? ' Clair' : ' Sombre')}
           </button>
           <a href="#join" className="btn-primary" style={{ padding: mobile ? '10px 14px' : '10px 18px', fontSize: '12px' }}>
-            {mobile ? 'Démo' : 'Demander une démo'}{!mobile && <IconArrow size={12} />}
+            {mobile ? 'Rejoindre' : "Rejoindre l'expérience"}{!mobile && <IconArrow size={12} />}
           </a>
         </div>
       </div>

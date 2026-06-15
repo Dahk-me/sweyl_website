@@ -1,4 +1,5 @@
 import React from 'react'
+import { IconArrow } from '../Icons'
 import { useMobile } from '../../hooks/useMobile'
 
 export default function Hero() {
@@ -25,9 +26,13 @@ export default function Hero() {
       {/* Content */}
       <div style={{ position: 'absolute', bottom: '20px', zIndex: 3, maxWidth: '1280px', margin: '0 auto', width: '100%', padding: mobile ? `${pt} 20px 20px` : `${pt} 32px 100px` }}>
         <div className="eyebrow" style={{ marginBottom: '20px', fontSize: mobile ? '11px' : '13px' }}>—— SWEYL</div>
-        <h1 className="display" style={{ fontSize: mobile ? 'clamp(44px, 13vw, 72px)' : 'clamp(60px, 9vw, 132px)', marginBottom: '40px', maxWidth: mobile ? '100%' : '65%', color: '#f5f4f1' }}>
+        <h1 className="display" style={{ fontSize: mobile ? 'clamp(44px, 13vw, 72px)' : 'clamp(60px, 9vw, 132px)', marginBottom: '32px', maxWidth: mobile ? '100%' : '65%', color: '#f5f4f1' }}>
           Le club<br />est <span style={{ color: 'var(--primary)' }}>plus grand</span><br />que le score.
         </h1>
+        <a href="#join" className="btn-primary" style={{ padding: mobile ? '14px 22px' : '16px 28px', fontSize: mobile ? '13px' : '14px' }}>
+          J&apos;obtiens mes accès
+          <IconArrow size={mobile ? 12 : 14} />
+        </a>
       </div>
     </section>
   )

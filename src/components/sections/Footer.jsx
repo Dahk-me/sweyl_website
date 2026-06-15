@@ -22,7 +22,7 @@ const columns = [
   {
     t: 'Contact',
     l: [
-      { label: 'Demander une démo', href: '#join' },
+      { label: "Rejoindre l'expérience", href: '#join' },
       { label: 'contact@sweyl.com', href: 'mailto:contact@sweyl.com' },
       { label: 'Mentions légales', href: '/mentions-legales' },
     ],
