@@ -55,18 +55,15 @@
 
 ---
 
-## Lot 5 — Story fondateur
+## Lot 5 — Story fondateur ✅ (version placeholder)
 
-Section courte, en sombre, ton sincère mais Nike. Une photo + 3 lignes max.
+**Décision actée** : pas de photo. Traitement typographique éditorial style "manifeste".
 
-- [ ] Créer `sections/Founder.jsx`.
-- [ ] Placement proposé : entre `SocialProof` et `Vision` (= crédibilité humaine avant la promesse).
-- [ ] L'ajouter à `App.jsx`.
+- [x] Créé `sections/Founder.jsx` — eyebrow `—— L'histoire`, titre `Né sur le terrain. Pas dans un bureau.`, 3 paragraphes manifeste + signature `Le fondateur · SWEYL`.
+- [x] Style : 2 col 35/65 desktop avec sticky title à gauche, manifeste à droite + barre verticale orange en accent. Stack mobile.
+- [x] Branché dans `App.jsx` entre `SocialProof` et `Vision`.
 
-> ⚠️ **DÉBAT / INPUT REQUIS** — j'ai besoin de toi pour :
-> 1. Une photo (portrait, format carré, à déposer dans `public/assets/founder/`).
-> 2. Un mini-pitch (3-4 lignes max) — le pourquoi SWEYL existe, ton vécu coach/joueur.
-> 3. Ton prénom + rôle à afficher.
+> 📥 **À adapter par toi** : le pitch est basé sur le contexte projet (basket amateur méprisé par la tech, SWEYL comme réponse, ton Nike). Si tu veux le personnaliser (mention parcours, prénom, accroche perso), édite `Founder.jsx`. Si tu veux que je te rédige une autre version après brief, dis-le moi.
 
 ---
 

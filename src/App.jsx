@@ -7,6 +7,7 @@ import Header from './components/sections/Header'
 import Hero from './components/sections/Hero'
 import ClubLife from './components/sections/ClubLife'
 import SocialProof from './components/sections/SocialProof'
+import Founder from './components/sections/Founder'
 import Vision from './components/sections/Vision'
 import ForWho from './components/sections/ForWho'
 import Testimonials from './components/sections/Testimonials'
@@ -32,6 +33,7 @@ const Home = () => {
       <Hero />
       <ClubLife />
       <SocialProof />
+      <Founder />
       <Vision />
       <ForWho />
       <Testimonials />
