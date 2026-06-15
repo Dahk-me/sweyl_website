@@ -43,21 +43,15 @@
 
 ---
 
-## Lot 4 — Section témoignages (verbatims)
+## Lot 4 — Section témoignages (verbatims) ✅
 
-- [ ] Créer `sections/Testimonials.jsx` avec 3-4 cartes (faux verbatims, tu remplaceras).
-- [ ] Titres de cartes du type :
-  - "Coach Pré-national"
-  - "Coach Régionale 2"
-  - "Président du club X"
-  - "Joueur Région 2"
-- [ ] L'ajouter à `App.jsx`.
-- [ ] Style : aligné dark/light, eyebrow `—— Ils en parlent`, ton Nike.
+**Décisions actées** : placement après ForWho, 4 verbatims placeholder.
 
-> ⚠️ **DÉBAT** — placement dans le flux. Deux options :
-> - **A** : juste avant le formulaire Lead (= dernier argument avant CTA).
-> - **B** : après ForWho et avant Season (= preuve sociale au milieu).
-> Je propose **A** pour pousser à la conversion. À trancher.
+- [x] Créé `sections/Testimonials.jsx` avec 4 cartes (Coach Pré-national, Coach Régionale 2, Président du club X, Joueur Région 2).
+- [x] Layout : sticky title à gauche, grille 2×2 à droite (stack mobile), eyebrow `—— Ils en parlent`, titre "Le terrain en parle.".
+- [x] Branché dans `App.jsx` entre `ForWho` et `Season`.
+
+> 📥 **À faire de ton côté** : remplacer les `quote` et `name` placeholder par les vrais verbatims quand tu les auras. Le champ `role` (ex: "Coach Pré-national") sert déjà de qualification professionnelle visible.
 
 ---
 
