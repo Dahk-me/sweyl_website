@@ -94,10 +94,12 @@ img { display: block; max-width: 100%; }
 }
 [data-theme="light"] .forwho-card {
   background: #ffffff;
-  border-color: rgba(0, 0, 0, 0.06);
+  border-color: rgba(20, 15, 5, 0.08);
   box-shadow:
-    0 -22px 44px -16px rgba(0, 0, 0, 0.12),
-    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+    0 1px 0 rgba(255, 255, 255, 1) inset,
+    0 2px 4px -2px rgba(20, 15, 5, 0.06),
+    0 12px 28px -10px rgba(20, 15, 5, 0.18),
+    0 -1px 0 rgba(20, 15, 5, 0.04) inset;
 }
 
 
@@ -128,23 +130,29 @@ input, textarea, select {
   .btn-primary, .btn-ghost { min-height: 44px; display: inline-flex; align-items: center; }
 }
 
-/* ── Thème Clair ── */
+/* ── Thème Clair ──
+   Palette gris neutre légèrement froid pour un rendu dynamique (vs beige
+   chaleureux). Hiérarchie : base très claire → gris plus marqué pour
+   les surfaces profondes. Cartes en blanc pur pour qu'elles pop. */
 [data-theme="light"] {
-  --bg: #f4f1eb;
-  --bg-2: #ece8de;
-  --bg-3: #e2ddd3;
-  --line: rgba(0,0,0,0.09);
-  --line-2: rgba(0,0,0,0.16);
-  --fg: #100f0d;
-  --fg-2: #3c3a36;
-  --fg-3: #706e6a;
-  --fg-4: #a8a6a2;
-  --bg-glass: rgba(244,241,235,0.93);
+  --bg: #f6f7f8;
+  --bg-2: #eceef1;
+  --bg-3: #e1e4e8;
+  --line: rgba(15,20,28,0.09);
+  --line-2: rgba(15,20,28,0.16);
+  --fg: #0d0f12;
+  --fg-2: #2a2d33;
+  --fg-3: #5b5f66;
+  --fg-4: #8c9098;
+  --bg-glass: rgba(246,247,248,0.92);
 }
+[data-theme="light"] .forwho-card { border-color: rgba(15,20,28,0.08); }
 [data-theme="light"] .placeholder {
-  background: repeating-linear-gradient(135deg, #ddd6c7 0px, #ddd6c7 8px, #ccc4b4 8px, #ccc4b4 16px);
-  border-color: rgba(0,0,0,0.1);
+  background: repeating-linear-gradient(135deg, #e1e4e8 0px, #e1e4e8 8px, #d4d8de 8px, #d4d8de 16px);
+  border-color: rgba(15,20,28,0.12);
 }
-[data-theme="light"] .placeholder .label { color: rgba(0,0,0,0.3); }
+[data-theme="light"] .placeholder .label { color: rgba(15,20,28,0.4); }
 [data-theme="light"] .grain { mix-blend-mode: multiply; opacity: 0.05; }
-[data-theme="light"] .btn-ghost:hover { background: rgba(0,0,0,0.04); }
+[data-theme="light"] .btn-ghost:hover { background: rgba(15,20,28,0.05); border-color: rgba(15,20,28,0.28); }
+[data-theme="light"] .btn-primary { box-shadow: 0 1px 0 rgba(255,255,255,0.25) inset, 0 8px 20px -8px rgba(255,102,0,0.45); }
+[data-theme="light"] ::-webkit-scrollbar-thumb { background: rgba(15,20,28,0.25); }
