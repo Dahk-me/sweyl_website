@@ -1,12 +1,9 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { useMobile } from '../../hooks/useMobile'
 import { supabase } from '../../lib/supabase'
 import { STORAGE } from '../../lib/storageConfig'
 
 const stats = [['400+', 'UTILISATEURS'], ['15+', 'COACHS'], ['10+', 'CLUBS'], ['100+', 'MATCHS / SEM']]
-
-// CountdownBar (36px fixed) + Header (56px mobile / 72px desktop) + 1px border
-const HEADER_H = { mobile: 93, desktop: 109 }
 
 function useCountUp(target, duration = 1800) {
   const [count, setCount] = React.useState(0)
@@ -184,21 +181,8 @@ function StatCell({ value, label, mobile }) {
 
 export default function SocialProof() {
   const mobile = useMobile()
-  const fallback = mobile ? HEADER_H.mobile : HEADER_H.desktop
-  const [headerH, setHeaderH] = useState(fallback)
   const [logos, setLogos] = React.useState([])
   const [sponsors, setSponsors] = React.useState([])
-
-  useEffect(() => {
-    const measure = () => {
-      const header = document.querySelector('header')
-      if (!header) return
-      setHeaderH(Math.ceil(header.getBoundingClientRect().bottom))
-    }
-    measure()
-    window.addEventListener('resize', measure)
-    return () => window.removeEventListener('resize', measure)
-  }, [])
 
   const fetchFolder = (folder) =>
     supabase.storage
@@ -321,7 +305,7 @@ export default function SocialProof() {
         </div>
         {/* Right 35% sticky heading */}
         <div>
-          <div style={{ position: 'sticky', top: headerH, padding: '0 52px' }}>
+          <div style={{ position: mobile ? 'static' : 'sticky', top: '120px', padding: '0 52px' }}>
             {heading}
           </div>
         </div>

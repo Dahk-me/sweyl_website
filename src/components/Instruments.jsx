@@ -108,12 +108,12 @@ export const PlayerCard = () => (
   <div style={{ width: '100%', background: 'var(--bg-2)', border: '1px solid var(--line)', borderRadius: '4px', padding: '20px', position: 'relative', overflow: 'hidden', boxSizing: 'border-box' }}>
     <div style={{ position: 'absolute', top: 0, right: 0, width: '100px', height: '100px', background: 'radial-gradient(circle at top right, color-mix(in srgb, var(--primary) 18%, transparent), transparent 70%)' }} />
     <div style={{ display: 'flex', gap: '12px', marginBottom: '16px', alignItems: 'flex-end', position: 'relative', flexWrap: 'wrap' }}>
-      <div className="placeholder" style={{ width: '56px', height: '56px', borderRadius: '4px', flexShrink: 0 }}>
-        <span className="label" style={{ fontSize: '8px' }}>PHOTO</span>
+      <div style={{ width: '56px', height: '56px', borderRadius: '4px', flexShrink: 0, overflow: 'hidden', border: '1px solid var(--line)' }}>
+        <img src="/assets/players/l-martin.png" alt="J. Niya" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
       </div>
       <div style={{ flex: 1, minWidth: '80px' }}>
         <div className="mono" style={{ fontSize: '10px', color: 'var(--fg-3)', letterSpacing: '0.15em', marginBottom: '4px' }}>#7 · MENEUR</div>
-        <div className="display" style={{ fontSize: 'clamp(20px, 5vw, 34px)', lineHeight: 0.9 }}>L. MARTIN</div>
+        <div className="display" style={{ fontSize: 'clamp(20px, 5vw, 34px)', lineHeight: 0.9 }}>J. NIYA</div>
       </div>
       <div style={{ textAlign: 'right', flexShrink: 0 }}>
         <div className="mono" style={{ fontSize: '9px', color: 'var(--fg-3)', letterSpacing: '0.12em' }}>SAISON</div>
