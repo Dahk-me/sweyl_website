@@ -31,8 +31,8 @@ const CARDS = [
     tag: '04',
     label: 'Présidents & dirigeants',
     title: 'DIRIGER',
-    desc: "Donnez une dimension digitale à votre club. Visualisez l'engagement, valorisez vos bénévoles, attirez vos partenaires.",
-    highlights: ['Tableau de bord club', 'Page club publique', 'Système de fidélité partenaires'],
+    desc: "Pilotez votre saison. Suivez l'engagement de l'effectif et donnez une dimension digitale à votre club.",
+    highlights: ['Tableau de bord club', 'Vue saison toutes équipes', "Engagement de l'effectif"],
     instrument: <PointsLeaderboard />,
   },
 ]

@@ -28,20 +28,18 @@
 
 ---
 
-## Lot 3 — Repositionnement coach-first
+## Lot 3 — Repositionnement coach-first ✅
 
-Cohérent avec ta réponse au point 1 : on cible le coach en premier, le système
-de points/club est différé.
+**Décisions actées** :
+- Hero baseline pivote en coach-first : "Coache comme un pro. Reste un amateur." + sous-titre "La première plateforme pensée pour les coachs amateurs."
+- Carte Dirigeants : on retire la fidélité partenaires, on garde la carte mais réorientée vue saison / engagement effectif.
 
-- [ ] **ForWho** : faire de la carte Coach (`COACHER`) la première, plus longue, plus dense. Les autres restent en tags secondaires.
-- [ ] Revoir le copy de la **carte Dirigeants** : retirer "Système de fidélité partenaires" (= points communautaires reportés) et le remplacer par quelque chose orienté visualisation pour le président (ex : "Vue saison du club", "Suivi de l'engagement de l'effectif").
-- [ ] **Hero baseline** : "Le club est plus grand que le score." reste, mais sous-titre/CTA orienté coach : *"L'outil pensé pour les coachs amateurs."* (à valider).
-- [ ] **Vision** : vérifier que le copy ne survend pas la dimension club/points (relire à froid).
+- [x] **Hero** : nouvelle baseline + sous-titre coach-first.
+- [x] **ForWho carte Dirigeants** : `desc` et `highlights` réorientés (`Tableau de bord club`, `Vue saison toutes équipes`, `Engagement de l'effectif`).
+- [x] **PointsLeaderboard** : labels relabellisés en `ENGAGEMENT EFFECTIF` / `TOP 4` (suppression de la connotation points/récompenses).
+- [x] **Vision** : déjà coach-first ("Aucun outil n'a jamais été pensé pour le coach amateur. SWEYL est le premier.") — rien à changer.
 
-> ⚠️ **DÉBAT** — on garde "Le club est plus grand que le score." en hero ?
-> C'est très orienté club/dirigeant. Une baseline coach pourrait être plus
-> percutante (ex : *"Coache comme un pro. Reste un amateur."* — à itérer).
-> À trancher.
+> Note différée : l'instrument visuel `PointsLeaderboard` continue d'afficher un classement avec scores. Le rendu reste cohérent comme "index d'engagement". Si tu veux un vrai widget différent pour la carte Dirigeants plus tard, on le créera (`ClubOverview`).
 
 ---
 

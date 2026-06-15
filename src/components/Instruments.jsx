@@ -193,8 +193,8 @@ export const PointsLeaderboard = () => {
   return (
     <div style={{ width: '100%', background: 'var(--bg-2)', border: '1px solid var(--line)', borderRadius: '4px', padding: '16px', boxSizing: 'border-box' }}>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '10px', flexWrap: 'wrap', gap: '4px' }}>
-        <span className="mono" style={{ fontSize: '10px', color: 'var(--fg-3)', letterSpacing: '0.15em' }}>HÉROS DU CLUB · OCT</span>
-        <span className="mono" style={{ fontSize: '9px', color: 'var(--primary)', letterSpacing: '0.12em' }}>+ 4 RÉCOMPENSES</span>
+        <span className="mono" style={{ fontSize: '10px', color: 'var(--fg-3)', letterSpacing: '0.15em' }}>ENGAGEMENT EFFECTIF · OCT</span>
+        <span className="mono" style={{ fontSize: '9px', color: 'var(--primary)', letterSpacing: '0.12em' }}>TOP 4</span>
       </div>
       {players.map((p, i) => (
         <div key={i} style={{ display: 'grid', gridTemplateColumns: '20px 1fr auto auto', gap: '10px', alignItems: 'center', padding: '9px 0', borderTop: i ? '1px solid var(--line)' : 'none' }}>
