@@ -4,10 +4,19 @@ import { useTheme } from '../../contexts/theme'
 import { useMobile } from '../../hooks/useMobile'
 import logoSvg from '/assets/LogoSweyl.svg'
 
-const FooterLink = ({ href, children, style }) =>
-  href.startsWith('/')
-    ? <Link to={href} style={style}>{children}</Link>
-    : <a href={href} style={style}>{children}</a>
+const FooterLink = ({ href, children, style }) => {
+  if (href.startsWith('/')) return <Link to={href} style={style}>{children}</Link>
+  const external = href.startsWith('http')
+  return (
+    <a
+      href={href}
+      style={style}
+      {...(external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+    >
+      {children}
+    </a>
+  )
+}
 
 const columns = [
   {
@@ -25,6 +34,13 @@ const columns = [
       { label: "Rejoindre l'expérience", href: '#join' },
       { label: 'contact@sweyl.com', href: 'mailto:contact@sweyl.com' },
       { label: 'Mentions légales', href: '/mentions-legales' },
+    ],
+  },
+  {
+    t: 'Suivre',
+    l: [
+      { label: 'Instagram', href: 'https://instagram.com/sweylapp' },
+      { label: 'TikTok', href: 'https://tiktok.com/@sweylapp' },
     ],
   },
 ]
@@ -56,7 +72,7 @@ export default function Footer() {
           </div>
         ) : (
           /* Desktop layout: 4 columns */
-          <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr 1fr', gap: '60px', marginBottom: '48px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr 1fr 1fr', gap: '60px', marginBottom: '48px' }}>
             <div>
               <img src={logoSvg} alt="SWEYL" style={{ height: '28px', width: 'auto', marginBottom: '14px', filter: theme === 'light' ? 'none' : 'brightness(0) invert(1)' }} />
               <p style={{ fontSize: '13px', color: 'var(--fg-3)', lineHeight: 1.6, maxWidth: '280px' }}>
@@ -72,8 +88,11 @@ export default function Footer() {
           </div>
         )}
 
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', paddingTop: '16px', borderTop: '1px solid var(--line)', flexWrap: 'wrap', gap: '8px' }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', paddingTop: '16px', borderTop: '1px solid var(--line)', flexWrap: 'wrap', gap: '12px' }}>
           <span className="mono" style={{ fontSize: '10px', color: 'var(--fg-4)', letterSpacing: '0.12em' }}>© 2026 SWEYL</span>
+          <span className="mono" style={{ fontSize: '10px', color: 'var(--fg-4)', letterSpacing: '0.12em', display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
+            <span aria-hidden="true">🇫🇷</span> MADE IN FRANCE
+          </span>
           <span className="mono" style={{ fontSize: '10px', color: 'var(--fg-4)', letterSpacing: '0.12em' }}>FAIT PAR LES CLUBS, POUR LES CLUBS</span>
         </div>
       </div>

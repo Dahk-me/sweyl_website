@@ -14,6 +14,8 @@ export default function Hero() {
       <video
         style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', zIndex: 0 }}
         autoPlay loop muted playsInline
+        preload="metadata"
+        poster="/assets/hero-poster.jpg"
       >
         <source src="https://fybnpenwtzvjwlbnbmrq.supabase.co/storage/v1/object/public/video_hero/hero-mobile.mp4" type="video/mp4" />
       </video>

@@ -16,6 +16,7 @@ import Lead from './components/sections/Lead'
 import FAQ from './components/sections/FAQ'
 import Footer from './components/sections/Footer'
 import MentionsLegales from './pages/MentionsLegales'
+import NotFound from './pages/NotFound'
 
 const Home = () => {
   React.useEffect(() => {
@@ -52,6 +53,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/mentions-legales" element={<MentionsLegales />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
       <Analytics />

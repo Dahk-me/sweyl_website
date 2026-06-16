@@ -67,57 +67,48 @@
 
 ---
 
-## Lot 6 — Footer
+## Lot 6 — Footer ✅
 
-- [ ] Ajouter le lien **Instagram** (URL à venir de ta part).
-- [ ] Ajouter une mention **"Made in France"** (avec drapeau ou pas — à voir).
-- [ ] Vérifier que `Demander une démo` est bien remplacé (cf. Lot 2).
+**Inputs reçus** : Instagram + TikTok = `sweylapp`. Made in France = mono + 🇫🇷.
 
-> 📥 **INPUT REQUIS** — URL Instagram (et autres réseaux si tu en as : LinkedIn, X, TikTok ?).
-
----
-
-## Lot 7 — Page 404 custom
-
-- [ ] Créer `pages/NotFound.jsx` — ton SWEYL, gros titre, retour accueil.
-- [ ] L'ajouter au `Routes` dans `App.jsx` (catch-all `path="*"`).
+- [x] Nouvelle colonne **"Suivre"** dans le footer avec liens Instagram + TikTok (`https://instagram.com/sweylapp`, `https://tiktok.com/@sweylapp`) — ouverture nouvel onglet.
+- [x] `FooterLink` étendu pour gérer `target="_blank" rel="noopener noreferrer"` sur les liens externes.
+- [x] Bottom strip : ajout de `🇫🇷 MADE IN FRANCE` entre `© 2026 SWEYL` et `FAIT PAR LES CLUBS, POUR LES CLUBS`.
+- [x] CTA "Rejoindre l'expérience" déjà confirmé au Lot 2.
 
 ---
 
-## Lot 8 — Vidéo hero (réponse à ta question : critique ?)
+## Lot 7 — Page 404 custom ✅
 
-**Mon avis** : pas critique. Ça fonctionne, le visuel passe. Mais :
-- la même vidéo (`hero-mobile.mp4`) est servie en desktop → résolution probablement insuffisante sur grands écrans.
-- pas de `poster` → écran noir 0,5-1s au chargement.
-- pas de `preload="metadata"` → la vidéo se charge même si tu skip vite.
-
-À traiter **uniquement** si tu vois un problème de perf perçu ou de qualité visuelle sur desktop. Sinon, à laisser.
-
-- [ ] *(optionnel)* Ajouter `poster="…"` + `preload="metadata"`.
-- [ ] *(optionnel)* Encoder une version desktop séparée.
-
-> ⚠️ **DÉBAT** — on s'en occupe maintenant ou on laisse pour plus tard ?
+- [x] Créé `pages/NotFound.jsx` — eyebrow `—— Erreur 404`, `404` en gros orange, titre "Page hors terrain.", baseline courte, CTA `Retour à l'accueil` → `/`.
+- [x] Route catch-all `path="*"` ajoutée dans `App.jsx`.
 
 ---
 
-## Lot 9 — SEO de base (explication des termes)
+## Lot 8 — Vidéo hero ✅ (quick win)
 
-**Petit dico avant de trancher :**
+- [x] `preload="metadata"` ajouté sur la balise `<video>` du Hero (charge juste les métadonnées d'abord, pas tout le payload).
+- [x] `poster="/assets/hero-poster.jpg"` ajouté en attendant que tu déposes une image fallback.
 
-- **OG image** (Open Graph) : la grande image qui apparaît quand tu colles ton lien sur WhatsApp, LinkedIn, Slack, etc. Sans elle = aperçu nu et moche.
-- **Twitter Card** : même chose pour X/Twitter (balises spécifiques).
-- **JSON-LD** : un bloc de données structurées que Google lit pour comprendre que ton site est une "Organisation" / un "Software". Ça aide pour le SEO mais c'est plus avancé.
-- **Favicon** : le petit logo dans l'onglet du navigateur.
+> 📥 **À déposer** : `public/assets/hero-poster.jpg` (1920×1080 ou ≥, JPEG optimisé). Si le fichier n'existe pas, la balise est ignorée et tu te retrouves comme avant (écran noir 0,5s).
+>
+> Différé : encoder une version desktop séparée de la vidéo. À faire quand tu auras les rushs.
 
-**Niveau minimum recommandé pour une landing page :**
-- [ ] OG image (1200×630, ton logo + baseline sur fond sombre).
-- [ ] Balises `<meta property="og:…">` et `<meta name="twitter:…">` dans `index.html`.
-- [ ] Favicon SWEYL en `/public/favicon.ico` + `/public/apple-touch-icon.png`.
-- [ ] *(optionnel)* JSON-LD Organization.
+---
 
-> ⚠️ **DÉBAT** — on fait le minimum (OG + favicon) maintenant, ou on attend ?
-> Recommandation : faire le minimum, ça prend 30 min et ça change la perception
-> quand quelqu'un partage le lien.
+## Lot 9 — SEO de base ✅ (minimum)
+
+- [x] `<title>` et `<meta description>` mis à jour avec la nouvelle ligne coach-first.
+- [x] Favicon SVG : `LogoSweyl.svg` (déjà dans `public/assets/`) câblé via `<link rel="icon" type="image/svg+xml">` + `apple-touch-icon`.
+- [x] Open Graph complet : `og:type`, `og:site_name`, `og:url`, `og:title`, `og:description`, `og:image` (1200×630), `og:locale=fr_FR`.
+- [x] Twitter Card : `summary_large_image` + title/description/image.
+- [x] `theme-color` (`#0a0a0a`) pour la barre d'adresse mobile.
+
+> 📥 **À déposer** : `public/assets/og-image.png` (1200×630, logo SWEYL + baseline sur fond sombre #0a0a0a). Tant qu'il n'est pas là, l'aperçu sera nu (pas pire qu'avant). Si tu veux je peux te générer un brief visuel pour Figma/Canva.
+>
+> ⚠️ Si l'URL de prod n'est pas `https://www.sweyl.com/`, met-la à jour dans `index.html` (lignes `og:url`, `og:image`, `twitter:image`).
+>
+> Différé : JSON-LD Organization (Schema.org), `sitemap.xml`, `robots.txt`. À voir quand on aura du contenu indexable additionnel (blog, pages métier).
 
 ---
 
@@ -130,17 +121,15 @@
 
 ---
 
-## 📋 Inputs en attente de ta part
+## 📋 Inputs en attente / fichiers à déposer
 
-| Item | Lot |
-|------|-----|
-| Photo + mini-pitch + prénom/rôle fondateur | 5 |
-| URL Instagram (+ autres réseaux ?) | 6 |
-| Validation baseline Hero + sous-titre coach | 3 |
-| Choix placement section témoignages (A ou B) | 4 |
-| Décision vidéo hero (maintenant / plus tard) | 8 |
-| Décision SEO base (maintenant / plus tard) | 9 |
-| Décision CTA : double ("J'obtiens mes accès" + "Rejoindre l'expérience") ou simple | 2 |
+| Item                                                      | Lot | Statut |
+|-----------------------------------------------------------|-----|--------|
+| Vrais verbatims pour Testimonials (`quote` + `name`)      | 4 | À adapter quand tu les auras |
+| Pitch fondateur personnalisé (+ prénom si tu veux signer) | 5 | Optionnel — version placeholder en place |
+| `public/assets/hero-poster.jpg` (1920×1080+)              | 8 | À déposer |
+| `public/assets/og-image.png` (1200×630)                   | 9 | À déposer |
+| URL de prod réelle (si ≠ `https://www.sweyl.com/`)        | 9 | À corriger dans `index.html` |
 
 ---
 
