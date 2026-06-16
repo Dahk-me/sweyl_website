@@ -54,7 +54,7 @@ export default function NotFound() {
         marginBottom: '40px',
         maxWidth: '460px',
       }}>
-        Cette page n&apos;existe pas. Pas grave — le match continue.
+        Cette page n&apos;existe pas. Pas grave. Le match continue.
       </p>
 
       <Link to="/" className="btn-primary" style={{ padding: mobile ? '14px 22px' : '16px 28px', fontSize: mobile ? '13px' : '14px' }}>

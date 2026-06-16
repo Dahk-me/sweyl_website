@@ -26,7 +26,7 @@ const verbatims = [
 
 const Card = ({ v, mobile }) => (
   <div style={{
-    background: 'var(--bg-2)',
+    background: 'var(--bg-3)',
     border: '1px solid var(--line)',
     borderRadius: '6px',
     padding: mobile ? '24px 22px' : '32px 28px',
@@ -50,7 +50,7 @@ export default function Testimonials() {
   const mobile = useMobile()
 
   return (
-    <section id="testimonials" style={{ padding: mobile ? '80px 0' : '120px 0', background: 'var(--bg)', borderTop: '1px solid var(--line)' }}>
+    <section id="testimonials" style={{ padding: mobile ? '80px 0' : '120px 0', background: 'var(--bg-2)', borderTop: '1px solid var(--line)' }}>
       <div style={{ maxWidth: '1300px', margin: '0 auto', padding: mobile ? '0 20px' : '0 32px' }}>
         <div style={{ display: 'grid', gridTemplateColumns: mobile ? '1fr' : '35fr 65fr', gap: mobile ? '32px' : '80px', alignItems: 'flex-start' }}>
 

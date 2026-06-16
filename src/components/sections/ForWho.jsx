@@ -97,7 +97,7 @@ export default function ForWho() {
 
   if (mobile) {
     return (
-      <section id="for-who" style={{ background: 'var(--bg-2)', borderTop: '1px solid var(--line)' }}>
+      <section id="for-who" style={{ background: 'var(--bg)', borderTop: '1px solid var(--line)' }}>
         <div style={{ padding: '80px 22px 32px' }}>
           {intro}
         </div>
@@ -112,7 +112,7 @@ export default function ForWho() {
     <section
       id="for-who"
       style={{
-        background: 'var(--bg-2)',
+        background: 'var(--bg)',
         borderTop: '1px solid var(--line)',
         padding: '80px 0',
       }}

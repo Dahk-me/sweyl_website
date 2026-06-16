@@ -12,7 +12,7 @@ const pillars = [
 ]
 
 const Card = ({ p, mobile }) => (
-  <div style={{ borderRadius: '8px', overflow: 'hidden', background: 'var(--bg-2)', border: '1px solid var(--line)', display: 'flex', flexDirection: 'column', height: '100%' }}>
+  <div style={{ borderRadius: '8px', overflow: 'hidden', background: 'var(--bg-3)', border: '1px solid var(--line)', display: 'flex', flexDirection: 'column', height: '100%' }}>
     <img src={p.img} alt={p.title} style={{ width: '100%', height: '350px', flexShrink: 0, objectFit: 'cover', display: 'block' }} />
     <div style={{ padding: mobile ? '20px' : '24px', flex: 1 }}>
       <div className="mono" style={{ fontSize: '10px', color: 'var(--primary)', letterSpacing: '0.18em', marginBottom: '10px' }}>{p.n}</div>
@@ -26,7 +26,7 @@ export default function Vision() {
   const mobile = useMobile()
 
   return (
-    <section id="vision" style={{ padding: mobile ? '80px 0' : '140px 0', position: 'relative', background: 'var(--bg)' }}>
+    <section id="vision" style={{ padding: mobile ? '80px 0' : '140px 0', position: 'relative', background: 'var(--bg-2)' }}>
 
       {/* Container paddé titre + texte */}
       <div style={{ maxWidth: '1300px', margin: '0 auto', padding: mobile ? '0 20px' : '0 32px' }}>
