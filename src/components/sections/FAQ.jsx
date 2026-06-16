@@ -3,17 +3,23 @@ import { IconPlus } from '../Icons'
 import { useMobile } from '../../hooks/useMobile'
 
 const faqs = [
-  { q: "Est-ce vraiment différent d'un outil de stats ?", a: "Oui. La stat est un sous-produit. SWEYL est conçu autour de la vie du club entière calendrier, fidélisation, partage social, points communautaires." },
-  { q: "Comment se passe l'onboarding pour la saison ?", a: "Démo sur demande, paramétrage de votre club, tests, démarrage en septembre. On vous accompagne sur chaque étape." },
+  { q: "Est-ce vraiment différent d'un outil de stats ?", a: "Oui. La stat est un sous-produit. SWEYL est conçu autour de la vie du club entière : calendrier, suivi de saison, partage social." },
+  { q: "Combien ça coûte ?", a: "Gratuit pour les coachs et les présidents. Les joueurs essaient un mois, puis choisissent. Aucune carte demandée à l'inscription." },
   { q: "Faut-il un statisticien ?", a: "Non. L'interface de saisie est pensée pour un joueur non-titulaire. L'app guide pas-à-pas, aucune formation requise." },
-  { q: "Quels appareils ?", a: "SWEYL est une PWA fonctionne comme une app native sur iOS, Android, ordinateur, sans passer par les stores." },
+  { q: "Combien de temps pour saisir un match ?", a: "Aucun temps perdu. La saisie se fait en temps réel pendant le match. Rien à rattraper après." },
+  { q: "Que se passe-t-il si le saisisseur se trompe ?", a: "Chaque action peut être corrigée pendant et après le match. L'historique reste fidèle." },
+  { q: "Un coach peut gérer plusieurs équipes ?", a: "Oui. Toutes tes équipes dans le même espace, switch en un clic." },
+  { q: "Mes parents peuvent suivre le match sans compte ?", a: "Oui. Le live match est public, accessible avec un simple lien à partager." },
+  { q: "Mon historique me suit si je change de club ?", a: "Oui. Ton profil joueur est unique, tes stats voyagent avec toi." },
+  { q: "Quels appareils ?", a: "SWEYL est une PWA. Elle fonctionne comme une app native sur iOS, Android et ordinateur, sans passer par les stores." },
   { q: "Et le calendrier FFBB ?", a: "Un lien suffit. L'import et la synchronisation sont automatiques." },
   { q: "Que se passe-t-il avec mes anciens matchs ?", a: "Glissez vos feuilles de match PDF. SWEYL extrait les stats et reconstruit l'historique en quelques secondes." },
+  { q: "Comment se passe l'onboarding pour la saison ?", a: "Démo sur demande, paramétrage de votre club, tests, démarrage en septembre. On vous accompagne sur chaque étape." },
 ]
 
 export default function FAQ() {
   const mobile = useMobile()
-  const [open, setOpen] = React.useState(0)
+  const [open, setOpen] = React.useState(-1)
 
   const title = (
     <>

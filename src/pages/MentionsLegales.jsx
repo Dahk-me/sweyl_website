@@ -32,15 +32,36 @@ export default function MentionsLegales() {
         borderBottom: '1px solid var(--line)',
         background: 'var(--bg-glass)',
       }}>
-        <div style={{ maxWidth: '1300px', margin: '0 auto', padding: mobile ? '0 20px' : '0 32px', height: mobile ? '56px' : '72px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-          <Link to="/">
-            <img src={logoSvg} alt="SWEYL" style={{ height: mobile ? '20px' : '24px', width: 'auto', filter: theme === 'light' ? 'none' : 'brightness(0) invert(1)' }} />
+        <div style={{ maxWidth: '1300px', margin: '0 auto', padding: mobile ? '0 20px' : '0 32px', height: mobile ? '56px' : '72px', display: 'flex', alignItems: 'center', gap: '16px' }}>
+          {/* Logo à gauche */}
+          <Link to="/" style={{ display: 'flex', alignItems: 'center', gap: '10px', flexShrink: 0 }}>
+            <img src={logoSvg} alt="SWEYL" style={{ height: '22px', width: 'auto', filter: theme === 'light' ? 'none' : 'brightness(0) invert(1)' }} />
+            {!mobile && <span style={{ fontFamily: 'Montserrat, sans-serif', fontSize: '20px', fontWeight: 600, letterSpacing: '0.3em', color: 'var(--fg)' }}>SWEYL</span>}
           </Link>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
-            <Link to="/" style={{ fontSize: '13px', color: 'var(--fg-2)' }}>← Retour</Link>
-            <button onClick={toggleTheme} style={{ fontSize: '18px', background: 'none', border: 'none', cursor: 'pointer', color: 'var(--fg-3)' }}>
+
+          {/* Centre SWEYL sur mobile */}
+          <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            {mobile && <span style={{ fontFamily: 'Montserrat, sans-serif', fontSize: '20px', fontWeight: 600, letterSpacing: '0.3em', color: 'var(--fg)' }}>SWEYL</span>}
+          </div>
+
+          {/* Actions à droite */}
+          <div style={{ display: 'flex', alignItems: 'center', gap: mobile ? '8px' : '16px', flexShrink: 0 }}>
+            <button
+              onClick={toggleTheme}
+              style={{
+                display: 'inline-flex', alignItems: 'center', gap: '6px',
+                background: 'transparent', border: '1px solid var(--line-2)',
+                color: 'var(--fg)', padding: mobile ? '8px 10px' : '10px 14px',
+                fontSize: '11px', borderRadius: '999px',
+                transition: 'color 0.3s, border-color 0.3s', cursor: 'pointer',
+              }}
+            >
               {theme === 'dark' ? '☀️' : '🌙'}
+              {!mobile && (theme === 'dark' ? ' Clair' : ' Sombre')}
             </button>
+            <Link to="/" className="btn-ghost" style={{ padding: mobile ? '10px 14px' : '10px 18px', fontSize: '12px', gap: '8px' }}>
+              <span aria-hidden="true">←</span>{mobile ? 'Retour' : "Retour à l'accueil"}
+            </Link>
           </div>
         </div>
       </header>
