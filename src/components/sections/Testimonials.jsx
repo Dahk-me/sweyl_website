@@ -3,24 +3,24 @@ import { useMobile } from '../../hooks/useMobile'
 
 const verbatims = [
   {
-    role: 'Coach Pré-national',
-    quote: "Pour la première fois j'ai un outil qui parle ma langue. La saisie est rapide, les stats sont propres, et mes joueurs s'en servent vraiment.",
-    name: 'À remplacer',
+    role: 'Assistant Coach Pré-national',
+    quote: "Appli facile à prendre en main, vraiment top comme appli.",
+    name: 'Big Will',
   },
   {
-    role: 'Coach Régionale 2',
-    quote: "Avant, je perdais 2h après chaque match à compiler. Aujourd'hui c'est fait en direct. Le débrief vidéo, on l'attaque le soir même.",
-    name: 'À remplacer',
+    role: 'Coach Départemental 1',
+    quote: "Mon fils de 14 ans a pris l'appli en main ce soir pour la prise de statistiques et il a géré.",
+    name: 'Amaury',
   },
   {
-    role: 'Président du club X',
+    role: 'Président de club',
     quote: "Une vue claire sur ce qui se passe dans toutes les équipes. Je sais où en est le club sans avoir à courir après les coachs.",
-    name: 'À remplacer',
+    name: 'Luc',
   },
   {
     role: 'Joueur Région 2',
-    quote: "Ma fiche joueur, je la partage à chaque carton. Et mes parents qui vivent loin, ils suivent les matchs en direct sans bouger.",
-    name: 'À remplacer',
+    quote: "Jamais j'aurais pensé avoir des stats comme un pro à mon niveau. Trop stylé. Hâte de voir la suite.",
+    name: 'Aniss',
   },
 ]
 
