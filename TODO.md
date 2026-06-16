@@ -31,7 +31,7 @@
 ## Lot 3 — Repositionnement coach-first ✅
 
 **Décisions actées** :
-- Hero baseline pivote en coach-first : "Coache comme un pro. Reste un amateur." + sous-titre "La première plateforme pensée pour les coachs amateurs."
+- Hero baseline : "Tes étoiles. Ton terrain." (dual coach/joueur, métaphore étoiles, percutant) + sous-titre "La première plateforme qui accompagne coachs et joueurs pour les faire briller davantage."
 - Carte Dirigeants : on retire la fidélité partenaires, on garde la carte mais réorientée vue saison / engagement effectif.
 
 - [x] **Hero** : nouvelle baseline + sous-titre coach-first.
