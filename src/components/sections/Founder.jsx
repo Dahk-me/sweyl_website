@@ -30,10 +30,13 @@ export default function Founder() {
 
             <div style={{ paddingLeft: mobile ? '20px' : '0' }}>
               <p className="serif" style={{ fontSize: mobile ? '17px' : '22px', lineHeight: 1.45, color: 'var(--fg)', marginBottom: '24px', fontWeight: 500 }}>
-                Pendant des années, le basket amateur a fait sans outil dédié. Les coachs se débrouillaient avec un cahier ou un fichier excel. Les clubs comptaient sur la mémoire.
+                Pendant des années, le basket amateur a fait sans outil dédié. Les coachs se débrouillaient avec des feuilles volatiles ou un fichier excel. Les clubs comptaient sur la mémoire.
               </p>
               <p style={{ fontSize: mobile ? '14px' : '16px', lineHeight: 1.7, color: 'var(--fg-2)', marginBottom: '24px' }}>
-                SWEYL est la réponse. L&apos;outil qu&apos;un coach amateur aurait voulu avoir depuis toujours. Construit par quelqu&apos;un qui a vu ce qu&apos;il manquait et qui refuse que le sport amateur reste l&apos;angle mort de la tech.
+                SWEYL est la réponse. L&apos;outil qu&apos;un coach amateur aurait voulu avoir depuis toujours.
+              </p>
+              <p style={{ fontSize: mobile ? '14px' : '16px', lineHeight: 1.7, color: 'var(--fg-2)', marginBottom: '24px' }}>
+                Construit avec des coachs et des joueurs sur le terrain, qui ont vu ce qu&apos;il manquait et qui refusent que le sport amateur reste l&apos;angle mort de la tech.
               </p>
               <p style={{ fontSize: mobile ? '14px' : '16px', lineHeight: 1.7, color: 'var(--fg-2)', marginBottom: '32px' }}>
                 Pas une application de plus. Une plateforme complète, dédié au club, un standard pour celles et ceux qui font vivre les clubs chaque week-end.
