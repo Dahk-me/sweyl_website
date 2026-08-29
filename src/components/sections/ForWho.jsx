@@ -1,6 +1,6 @@
 import React from 'react'
 import { useMobile } from '../../hooks/useMobile'
-import { PointsLeaderboard, CalendarWidget, PlayerCard, LiveScoreboard } from '../Instruments'
+import AppShot from '../AppShot'
 
 const CARDS = [
   {
@@ -8,16 +8,16 @@ const CARDS = [
     label: 'Coachs',
     title: 'COACHER',
     desc: 'Gérez vos effectifs, préparez vos matchs et décidez avec les données. Avant, pendant, après tout est centralisé.',
-    highlights: ['Feuilles de match digitales', 'Suivi de performances', 'Feedback joueur individualisé'],
-    instrument: <CalendarWidget />,
+    highlights: ['Vidéo synchronisée aux stats', 'Suivi de performances', 'Feedback joueur individualisé'],
+    slot: 'coachs',
   },
   {
     tag: '02',
     label: 'Joueurs',
     title: 'PROGRESSER',
     desc: "Suivez votre saison match après match. Partagez vos meilleures perfs avec des visuels prêts à l'emploi.",
-    highlights: ['Fiche joueur détaillée', 'Comparatifs équipe', 'Partage social instantané'],
-    instrument: <PlayerCard />,
+    highlights: ['Fiche joueur détaillée', 'Progression sur la saison', 'Partage social instantané'],
+    slot: 'joueurs',
   },
   {
     tag: '03',
@@ -25,39 +25,33 @@ const CARDS = [
     title: 'VIVRE',
     desc: 'Vivez les matchs en direct depuis les tribunes ou de chez vous. Suivez vos joueurs, recevez les notifications.',
     highlights: ['Scores en temps réel', 'Notifications de match', 'Stats de vos joueurs préférés'],
-    instrument: <LiveScoreboard />,
+    slot: 'familles',
   },
   {
     tag: '04',
     label: 'Présidents & dirigeants',
     title: 'DIRIGER',
     desc: "Pilotez votre saison. Suivez l'engagement de l'effectif et donnez une dimension digitale à votre club.",
-    highlights: ['Tableau de bord club', 'Vue saison toutes équipes', "Engagement de l'effectif"],
-    instrument: <PointsLeaderboard />,
+    highlights: ['Tableau de bord club', 'Vue saison toutes équipes', 'Assiduité et engagement'],
+    slot: 'dirigeants',
   },
 ]
 
-const Card = ({ c, mobile }) => (
-  <div
-    className="forwho-card"
-    style={{
-      padding: mobile ? '22px 24px 36px' : '30px 48px 48px',
-      boxSizing: 'border-box',
-    }}
-  >
+const Copy = ({ c, mobile }) => (
+  <>
     <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '16px' }}>
       <span className="mono" style={{ fontSize: '11px', letterSpacing: '0.18em', textTransform: 'uppercase', color: 'var(--primary)' }}>{c.tag} • {c.label}</span>
     </div>
 
-    <h3 className="display" style={{ fontSize: mobile ? 'clamp(48px, 15vw, 68px)' : 'clamp(56px, 7vw, 88px)', color: 'var(--fg)', marginBottom: '16px', lineHeight: 0.9 }}>
+    <h3 className="display" style={{ fontSize: mobile ? 'clamp(48px, 15vw, 68px)' : 'clamp(52px, 5.6vw, 80px)', color: 'var(--fg)', marginBottom: '16px', lineHeight: 0.9 }}>
       {c.title}
     </h3>
 
-    <p style={{ fontSize: mobile ? '13px' : '15px', color: 'var(--fg-2)', lineHeight: 1.55, maxWidth: '480px', marginBottom: '16px' }}>
+    <p style={{ fontSize: mobile ? '13px' : '15px', color: 'var(--fg-2)', lineHeight: 1.55, maxWidth: '440px', marginBottom: '20px' }}>
       {c.desc}
     </p>
 
-    <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '8px', marginBottom: '20px' }}>
+    <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '8px' }}>
       {c.highlights.map(h => (
         <li key={h} style={{ display: 'flex', alignItems: 'center', gap: '10px', fontSize: '13px', color: 'var(--fg-3)' }}>
           <span style={{ width: '16px', height: '1px', background: 'var(--primary)', flexShrink: 0 }} />
@@ -65,12 +59,50 @@ const Card = ({ c, mobile }) => (
         </li>
       ))}
     </ul>
-
-    <div style={{ width: '100%', overflow: 'hidden' }}>
-      {c.instrument}
-    </div>
-  </div>
+  </>
 )
+
+/**
+ * Le téléphone est montré en entier. Une version débordante avait été essayée :
+ * avec `align-items: center`, la carte se cale sur la hauteur réduite du
+ * téléphone et le rogne AUSSI par le haut sur les cartes inversées. Corrigé le
+ * 29/08/2026, ne pas réintroduire de marge négative ici.
+ */
+const Card = ({ c, mobile, flip }) => {
+  if (mobile) {
+    return (
+      <div className="forwho-card" style={{ padding: '22px 24px 32px', boxSizing: 'border-box' }}>
+        <Copy c={c} mobile />
+        <div style={{ display: 'flex', justifyContent: 'center', marginTop: '32px' }}>
+          <AppShot slot={c.slot} width="min(240px, 70%)" />
+        </div>
+      </div>
+    )
+  }
+
+  const copy = <div key="copy" style={{ minWidth: 0 }}><Copy c={c} mobile={false} /></div>
+  const shot = (
+    <div key="shot" style={{ display: 'flex', justifyContent: 'center' }}>
+      <AppShot slot={c.slot} width="clamp(200px, 23vw, 258px)" />
+    </div>
+  )
+
+  return (
+    <div
+      className="forwho-card"
+      style={{
+        padding: '44px 48px',
+        boxSizing: 'border-box',
+        display: 'grid',
+        gridTemplateColumns: flip ? '42fr 58fr' : '58fr 42fr',
+        gap: '32px',
+        alignItems: 'center',
+      }}
+    >
+      {flip ? [shot, copy] : [copy, shot]}
+    </div>
+  )
+}
 
 export default function ForWho() {
   const mobile = useMobile()
@@ -89,8 +121,8 @@ export default function ForWho() {
 
   const cards = (
     <div style={{ display: 'flex', flexDirection: 'column', gap: mobile ? '16px' : '24px' }}>
-      {CARDS.map(c => (
-        <Card key={c.tag} c={c} mobile={mobile} />
+      {CARDS.map((c, i) => (
+        <Card key={c.tag} c={c} mobile={mobile} flip={i % 2 === 1} />
       ))}
     </div>
   )

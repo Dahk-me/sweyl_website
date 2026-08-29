@@ -1,9 +1,40 @@
 import React from 'react'
-import { LiveScoreboard } from '../Instruments'
+import AppShot from '../AppShot'
 import { useMobile } from '../../hooks/useMobile'
+
+const CLAIMS = [
+  ['Saisie guidée', "Un joueur non-titulaire suffit. Pas de formation, pas de tableur."],
+  ['Temps réel', 'Le banc, les tribunes et la maison voient le même match.'],
+  ['Après le match', 'La feuille est déjà remplie. Les stats aussi.'],
+]
+
+const Claims = ({ mobile }) => (
+  <div style={{ display: 'flex', flexDirection: 'column', gap: mobile ? '24px' : '32px' }}>
+    {CLAIMS.map(([label, text]) => (
+      <div key={label}>
+        <div className="mono" style={{ fontSize: '10px', color: 'var(--primary)', letterSpacing: '0.18em', textTransform: 'uppercase', marginBottom: '8px' }}>
+          {label}
+        </div>
+        <div style={{ fontSize: mobile ? '14px' : '16px', color: 'var(--fg-2)', lineHeight: 1.5 }}>
+          {text}
+        </div>
+      </div>
+    ))}
+  </div>
+)
 
 export default function ClubLife() {
   const mobile = useMobile()
+
+  const phone = (
+    <div style={{ position: 'relative', display: 'flex', justifyContent: 'center' }}>
+      <div style={{
+        position: 'absolute', inset: '-8% -14%', pointerEvents: 'none',
+        background: 'radial-gradient(ellipse at center, color-mix(in srgb, var(--primary) 16%, transparent), transparent 68%)',
+      }} />
+      <AppShot slot="clubLife" width={mobile ? '62vw' : 'clamp(260px, 30vw, 330px)'} priority />
+    </div>
+  )
 
   return (
     <section style={{ padding: mobile ? '80px 0' : '140px 0', background: 'var(--bg)' }}>
@@ -25,22 +56,19 @@ export default function ClubLife() {
 
           {/* Right 65% content */}
           <div data-reveal>
-            <p style={{ fontSize: mobile ? '15px' : '17px', lineHeight: 1.6, color: 'var(--fg-2)', marginBottom: '36px' }}>
-              SWEYL relie coachs, joueurs et dirigeants autour d'un projet commun : la vie du club, sur la saison entière.
+            <p style={{ fontSize: mobile ? '15px' : '17px', lineHeight: 1.6, color: 'var(--fg-2)', marginBottom: mobile ? '40px' : '56px' }}>
+              SWEYL relie coachs, joueurs et dirigeants autour d&apos;un projet commun : la vie du club, sur la saison entière.
             </p>
-            <LiveScoreboard />
-            {!mobile && (
-              <div style={{ marginTop: '16px', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
-                <div style={{ background: 'var(--bg-2)', border: '1px solid var(--line)', padding: '16px', borderRadius: '4px' }}>
-                  <div className="mono" style={{ fontSize: '9px', color: 'var(--fg-3)', letterSpacing: '0.15em', marginBottom: '6px' }}>MEILLEUR JOUEUR</div>
-                  <div className="display-narrow" style={{ fontSize: '18px' }}>L. MARTIN</div>
-                  <div className="mono" style={{ fontSize: '10px', color: 'var(--primary)', marginTop: '4px' }}>22 PTS · 6 AST</div>
-                </div>
-                <div style={{ background: 'var(--bg-2)', border: '1px solid var(--line)', padding: '16px', borderRadius: '4px' }}>
-                  <div className="mono" style={{ fontSize: '9px', color: 'var(--fg-3)', letterSpacing: '0.15em', marginBottom: '6px' }}>SPECTATEURS</div>
-                  <div className="display-narrow" style={{ fontSize: '18px' }}>84</div>
-                  <div className="mono" style={{ fontSize: '10px', color: 'var(--fg-3)', marginTop: '4px' }}>EN DIRECT</div>
-                </div>
+
+            {mobile ? (
+              <>
+                {phone}
+                <div style={{ marginTop: '40px' }}><Claims mobile /></div>
+              </>
+            ) : (
+              <div style={{ display: 'grid', gridTemplateColumns: 'auto 1fr', gap: '56px', alignItems: 'center' }}>
+                {phone}
+                <Claims mobile={false} />
               </div>
             )}
           </div>

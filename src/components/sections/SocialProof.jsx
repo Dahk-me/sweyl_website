@@ -3,7 +3,9 @@ import { useMobile } from '../../hooks/useMobile'
 import { supabase } from '../../lib/supabase'
 import { STORAGE } from '../../lib/storageConfig'
 
-const stats = [['400+', 'UTILISATEURS'], ['15+', 'COACHS'], ['10+', 'CLUBS'], ['100+', 'MATCHS / SEM']]
+// Chiffres réels du club, donnés par Ismail le 29/08/2026.
+// « MATCHS / SEM » est le seul reliquat à confirmer.
+const stats = [['1500', 'JOUEURS'], ['90', 'COACHS'], ['4', 'CLUBS'], ['100+', 'MATCHS / SEM']]
 
 function useCountUp(target, duration = 1800) {
   const [count, setCount] = React.useState(0)
