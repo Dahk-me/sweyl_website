@@ -186,3 +186,174 @@ Format : audit clair et structuré, pas de blabla. Cite des extraits concrets
 du site. Pour chaque manque, propose une formulation concrète, pas juste
 "il faudrait".
 ```
+
+---
+
+## Lot 10 · Passage aux vraies captures d'app
+
+> Ouvert le 29/08/2026. Objectif : retirer du site les éléments fabriqués qui
+> simulent l'application, et les remplacer par des captures issues du CSS réel
+> du produit, via l'outil `gts/brand-assets/screenshots/` (skill
+> `sweyl-app-screenshots`).
+
+### Décisions actées
+
+- **Périmètre : `ClubLife` et `ForWho` uniquement.** `Vision` (ses 3
+  `PLACEHOLDER_IMG` Supabase) et une éventuelle galerie « Dans l'app » restent
+  hors périmètre, pour ne pas transformer la page en catalogue de téléphones.
+- **Thème : les deux.** Chaque capture existe en clair et en sombre, l'image
+  suit le toggle du site.
+- **Deux variantes par emplacement.** Chaque slot du site reçoit une capture A
+  et une capture B, toutes deux produites et déployées. Le choix se fait ensuite
+  en changeant **une seule ligne** dans `src/lib/appShots.js`.
+- **Écran coach : l'analyse vidéo** en variante A. La photo `assets/match.jpg`
+  est conservée, Ismail la remplacera par une photo de son club plus tard.
+- **Principe transverse : on épure.** Une capture transmet le message et
+  l'envie, elle ne reproduit pas la densité réelle de l'écran. Moins de lignes,
+  moins de tuiles, plus de respiration. La fidélité au pixel n'est pas
+  l'objectif, et **une feature pas encore livrée peut être montrée** : le site
+  doit donner envie de télécharger, rien n'est facturé aujourd'hui.
+
+### 10.1 Les dix captures (5 emplacements × 2 variantes)
+
+Les dix sont produites et déployées. **Le choix d'Ismail, arrêté le 29/08/2026,
+est marqué ✅** ; la variante non retenue reste en ligne, une bascule ne coûte
+qu'une lettre dans `src/lib/appShots.js`.
+
+| Emplacement site | Variante A | Variante B |
+|---|---|---|
+| `ClubLife` | ✅ `live` : suivi du match en direct, score et flux | `saisie` : la saisie des stats pendant le match |
+| `ForWho` 01 Coachs | ✅ `coach` : analyse vidéo, action taguée au joueur | `coach2` : accueil coach, la semaine de l'équipe |
+| `ForWho` 02 Joueurs | `joueur` : sa fiche du match, ses points forts | ✅ `joueur2` : son profil de saison et sa progression |
+| `ForWho` 03 Fans & parents | `familles` : le calendrier du club | ✅ `familles2` : accueil famille, résultat et prochain match |
+| `ForWho` 04 Présidents | `club` : assiduité aux entraînements par équipe | ✅ `club2` : le hub du club, toutes les équipes |
+
+Deux libellés de `ForWho` ont suivi le choix des variantes : `Comparatifs
+équipe` devient `Progression sur la saison` (la capture montre une courbe), et
+`Assiduité par équipe` devient `Assiduité et engagement`, formulation qui tient
+avec `club` comme avec `club2`.
+
+Allègements appliqués aux écrans qui existaient déjà :
+
+- **`coach`** : la liste d'actions répétait cinq fois « #7 Malik Sanchez ».
+  Descendue à 3 lignes, vidéo et filtre joueur conservés.
+- **`joueur`** : rangée REB / AST / STL / BLK / TO retirée, « Points forts »
+  réduit à 2 lignes.
+- **`club`** : 6 équipes ramenées à 4. À 290 px de large, six lignes sont
+  illisibles.
+- **`familles`** : correction d'un vrai bug, la pastille Domicile / Extérieur
+  utilisait `--pill-color` au lieu de `--c-ui-status-pill-color` et sortait donc
+  sans fond.
+
+### 10.2 Agencement · `ClubLife`
+
+Aujourd'hui : colonne droite = paragraphe, `LiveScoreboard`, puis deux encarts
+en dur (« MEILLEUR JOUEUR L. MARTIN », « SPECTATEURS 84 EN DIRECT »).
+
+Cible : la colonne droite (65 %, environ 845 px) passe en grille interne
+`auto 1fr` :
+
+- à gauche, le téléphone, largeur `clamp(260px, 30%, 330px)`, posé sur un halo
+  radial orange discret ;
+- à droite, trois affirmations courtes empilées (eyebrow mono + une ligne).
+  Elles remplacent les deux encarts inventés :
+  `SAISIE GUIDÉE / Un joueur non-titulaire suffit`,
+  `TEMPS RÉEL / Le banc, les tribunes, la maison`,
+  `APRÈS LE MATCH / La feuille est déjà remplie`.
+
+Mobile : paragraphe, téléphone centré, puis les trois affirmations empilées.
+
+### 10.3 Agencement · `ForWho`
+
+Aujourd'hui : quatre cartes empilées, l'instrument occupe toute la largeur de la
+carte sous le texte. Un iPhone pleine largeur dans une carte de 813 px serait
+démesuré.
+
+Cible, desktop : chaque carte passe en deux colonnes internes.
+
+- Gauche (environ 58 %) : tag, titre, description, les 3 tirets.
+- Droite (environ 42 %) : le téléphone, largeur `clamp(220px, 26vw, 290px)`,
+  aligné en bas et débordant légèrement sous le padding, pour l'effet « posé sur
+  la carte » plutôt que « collé dedans ».
+- Le côté du téléphone alterne d'une carte à l'autre, pour casser la répétition
+  sur quatre cartes de suite.
+
+Mobile : texte puis téléphone centré à 200 px de large.
+
+### 10.4 SocialProof
+
+Trois des quatre compteurs passent aux **vraies valeurs** données par Ismail le
+29/08/2026 : **1500 joueurs, 90 coachs, 4 clubs**. La grille 2 × 2 est conservée,
+la quatrième tuile « matchs / semaine » aussi. ⚠️ Elle affiche toujours l'ancien
+`100+`, **seul chiffre inventé restant sur le site**.
+
+### 10.5 Pipeline image
+
+```bash
+cd brand-assets/screenshots
+node capture.mjs --all --theme dark  --format web --out ../../sweyl_website/public/assets/app
+node capture.mjs --all --theme light --format web --out ../../sweyl_website/public/assets/app
+# puis conversion WebP (cwebp est déjà installé sur la machine)
+```
+
+- Format `web` = 598 × 1180, fond transparent. Affiché à 330 px maximum sur le
+  site : on reste au-dessus de la densité 2x sur écran Retina.
+- 10 écrans × 2 thèmes = **20 fichiers**, environ 40 à 90 Ko chacun en WebP.
+- Nommage : `public/assets/app/<ecran>_<theme>.webp`.
+
+**Le code front n'est pas exposé.** La sortie est une image matricielle. Les
+noms de classes réels ne vivent que dans `brand-assets/screenshots/screens/`,
+qui reste dans le monorepo et n'est jamais déployé sur Vercel.
+
+Nouveaux fichiers côté site :
+
+- `src/lib/appShots.js` : la table emplacement vers variante. **C'est le seul
+  fichier à éditer pour basculer une capture de A vers B.**
+- `src/components/AppShot.jsx` : lit `useTheme()`, choisit `_dark` ou `_light`,
+  `width` / `height` fixes contre le CLS, `loading="lazy"` sauf `ClubLife`.
+
+### 10.6 Ce qu'on supprime
+
+- `src/components/Instruments.jsx` en entier : `LiveScoreboard`, `PlayerCard`,
+  `CalendarWidget`, `PointsLeaderboard`.
+- Les deux encarts en dur de `ClubLife`.
+- `public/assets/players/l-martin.png`, dont `PlayerCard` était le seul usage.
+- `src/components/sections/Capacities.jsx` (section morte, décision du
+  29/08/2026). `Community.jsx` est **conservée** telle quelle : elle reviendra.
+
+### 10.7 Fait le 29/08/2026
+
+Tout le lot est implémenté et le build passe. Vérifié au rendu réel (Playwright)
+en thème clair et sombre, desktop 1440 px et mobile 390 px.
+
+**Un piège rencontré, à ne pas réintroduire.** La première version faisait
+déborder le téléphone de 48 px sous le padding de la carte `ForWho`, pour l'effet
+« posé dessus ». Avec `align-items: center`, la carte se cale sur la hauteur
+*réduite* du téléphone : il était donc rogné **par le haut aussi**, visible sur
+les cartes 2 et 4. Le téléphone est maintenant montré en entier. Ne pas remettre
+de marge négative sans repasser la grille en `align-items: end`.
+
+Autres réglages issus de la relecture visuelle :
+
+- `club.mjs` était descendu à 4 équipes, ça laissait un pavé vide en bas de
+  l'écran. Remonté à 6 : à cette taille, le vide se voit plus que la densité.
+- `live.mjs` et `saisie.mjs` ont gagné une ligne de flux et le groupe « Fautes »,
+  pour la même raison.
+- `joueur2.mjs` : la courbe touchait le bord de la carte et son point final
+  était rogné. Marge interne de 6 px ajoutée.
+- `AppShot` adoucit son ombre portée en thème clair (`0.45` tachait sur `#f6f7f8`).
+
+### Reste à faire
+
+| Point | Statut |
+|---|---|
+| Valeur réelle de la tuile « matchs / semaine » (affiche encore `100+`) | en attente d'Ismail |
+| Choix A ou B pour chacun des 5 emplacements | ✅ tranché le 29/08/2026 : A A B B B |
+| Ajustements de finition demandés par Ismail | à venir |
+| Remplacer `assets/match.jpg` par une photo du club d'Ismail | plus tard, à sa main |
+
+### Hors périmètre, laissé en l'état
+
+- `Vision.jsx` et ses 3 `PLACEHOLDER_IMG` Supabase.
+- `public/assets/hero-poster.jpg` et `public/assets/og-image.png`, toujours
+  absents (reliquat des lots 8 et 9).
