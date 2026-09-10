@@ -18,7 +18,7 @@ export default function Header() {
   return (
     <header style={{
       position: 'fixed',
-      top: '36px',
+      top: 0,
       left: 0, right: 0,
       zIndex: 50,
       backdropFilter: 'blur(20px)',

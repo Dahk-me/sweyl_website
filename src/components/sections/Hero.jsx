@@ -5,8 +5,8 @@ import { useMobile } from '../../hooks/useMobile'
 export default function Hero() {
   const mobile = useMobile()
 
-  // bar 36 + header (desktop 72 / mobile 56) + breathing
-  const pt = mobile ? '116px' : '156px'
+  // header (desktop 72 / mobile 56) + breathing
+  const pt = mobile ? '80px' : '120px'
 
   return (
     <section style={{ position: 'relative', minHeight: '100svh', overflow: 'hidden', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
