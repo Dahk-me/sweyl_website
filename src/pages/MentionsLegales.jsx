@@ -4,7 +4,6 @@ import ReactMarkdown from 'react-markdown'
 import { useTheme } from '../contexts/theme'
 import { useMobile } from '../hooks/useMobile'
 import logoSvg from '/assets/LogoSweyl.svg'
-import CountdownBar from '../components/sections/CountdownBar'
 
 export default function MentionsLegales() {
   const { theme, toggleTheme } = useTheme()
@@ -23,10 +22,9 @@ export default function MentionsLegales() {
 
   return (
     <>
-      <CountdownBar />
       <header style={{
         position: 'sticky',
-        top: '36px',
+        top: 0,
         zIndex: 50,
         backdropFilter: 'blur(20px)',
         borderBottom: '1px solid var(--line)',

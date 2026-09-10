@@ -10,17 +10,6 @@ const roadmap = [
 
 export default function Season() {
   const mobile = useMobile()
-  const [t, setT] = React.useState({ d: 0, h: 0, m: 0, s: 0 })
-  React.useEffect(() => {
-    const target = new Date('2026-09-05T00:00:00').getTime()
-    const tick = () => {
-      const diff = Math.max(0, target - Date.now())
-      setT({ d: Math.floor(diff / 86400000), h: Math.floor(diff % 86400000 / 3600000), m: Math.floor(diff % 3600000 / 60000), s: Math.floor(diff % 60000 / 1000) })
-    }
-    tick()
-    const id = setInterval(tick, 1000)
-    return () => clearInterval(id)
-  }, [])
 
   return (
     <section id="season" style={{ padding: mobile ? '80px 0' : '140px 0', position: 'relative', background: 'var(--bg)' }}>
@@ -34,23 +23,14 @@ export default function Season() {
               <span className="live-dot" />SAISON 2026 / 2027 · INSCRIPTIONS OUVERTES
             </div>
             <h2 className="display" style={{ fontSize: mobile ? 'clamp(38px, 11vw, 64px)' : 'clamp(48px, 6vw, 96px)' }}>
-              Début de <br /><span style={{ color: 'var(--primary)' }}>la saison</span><br />dans
+              La saison <br /><span style={{ color: 'var(--primary)' }}>a commencé</span>
             </h2>
           </div>
 
-          {/* Right countdown + roadmap */}
+          {/* Right roadmap */}
           <div>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4,1fr)', gap: '1px', background: 'var(--line)', border: '1px solid var(--line)', marginBottom: '40px' }}>
-              {[['JOURS', t.d], ['HEURES', String(t.h).padStart(2, '0')], ['MINUTES', String(t.m).padStart(2, '0')], ['SECONDES', String(t.s).padStart(2, '0')]].map(([k, v]) => (
-                <div key={k} style={{ background: 'var(--bg-2)', padding: mobile ? '24px 16px' : '36px 24px' }}>
-                  <div className="display" style={{ fontSize: mobile ? 'clamp(36px, 10vw, 60px)' : 'clamp(48px, 5vw, 80px)', color: 'var(--fg)', lineHeight: 1 }}>{v}</div>
-                  <div className="mono" style={{ fontSize: '9px', color: 'var(--fg-3)', letterSpacing: '0.18em', marginTop: '8px' }}>{k}</div>
-                </div>
-              ))}
-            </div>
-
             <p style={{ fontSize: mobile ? '14px' : '15px', lineHeight: 1.6, color: 'var(--fg-2)', marginBottom: '28px' }}>
-              Pour que votre club soit prêt, les étapes suivantes doivent êtres respéctés. Effectifs, calendriers FFBB, accès, formation des coachs, on vous accompagne.
+              Pour que votre club soit prêt, les étapes suivantes doivent être respectées. Effectifs, calendriers FFBB, accès, formation des coachs, on vous accompagne.
             </p>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
               {roadmap.map(([m, txt]) => (
