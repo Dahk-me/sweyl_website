@@ -14,7 +14,8 @@ import Season from './components/sections/Season'
 import Lead from './components/sections/Lead'
 import FAQ from './components/sections/FAQ'
 import Footer from './components/sections/Footer'
-import MentionsLegales from './pages/MentionsLegales'
+import LegalPage from './pages/LegalPage'
+import { LEGAL_DOCUMENTS } from './legal/documents'
 import NotFound from './pages/NotFound'
 
 const Home = () => {
@@ -50,7 +51,9 @@ export default function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/mentions-legales" element={<MentionsLegales />} />
+          {Object.values(LEGAL_DOCUMENTS).map(doc => (
+            <Route key={doc.route} path={doc.route} element={<LegalPage source={doc.source} title={doc.title} />} />
+          ))}
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

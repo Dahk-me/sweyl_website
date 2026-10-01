@@ -4,21 +4,40 @@ import ReactMarkdown from 'react-markdown'
 import { useTheme } from '../contexts/theme'
 import { useMobile } from '../hooks/useMobile'
 import logoSvg from '/assets/LogoSweyl.svg'
+import { interpolateLegalText } from '../legal/interpolate'
+import { countMarkers, withMarkers } from '../legal/markers'
 
-export default function MentionsLegales() {
+/**
+ * Page de texte juridique : mentions légales, CGU, politique de confidentialité.
+ *
+ * Le texte vit en Markdown dans `public/` (servi tel quel, exclu de la réécriture SPA dans
+ * `vercel.json`) et passe par `interpolateLegalText` pour recevoir les champs de `legal/fields.js`.
+ * Tant qu'un champ reste ouvert, il est surligné et un bandeau en donne le compte.
+ */
+export default function LegalPage({ source, title }) {
   const { theme, toggleTheme } = useTheme()
   const mobile = useMobile()
   const [content, setContent] = useState('')
 
   useEffect(() => {
-    fetch('/mentions-legales.md')
+    let active = true
+    fetch(source)
       .then(r => r.text())
-      .then(setContent)
-  }, [])
+      .then(text => { if (active) setContent(interpolateLegalText(text)) })
+    return () => { active = false }
+  }, [source])
 
   useEffect(() => {
     window.scrollTo(0, 0)
-  }, [])
+  }, [source])
+
+  useEffect(() => {
+    const previous = document.title
+    document.title = `${title} | SWEYL`
+    return () => { document.title = previous }
+  }, [title])
+
+  const openFields = countMarkers(content)
 
   return (
     <>
@@ -65,15 +84,25 @@ export default function MentionsLegales() {
       </header>
 
       <main style={{ maxWidth: '760px', margin: '0 auto', padding: mobile ? '60px 20px 100px' : '80px 32px 120px' }}>
+        {openFields > 0 && (
+          <p className="legal-pending-banner mono" role="status">
+            Document en cours de finalisation : {openFields} champ{openFields > 1 ? 's' : ''} encore ouvert{openFields > 1 ? 's' : ''}.
+          </p>
+        )}
         <ReactMarkdown
           components={{
-            h1: ({ children }) => <h1 className="display" style={{ fontSize: mobile ? 'clamp(36px,10vw,56px)' : 'clamp(40px,5vw,64px)', marginBottom: '48px' }}>{children}</h1>,
-            h2: ({ children }) => <h2 style={{ fontFamily: "'Archivo Narrow', sans-serif", fontWeight: 700, fontSize: mobile ? '18px' : '20px', marginTop: '48px', marginBottom: '16px', color: 'var(--fg)' }}>{children}</h2>,
-            p: ({ children }) => <p style={{ fontSize: mobile ? '14px' : '15px', color: 'var(--fg-2)', lineHeight: 1.75, marginBottom: '16px' }}>{children}</p>,
-            a: ({ href, children }) => <a href={href} target="_blank" rel="noopener noreferrer" style={{ color: 'var(--primary)', textDecoration: 'underline' }}>{children}</a>,
+            h1: ({ children }) => <h1 className="display" style={{ fontSize: mobile ? 'clamp(36px,10vw,56px)' : 'clamp(40px,5vw,64px)', marginBottom: '48px' }}>{withMarkers(children)}</h1>,
+            h2: ({ children }) => <h2 style={{ fontFamily: "'Archivo Narrow', sans-serif", fontWeight: 700, fontSize: mobile ? '18px' : '20px', marginTop: '48px', marginBottom: '16px', color: 'var(--fg)' }}>{withMarkers(children)}</h2>,
+            h3: ({ children }) => <h3 style={{ fontFamily: "'Archivo Narrow', sans-serif", fontWeight: 700, fontSize: mobile ? '15px' : '16px', marginTop: '28px', marginBottom: '12px', color: 'var(--fg)' }}>{withMarkers(children)}</h3>,
+            p: ({ children }) => <p style={{ fontSize: mobile ? '14px' : '15px', color: 'var(--fg-2)', lineHeight: 1.75, marginBottom: '16px' }}>{withMarkers(children)}</p>,
+            ul: ({ children }) => <ul style={{ paddingLeft: '20px', marginBottom: '16px' }}>{children}</ul>,
+            li: ({ children }) => <li style={{ fontSize: mobile ? '14px' : '15px', color: 'var(--fg-2)', lineHeight: 1.75, marginBottom: '6px' }}>{withMarkers(children)}</li>,
+            a: ({ href, children }) => href && href.startsWith('/')
+              ? <Link to={href} style={{ color: 'var(--primary)', textDecoration: 'underline' }}>{children}</Link>
+              : <a href={href} target="_blank" rel="noopener noreferrer" style={{ color: 'var(--primary)', textDecoration: 'underline' }}>{children}</a>,
             hr: () => <hr style={{ border: 'none', borderTop: '1px solid var(--line)', margin: '40px 0' }} />,
-            strong: ({ children }) => <strong style={{ color: 'var(--fg)', fontWeight: 600 }}>{children}</strong>,
-            em: ({ children }) => <em style={{ color: 'var(--fg-3)', fontStyle: 'italic' }}>{children}</em>,
+            strong: ({ children }) => <strong style={{ color: 'var(--fg)', fontWeight: 600 }}>{withMarkers(children)}</strong>,
+            em: ({ children }) => <em style={{ color: 'var(--fg-3)', fontStyle: 'italic' }}>{withMarkers(children)}</em>,
           }}
         >
           {content}
