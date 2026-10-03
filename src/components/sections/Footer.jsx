@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { useTheme } from '../../contexts/theme'
 import { useMobile } from '../../hooks/useMobile'
 import logoSvg from '/assets/LogoSweyl.svg'
+import { LEGAL_DOCUMENTS } from '../../legal/documents'
 
 const FooterLink = ({ href, children, style }) => {
   if (href.startsWith('/')) return <Link to={href} style={style}>{children}</Link>
@@ -33,7 +34,9 @@ const columns = [
     l: [
       { label: "Rejoindre l'expérience", href: '#join' },
       { label: 'contact@sweyl.com', href: 'mailto:contact@sweyl.com' },
-      { label: 'Mentions légales', href: '/mentions-legales' },
+      { label: 'Mentions légales', href: LEGAL_DOCUMENTS.legalNotice.route },
+      { label: 'CGU', href: LEGAL_DOCUMENTS.terms.route },
+      { label: 'Confidentialité', href: LEGAL_DOCUMENTS.privacy.route },
     ],
   },
   {
