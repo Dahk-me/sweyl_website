@@ -12,3 +12,4 @@ public/*.mov
 # IDE
 .idea/
 .vscode/
+.claude/
