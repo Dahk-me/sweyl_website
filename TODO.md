@@ -85,7 +85,7 @@
 
 ---
 
-## Lot 8 — Vidéo hero ✅ (quick win)
+## Lot 8 — Vidéo hero ✅ (quick win) · ⛔ remplacé par le lot 11 (04/10/2026)
 
 - [x] `preload="metadata"` ajouté sur la balise `<video>` du Hero (charge juste les métadonnées d'abord, pas tout le payload).
 - [x] `poster="/assets/hero-poster.jpg"` ajouté en attendant que tu déposes une image fallback.
@@ -127,7 +127,7 @@
 |-----------------------------------------------------------|-----|--------|
 | Vrais verbatims pour Testimonials (`quote` + `name`)      | 4 | À adapter quand tu les auras |
 | Pitch fondateur personnalisé (+ prénom si tu veux signer) | 5 | Optionnel — version placeholder en place |
-| `public/assets/hero-poster.jpg` (1920×1080+)              | 8 | À déposer |
+| ~~`public/assets/hero-poster.jpg`~~                         | 8 | Sans objet depuis le lot 11 (plus de vidéo) |
 | `public/assets/og-image.png` (1200×630)                   | 9 | À déposer |
 | URL de prod réelle (si ≠ `https://www.sweyl.com/`)        | 9 | À corriger dans `index.html` |
 
@@ -355,5 +355,37 @@ Autres réglages issus de la relecture visuelle :
 ### Hors périmètre, laissé en l'état
 
 - `Vision.jsx` et ses 3 `PLACEHOLDER_IMG` Supabase.
-- `public/assets/hero-poster.jpg` et `public/assets/og-image.png`, toujours
-  absents (reliquat des lots 8 et 9).
+- `public/assets/og-image.png`, toujours absent (reliquat du lot 9).
+  `hero-poster.jpg` est sans objet depuis le lot 11.
+
+---
+
+## Lot 11 · Entrée du site sans vidéo (04/10/2026)
+
+**Pourquoi** : la vidéo du hero, servie depuis le bucket Supabase `video_hero`, faisait
+dépasser le quota d'egress du projet. Elle est supprimée, pas remplacée par un autre média.
+
+**Décision** : l'entrée ne charge **plus aucun média distant**. Tout est SVG et CSS, ce qui la
+rend instantanée et gratuite en bande passante. Ne pas y réintroduire de vidéo ni d'image
+hébergée sur Supabase.
+
+- [x] `Hero.jsx` réécrit : la salle lumières éteintes, un projecteur orange, le parquet en
+  perspective dont les lignes se tracent à l'arrivée (rond central orange).
+- [x] Logo en grand au centre, `SWEYL` en dessous (Montserrat espacé, même famille que le
+  header), reflet orange qui balaie le logo.
+- [x] Baseline du lot 3 conservée (« Tes étoiles. Ton terrain. »), sous-titre ramené à deux
+  phrases courtes.
+- [x] Fil de match « LIVE » animé (score + action toutes les 2,4 s) : on montre le temps réel
+  au lieu de le dire.
+- [x] CTA du lot 2 conservé (« J'obtiens mes accès »), halo pulsé, mention « Saison 2026/27 ·
+  accès ouverts », indice « Défile ».
+- [x] Header : logo et wordmark masqués tant qu'on est sur l'entrée (pas deux logos à l'écran).
+- [x] `prefers-reduced-motion` respecté : état final affiché, fil de match figé.
+- [x] `temp/` ajouté au `.gitignore`.
+
+> 📥 **À faire de ton côté** : supprimer le fichier `hero-mobile.mp4` du bucket `video_hero`
+> sur Supabase une fois la branche en prod.
+>
+> Reste à surveiller sur l'egress : les 3 `PLACEHOLDER_IMG` de `Vision.jsx` sont toujours
+> servis depuis Supabase Storage, comme les logos de `SocialProof.jsx`.
+

@@ -13,3 +13,4 @@ public/*.mov
 .idea/
 .vscode/
 .claude/
+temp/

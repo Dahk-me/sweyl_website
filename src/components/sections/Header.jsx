@@ -35,7 +35,8 @@ export default function Header() {
         gap: '16px',
       }}>
         {/* Logo toujours à gauche */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '10px', flexShrink: 0 }}>
+        {/* Masqué sur l'entrée : le hero porte déjà la marque en grand */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: '10px', flexShrink: 0, opacity: inHero ? 0 : 1, transition: 'opacity 0.4s' }}>
           <img src={logoSvg} alt="SWEYL" style={{ height: '22px', width: 'auto', transition: 'filter 0.3s', filter: inHero || theme === 'dark' ? 'brightness(0) invert(1)' : 'none' }} />
           {!mobile && <span style={{ fontFamily: 'Montserrat, sans-serif', fontSize: '20px', fontWeight: 600, letterSpacing: '0.3em', transition: 'color 0.3s', color: inHero || theme === 'dark' ? '#f5f4f1' : '#100f0d' }}>SWEYL</span>}
         </div>
@@ -43,7 +44,7 @@ export default function Header() {
         {/* Centre SWEYL sur mobile, nav sur desktop */}
         <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
           {mobile ? (
-            <span style={{ fontFamily: 'Montserrat, sans-serif', fontSize: '20px', fontWeight: 600, letterSpacing: '0.3em', transition: 'color 0.3s', color: inHero || theme === 'dark' ? '#f5f4f1' : '#100f0d' }}>SWEYL</span>
+            <span style={{ fontFamily: 'Montserrat, sans-serif', fontSize: '20px', fontWeight: 600, letterSpacing: '0.3em', transition: 'color 0.3s, opacity 0.4s', opacity: inHero ? 0 : 1, color: inHero || theme === 'dark' ? '#f5f4f1' : '#100f0d' }}>SWEYL</span>
           ) : (
             <nav style={{ display: 'flex', gap: '28px', fontSize: '13px', transition: 'color 0.3s', color: inHero || theme === 'dark' ? '#f5f4f1' : '#100f0d' }}>
               <a href="#vision">Vision</a>
