@@ -166,7 +166,7 @@ img { display: block; max-width: 100%; }
   padding: 10px 18px; border-radius: 999px;
   background: color-mix(in srgb, var(--fg) 4%, transparent); border: 1px solid var(--line-2);
   backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
-  letter-spacing: 0.08em; text-transform: uppercase;
+  font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase;
 }
 .hero-ticker-sep { width: 1px; height: 12px; background: var(--line-2); }
 .hero-score { color: var(--fg); font-weight: 600; display: inline-block; min-width: 5.5ch; text-align: center; }
@@ -182,8 +182,13 @@ img { display: block; max-width: 100%; }
 
 @media (max-width: 768px) {
   .hero-floor { width: 260%; bottom: -10%; }
-  .hero-ticker { gap: 9px; padding: 9px 14px; }
+  .hero-ticker { gap: 9px; padding: 9px 14px; font-size: 11px; }
   .hero-event { min-width: 17ch; }
+}
+/* Petits téléphones (320px) : le fil tient sur une ligne sans être rogné */
+@media (max-width: 360px) {
+  .hero-ticker { gap: 7px; padding: 8px 12px; font-size: 10px; letter-spacing: 0.04em; }
+  .hero-event { min-width: 0; }
 }
 @media (prefers-reduced-motion: reduce) {
   .hero-line, .hero-logo, .hero-wordmark, .hero-rise, .hero-cta, .hero-event, .hero-score--bump {

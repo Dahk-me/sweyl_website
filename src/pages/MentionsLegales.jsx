@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import ReactMarkdown from 'react-markdown'
 import { useTheme } from '../contexts/theme'
 import { useMobile } from '../hooks/useMobile'
+import { IconSun, IconMoon } from '../components/Icons'
 import logoSvg from '/assets/LogoSweyl.svg'
 
 export default function MentionsLegales() {

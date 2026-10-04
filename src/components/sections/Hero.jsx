@@ -66,7 +66,7 @@ const LiveTicker = ({ mobile }) => {
   const scored = event.home || event.away
 
   return (
-    <div className="hero-ticker mono" style={{ fontSize: mobile ? '11px' : '12px' }} aria-hidden="true">
+    <div className="hero-ticker mono" aria-hidden="true">
       <span style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', color: '#ff3b3b' }}>
         <span className="live-dot" /> LIVE
       </span>
