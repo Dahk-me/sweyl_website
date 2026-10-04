@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import ReactMarkdown from 'react-markdown'
 import { useTheme } from '../contexts/theme'
 import { useMobile } from '../hooks/useMobile'
+import { IconSun, IconMoon } from '../components/Icons'
 import logoSvg from '/assets/LogoSweyl.svg'
 
 export default function MentionsLegales() {
@@ -54,7 +55,7 @@ export default function MentionsLegales() {
                 transition: 'color 0.3s, border-color 0.3s', cursor: 'pointer',
               }}
             >
-              {theme === 'dark' ? '☀️' : '🌙'}
+              {theme === 'dark' ? <IconSun size={14} /> : <IconMoon size={14} />}
               {!mobile && (theme === 'dark' ? ' Clair' : ' Sombre')}
             </button>
             <Link to="/" className="btn-ghost" style={{ padding: mobile ? '10px 14px' : '10px 18px', fontSize: '12px', gap: '8px' }}>

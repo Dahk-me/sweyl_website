@@ -15,9 +15,9 @@ const FormField = ({ label, type = 'text', value, onChange, required }) => (
 )
 
 const perks = [
-  'Réservez un échange avec notre équipe',
-  'Réponse sous 24h',
-  'Démo personnalisée à votre club'
+  "Un échange avec l'équipe",
+  'Une démo sur ton club',
+  'Réponse sous 24h'
 ]
 
 export default function Lead() {
@@ -56,9 +56,9 @@ export default function Lead() {
 
           {/* DOM first → mobile: title first. Desktop: order:2 → RIGHT 35%, sticky */}
           <div style={mobile ? {} : { order: 2, position: 'sticky', top: '120px' }}>
-            <div className="eyebrow" style={{ marginBottom: '20px', fontSize: mobile ? '11px' : '13px' }}>—— Rejoindre l&apos;expérience</div>
+            <div className="eyebrow" style={{ marginBottom: '20px', fontSize: mobile ? '11px' : '13px' }}>Rejoindre l&apos;expérience</div>
             <h2 className="display" style={{ fontSize: mobile ? 'clamp(36px, 10vw, 56px)' : 'clamp(48px, 6vw, 80px)' }}>
-              Voyons ensemble<br />ce que <span style={{ color: 'var(--primary)' }}>SWEYL</span><br />peut faire pour<br />votre <span style={{ color: 'var(--primary)' }}>club</span>.
+              Ton club<br />sur <span style={{ color: 'var(--primary)' }}>SWEYL</span><br />cette saison.
             </h2>
           </div>
 
@@ -81,11 +81,10 @@ export default function Lead() {
                   <IconCheck size={28} stroke={2} />
                 </div>
                 <div className="display" style={{ fontSize: '40px', marginBottom: '12px' }}>Reçu.</div>
-                <p style={{ color: 'var(--fg-2)' }}>Je reviens vers vous sous 24h.</p>
+                <p style={{ color: 'var(--fg-2)' }}>On revient vers toi très vite.</p>
               </div>
             ) : (
               <>
-                <div className="mono" style={{ fontSize: '10px', color: 'var(--primary)', letterSpacing: '0.18em', marginBottom: '20px' }}>—— FORMULAIRE QUALIFIÉ</div>
 
                 {/* Name + Email stacked on mobile */}
                 <div style={{ display: 'grid', gridTemplateColumns: mobile ? '1fr' : '1fr 1fr', gap: '14px', marginBottom: '14px' }}>
@@ -98,7 +97,7 @@ export default function Lead() {
                 </div>
 
                 <div style={{ marginBottom: '16px' }}>
-                  <label className="mono" style={{ fontSize: '10px', color: 'var(--fg-3)', letterSpacing: '0.15em', marginBottom: '10px', display: 'block' }}>VOTRE RÔLE</label>
+                  <label className="mono" style={{ fontSize: '10px', color: 'var(--fg-3)', letterSpacing: '0.15em', marginBottom: '10px', display: 'block' }}>TON RÔLE</label>
                   <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: '8px' }}>
                     {[['president', 'Président'], ['coach', 'Coach'], ['other', 'Autre']].map(([k, l]) => (
                       <button type="button" key={k} onClick={() => setForm({ ...form, role: k })}
@@ -119,7 +118,7 @@ export default function Lead() {
                   {loading ? 'Envoi en cours…' : <>Envoyer ma demande<IconArrow size={14} /></>}
                 </button>
                 {error && <p style={{ fontSize: '12px', color: '#e55', marginTop: '10px', textAlign: 'center' }}>{error}</p>}
-                <p className="mono" style={{ fontSize: '9px', color: 'var(--fg-3)', letterSpacing: '0.12em', marginTop: '12px', textAlign: 'center' }}>RÉPONSE SOUS 24H · SANS ENGAGEMENT</p>
+                <p className="mono" style={{ fontSize: '9px', color: 'var(--fg-3)', letterSpacing: '0.12em', marginTop: '12px', textAlign: 'center' }}>SANS ENGAGEMENT</p>
               </>
             )}
           </form>

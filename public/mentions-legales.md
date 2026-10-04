@@ -28,7 +28,7 @@ Région d'hébergement des données : Francfort, Allemagne (Union européenne).
 
 ## 4. Propriété intellectuelle
 
-L'ensemble des éléments composant le site www.sweyl.com la marque **Sweyl**, le logo, le nom, les textes, graphismes, visuels, l'interface et la structure de l'application est la propriété exclusive de Sweyl, sauf mention contraire.
+L'ensemble des éléments composant le site www.sweyl.com (la marque **SWEYL**, le logo, le nom, les textes, graphismes, visuels, l'interface et la structure de l'application) est la propriété exclusive de Sweyl, sauf mention contraire.
 
 Toute reproduction, représentation, modification, publication ou adaptation de tout ou partie de ces éléments, par quelque procédé que ce soit et sur quelque support que ce soit, est interdite sans l'autorisation écrite préalable de l'éditeur. Toute exploitation non autorisée est susceptible de constituer une contrefaçon au sens des articles L.335-2 et suivants du Code de la propriété intellectuelle.
 

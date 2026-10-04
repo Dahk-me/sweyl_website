@@ -12,6 +12,10 @@
   --primary: #FF6600;                                        /* ← changer ici */
   --primary-2: color-mix(in srgb, var(--primary), white 25%); /* hover calculé auto */
   --paper: #f1ede4;
+  /* Hero : seules les valeurs qui ne se déduisent pas de --fg / --bg */
+  --hero-spot-warm: rgba(255,102,0,0.22);
+  --hero-spot-light: rgba(255,240,225,0.07);
+  --hero-logo-glow: rgba(255,102,0,0.45);
   --ink: #0c0b09;
 }
 
@@ -103,6 +107,96 @@ img { display: block; max-width: 100%; }
 }
 
 
+/* ── Hero : la salle ──
+   Suit le thème, comme le reste de la page. Rien de distant : SVG + CSS. */
+.hero {
+  position: relative; min-height: 100svh; overflow: hidden;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  background: var(--bg); color: var(--fg); isolation: isolate;
+}
+.hero-spot {
+  position: absolute; inset: -20% -10% auto; height: 120%; z-index: 0; pointer-events: none;
+  background:
+    radial-gradient(ellipse 38% 42% at 50% 34%, var(--hero-spot-warm), transparent 70%),
+    radial-gradient(ellipse 70% 60% at 50% 0%, var(--hero-spot-light), transparent 70%);
+}
+.hero-floor {
+  position: absolute; left: 50%; bottom: -12%; z-index: 1; pointer-events: none;
+  width: 170%; max-width: 2400px; aspect-ratio: 1600 / 860;
+  transform: translateX(-50%) perspective(900px) rotateX(58deg);
+  transform-origin: 50% 100%;
+  -webkit-mask-image: linear-gradient(to top, #000 10%, transparent 85%);
+          mask-image: linear-gradient(to top, #000 10%, transparent 85%);
+}
+.hero-floor svg { width: 100%; height: 100%; display: block; }
+.hero-line {
+  stroke: color-mix(in srgb, var(--fg) 20%, transparent);
+  stroke-dasharray: 1; stroke-dashoffset: 1;
+  animation: heroDraw 2.2s cubic-bezier(.6,0,.2,1) 0.15s forwards;
+}
+.hero-line--hot { stroke: rgba(255,102,0,0.75); filter: drop-shadow(0 0 6px rgba(255,102,0,0.8)); }
+.hero-vignette {
+  position: absolute; inset: 0; z-index: 2; pointer-events: none;
+  background: radial-gradient(ellipse 90% 80% at 50% 45%, transparent 40%, color-mix(in srgb, var(--bg) 85%, transparent) 100%);
+}
+.hero-content {
+  position: relative; z-index: 3; width: 100%; max-width: 1100px;
+  display: flex; flex-direction: column; align-items: center; text-align: center;
+  gap: clamp(18px, 3.2vh, 32px);
+}
+.hero-brand { display: flex; flex-direction: column; align-items: center; gap: 14px; }
+.hero-logo {
+  aspect-ratio: 542.62 / 660.93;
+  -webkit-mask: url(/assets/LogoSweyl.svg) center / contain no-repeat;
+          mask: url(/assets/LogoSweyl.svg) center / contain no-repeat;
+  background: linear-gradient(115deg, var(--fg) 0%, var(--fg) 38%, #ffd2b0 47%, var(--primary) 50%, #ffd2b0 53%, var(--fg) 62%, var(--fg) 100%);
+  background-size: 300% 100%; background-position: 100% 0;
+  filter: drop-shadow(0 0 28px var(--hero-logo-glow));
+  opacity: 0;
+  animation: heroLogoIn 0.9s cubic-bezier(.2,.8,.2,1) forwards, heroSweep 1.4s ease-in-out 0.7s forwards, heroSweepLoop 7s ease-in-out 5s infinite;
+}
+.hero-wordmark {
+  font-family: 'Montserrat', sans-serif; font-weight: 600; color: var(--fg);
+  letter-spacing: 0.5em; margin-right: -0.5em; /* compense l'espacement après le L */
+  opacity: 0; animation: heroWordIn 1.1s cubic-bezier(.2,.8,.2,1) 0.25s forwards;
+}
+.hero-rise { opacity: 0; animation: fadeUp 0.8s cubic-bezier(.2,.8,.2,1) forwards; }
+.hero-ticker {
+  display: inline-flex; align-items: center; gap: 12px; flex-wrap: nowrap; white-space: nowrap;
+  padding: 10px 18px; border-radius: 999px;
+  background: color-mix(in srgb, var(--fg) 4%, transparent); border: 1px solid var(--line-2);
+  backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+  font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase;
+}
+.hero-ticker-sep { width: 1px; height: 12px; background: var(--line-2); }
+.hero-score { color: var(--fg); font-weight: 600; display: inline-block; min-width: 5.5ch; text-align: center; }
+.hero-score--bump { animation: scoreBump 0.6s ease-out; }
+.hero-event { display: inline-flex; gap: 8px; min-width: 19ch; animation: feed-slide-in 0.4s ease-out; }
+.hero-cta { box-shadow: 0 0 0 0 rgba(255,102,0,0.5); animation: heroPulse 2.8s ease-out 2.2s infinite; }
+@keyframes heroDraw { to { stroke-dashoffset: 0; } }
+@keyframes heroLogoIn { from { opacity: 0; transform: scale(0.82); filter: drop-shadow(0 0 0 rgba(255,102,0,0)); } to { opacity: 1; transform: scale(1); } }
+@keyframes heroSweep { from { background-position: 100% 0; } to { background-position: 0% 0; } }
+@keyframes heroSweepLoop { 0% { background-position: 100% 0; } 20%, 100% { background-position: 0% 0; } }
+@keyframes heroWordIn { from { opacity: 0; letter-spacing: 1.1em; } to { opacity: 1; letter-spacing: 0.5em; } }
+@keyframes heroPulse { 0% { box-shadow: 0 0 0 0 rgba(255,102,0,0.5); } 70%, 100% { box-shadow: 0 0 0 16px rgba(255,102,0,0); } }
+
+@media (max-width: 768px) {
+  .hero-floor { width: 260%; bottom: -10%; }
+  .hero-ticker { gap: 9px; padding: 9px 14px; font-size: 11px; }
+  .hero-event { min-width: 17ch; }
+}
+/* Petits téléphones (320px) : le fil tient sur une ligne sans être rogné */
+@media (max-width: 360px) {
+  .hero-ticker { gap: 7px; padding: 8px 12px; font-size: 10px; letter-spacing: 0.04em; }
+  .hero-event { min-width: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-line, .hero-logo, .hero-wordmark, .hero-rise, .hero-cta, .hero-event, .hero-score--bump {
+    animation: none !important; opacity: 1 !important;
+  }
+  .hero-line { stroke-dashoffset: 0; }
+}
+
 ::-webkit-scrollbar { width: 10px; height: 10px; }
 ::-webkit-scrollbar-thumb { background: var(--fg-4); border-radius: 5px; }
 ::-webkit-scrollbar-track { background: transparent; }
@@ -145,6 +239,9 @@ input, textarea, select {
   --fg-3: #5b5f66;
   --fg-4: #8c9098;
   --bg-glass: rgba(246,247,248,0.92);
+  --hero-spot-warm: rgba(255,102,0,0.16);
+  --hero-spot-light: rgba(255,255,255,0.7);
+  --hero-logo-glow: rgba(255,102,0,0.25);
 }
 [data-theme="light"] .forwho-card { border-color: rgba(15,20,28,0.08); }
 [data-theme="light"] .placeholder {

@@ -85,7 +85,7 @@
 
 ---
 
-## Lot 8 — Vidéo hero ✅ (quick win)
+## Lot 8 — Vidéo hero ✅ (quick win) · ⛔ remplacé par le lot 11 (04/10/2026)
 
 - [x] `preload="metadata"` ajouté sur la balise `<video>` du Hero (charge juste les métadonnées d'abord, pas tout le payload).
 - [x] `poster="/assets/hero-poster.jpg"` ajouté en attendant que tu déposes une image fallback.
@@ -127,7 +127,7 @@
 |-----------------------------------------------------------|-----|--------|
 | Vrais verbatims pour Testimonials (`quote` + `name`)      | 4 | À adapter quand tu les auras |
 | Pitch fondateur personnalisé (+ prénom si tu veux signer) | 5 | Optionnel — version placeholder en place |
-| `public/assets/hero-poster.jpg` (1920×1080+)              | 8 | À déposer |
+| ~~`public/assets/hero-poster.jpg`~~                         | 8 | Sans objet depuis le lot 11 (plus de vidéo) |
 | `public/assets/og-image.png` (1200×630)                   | 9 | À déposer |
 | URL de prod réelle (si ≠ `https://www.sweyl.com/`)        | 9 | À corriger dans `index.html` |
 
@@ -355,5 +355,80 @@ Autres réglages issus de la relecture visuelle :
 ### Hors périmètre, laissé en l'état
 
 - `Vision.jsx` et ses 3 `PLACEHOLDER_IMG` Supabase.
-- `public/assets/hero-poster.jpg` et `public/assets/og-image.png`, toujours
-  absents (reliquat des lots 8 et 9).
+- `public/assets/og-image.png`, toujours absent (reliquat du lot 9).
+  `hero-poster.jpg` est sans objet depuis le lot 11.
+
+---
+
+## Lot 11 · Entrée du site sans vidéo (04/10/2026)
+
+**Pourquoi** : la vidéo du hero, servie depuis le bucket Supabase `video_hero`, faisait
+dépasser le quota d'egress du projet. Elle est supprimée, pas remplacée par un autre média.
+
+**Décision** : l'entrée ne charge **plus aucun média distant**. Tout est SVG et CSS, ce qui la
+rend instantanée et gratuite en bande passante. Ne pas y réintroduire de vidéo ni d'image
+hébergée sur Supabase.
+
+- [x] `Hero.jsx` réécrit : la salle lumières éteintes, un projecteur orange, le parquet en
+  perspective dont les lignes se tracent à l'arrivée (rond central orange).
+- [x] Logo en grand au centre, `SWEYL` en dessous (Montserrat espacé, même famille que le
+  header), reflet orange qui balaie le logo.
+- [x] Baseline du lot 3 conservée (« Tes étoiles. Ton terrain. »), sous-titre ramené à deux
+  phrases courtes.
+- [x] Fil de match « LIVE » animé (score + action toutes les 2,4 s) : on montre le temps réel
+  au lieu de le dire.
+- [x] CTA du lot 2 conservé (« J'obtiens mes accès »), halo pulsé, mention « Saison 2026/27 ·
+  accès ouverts ». L'indice « Défile » a été retiré (trop marqué « site généré »).
+- [x] Header : logo et wordmark masqués tant qu'on est sur l'entrée (pas deux logos à l'écran).
+- [x] **Le hero suit le thème** (clair comme sombre). Il était forcé en sombre pour que le header
+  reste lisible par-dessus la vidéo : sans vidéo, cette contrainte tombe. Le forçage de couleur
+  du header sur l'entrée (`inHero || theme === 'dark'`) est supprimé, le scroll ne sert plus qu'à
+  effacer son logo. Couleurs du hero en tokens (`--fg`, `--bg`, `--hero-*` redéfinis en clair).
+- [x] `prefers-reduced-motion` respecté : état final affiché, fil de match figé.
+- [x] `temp/` ajouté au `.gitignore`.
+
+> 📥 **À faire de ton côté** : supprimer le fichier `hero-mobile.mp4` du bucket `video_hero`
+> sur Supabase une fois la branche en prod.
+>
+> Reste à surveiller sur l'egress : les 3 `PLACEHOLDER_IMG` de `Vision.jsx` sont toujours
+> servis depuis Supabase Storage, comme les logos de `SocialProof.jsx`.
+
+
+---
+
+## Lot 12 · Passe « ne pas faire site généré » (04/10/2026)
+
+**Pourquoi** : le site est la vitrine par défaut. Un visiteur qui se dit « encore un projet fait
+avec de l'IA » ne signe pas. Une revue a listé les tics visuels et d'écriture typiques des pages
+générées, et cette passe corrige tout ce qui ne demande pas d'input d'Ismail.
+
+**Règles qui en découlent, à tenir pour la suite** :
+- pas de préfixe « —— » sur les eyebrows, pas d'emoji dans l'interface ;
+- pas de halo flou, de grain, de texte lumineux, de compteur animé, de point « live » hors du
+  vrai direct ;
+- pas de numérotation décorative (01/02, UN/DEUX) ;
+- pas de formule « Pas X. Y. » ni « Plus qu'un outil » ;
+- **tutoiement partout**, « on » pour l'équipe SWEYL.
+
+- [x] Eyebrows sans « —— » (toutes les sections et la 404).
+- [x] Bouton de thème : icônes soleil / lune au lieu des emojis (header et mentions légales).
+- [x] Footer : « 🇫🇷 MADE IN FRANCE » remplacé par « CONÇU À REIMS », tagline raccourcie.
+- [x] Hero : sans grain ni texte lumineux, projecteur fixe. Sous-titre choisi par Ismail parmi
+  sept propositions : « Le match, l'entraînement, la saison. Tout ton club, vu comme chez les pros. »
+  Les stats ne sont qu'un sous-produit, le sous-titre ne doit pas s'y réduire.
+- [x] ClubLife : halo derrière le téléphone retiré, « Club » sans majuscule.
+- [x] SocialProof : chiffres fixes (plus de compteur), sans ★, titre « Ils ont déjà signé. ».
+- [x] Founder : titre « Né au bord du terrain. », formules creuses retirées, « Excel ».
+- [x] Vision : cartes sans « UN / DEUX / TROIS », descriptions réécrites, constantes d'image
+  renommées (elles ne sont plus des placeholders).
+- [x] ForWho : sans numéros 01 à 04, titre « Chacun son rôle. », tutoiement.
+- [x] Testimonials : guillemet géant retiré, eyebrow et sous-titre réécrits.
+- [x] Season : point rouge et halo retirés, étapes sans jargon.
+- [x] Lead : titre réécrit, « FORMULAIRE QUALIFIÉ » retiré, « 24h » une seule fois, voix unique.
+- [x] FAQ : tutoiement, réponses qui ne commencent plus toutes par « Oui. / Non. », plus de
+  « switch », « live match », « PWA », « onboarding ». Plus de « démarrage en septembre ».
+- [x] Mentions légales : ponctuation de l'article propriété intellectuelle.
+
+> 📥 **Reste à Ismail** : vrais témoignages (nom, club, photo si possible), nom et photo du
+> fondateur, confirmation de « 100+ matchs / sem », vraies images de Vision, identité légale dans
+> les mentions (forme, SIREN, directeur de publication nommé).

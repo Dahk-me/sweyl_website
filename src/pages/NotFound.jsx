@@ -27,7 +27,7 @@ export default function NotFound() {
       <div className="grain" />
 
       <div className="eyebrow" style={{ marginBottom: '24px', fontSize: mobile ? '11px' : '13px' }}>
-        —— Erreur 404
+        Erreur 404
       </div>
 
       <h1 className="display" style={{
