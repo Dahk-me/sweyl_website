@@ -35,7 +35,6 @@ const Card = ({ v, mobile }) => (
     gap: '20px',
     height: '100%',
   }}>
-    <div className="display" style={{ fontSize: '56px', lineHeight: 0.6, color: 'var(--primary)', height: '24px' }}>“</div>
     <p style={{ fontSize: mobile ? '15px' : '17px', lineHeight: 1.5, color: 'var(--fg)', flex: 1 }}>
       {v.quote}
     </p>
@@ -55,13 +54,13 @@ export default function Testimonials() {
         <div style={{ display: 'grid', gridTemplateColumns: mobile ? '1fr' : '35fr 65fr', gap: mobile ? '32px' : '80px', alignItems: 'flex-start' }}>
 
           <div style={{ position: mobile ? 'static' : 'sticky', top: '120px' }}>
-            <div className="eyebrow" style={{ marginBottom: '20px', fontSize: mobile ? '11px' : '13px' }}>—— Ils en parlent</div>
+            <div className="eyebrow" style={{ marginBottom: '20px', fontSize: mobile ? '11px' : '13px' }}>Témoignages</div>
             <h2 className="display" style={{ fontSize: mobile ? 'clamp(36px, 10vw, 56px)' : 'clamp(48px, 6vw, 80px)' }}>
               Le terrain<br /><span style={{ color: 'var(--primary)' }}>en parle</span>.
             </h2>
             {!mobile && (
               <p style={{ fontSize: '14px', color: 'var(--fg-3)', lineHeight: 1.6, marginTop: '20px', maxWidth: '320px' }}>
-                Ceux qui ont essayé SWEYL ne reviennent plus en arrière.
+                Ce qu&apos;ils en disent après quelques matchs.
               </p>
             )}
           </div>

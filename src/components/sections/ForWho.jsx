@@ -4,34 +4,30 @@ import AppShot from '../AppShot'
 
 const CARDS = [
   {
-    tag: '01',
     label: 'Coachs',
     title: 'COACHER',
-    desc: 'Gérez vos effectifs, préparez vos matchs et décidez avec les données. Avant, pendant, après tout est centralisé.',
+    desc: 'Gère tes effectifs, prépare tes matchs et décide avec les données. Avant, pendant et après, tout est au même endroit.',
     highlights: ['Vidéo synchronisée aux stats', 'Suivi de performances', 'Feedback joueur individualisé'],
     slot: 'coachs',
   },
   {
-    tag: '02',
     label: 'Joueurs',
     title: 'PROGRESSER',
-    desc: "Suivez votre saison match après match. Partagez vos meilleures perfs avec des visuels prêts à l'emploi.",
+    desc: "Suis ta saison match après match. Partage tes meilleures perfs avec des visuels prêts à poster.",
     highlights: ['Fiche joueur détaillée', 'Progression sur la saison', 'Partage social instantané'],
     slot: 'joueurs',
   },
   {
-    tag: '03',
     label: 'Fans & parents',
     title: 'VIVRE',
-    desc: 'Vivez les matchs en direct depuis les tribunes ou de chez vous. Suivez vos joueurs, recevez les notifications.',
-    highlights: ['Scores en temps réel', 'Notifications de match', 'Stats de vos joueurs préférés'],
+    desc: 'Vis les matchs en direct depuis les tribunes ou de chez toi. Suis tes joueurs, reçois les notifications.',
+    highlights: ['Scores en temps réel', 'Notifications de match', 'Stats de tes joueurs préférés'],
     slot: 'familles',
   },
   {
-    tag: '04',
     label: 'Présidents & dirigeants',
     title: 'DIRIGER',
-    desc: "Pilotez votre saison. Suivez l'engagement de l'effectif et donnez une dimension digitale à votre club.",
+    desc: "Pilote ta saison. Suis l'engagement de l'effectif, équipe par équipe.",
     highlights: ['Tableau de bord club', 'Vue saison toutes équipes', 'Assiduité et engagement'],
     slot: 'dirigeants',
   },
@@ -40,7 +36,7 @@ const CARDS = [
 const Copy = ({ c, mobile }) => (
   <>
     <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '16px' }}>
-      <span className="mono" style={{ fontSize: '11px', letterSpacing: '0.18em', textTransform: 'uppercase', color: 'var(--primary)' }}>{c.tag} • {c.label}</span>
+      <span className="mono" style={{ fontSize: '11px', letterSpacing: '0.18em', textTransform: 'uppercase', color: 'var(--primary)' }}>{c.label}</span>
     </div>
 
     <h3 className="display" style={{ fontSize: mobile ? 'clamp(48px, 15vw, 68px)' : 'clamp(52px, 5.6vw, 80px)', color: 'var(--fg)', marginBottom: '16px', lineHeight: 0.9 }}>
@@ -109,12 +105,12 @@ export default function ForWho() {
 
   const intro = (
     <>
-      <div className="eyebrow" style={{ marginBottom: '20px', fontSize: mobile ? '11px' : '13px' }}>—— Pour qui</div>
+      <div className="eyebrow" style={{ marginBottom: '20px', fontSize: mobile ? '11px' : '13px' }}>Pour qui</div>
       <h2 className="display" style={{ fontSize: mobile ? 'clamp(36px, 10vw, 56px)' : 'clamp(48px, 6vw, 88px)', marginBottom: '24px' }}>
-        Conçu pour<br />tous <span style={{ color: 'var(--primary)' }}>les acteurs</span><br />du terrain.
+        Chacun son<br /><span style={{ color: 'var(--primary)' }}>rôle</span>.
       </h2>
       <p style={{ fontSize: mobile ? '14px' : '15px', color: 'var(--fg-2)', maxWidth: '400px', lineHeight: 1.6 }}>
-        Coach, joueur ou dirigeant, SWEYL s&apos;adapte à votre rôle et à votre saison.
+        Coach, joueur ou dirigeant, SWEYL s&apos;adapte à ton rôle et à ta saison.
       </p>
     </>
   )
@@ -122,7 +118,7 @@ export default function ForWho() {
   const cards = (
     <div style={{ display: 'flex', flexDirection: 'column', gap: mobile ? '16px' : '24px' }}>
       {CARDS.map((c, i) => (
-        <Card key={c.tag} c={c} mobile={mobile} flip={i % 2 === 1} />
+        <Card key={c.label} c={c} mobile={mobile} flip={i % 2 === 1} />
       ))}
     </div>
   )

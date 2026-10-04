@@ -7,34 +7,6 @@ import { STORAGE } from '../../lib/storageConfig'
 // « MATCHS / SEM » est le seul reliquat à confirmer.
 const stats = [['1500', 'JOUEURS'], ['90', 'COACHS'], ['4', 'CLUBS'], ['100+', 'MATCHS / SEM']]
 
-function useCountUp(target, duration = 1800) {
-  const [count, setCount] = React.useState(0)
-  const ref = React.useRef(null)
-
-  React.useEffect(() => {
-    const el = ref.current
-    if (!el) return
-    const obs = new IntersectionObserver(([entry]) => {
-      if (!entry.isIntersecting) return
-      obs.disconnect()
-      const start = performance.now()
-      const tick = (now) => {
-        const elapsed = now - start
-        const progress = Math.min(elapsed / duration, 1)
-        const eased = 1 - Math.pow(1 - progress, 3)
-        setCount(Math.floor(eased * target))
-        if (progress < 1) requestAnimationFrame(tick)
-        else setCount(target)
-      }
-      requestAnimationFrame(tick)
-    }, { threshold: 0, rootMargin: '0px 0px -25% 0px' })
-    obs.observe(el)
-    return () => obs.disconnect()
-  }, [target, duration])
-
-  return [count, ref]
-}
-
 function InteractiveMarquee({ items, renderItem, speed = 40, reverse = false }) {
   const ref = React.useRef(null)
   const rafRef = React.useRef(0)
@@ -168,14 +140,11 @@ function InteractiveMarquee({ items, renderItem, speed = 40, reverse = false }) 
 }
 
 function StatCell({ value, label, mobile }) {
-  const num = parseInt(value)
-  const suffix = value.replace(String(num), '')
-  const [count, ref] = useCountUp(num)
   return (
-    <div ref={ref} style={{ background: 'var(--bg-2)', padding: mobile ? '28px 20px' : '40px 32px', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', textAlign: 'center' }}>
-      <div className="mono" style={{ fontSize: '10px', color: 'var(--primary)', letterSpacing: '0.18em', marginBottom: '8px', whiteSpace: 'nowrap' }}>★ {label}</div>
+    <div style={{ background: 'var(--bg-2)', padding: mobile ? '28px 20px' : '40px 32px', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', textAlign: 'center' }}>
+      <div className="mono" style={{ fontSize: '10px', color: 'var(--primary)', letterSpacing: '0.18em', marginBottom: '8px', whiteSpace: 'nowrap' }}>{label}</div>
       <div className="display" style={{ fontSize: mobile ? 'clamp(48px,13vw,72px)' : 'clamp(64px,6vw,96px)', color: 'var(--fg)', lineHeight: 0.9, fontVariantNumeric: 'tabular-nums' }}>
-        {count}{suffix}
+        {value}
       </div>
     </div>
   )
@@ -209,9 +178,9 @@ export default function SocialProof() {
 
   const heading = (
     <>
-      <div className="eyebrow" style={{ marginBottom: '16px', fontSize: mobile ? '11px' : '13px' }}>—— Ils nous font confiance</div>
+      <div className="eyebrow" style={{ marginBottom: '16px', fontSize: mobile ? '11px' : '13px' }}>Saison 2026/27</div>
       <h2 className="display" style={{ fontSize: mobile ? 'clamp(28px, 8vw, 48px)' : 'clamp(36px, 4vw, 64px)', maxWidth: '700px', lineHeight: 1 }}>
-        L'<span style={{ color: 'var(--primary)' }}>exigence</span> mène à l'<span style={{ color: 'var(--primary)' }}>excellence</span>, ils l'ont déjà compris.
+        Ils ont déjà <span style={{ color: 'var(--primary)' }}>signé</span>.
       </h2>
     </>
   )
@@ -227,7 +196,7 @@ export default function SocialProof() {
   const logosBlock = logos.length > 0 && (
     <>
       <div style={{ padding: mobile ? '24px 20px 12px' : '32px 0 16px' }}>
-        <div className="eyebrow" style={{ fontSize: mobile ? '11px' : '12px' }}>—— Les clubs</div>
+        <div className="eyebrow" style={{ fontSize: mobile ? '11px' : '12px' }}>Les clubs</div>
       </div>
       <div style={{ padding: mobile ? '20px 0' : '32px 0' }}>
         <InteractiveMarquee
@@ -250,7 +219,7 @@ export default function SocialProof() {
   const sponsorsBlock = sponsors.length > 0 && (
     <>
       <div style={{ padding: mobile ? '24px 20px 12px' : '32px 0 16px' }}>
-        <div className="eyebrow" style={{ fontSize: mobile ? '11px' : '12px' }}>—— Nos partenaires</div>
+        <div className="eyebrow" style={{ fontSize: mobile ? '11px' : '12px' }}>Nos partenaires</div>
       </div>
       <div style={{ padding: mobile ? '8px 0 20px' : '12px 0 32px' }}>
         <InteractiveMarquee

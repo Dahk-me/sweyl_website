@@ -76,7 +76,7 @@ export default function Footer() {
             <div>
               <img src={logoSvg} alt="SWEYL" style={{ height: '28px', width: 'auto', marginBottom: '14px', filter: theme === 'light' ? 'none' : 'brightness(0) invert(1)' }} />
               <p style={{ fontSize: '13px', color: 'var(--fg-3)', lineHeight: 1.6, maxWidth: '280px' }}>
-                La plateforme du basket amateur français. Plus qu'un outil, l'écosystème de votre club.
+                La plateforme du basket amateur français.
               </p>
             </div>
             {columns.map(c => (
@@ -91,7 +91,7 @@ export default function Footer() {
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', paddingTop: '16px', borderTop: '1px solid var(--line)', flexWrap: 'wrap', gap: '12px' }}>
           <span className="mono" style={{ fontSize: '10px', color: 'var(--fg-4)', letterSpacing: '0.12em' }}>© 2026 SWEYL</span>
           <span className="mono" style={{ fontSize: '10px', color: 'var(--fg-4)', letterSpacing: '0.12em', display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
-            <span aria-hidden="true">🇫🇷</span> MADE IN FRANCE
+            CONÇU À REIMS
           </span>
           <span className="mono" style={{ fontSize: '10px', color: 'var(--fg-4)', letterSpacing: '0.12em' }}>FAIT PAR LES CLUBS, POUR LES CLUBS</span>
         </div>

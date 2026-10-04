@@ -3,18 +3,18 @@ import { IconPlus } from '../Icons'
 import { useMobile } from '../../hooks/useMobile'
 
 const faqs = [
-  { q: "Est-ce vraiment différent d'un outil de stats ?", a: "Oui. La stat est un sous-produit. SWEYL est conçu autour de la vie du club entière : calendrier, suivi de saison, partage social." },
+  { q: "Est-ce vraiment différent d'un outil de stats ?", a: "La stat n'est qu'une partie. SWEYL suit toute la vie du club : calendrier, saison, partage." },
   { q: "Combien ça coûte ?", a: "Gratuit pour les coachs et les présidents. Les joueurs essaient un mois, puis choisissent. Aucune carte demandée à l'inscription." },
-  { q: "Faut-il un statisticien ?", a: "Non. L'interface de saisie est pensée pour un joueur non-titulaire. L'app guide pas-à-pas, aucune formation requise." },
-  { q: "Combien de temps pour saisir un match ?", a: "Aucun temps perdu. La saisie se fait en temps réel pendant le match. Rien à rattraper après." },
+  { q: "Faut-il un statisticien ?", a: "Pas besoin. Un joueur non-titulaire suffit, l'app le guide pas à pas." },
+  { q: "Combien de temps pour saisir un match ?", a: "Le temps du match. La saisie se fait en direct, il n'y a rien à rattraper après." },
   { q: "Que se passe-t-il si le saisisseur se trompe ?", a: "Chaque action peut être corrigée pendant et après le match. L'historique reste fidèle." },
-  { q: "Un coach peut gérer plusieurs équipes ?", a: "Oui. Toutes tes équipes dans le même espace, switch en un clic." },
-  { q: "Mes parents peuvent suivre le match sans compte ?", a: "Oui. Le live match est public, accessible avec un simple lien à partager." },
+  { q: "Un coach peut gérer plusieurs équipes ?", a: "Toutes tes équipes sont dans le même espace, tu passes de l'une à l'autre en un geste." },
+  { q: "Mes parents peuvent suivre le match sans compte ?", a: "Le match en direct est public : un lien à partager suffit." },
   { q: "Mon historique me suit si je change de club ?", a: "Oui. Ton profil joueur est unique, tes stats voyagent avec toi." },
-  { q: "Quels appareils ?", a: "SWEYL est une PWA. Elle fonctionne comme une app native sur iOS, Android et ordinateur, sans passer par les stores." },
+  { q: "Quels appareils ?", a: "SWEYL s'installe depuis le navigateur sur iPhone, Android et ordinateur, et s'utilise comme une app." },
   { q: "Et le calendrier FFBB ?", a: "Un lien suffit. L'import et la synchronisation sont automatiques." },
-  { q: "Que se passe-t-il avec mes anciens matchs ?", a: "Glissez vos feuilles de match PDF. SWEYL extrait les stats et reconstruit l'historique en quelques secondes." },
-  { q: "Comment se passe l'onboarding pour la saison ?", a: "Démo sur demande, paramétrage de votre club, tests, démarrage en septembre. On vous accompagne sur chaque étape." },
+  { q: "Que se passe-t-il avec mes anciens matchs ?", a: "Glisse tes feuilles de match PDF. SWEYL extrait les stats et reconstruit l'historique en quelques secondes." },
+  { q: "Comment se passe la mise en route ?", a: "Une démo, le paramétrage de ton club, quelques tests, et c'est parti. On t'accompagne à chaque étape." },
 ]
 
 export default function FAQ() {
@@ -23,7 +23,7 @@ export default function FAQ() {
 
   const title = (
     <>
-      <div className="eyebrow" style={{ marginBottom: '20px', fontSize: mobile ? '11px' : '13px' }}>—— FAQ</div>
+      <div className="eyebrow" style={{ marginBottom: '20px', fontSize: mobile ? '11px' : '13px' }}>FAQ</div>
       <h2 className="display" style={{ fontSize: mobile ? 'clamp(36px, 10vw, 56px)' : 'clamp(48px, 6vw, 80px)' }}>
         Questions <span style={{ color: 'var(--primary)' }}>fréquentes.</span>
       </h2>

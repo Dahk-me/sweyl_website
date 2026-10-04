@@ -4,7 +4,8 @@ import { useMobile } from '../../hooks/useMobile'
 
 /**
  * Entrée du site. Aucune vidéo ni média distant : tout est dessiné en SVG et
- * en CSS, pour une accroche immédiate et zéro egress Supabase.
+ * en CSS, pour une accroche immédiate et zéro egress Supabase. Pas de grain,
+ * pas de texte lumineux : ce sont les tics des pages générées.
  * Le hero reste sombre dans les deux thèmes : c'est la salle, lumières éteintes.
  */
 
@@ -91,7 +92,6 @@ export default function Hero() {
       <div className="hero-spot" aria-hidden="true" />
       <Court />
       <div className="hero-vignette" aria-hidden="true" />
-      <div className="grain" style={{ zIndex: 2 }} />
 
       <div className="hero-content" style={{ padding: mobile ? '88px 20px 96px' : '120px 32px 120px' }}>
         {/* La marque : le logo, SWEYL dessous */}
@@ -113,7 +113,7 @@ export default function Hero() {
             animationDelay: '0.55s',
           }}
         >
-          Tes <span className="hero-glow">étoiles</span>.<br />Ton <span className="hero-glow">terrain</span>.
+          Tes <span style={{ color: 'var(--primary)' }}>étoiles</span>.<br />Ton <span style={{ color: 'var(--primary)' }}>terrain</span>.
         </h1>
 
         <p
@@ -126,8 +126,8 @@ export default function Hero() {
             animationDelay: '0.75s',
           }}
         >
-          Le premier outil pensé pour le coach amateur.<br />
-          Le match en direct. La saison entière.
+          Les stats du match en direct, du banc aux tribunes.<br />
+          Et toute la saison derrière.
         </p>
 
         <div className="hero-rise" style={{ animationDelay: '0.95s' }}>
@@ -143,11 +143,6 @@ export default function Hero() {
             Saison 2026/27 · accès ouverts
           </span>
         </div>
-      </div>
-
-      <div className="hero-scroll" aria-hidden="true">
-        <span className="mono">Défile</span>
-        <span className="hero-scroll-line" />
       </div>
     </section>
   )

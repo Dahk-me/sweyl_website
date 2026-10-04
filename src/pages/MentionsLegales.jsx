@@ -54,7 +54,7 @@ export default function MentionsLegales() {
                 transition: 'color 0.3s, border-color 0.3s', cursor: 'pointer',
               }}
             >
-              {theme === 'dark' ? '☀️' : '🌙'}
+              {theme === 'dark' ? <IconSun size={14} /> : <IconMoon size={14} />}
               {!mobile && (theme === 'dark' ? ' Clair' : ' Sombre')}
             </button>
             <Link to="/" className="btn-ghost" style={{ padding: mobile ? '10px 14px' : '10px 18px', fontSize: '12px', gap: '8px' }}>

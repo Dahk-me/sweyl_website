@@ -28,10 +28,6 @@ export default function ClubLife() {
 
   const phone = (
     <div style={{ position: 'relative', display: 'flex', justifyContent: 'center' }}>
-      <div style={{
-        position: 'absolute', inset: '-8% -14%', pointerEvents: 'none',
-        background: 'radial-gradient(ellipse at center, color-mix(in srgb, var(--primary) 16%, transparent), transparent 68%)',
-      }} />
       <AppShot slot="clubLife" width={mobile ? '62vw' : 'clamp(260px, 30vw, 330px)'} priority />
     </div>
   )
@@ -48,9 +44,9 @@ export default function ClubLife() {
 
           {/* Left 35% sticky title */}
           <div style={mobile ? {} : { position: 'sticky', top: '120px' }}>
-            <div className="eyebrow" style={{ marginBottom: '20px', fontSize: mobile ? '11px' : '13px' }}>—— La plateforme</div>
+            <div className="eyebrow" style={{ marginBottom: '20px', fontSize: mobile ? '11px' : '13px' }}>La plateforme</div>
             <h2 className="display" style={{ fontSize: mobile ? 'clamp(36px, 11vw, 64px)' : 'clamp(48px, 6vw, 88px)' }}>
-              Le <span style={{ color: 'var(--primary)' }}>Club</span><br />qui prend vie.
+              Le <span style={{ color: 'var(--primary)' }}>club</span><br />qui prend vie.
             </h2>
           </div>
 

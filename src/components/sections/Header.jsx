@@ -1,6 +1,6 @@
 import React from 'react'
 import { useTheme } from '../../contexts/theme'
-import { IconArrow } from '../Icons'
+import { IconArrow, IconSun, IconMoon } from '../Icons'
 import { useMobile } from '../../hooks/useMobile'
 import logoSvg from '/assets/LogoSweyl.svg'
 
@@ -65,7 +65,7 @@ export default function Header() {
               fontSize: '11px', borderRadius: '999px', transition: 'color 0.3s, border-color 0.3s', cursor: 'pointer',
             }}
           >
-            {theme === 'dark' ? '☀️' : '🌙'}
+            {theme === 'dark' ? <IconSun size={14} /> : <IconMoon size={14} />}
             {!mobile && (theme === 'dark' ? ' Clair' : ' Sombre')}
           </button>
           <a href="#join" className="btn-primary" style={{ padding: mobile ? '10px 14px' : '10px 18px', fontSize: '12px' }}>

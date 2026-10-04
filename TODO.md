@@ -378,7 +378,7 @@ hébergée sur Supabase.
 - [x] Fil de match « LIVE » animé (score + action toutes les 2,4 s) : on montre le temps réel
   au lieu de le dire.
 - [x] CTA du lot 2 conservé (« J'obtiens mes accès »), halo pulsé, mention « Saison 2026/27 ·
-  accès ouverts », indice « Défile ».
+  accès ouverts ». L'indice « Défile » a été retiré (trop marqué « site généré »).
 - [x] Header : logo et wordmark masqués tant qu'on est sur l'entrée (pas deux logos à l'écran).
 - [x] `prefers-reduced-motion` respecté : état final affiché, fil de match figé.
 - [x] `temp/` ajouté au `.gitignore`.
@@ -389,3 +389,41 @@ hébergée sur Supabase.
 > Reste à surveiller sur l'egress : les 3 `PLACEHOLDER_IMG` de `Vision.jsx` sont toujours
 > servis depuis Supabase Storage, comme les logos de `SocialProof.jsx`.
 
+
+---
+
+## Lot 12 · Passe « ne pas faire site généré » (04/10/2026)
+
+**Pourquoi** : le site est la vitrine par défaut. Un visiteur qui se dit « encore un projet fait
+avec de l'IA » ne signe pas. Une revue a listé les tics visuels et d'écriture typiques des pages
+générées, et cette passe corrige tout ce qui ne demande pas d'input d'Ismail.
+
+**Règles qui en découlent, à tenir pour la suite** :
+- pas de préfixe « —— » sur les eyebrows, pas d'emoji dans l'interface ;
+- pas de halo flou, de grain, de texte lumineux, de compteur animé, de point « live » hors du
+  vrai direct ;
+- pas de numérotation décorative (01/02, UN/DEUX) ;
+- pas de formule « Pas X. Y. » ni « Plus qu'un outil » ;
+- **tutoiement partout**, « on » pour l'équipe SWEYL.
+
+- [x] Eyebrows sans « —— » (toutes les sections et la 404).
+- [x] Bouton de thème : icônes soleil / lune au lieu des emojis (header et mentions légales).
+- [x] Footer : « 🇫🇷 MADE IN FRANCE » remplacé par « CONÇU À REIMS », tagline raccourcie.
+- [x] Hero : sans grain ni texte lumineux, projecteur fixe, sous-titre réécrit (« premier » restait
+  déjà dans Vision).
+- [x] ClubLife : halo derrière le téléphone retiré, « Club » sans majuscule.
+- [x] SocialProof : chiffres fixes (plus de compteur), sans ★, titre « Ils ont déjà signé. ».
+- [x] Founder : titre « Né au bord du terrain. », formules creuses retirées, « Excel ».
+- [x] Vision : cartes sans « UN / DEUX / TROIS », descriptions réécrites, constantes d'image
+  renommées (elles ne sont plus des placeholders).
+- [x] ForWho : sans numéros 01 à 04, titre « Chacun son rôle. », tutoiement.
+- [x] Testimonials : guillemet géant retiré, eyebrow et sous-titre réécrits.
+- [x] Season : point rouge et halo retirés, étapes sans jargon.
+- [x] Lead : titre réécrit, « FORMULAIRE QUALIFIÉ » retiré, « 24h » une seule fois, voix unique.
+- [x] FAQ : tutoiement, réponses qui ne commencent plus toutes par « Oui. / Non. », plus de
+  « switch », « live match », « PWA », « onboarding ». Plus de « démarrage en septembre ».
+- [x] Mentions légales : ponctuation de l'article propriété intellectuelle.
+
+> 📥 **Reste à Ismail** : vrais témoignages (nom, club, photo si possible), nom et photo du
+> fondateur, confirmation de « 100+ matchs / sem », vraies images de Vision, identité légale dans
+> les mentions (forme, SIREN, directeur de publication nommé).
