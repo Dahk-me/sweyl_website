@@ -126,8 +126,8 @@ export default function Hero() {
             animationDelay: '0.75s',
           }}
         >
-          Les stats du match en direct, du banc aux tribunes.<br />
-          Et toute la saison derrière.
+          Le match, l&apos;entraînement, la saison.<br />
+          Tout ton club, vu comme chez les pros.
         </p>
 
         <div className="hero-rise" style={{ animationDelay: '0.95s' }}>

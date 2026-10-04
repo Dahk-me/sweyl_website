@@ -413,8 +413,9 @@ générées, et cette passe corrige tout ce qui ne demande pas d'input d'Ismail.
 - [x] Eyebrows sans « —— » (toutes les sections et la 404).
 - [x] Bouton de thème : icônes soleil / lune au lieu des emojis (header et mentions légales).
 - [x] Footer : « 🇫🇷 MADE IN FRANCE » remplacé par « CONÇU À REIMS », tagline raccourcie.
-- [x] Hero : sans grain ni texte lumineux, projecteur fixe, sous-titre réécrit (« premier » restait
-  déjà dans Vision).
+- [x] Hero : sans grain ni texte lumineux, projecteur fixe. Sous-titre choisi par Ismail parmi
+  sept propositions : « Le match, l'entraînement, la saison. Tout ton club, vu comme chez les pros. »
+  Les stats ne sont qu'un sous-produit, le sous-titre ne doit pas s'y réduire.
 - [x] ClubLife : halo derrière le téléphone retiré, « Club » sans majuscule.
 - [x] SocialProof : chiffres fixes (plus de compteur), sans ★, titre « Ils ont déjà signé. ».
 - [x] Founder : titre « Né au bord du terrain. », formules creuses retirées, « Excel ».
