@@ -380,6 +380,10 @@ hébergée sur Supabase.
 - [x] CTA du lot 2 conservé (« J'obtiens mes accès »), halo pulsé, mention « Saison 2026/27 ·
   accès ouverts ». L'indice « Défile » a été retiré (trop marqué « site généré »).
 - [x] Header : logo et wordmark masqués tant qu'on est sur l'entrée (pas deux logos à l'écran).
+- [x] **Le hero suit le thème** (clair comme sombre). Il était forcé en sombre pour que le header
+  reste lisible par-dessus la vidéo : sans vidéo, cette contrainte tombe. Le forçage de couleur
+  du header sur l'entrée (`inHero || theme === 'dark'`) est supprimé, le scroll ne sert plus qu'à
+  effacer son logo. Couleurs du hero en tokens (`--fg`, `--bg`, `--hero-*` redéfinis en clair).
 - [x] `prefers-reduced-motion` respecté : état final affiché, fil de match figé.
 - [x] `temp/` ajouté au `.gitignore`.
 

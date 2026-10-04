@@ -6,7 +6,7 @@ import { useMobile } from '../../hooks/useMobile'
  * Entrée du site. Aucune vidéo ni média distant : tout est dessiné en SVG et
  * en CSS, pour une accroche immédiate et zéro egress Supabase. Pas de grain,
  * pas de texte lumineux : ce sont les tics des pages générées.
- * Le hero reste sombre dans les deux thèmes : c'est la salle, lumières éteintes.
+ * Il suit le thème : la salle lumières éteintes en sombre, le parquet de jour en clair.
  */
 
 // Le fil du match : un événement toutes les TICK_MS, le score suit.
@@ -71,14 +71,14 @@ const LiveTicker = ({ mobile }) => {
         <span className="live-dot" /> LIVE
       </span>
       <span className="hero-ticker-sep" />
-      {!mobile && <span style={{ color: 'rgba(245,244,241,0.55)' }}>Q4</span>}
+      {!mobile && <span style={{ color: 'var(--fg-3)' }}>Q4</span>}
       <span key={`s${tick}`} className={scored ? 'hero-score hero-score--bump' : 'hero-score'}>
-        {score.home} <span style={{ color: 'rgba(245,244,241,0.35)' }}>:</span> {score.away}
+        {score.home} <span style={{ color: 'var(--fg-4)' }}>:</span> {score.away}
       </span>
       <span className="hero-ticker-sep" />
       <span key={`e${tick}`} className="hero-event">
-        <span style={{ color: '#f5f4f1' }}>{event.who}</span>
-        <span style={{ color: scored ? 'var(--primary)' : 'rgba(245,244,241,0.6)' }}>{event.what}</span>
+        <span style={{ color: 'var(--fg)' }}>{event.who}</span>
+        <span style={{ color: scored ? 'var(--primary)' : 'var(--fg-3)' }}>{event.what}</span>
       </span>
     </div>
   )
@@ -109,7 +109,7 @@ export default function Hero() {
           className="display hero-rise"
           style={{
             fontSize: mobile ? 'clamp(48px, 14vw, 72px)' : 'clamp(72px, 8.4vw, 128px)',
-            color: '#f5f4f1',
+            color: 'var(--fg)',
             animationDelay: '0.55s',
           }}
         >
@@ -121,7 +121,7 @@ export default function Hero() {
           style={{
             fontSize: mobile ? '15px' : '18px',
             lineHeight: 1.5,
-            color: 'rgba(245,244,241,0.78)',
+            color: 'var(--fg-2)',
             maxWidth: mobile ? '320px' : '560px',
             animationDelay: '0.75s',
           }}
@@ -139,7 +139,7 @@ export default function Hero() {
             J&apos;obtiens mes accès
             <IconArrow size={mobile ? 12 : 14} />
           </a>
-          <span className="mono" style={{ fontSize: '10px', letterSpacing: '0.18em', textTransform: 'uppercase', color: 'rgba(245,244,241,0.45)' }}>
+          <span className="mono" style={{ fontSize: '10px', letterSpacing: '0.18em', textTransform: 'uppercase', color: 'var(--fg-3)' }}>
             Saison 2026/27 · accès ouverts
           </span>
         </div>

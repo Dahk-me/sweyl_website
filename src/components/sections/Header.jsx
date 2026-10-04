@@ -7,6 +7,7 @@ import logoSvg from '/assets/LogoSweyl.svg'
 export default function Header() {
   const { theme, toggleTheme } = useTheme()
   const mobile = useMobile()
+  // Sur l'entrée, le hero porte déjà la marque en grand : le logo du header s'efface.
   const [inHero, setInHero] = React.useState(true)
 
   React.useEffect(() => {
@@ -35,18 +36,17 @@ export default function Header() {
         gap: '16px',
       }}>
         {/* Logo toujours à gauche */}
-        {/* Masqué sur l'entrée : le hero porte déjà la marque en grand */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '10px', flexShrink: 0, opacity: inHero ? 0 : 1, transition: 'opacity 0.4s' }}>
-          <img src={logoSvg} alt="SWEYL" style={{ height: '22px', width: 'auto', transition: 'filter 0.3s', filter: inHero || theme === 'dark' ? 'brightness(0) invert(1)' : 'none' }} />
-          {!mobile && <span style={{ fontFamily: 'Montserrat, sans-serif', fontSize: '20px', fontWeight: 600, letterSpacing: '0.3em', transition: 'color 0.3s', color: inHero || theme === 'dark' ? '#f5f4f1' : '#100f0d' }}>SWEYL</span>}
+          <img src={logoSvg} alt="SWEYL" style={{ height: '22px', width: 'auto', filter: theme === 'dark' ? 'brightness(0) invert(1)' : 'none' }} />
+          {!mobile && <span style={{ fontFamily: 'Montserrat, sans-serif', fontSize: '20px', fontWeight: 600, letterSpacing: '0.3em', color: 'var(--fg)' }}>SWEYL</span>}
         </div>
 
         {/* Centre SWEYL sur mobile, nav sur desktop */}
         <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
           {mobile ? (
-            <span style={{ fontFamily: 'Montserrat, sans-serif', fontSize: '20px', fontWeight: 600, letterSpacing: '0.3em', transition: 'color 0.3s, opacity 0.4s', opacity: inHero ? 0 : 1, color: inHero || theme === 'dark' ? '#f5f4f1' : '#100f0d' }}>SWEYL</span>
+            <span style={{ fontFamily: 'Montserrat, sans-serif', fontSize: '20px', fontWeight: 600, letterSpacing: '0.3em', transition: 'opacity 0.4s', opacity: inHero ? 0 : 1, color: 'var(--fg)' }}>SWEYL</span>
           ) : (
-            <nav style={{ display: 'flex', gap: '28px', fontSize: '13px', transition: 'color 0.3s', color: inHero || theme === 'dark' ? '#f5f4f1' : '#100f0d' }}>
+            <nav style={{ display: 'flex', gap: '28px', fontSize: '13px', color: 'var(--fg)' }}>
               <a href="#vision">Vision</a>
               <a href="#season">Saison 26/27</a>
               <a href="#join">Contact</a>
@@ -61,8 +61,8 @@ export default function Header() {
             style={{
               display: 'inline-flex', alignItems: 'center', gap: '6px',
               background: 'transparent', border: '1px solid var(--line-2)',
-              color: inHero || theme === 'dark' ? '#f5f4f1' : '#100f0d', padding: mobile ? '8px 10px' : '10px 14px',
-              fontSize: '11px', borderRadius: '999px', transition: 'color 0.3s, border-color 0.3s', cursor: 'pointer',
+              color: 'var(--fg)', padding: mobile ? '8px 10px' : '10px 14px',
+              fontSize: '11px', borderRadius: '999px', cursor: 'pointer',
             }}
           >
             {theme === 'dark' ? <IconSun size={14} /> : <IconMoon size={14} />}

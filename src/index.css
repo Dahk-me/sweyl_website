@@ -12,6 +12,10 @@
   --primary: #FF6600;                                        /* ← changer ici */
   --primary-2: color-mix(in srgb, var(--primary), white 25%); /* hover calculé auto */
   --paper: #f1ede4;
+  /* Hero : seules les valeurs qui ne se déduisent pas de --fg / --bg */
+  --hero-spot-warm: rgba(255,102,0,0.22);
+  --hero-spot-light: rgba(255,240,225,0.07);
+  --hero-logo-glow: rgba(255,102,0,0.45);
   --ink: #0c0b09;
 }
 
@@ -103,18 +107,18 @@ img { display: block; max-width: 100%; }
 }
 
 
-/* ── Hero : la salle, lumières éteintes ──
-   Toujours sombre, quel que soit le thème. Rien de distant : SVG + CSS. */
+/* ── Hero : la salle ──
+   Suit le thème, comme le reste de la page. Rien de distant : SVG + CSS. */
 .hero {
   position: relative; min-height: 100svh; overflow: hidden;
   display: flex; flex-direction: column; align-items: center; justify-content: center;
-  background: #070707; color: #f5f4f1; isolation: isolate;
+  background: var(--bg); color: var(--fg); isolation: isolate;
 }
 .hero-spot {
   position: absolute; inset: -20% -10% auto; height: 120%; z-index: 0; pointer-events: none;
   background:
-    radial-gradient(ellipse 38% 42% at 50% 34%, rgba(255,102,0,0.22), transparent 70%),
-    radial-gradient(ellipse 70% 60% at 50% 0%, rgba(255,240,225,0.07), transparent 70%);
+    radial-gradient(ellipse 38% 42% at 50% 34%, var(--hero-spot-warm), transparent 70%),
+    radial-gradient(ellipse 70% 60% at 50% 0%, var(--hero-spot-light), transparent 70%);
 }
 .hero-floor {
   position: absolute; left: 50%; bottom: -12%; z-index: 1; pointer-events: none;
@@ -126,14 +130,14 @@ img { display: block; max-width: 100%; }
 }
 .hero-floor svg { width: 100%; height: 100%; display: block; }
 .hero-line {
-  stroke: rgba(245,244,241,0.2);
+  stroke: color-mix(in srgb, var(--fg) 20%, transparent);
   stroke-dasharray: 1; stroke-dashoffset: 1;
   animation: heroDraw 2.2s cubic-bezier(.6,0,.2,1) 0.15s forwards;
 }
 .hero-line--hot { stroke: rgba(255,102,0,0.75); filter: drop-shadow(0 0 6px rgba(255,102,0,0.8)); }
 .hero-vignette {
   position: absolute; inset: 0; z-index: 2; pointer-events: none;
-  background: radial-gradient(ellipse 90% 80% at 50% 45%, transparent 40%, rgba(7,7,7,0.85) 100%);
+  background: radial-gradient(ellipse 90% 80% at 50% 45%, transparent 40%, color-mix(in srgb, var(--bg) 85%, transparent) 100%);
 }
 .hero-content {
   position: relative; z-index: 3; width: 100%; max-width: 1100px;
@@ -145,14 +149,14 @@ img { display: block; max-width: 100%; }
   aspect-ratio: 542.62 / 660.93;
   -webkit-mask: url(/assets/LogoSweyl.svg) center / contain no-repeat;
           mask: url(/assets/LogoSweyl.svg) center / contain no-repeat;
-  background: linear-gradient(115deg, #f5f4f1 0%, #f5f4f1 38%, #ffd2b0 47%, #FF6600 50%, #ffd2b0 53%, #f5f4f1 62%, #f5f4f1 100%);
+  background: linear-gradient(115deg, var(--fg) 0%, var(--fg) 38%, #ffd2b0 47%, var(--primary) 50%, #ffd2b0 53%, var(--fg) 62%, var(--fg) 100%);
   background-size: 300% 100%; background-position: 100% 0;
-  filter: drop-shadow(0 0 28px rgba(255,102,0,0.45));
+  filter: drop-shadow(0 0 28px var(--hero-logo-glow));
   opacity: 0;
   animation: heroLogoIn 0.9s cubic-bezier(.2,.8,.2,1) forwards, heroSweep 1.4s ease-in-out 0.7s forwards, heroSweepLoop 7s ease-in-out 5s infinite;
 }
 .hero-wordmark {
-  font-family: 'Montserrat', sans-serif; font-weight: 600; color: #f5f4f1;
+  font-family: 'Montserrat', sans-serif; font-weight: 600; color: var(--fg);
   letter-spacing: 0.5em; margin-right: -0.5em; /* compense l'espacement après le L */
   opacity: 0; animation: heroWordIn 1.1s cubic-bezier(.2,.8,.2,1) 0.25s forwards;
 }
@@ -160,12 +164,12 @@ img { display: block; max-width: 100%; }
 .hero-ticker {
   display: inline-flex; align-items: center; gap: 12px; flex-wrap: nowrap; white-space: nowrap;
   padding: 10px 18px; border-radius: 999px;
-  background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1);
+  background: color-mix(in srgb, var(--fg) 4%, transparent); border: 1px solid var(--line-2);
   backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
   letter-spacing: 0.08em; text-transform: uppercase;
 }
-.hero-ticker-sep { width: 1px; height: 12px; background: rgba(255,255,255,0.16); }
-.hero-score { color: #f5f4f1; font-weight: 600; display: inline-block; min-width: 5.5ch; text-align: center; }
+.hero-ticker-sep { width: 1px; height: 12px; background: var(--line-2); }
+.hero-score { color: var(--fg); font-weight: 600; display: inline-block; min-width: 5.5ch; text-align: center; }
 .hero-score--bump { animation: scoreBump 0.6s ease-out; }
 .hero-event { display: inline-flex; gap: 8px; min-width: 19ch; animation: feed-slide-in 0.4s ease-out; }
 .hero-cta { box-shadow: 0 0 0 0 rgba(255,102,0,0.5); animation: heroPulse 2.8s ease-out 2.2s infinite; }
@@ -230,6 +234,9 @@ input, textarea, select {
   --fg-3: #5b5f66;
   --fg-4: #8c9098;
   --bg-glass: rgba(246,247,248,0.92);
+  --hero-spot-warm: rgba(255,102,0,0.16);
+  --hero-spot-light: rgba(255,255,255,0.7);
+  --hero-logo-glow: rgba(255,102,0,0.25);
 }
 [data-theme="light"] .forwho-card { border-color: rgba(15,20,28,0.08); }
 [data-theme="light"] .placeholder {
