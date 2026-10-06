@@ -1,5 +1,6 @@
 import React from 'react'
 import { useMobile } from '../../hooks/useMobile'
+import { useTheme } from '../../contexts/theme'
 import { CLUB_LOGOS, PARTNER_LOGOS } from '../../lib/logos'
 
 // Chiffres réels du club, donnés par Ismail le 29/08/2026.
@@ -151,6 +152,8 @@ function StatCell({ value, label, mobile }) {
 
 export default function SocialProof() {
   const mobile = useMobile()
+  const { theme } = useTheme()
+
   const heading = (
     <>
       <div className="eyebrow" style={{ marginBottom: '16px', fontSize: mobile ? '11px' : '13px' }}>Saison 2026/27</div>
@@ -204,7 +207,7 @@ export default function SocialProof() {
           renderItem={(s, i) => (
             <img
               key={i}
-              src={s.src}
+              src={theme === 'light' && s.srcLight ? s.srcLight : s.src}
               alt={s.alt}
               draggable={false}
               style={{ height: mobile ? '40px' : '56px', width: 'auto', objectFit: 'contain', opacity: 0.7, marginRight: mobile ? '56px' : '96px', flexShrink: 0, userSelect: 'none', pointerEvents: 'none' }}
