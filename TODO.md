@@ -448,6 +448,8 @@ générées, et cette passe corrige tout ce qui ne demande pas d'input d'Ismail.
 - [x] Vision : 3 images en WebP 900px dans `public/assets/vision/` (5 Mo → 200 Ko).
 - [x] Logos clubs et partenaires en WebP dans `public/assets/clubs/` et `public/assets/partners/`,
   listés dans `src/lib/logos.js`. Pour en ajouter un : déposer le fichier, ajouter sa ligne.
+  Un logo aux parties blanches porte une variante `srcLight` pour le thème clair (constat de
+  revue : « Quest » disparaissait sur fond clair).
 - [x] `src/lib/supabase.js`, `src/lib/storageConfig.js` et la dépendance `@supabase/supabase-js`
   supprimés (plus aucun usage).
 - [x] `vercel.json` : cache d'une semaine sur `/assets/*`. Remplacer un fichier **sous le même

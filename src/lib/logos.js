@@ -4,6 +4,7 @@
  * chaque visite du site consommait son quota d'egress.
  * Pour ajouter un club ou un partenaire : déposer le fichier (WebP, 176px de
  * haut pour un club, 112px pour un partenaire) et ajouter sa ligne ici.
+ * `srcLight` : variante pour le thème clair, quand le logo a des parties blanches.
  */
 export const CLUB_LOGOS = [
   { src: '/assets/clubs/abgr.webp', alt: 'ABGR' },
@@ -13,6 +14,6 @@ export const CLUB_LOGOS = [
 
 export const PARTNER_LOGOS = [
   { src: '/assets/partners/sacre-cookie.webp', alt: 'Sacré Cookie' },
-  { src: '/assets/partners/quest-for-change.svg', alt: 'Quest for Change' },
+  { src: '/assets/partners/quest-for-change.svg', srcLight: '/assets/partners/quest-for-change-light.svg', alt: 'Quest for Change' },
   { src: '/assets/partners/innovact.webp', alt: 'Innovact' },
 ]
