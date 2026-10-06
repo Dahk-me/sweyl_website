@@ -1,9 +1,10 @@
 import React from 'react'
 import { useMobile } from '../../hooks/useMobile'
 
-const VISION_IMG_APP = 'https://fybnpenwtzvjwlbnbmrq.supabase.co/storage/v1/object/public/images/vision/Mobile.png'
-const VISION_IMG_TEAM = 'https://fybnpenwtzvjwlbnbmrq.supabase.co/storage/v1/object/public/images/vision/TeamSucces.png'
-const VISION_IMG_COACH = 'https://fybnpenwtzvjwlbnbmrq.supabase.co/storage/v1/object/public/images/vision/CoachStats.png'
+// Servies par Vercel, pas par le Storage Supabase (quota d'egress partagé avec l'app).
+const VISION_IMG_APP = '/assets/vision/vision-app.webp'
+const VISION_IMG_TEAM = '/assets/vision/vision-team.webp'
+const VISION_IMG_COACH = '/assets/vision/vision-coach.webp'
 
 const pillars = [
   { title: 'Tout le club', desc: 'Coachs, joueurs, dirigeants et familles au même endroit.', img: VISION_IMG_APP },
@@ -13,7 +14,7 @@ const pillars = [
 
 const Card = ({ p, mobile }) => (
   <div style={{ borderRadius: '8px', overflow: 'hidden', background: 'var(--bg-3)', border: '1px solid var(--line)', display: 'flex', flexDirection: 'column', height: '100%' }}>
-    <img src={p.img} alt={p.title} style={{ width: '100%', height: '350px', flexShrink: 0, objectFit: 'cover', display: 'block' }} />
+    <img src={p.img} alt={p.title} loading="lazy" decoding="async" style={{ width: '100%', height: '350px', flexShrink: 0, objectFit: 'cover', display: 'block' }} />
     <div style={{ padding: mobile ? '20px' : '24px', flex: 1 }}>
       <div className="display-narrow" style={{ fontSize: '22px', marginBottom: '8px' }}>{p.title}</div>
       <div style={{ fontSize: '13px', color: 'var(--fg-3)', lineHeight: 1.55 }}>{p.desc}</div>

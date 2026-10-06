@@ -432,3 +432,27 @@ générées, et cette passe corrige tout ce qui ne demande pas d'input d'Ismail.
 > 📥 **Reste à Ismail** : vrais témoignages (nom, club, photo si possible), nom et photo du
 > fondateur, confirmation de « 100+ matchs / sem », vraies images de Vision, identité légale dans
 > les mentions (forme, SIREN, directeur de publication nommé).
+
+---
+
+## Lot 13 · Plus rien servi par Supabase Storage (06/10/2026)
+
+**Pourquoi** : le projet Supabase est **partagé avec l'app** (même compte, même quota d'egress de
+5 Go en Free). Après la vidéo du hero, les 3 images de Vision coûtaient encore ~5 Mo par visite
+(PNG servis en `no-cache`), et les logos passaient aussi par le Storage.
+
+**Décision** : le site ne sert **plus aucun fichier depuis Supabase**. Tout vit dans
+`public/assets` et part par Vercel. Seul reste l'appel du formulaire à l'edge function
+`submit-lead`, négligeable. Ne pas réintroduire d'URL `supabase.co/storage` dans le site.
+
+- [x] Vision : 3 images en WebP 900px dans `public/assets/vision/` (5 Mo → 200 Ko).
+- [x] Logos clubs et partenaires en WebP dans `public/assets/clubs/` et `public/assets/partners/`,
+  listés dans `src/lib/logos.js`. Pour en ajouter un : déposer le fichier, ajouter sa ligne.
+- [x] `src/lib/supabase.js`, `src/lib/storageConfig.js` et la dépendance `@supabase/supabase-js`
+  supprimés (plus aucun usage).
+- [x] `vercel.json` : cache d'une semaine sur `/assets/*`. Remplacer un fichier **sous le même
+  nom** met donc jusqu'à une semaine à se voir : changer de nom de fichier pour un effet immédiat.
+
+> 📥 **À faire de ton côté** : supprimer le bucket `images/vision`, `images/club_logo` et
+> `images/sponsor_logo` du Storage une fois en prod (plus rien ne les lit). `LogoWitry.png` est
+> resté dans `public/assets/clubs/`, il n'est affiché nulle part.

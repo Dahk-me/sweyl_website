@@ -1,7 +1,6 @@
 import React from 'react'
 import { useMobile } from '../../hooks/useMobile'
-import { supabase } from '../../lib/supabase'
-import { STORAGE } from '../../lib/storageConfig'
+import { CLUB_LOGOS, PARTNER_LOGOS } from '../../lib/logos'
 
 // Chiffres réels du club, donnés par Ismail le 29/08/2026.
 // « MATCHS / SEM » est le seul reliquat à confirmer.
@@ -152,30 +151,6 @@ function StatCell({ value, label, mobile }) {
 
 export default function SocialProof() {
   const mobile = useMobile()
-  const [logos, setLogos] = React.useState([])
-  const [sponsors, setSponsors] = React.useState([])
-
-  const fetchFolder = (folder) =>
-    supabase.storage
-      .from(STORAGE.LOGOS_BUCKET)
-      .list(folder, { limit: 100 })
-      .then(({ data, error }) => {
-        if (error || !data) return []
-        return data
-          .filter(f => f.name !== '.emptyFolderPlaceholder')
-          .map(f => ({
-            name: f.name.replace(/\.[^.]+$/, ''),
-            url: supabase.storage
-              .from(STORAGE.LOGOS_BUCKET)
-              .getPublicUrl(`${folder}/${f.name}`).data.publicUrl,
-          }))
-      })
-
-  React.useEffect(() => {
-    fetchFolder(STORAGE.LOGOS_FOLDER).then(setLogos)
-    fetchFolder(STORAGE.SPONSORS_FOLDER).then(setSponsors)
-  }, [])
-
   const heading = (
     <>
       <div className="eyebrow" style={{ marginBottom: '16px', fontSize: mobile ? '11px' : '13px' }}>Saison 2026/27</div>
@@ -193,20 +168,20 @@ export default function SocialProof() {
     </div>
   )
 
-  const logosBlock = logos.length > 0 && (
+  const logosBlock = (
     <>
       <div style={{ padding: mobile ? '24px 20px 12px' : '32px 0 16px' }}>
         <div className="eyebrow" style={{ fontSize: mobile ? '11px' : '12px' }}>Les clubs</div>
       </div>
       <div style={{ padding: mobile ? '20px 0' : '32px 0' }}>
         <InteractiveMarquee
-          items={logos}
+          items={CLUB_LOGOS}
           speed={mobile ? 18 : 22}
           renderItem={(c, i) => (
             <img
               key={i}
-              src={c.url}
-              alt={c.name}
+              src={c.src}
+              alt={c.alt}
               draggable={false}
               style={{ height: mobile ? '64px' : '88px', width: 'auto', objectFit: 'contain', opacity: 0.85, marginRight: mobile ? '56px' : '96px', flexShrink: 0, userSelect: 'none', pointerEvents: 'none' }}
             />
@@ -216,21 +191,21 @@ export default function SocialProof() {
     </>
   )
 
-  const sponsorsBlock = sponsors.length > 0 && (
+  const sponsorsBlock = (
     <>
       <div style={{ padding: mobile ? '24px 20px 12px' : '32px 0 16px' }}>
         <div className="eyebrow" style={{ fontSize: mobile ? '11px' : '12px' }}>Nos partenaires</div>
       </div>
       <div style={{ padding: mobile ? '8px 0 20px' : '12px 0 32px' }}>
         <InteractiveMarquee
-          items={sponsors}
+          items={PARTNER_LOGOS}
           speed={mobile ? 18 : 22}
           reverse
           renderItem={(s, i) => (
             <img
               key={i}
-              src={s.url}
-              alt={s.name}
+              src={s.src}
+              alt={s.alt}
               draggable={false}
               style={{ height: mobile ? '40px' : '56px', width: 'auto', objectFit: 'contain', opacity: 0.7, marginRight: mobile ? '56px' : '96px', flexShrink: 0, userSelect: 'none', pointerEvents: 'none' }}
             />
