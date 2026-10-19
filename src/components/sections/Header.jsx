@@ -3,19 +3,12 @@ import { useTheme } from '../../contexts/theme'
 import { IconArrow, IconSun, IconMoon } from '../Icons'
 import { useMobile } from '../../hooks/useMobile'
 import logoSvg from '/assets/LogoSweyl.svg'
+import SweylProMark from '../SweylProMark'
+import { proUrl } from '../../lib/siteUrls'
 
 export default function Header() {
   const { theme, toggleTheme } = useTheme()
   const mobile = useMobile()
-  // Sur l'entrée, le hero porte déjà la marque en grand : le logo du header s'efface.
-  const [inHero, setInHero] = React.useState(true)
-
-  React.useEffect(() => {
-    const onScroll = () => setInHero(window.scrollY < window.innerHeight * 0.85)
-    window.addEventListener('scroll', onScroll, { passive: true })
-    return () => window.removeEventListener('scroll', onScroll)
-  }, [])
-
   return (
     <header style={{
       position: 'fixed',
@@ -36,16 +29,16 @@ export default function Header() {
         gap: '16px',
       }}>
         {/* Logo toujours à gauche */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '10px', flexShrink: 0, opacity: inHero ? 0 : 1, transition: 'opacity 0.4s' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '10px', flexShrink: 0 }}>
+          {/* Le logo reste toujours visible, hero compris (arbitrage d'Ismail du 19/10/2026). */}
           <img src={logoSvg} alt="SWEYL" style={{ height: '22px', width: 'auto', filter: theme === 'dark' ? 'brightness(0) invert(1)' : 'none' }} />
           {!mobile && <span style={{ fontFamily: 'Montserrat, sans-serif', fontSize: '20px', fontWeight: 600, letterSpacing: '0.3em', color: 'var(--fg)' }}>SWEYL</span>}
         </div>
 
         {/* Centre SWEYL sur mobile, nav sur desktop */}
         <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-          {mobile ? (
-            <span style={{ fontFamily: 'Montserrat, sans-serif', fontSize: '20px', fontWeight: 600, letterSpacing: '0.3em', transition: 'opacity 0.4s', opacity: inHero ? 0 : 1, color: 'var(--fg)' }}>SWEYL</span>
-          ) : (
+          {/* Sur mobile, la marque Pro dit déjà SWEYL : pas de second mot au centre. */}
+          {mobile ? null : (
             <nav style={{ display: 'flex', gap: '28px', fontSize: '13px', color: 'var(--fg)' }}>
               <a href="#vision">Vision</a>
               <a href="#season">Saison 26/27</a>
@@ -56,6 +49,8 @@ export default function Header() {
 
         {/* Actions toujours à droite */}
         <div style={{ display: 'flex', alignItems: 'center', gap: mobile ? '8px' : '16px', flexShrink: 0 }}>
+          {/* L'offre Pro, toujours visible : un bandeau disparaissait au premier défilement. */}
+          <SweylProMark href={proUrl()} />
           <button
             onClick={toggleTheme}
             style={{

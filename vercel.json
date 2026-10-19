@@ -1,7 +1,15 @@
 {
+  "redirects": [
+    {
+      "source": "/pro",
+      "missing": [{ "type": "host", "value": "pro.sweyl.com" }],
+      "destination": "https://pro.sweyl.com/",
+      "permanent": false
+    }
+  ],
   "rewrites": [
     {
-      "source": "/((?!assets|mentions-legales.md).*)",
+      "source": "/((?!assets|api|pro.html|mentions-legales.md).*)",
       "destination": "/index.html"
     }
   ],

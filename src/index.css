@@ -197,6 +197,25 @@ img { display: block; max-width: 100%; }
   .hero-line { stroke-dashoffset: 0; }
 }
 
+/* ── Marque de l'offre Pro (SweylProMark) ──
+   « SWEYL » dans la couleur du texte, « PRO » en orange, cadre orange. */
+.sweyl-pro-mark {
+  display: inline-flex; align-items: center; gap: 8px; flex-shrink: 0;
+  border: 1px solid var(--primary); border-radius: 6px; line-height: 1;
+  color: var(--fg); transition: background 0.2s;
+}
+a.sweyl-pro-mark:hover { background: color-mix(in srgb, var(--primary) 10%, transparent); }
+.sweyl-pro-mark-word { font-family: 'Montserrat', sans-serif; font-weight: 600; letter-spacing: 0.24em; margin-right: -0.24em; }
+.sweyl-pro-mark-pro { font-family: 'JetBrains Mono', monospace; font-weight: 600; letter-spacing: 0.16em; color: var(--primary); }
+.sweyl-pro-mark { padding: 9px 12px; font-size: 12px; }
+.sweyl-pro-mark .sweyl-pro-mark-pro { font-size: 11px; }
+@media (max-width: 768px) {
+  .sweyl-pro-mark { padding: 7px 9px; font-size: 11px; gap: 6px; }
+  .sweyl-pro-mark .sweyl-pro-mark-word { letter-spacing: 0.14em; margin-right: -0.14em; }
+  .sweyl-pro-mark .sweyl-pro-mark-pro { font-size: 10px; letter-spacing: 0.1em; }
+  a.sweyl-pro-mark { padding-top: 0; padding-bottom: 0; }
+}
+
 ::-webkit-scrollbar { width: 10px; height: 10px; }
 ::-webkit-scrollbar-thumb { background: var(--fg-4); border-radius: 5px; }
 ::-webkit-scrollbar-track { background: transparent; }
