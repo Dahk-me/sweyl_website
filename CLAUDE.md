@@ -82,7 +82,11 @@ au **staff d'une équipe de prénationale à N1**, pas aux clubs amateurs.
 - **Captures** : une seule scène montre la même capture sur ordinateur, tablette et téléphone ;
   toutes les autres sont en tablette paysage. La vidéo se dit « tablette et ordinateur », jamais
   téléphone. Jamais le nom d'un vrai club adverse, jamais de vrai nom de personne (le compte de
-  démo en porte : on les renomme en base locale avant de capturer).
+  démo en porte : on les renomme en base locale avant de capturer). Une photo de joueur est un
+  visage **généré** (aucune personne réelle), les vidéos des fiches des liens YouTube publics.
+- **Le hero tient en un seul écran** à l'arrivée, comme l'accueil de sweyl.com : logo animé et
+  « SWEYL PRO », accroche, démo. Rien d'autre (l'index des piliers en est sorti pour aérer).
+- **Chaque titre porte son mot en orange**, écrit `*mot*` dans `copy.js` (rendu par `Accent.jsx`).
 - ⛔ **Jamais l'écran de saisie** dans une capture du site, aujourd'hui comme demain : on montre ce
   que la saisie produit (box score, analyse), pas le geste. Le texte peut dire qu'elle se fait
   « sur le même écran que les vôtres ».
