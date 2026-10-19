@@ -2,7 +2,8 @@ import React from 'react'
 import { useTheme } from '../../contexts/theme'
 import { IconArrow, IconSun, IconMoon } from '../../components/Icons'
 import SweylProMark from '../../components/SweylProMark'
-import { COPY, DEMO_ANCHOR, MAIN_SITE_URL } from '../copy'
+import { COPY, DEMO_ANCHOR } from '../copy'
+import { mainSiteUrl } from '../../lib/siteUrls'
 
 // Le logo du site, puis la marque Pro dans son cadre.
 export function ProBrand({ size = 'md' }) {
@@ -24,7 +25,7 @@ export default function ProHeader() {
       <div className="pro-header-row">
         <a href="#top" aria-label="Sweyl Pro"><ProBrand /></a>
         <span className="pro-header-sp" />
-        <a className="pro-header-back" href={MAIN_SITE_URL}>{H.back}</a>
+        <a className="pro-header-back" href={mainSiteUrl()}>{H.back}</a>
         <button type="button" className="pro-theme" onClick={toggleTheme}>
           {theme === 'dark' ? <IconSun size={14} /> : <IconMoon size={14} />}
           <span className="pro-theme-label">{theme === 'dark' ? H.themeLight : H.themeDark}</span>

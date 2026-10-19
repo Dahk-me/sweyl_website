@@ -1,5 +1,6 @@
 import React from 'react'
-import { COPY, CONTACT_EMAIL, LEGAL_URL, MAIN_SITE_URL } from '../copy'
+import { COPY, CONTACT_EMAIL } from '../copy'
+import { legalUrl, mainSiteUrl } from '../../lib/siteUrls'
 import { ProBrand } from './ProHeader'
 
 export default function ProFooter() {
@@ -14,12 +15,12 @@ export default function ProFooter() {
           </div>
           <div>
             <h6>{F.backTitle}</h6>
-            <a href={MAIN_SITE_URL}>{F.back}</a>
+            <a href={mainSiteUrl()}>{F.back}</a>
           </div>
           <div>
             <h6>{F.contactTitle}</h6>
             <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
-            <a href={LEGAL_URL}>{F.legal}</a>
+            <a href={legalUrl()}>{F.legal}</a>
           </div>
         </div>
         <div className="pro-footer-bottom">

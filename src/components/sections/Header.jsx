@@ -3,7 +3,8 @@ import { useTheme } from '../../contexts/theme'
 import { IconArrow, IconSun, IconMoon } from '../Icons'
 import { useMobile } from '../../hooks/useMobile'
 import logoSvg from '/assets/LogoSweyl.svg'
-import SweylProMark, { PRO_URL } from '../SweylProMark'
+import SweylProMark from '../SweylProMark'
+import { proUrl } from '../../lib/siteUrls'
 
 export default function Header() {
   const { theme, toggleTheme } = useTheme()
@@ -57,7 +58,7 @@ export default function Header() {
         {/* Actions toujours à droite */}
         <div style={{ display: 'flex', alignItems: 'center', gap: mobile ? '8px' : '16px', flexShrink: 0 }}>
           {/* L'offre Pro, toujours visible : un bandeau disparaissait au premier défilement. */}
-          <SweylProMark href={PRO_URL} />
+          <SweylProMark href={proUrl()} />
           <button
             onClick={toggleTheme}
             style={{

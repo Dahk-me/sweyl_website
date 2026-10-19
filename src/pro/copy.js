@@ -5,8 +5,6 @@
  */
 import { PRO_LEVELS, PRO_ROLES } from '../lib/leadOptions'
 
-export const MAIN_SITE_URL = 'https://sweyl.com'
-export const LEGAL_URL = 'https://sweyl.com/mentions-legales'
 export const CONTACT_EMAIL = 'contact@sweyl.com'
 export const DEMO_ANCHOR = 'demo'
 
