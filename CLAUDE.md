@@ -62,3 +62,51 @@ L'objectif est la **prise de contact déguisée en création de compte**.
 ## Vision long terme
 
 Multi-sport. Handball, volleyball, football, rugby… Le basket est le sport d'entrée. Le copy doit rester suffisamment ouvert pour ne pas enfermer SWEYL dans "la plateforme basket".
+
+## pro.sweyl.com, l'offre Pro
+
+Page de teasing de l'offre Pro (une équipe : scouting, stats des deux camps, analyse du match,
+vidéo calée sur les statistiques). Elle ne se lit pas avec les règles de ton ci-dessus : elle parle
+au **staff d'une équipe de prénationale à N1**, pas aux clubs amateurs.
+
+- **Vouvoiement**, « nous » pour Sweyl. Lexique du terrain : entre-deux, buzzer, duel, système,
+  pick and roll, transition, rebond offensif, box score, Éval, +/-. Jamais « solution »,
+  « plateforme », « fonctionnalité », « digitaliser ». « Les quatre facteurs » est permis ici et
+  interdit dans l'application, c'est voulu : un staff de N2 connaît Dean Oliver.
+- **Aucun prix**, ni chiffre ni fourchette. La seule phrase tarifaire permise est « Le tarif,
+  communiqué à la démo ». Un seul appel à l'action : « Réserver une démo ».
+- **Rien n'y est promis qui ne soit dans les specs** (`OpposingTeams.md` §3, `OpponentStats.md` §3,
+  `VideoAnalysis.md`, `LectureDesChiffres.md` §3.1), et **aucun mot d'exclusivité** (« réservé »,
+  « exclusif », « uniquement ») : la carte des tirs existe aussi hors du Pro.
+- **Captures** : une seule scène montre la même capture sur ordinateur, tablette et téléphone ;
+  toutes les autres sont en tablette paysage. La vidéo se dit « tablette et ordinateur », jamais
+  téléphone. Jamais le nom d'un vrai club adverse, jamais de vrai nom de personne (le compte de
+  démo en porte : on les renomme en base locale avant de capturer).
+- ⛔ **Jamais l'écran de saisie** dans une capture du site, aujourd'hui comme demain : on montre ce
+  que la saisie produit (box score, analyse), pas le geste. Le texte peut dire qu'elle se fait
+  « sur le même écran que les vôtres ».
+- Les captures sont celles de **l'application réelle**, prises sur une instance locale puis posées
+  dans leur cadre par le mode composition de `brand-assets/screenshots` (`compose.mjs`).
+- Le hero joue un vrai système, nommé (Spain pick and roll) ; ses données vivent dans
+  `src/pro/play.js`, un autre système se joue en changeant ce fichier seul.
+- **Textes** dans `src/pro/copy.js`. **Routage** : `pro.html` est une seconde entrée Vite, servie
+  sur l'hôte `pro.sweyl.com` par `middleware.js` (une réécriture de `vercel.json` passerait après
+  le système de fichiers et servirait `index.html` sur « / »). `sweyl.com/pro` redirige.
+
+**Bandeau sur sweyl.com** : il vit dans `Header.jsx`, toujours sombre, non fermable, pas d'orange
+hors de la pastille PRO.
+
+## Formulaire de démo
+
+Les deux formulaires (`Lead.jsx`, `src/pro/sections/ProLead.jsx`) partagent `src/components/lead/`
+et postent sur `api/submit-lead.js`, une fonction Vercel déployée avec le site. Elle envoie un mail
+par Mailjet (clés `MAILJET_API_KEY` et `MAILJET_SECRET_KEY` dans les variables du projet Vercel) et
+**ne stocke rien** : le suivi des réponses se fait dans la boîte mail.
+
+- Sujet : `Nouvelle demande de démo {club}` pour le site, `PRO · Démo {niveau} · {club}` pour le
+  Pro (niveau obligatoire, pas de rôle joueur). Valeurs échappées dans le HTML du mail.
+- **Filtre anti-robots** (`api/_lib/leadFilter.js`, testé par `npm test`) : champ piège et temps de
+  remplissage minimal rejettent sans bruit ; le charabia (au moins deux champs parmi nom, club et
+  message faits d'un bloc de 12 caractères ou plus avec 3 passages minuscule-majuscule) part avec
+  le préfixe `[Spam probable]`, sans être supprimé. Calibré le 19/10/2026 sur 29 demandes réelles :
+  13 robots sur 13, 0 vrai contact sur 15.
