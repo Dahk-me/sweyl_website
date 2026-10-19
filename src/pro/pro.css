@@ -20,7 +20,6 @@
 .pro-header-row { display: flex; align-items: center; gap: 16px; height: 72px; max-width: 1300px; margin: 0 auto; padding: 0 32px; }
 .pro-header-sp { flex: 1; }
 .pro-header-row > a:first-child { display: flex; align-items: center; }
-.pro-header-brand { transition: opacity 0.4s; }
 .pro-header-back { font-size: 13px; color: var(--fg-2); transition: color 0.2s; }
 .pro-header-back:hover { color: var(--fg); }
 .pro-theme {

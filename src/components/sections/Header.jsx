@@ -9,15 +9,6 @@ import { proUrl } from '../../lib/siteUrls'
 export default function Header() {
   const { theme, toggleTheme } = useTheme()
   const mobile = useMobile()
-  // Sur l'entrée, le hero porte déjà la marque en grand : le logo du header s'efface.
-  const [inHero, setInHero] = React.useState(true)
-
-  React.useEffect(() => {
-    const onScroll = () => setInHero(window.scrollY < window.innerHeight * 0.85)
-    window.addEventListener('scroll', onScroll, { passive: true })
-    return () => window.removeEventListener('scroll', onScroll)
-  }, [])
-
   return (
     <header style={{
       position: 'fixed',
@@ -38,7 +29,8 @@ export default function Header() {
         gap: '16px',
       }}>
         {/* Logo toujours à gauche */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '10px', flexShrink: 0, opacity: inHero ? 0 : 1, transition: 'opacity 0.4s' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '10px', flexShrink: 0 }}>
+          {/* Le logo reste toujours visible, hero compris (arbitrage d'Ismail du 19/10/2026). */}
           <img src={logoSvg} alt="SWEYL" style={{ height: '22px', width: 'auto', filter: theme === 'dark' ? 'brightness(0) invert(1)' : 'none' }} />
           {!mobile && <span style={{ fontFamily: 'Montserrat, sans-serif', fontSize: '20px', fontWeight: 600, letterSpacing: '0.3em', color: 'var(--fg)' }}>SWEYL</span>}
         </div>

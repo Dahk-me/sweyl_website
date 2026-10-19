@@ -20,18 +20,10 @@ export function ProBrand({ size = 'md' }) {
 export default function ProHeader() {
   const { theme, toggleTheme } = useTheme()
   const H = COPY.header
-  // Sur le hero, la marque est déjà en grand : celle du header n'apparaît qu'après.
-  const [inHero, setInHero] = React.useState(true)
-  React.useEffect(() => {
-    const onScroll = () => setInHero(window.scrollY < window.innerHeight * 0.85)
-    onScroll()
-    window.addEventListener('scroll', onScroll, { passive: true })
-    return () => window.removeEventListener('scroll', onScroll)
-  }, [])
   return (
     <header className="pro-header">
       <div className="pro-header-row">
-        <a href="#top" aria-label="Sweyl Pro" className="pro-header-brand" style={{ opacity: inHero ? 0 : 1 }}><ProBrand /></a>
+        <a href="#top" aria-label="Sweyl Pro" className="pro-header-brand"><ProBrand /></a>
         <span className="pro-header-sp" />
         <a className="pro-header-back" href={mainSiteUrl()}>{H.back}</a>
         <button type="button" className="pro-theme" onClick={toggleTheme}>
