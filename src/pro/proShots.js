@@ -8,12 +8,15 @@ export const DEVICE = { phone: 'phone', tablet: 'tablet', laptop: 'laptop' }
 /** Dimensions natives des fichiers cadrés, en pixels. Servent à réserver la place. */
 export const DEVICE_SIZE = {
   phone: { w: 598, h: 1180 },
-  tablet: { w: 1400, h: 995 },
-  laptop: { w: 1600, h: 950 },
+  tablet: { w: 1400, h: 998 },
+  laptop: { w: 1600, h: 951 },
 }
 
 /** Les captures produites. Une capture absente s'affiche en emplacement provisoire. */
-export const READY = new Set([])
+export const READY = new Set([
+  'fiche_laptop', 'fiche_tablet', 'fiche_phone',
+  'preparation_tablet', 'boxscore_tablet', 'analyse_tablet', 'video_tablet',
+])
 
 export const shotKey = (shot, device) => `${shot}_${device}`
 export const shotSrc = (shot, device, theme) => `/assets/pro/${shot}_${device}_${theme}.webp`
