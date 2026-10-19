@@ -23,6 +23,7 @@
 }
 .pro-header-row { display: flex; align-items: center; gap: 16px; height: 72px; max-width: 1300px; margin: 0 auto; padding: 0 32px; }
 .pro-header-sp { flex: 1; }
+.pro-header-row > a:first-child { display: flex; align-items: center; }
 .pro-header-back { font-size: 13px; color: var(--fg-2); transition: color 0.2s; }
 .pro-header-back:hover { color: var(--fg); }
 .pro-theme {
@@ -59,7 +60,7 @@
 .pro-index a:hover .pro-index-t { color: var(--primary); }
 
 /* Le système joué */
-.pro-board { position: absolute; right: 3%; top: 50%; transform: translateY(-50%); width: 44%; max-width: 620px; z-index: 1; pointer-events: none; }
+.pro-board { position: absolute; right: 3%; top: 132px; width: 40%; max-width: 560px; z-index: 1; pointer-events: none; }
 .pro-board svg { width: 100%; height: auto; display: block; }
 .pro-board-caption { margin-top: 10px; font: 500 10px 'JetBrains Mono', monospace; letter-spacing: 0.18em; text-transform: uppercase; color: var(--fg-3); }
 .pro-court { fill: none; stroke: color-mix(in srgb, var(--fg) 22%, transparent); stroke-width: 2; }
@@ -132,13 +133,18 @@
 .pro-footer-grid a:hover { color: var(--fg); }
 .pro-footer-bottom { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; padding-top: 16px; border-top: 1px solid var(--line); font: 500 10px 'JetBrains Mono', monospace; letter-spacing: 0.12em; color: var(--fg-4); }
 
+/* Tablette et petit desktop : le schéma recule derrière le titre. */
+@media (max-width: 1180px) {
+  .pro-board { opacity: 0.35; }
+}
+
 /* ── Mobile ── */
 @media (max-width: 768px) {
   .pro-in { padding: 0 20px; }
   .pro-header-row { height: 56px; padding: 0 16px; gap: 10px; }
   .pro-header-back, .pro-long, .pro-theme-label { display: none; }
   .pro-short { display: inline; }
-  .pro-theme { padding: 8px 10px; }
+  .pro-theme { padding: 8px 10px; min-width: 44px; justify-content: center; }
   .pro-header .btn-primary { padding: 10px 14px; }
   .pro-wordmark { font-size: 16px; }
 
