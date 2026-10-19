@@ -1,18 +1,11 @@
 import React from 'react'
 import { IconArrow, IconCheck } from '../Icons'
 import { useMobile } from '../../hooks/useMobile'
-
-const FormField = ({ label, type = 'text', value, onChange, required }) => (
-  <div>
-    <label className="mono" style={{ fontSize: '10px', color: 'var(--fg-3)', letterSpacing: '0.15em', marginBottom: '8px', display: 'block' }}>
-      {label.toUpperCase()}{required && <span style={{ color: 'var(--primary)' }}> *</span>}
-    </label>
-    <input
-      type={type} value={value} onChange={e => onChange(e.target.value)} required={required}
-      style={{ width: '100%', background: 'var(--bg)', border: '1px solid var(--line)', color: 'var(--fg)', padding: '14px', fontSize: '16px', fontFamily: 'inherit', borderRadius: '2px', outline: 'none' }}
-    />
-  </div>
-)
+import FormField from '../lead/FormField'
+import ChipGroup from '../lead/ChipGroup'
+import Honeypot from '../lead/Honeypot'
+import { useLeadSubmit } from '../lead/useLeadSubmit'
+import { CLUB_ROLES, OFFER } from '../../lib/leadOptions'
 
 const perks = [
   "Un échange avec l'équipe",
@@ -23,30 +16,11 @@ const perks = [
 export default function Lead() {
   const mobile = useMobile()
   const [form, setForm] = React.useState({ name: '', email: '', club: '', role: 'president', message: '' })
-  const [sent, setSent] = React.useState(false)
-  const [loading, setLoading] = React.useState(false)
-  const [error, setError] = React.useState(null)
+  const { loading, sent, error, submit, honeypot, setHoneypot } = useLeadSubmit()
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault()
-    setLoading(true)
-    setError(null)
-    try {
-      const res = await fetch(
-        `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/submit-lead`,
-        {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(form),
-        }
-      )
-      if (!res.ok) throw new Error(await res.text())
-      setSent(true)
-    } catch {
-      setError('Une erreur est survenue. Réessaie ou écris-nous directement à contact@sweyl.com')
-    } finally {
-      setLoading(false)
-    }
+    submit({ offer: OFFER.club, ...form })
   }
 
   return (
@@ -85,6 +59,7 @@ export default function Lead() {
               </div>
             ) : (
               <>
+                <Honeypot value={honeypot} onChange={setHoneypot} />
 
                 {/* Name + Email stacked on mobile */}
                 <div style={{ display: 'grid', gridTemplateColumns: mobile ? '1fr' : '1fr 1fr', gap: '14px', marginBottom: '14px' }}>
@@ -97,15 +72,8 @@ export default function Lead() {
                 </div>
 
                 <div style={{ marginBottom: '16px' }}>
-                  <label className="mono" style={{ fontSize: '10px', color: 'var(--fg-3)', letterSpacing: '0.15em', marginBottom: '10px', display: 'block' }}>TON RÔLE</label>
-                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: '8px' }}>
-                    {[['president', 'Président'], ['coach', 'Coach'], ['other', 'Autre']].map(([k, l]) => (
-                      <button type="button" key={k} onClick={() => setForm({ ...form, role: k })}
-                        style={{ padding: '12px 8px', border: '1px solid ' + (form.role === k ? 'var(--primary)' : 'var(--line)'), background: form.role === k ? 'color-mix(in srgb, var(--primary) 8%, transparent)' : 'transparent', color: form.role === k ? 'var(--primary)' : 'var(--fg-2)', fontSize: '12px', borderRadius: '2px', transition: 'all 0.15s', cursor: 'pointer' }}>
-                        {l}
-                      </button>
-                    ))}
-                  </div>
+                  <label className="mono" id="lead-role" style={{ fontSize: '10px', color: 'var(--fg-3)', letterSpacing: '0.15em', marginBottom: '10px', display: 'block' }}>TON RÔLE</label>
+                  <ChipGroup labelledBy="lead-role" options={Object.entries(CLUB_ROLES)} value={form.role} onChange={k => setForm({ ...form, role: k })} />
                 </div>
 
                   <div style={{ marginBottom: '20px' }}>
@@ -117,7 +85,7 @@ export default function Lead() {
                 <button type="submit" disabled={loading} className="btn-primary" style={{ width: '100%', justifyContent: 'center', padding: '16px', marginTop: '4px', opacity: loading ? 0.7 : 1 }}>
                   {loading ? 'Envoi en cours…' : <>Envoyer ma demande<IconArrow size={14} /></>}
                 </button>
-                {error && <p style={{ fontSize: '12px', color: '#e55', marginTop: '10px', textAlign: 'center' }}>{error}</p>}
+                {error && <p style={{ fontSize: '12px', color: '#e55', marginTop: '10px', textAlign: 'center' }}>Une erreur est survenue. Réessaie ou écris-nous directement à contact@sweyl.com</p>}
                 <p className="mono" style={{ fontSize: '9px', color: 'var(--fg-3)', letterSpacing: '0.12em', marginTop: '12px', textAlign: 'center' }}>SANS ENGAGEMENT</p>
               </>
             )}
