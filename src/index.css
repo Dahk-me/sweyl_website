@@ -197,6 +197,31 @@ img { display: block; max-width: 100%; }
   .hero-line { stroke-dashoffset: 0; }
 }
 
+/* ── Bandeau de l'offre Pro (Header.jsx) ──
+   Couleurs fixes, hors thème : toujours sombre. Pas d'orange hors de la pastille. */
+.pro-banner {
+  display: flex; align-items: center; justify-content: center; gap: 14px;
+  padding: 0 20px; background: #111214; border-bottom: 1px solid rgba(255,255,255,0.08);
+  font-size: 12.5px; color: #c8c7c2; position: relative; z-index: 51;
+}
+[data-theme="light"] .pro-banner { background: #0d0f12; border-bottom-color: #0d0f12; }
+.pro-banner-badge {
+  font: 600 9px 'JetBrains Mono', monospace; letter-spacing: 0.2em; line-height: 1;
+  padding: 3px 5px 3px 7px; border: 1px solid var(--primary); color: var(--primary); border-radius: 4px;
+}
+.pro-banner-text b { color: #f5f4f1; font-weight: 600; }
+.pro-banner-go {
+  display: inline-flex; align-items: center; gap: 6px; color: #f5f4f1; font-weight: 500;
+  border-bottom: 1px solid rgba(255,255,255,0.3); padding-bottom: 1px; transition: border-color 0.2s;
+}
+.pro-banner:hover .pro-banner-go { border-bottom-color: #f5f4f1; }
+.pro-banner-mobile { display: none; }
+@media (max-width: 768px) {
+  .pro-banner { justify-content: space-between; gap: 10px; padding: 0 16px; font-size: 12px; }
+  .pro-banner-desktop { display: none; }
+  .pro-banner-mobile { display: inline; }
+}
+
 ::-webkit-scrollbar { width: 10px; height: 10px; }
 ::-webkit-scrollbar-thumb { background: var(--fg-4); border-radius: 5px; }
 ::-webkit-scrollbar-track { background: transparent; }

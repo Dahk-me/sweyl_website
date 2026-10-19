@@ -4,27 +4,55 @@ import { IconArrow, IconSun, IconMoon } from '../Icons'
 import { useMobile } from '../../hooks/useMobile'
 import logoSvg from '/assets/LogoSweyl.svg'
 
+const PRO_URL = 'https://pro.sweyl.com'
+// Hauteurs du bandeau Pro ; 44 px sur mobile, la cible tactile minimale du site.
+const BANNER_HEIGHT = { desktop: 36, mobile: 44 }
+
+/**
+ * Bandeau de l'offre Pro, au-dessus du header. Toujours sombre, non fermable : fermé, il
+ * disparaîtrait pour le coach qui revient après la démo. Il défile avec la page.
+ */
+function ProBanner({ height }) {
+  return (
+    <a className="pro-banner" href={PRO_URL} style={{ height }}>
+      <span className="pro-banner-badge">PRO</span>
+      <span className="pro-banner-text pro-banner-desktop"><b>Sweyl Pro</b> · La préparation des staffs, de la PN à la N1. Bientôt disponible.</span>
+      <span className="pro-banner-text pro-banner-mobile"><b>Sweyl Pro</b> · Staffs PN à N1</span>
+      <span className="pro-banner-go">Découvrir<IconArrow size={12} /></span>
+    </a>
+  )
+}
+
 export default function Header() {
   const { theme, toggleTheme } = useTheme()
   const mobile = useMobile()
   // Sur l'entrée, le hero porte déjà la marque en grand : le logo du header s'efface.
   const [inHero, setInHero] = React.useState(true)
+  const bannerHeight = mobile ? BANNER_HEIGHT.mobile : BANNER_HEIGHT.desktop
+  // Le header fixe reste sous le bandeau, puis reprend le haut dès que celui-ci est sorti.
+  const [top, setTop] = React.useState(bannerHeight)
 
   React.useEffect(() => {
-    const onScroll = () => setInHero(window.scrollY < window.innerHeight * 0.85)
+    const onScroll = () => {
+      setInHero(window.scrollY < window.innerHeight * 0.85)
+      setTop(Math.max(0, bannerHeight - window.scrollY))
+    }
+    onScroll()
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
-  }, [])
+  }, [bannerHeight])
 
   return (
+    <>
+    <ProBanner height={bannerHeight} />
     <header style={{
       position: 'fixed',
-      top: 0,
+      top,
       left: 0, right: 0,
       zIndex: 50,
       backdropFilter: 'blur(20px)',
       borderBottom: '1px solid var(--line)',
-      transition: 'all 0.3s',
+      transition: 'background 0.3s, border-color 0.3s',
     }}>
       <div style={{
         display: 'flex',
@@ -74,5 +102,6 @@ export default function Header() {
         </div>
       </div>
     </header>
+    </>
   )
 }
