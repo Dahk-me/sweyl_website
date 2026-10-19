@@ -71,8 +71,9 @@ au **staff d'une équipe de prénationale à N1**, pas aux clubs amateurs.
 
 - **Vouvoiement**, « nous » pour Sweyl. Lexique du terrain : entre-deux, buzzer, duel, système,
   pick and roll, transition, rebond offensif, box score, Éval, +/-. Jamais « solution »,
-  « plateforme », « fonctionnalité », « digitaliser ». « Les quatre facteurs » est permis ici et
-  interdit dans l'application, c'est voulu : un staff de N2 connaît Dean Oliver.
+  « plateforme », « fonctionnalité », « digitaliser ». **Pas de « quatre facteurs »** ni de détail
+  des indicateurs d'analyse (*arbitrage d'Ismail du 19/10/2026*) : la page montre le fil du match,
+  l'adresse et la carte des tirs, elle n'explique pas la méthode.
 - **Aucun prix**, ni chiffre ni fourchette. La seule phrase tarifaire permise est « Le tarif,
   communiqué à la démo ». Un seul appel à l'action : « Réserver une démo ».
 - **Rien n'y est promis qui ne soit dans les specs** (`OpposingTeams.md` §3, `OpponentStats.md` §3,
@@ -93,8 +94,15 @@ au **staff d'une équipe de prénationale à N1**, pas aux clubs amateurs.
   sur l'hôte `pro.sweyl.com` par `middleware.js` (une réécriture de `vercel.json` passerait après
   le système de fichiers et servirait `index.html` sur « / »). `sweyl.com/pro` redirige.
 
-**Bandeau sur sweyl.com** : il vit dans `Header.jsx`, toujours sombre, non fermable, pas d'orange
-hors de la pastille PRO.
+**La marque « SWEYL PRO »** (`src/components/SweylProMark.jsx`) : « SWEYL » dans la couleur du
+texte, « PRO » en orange, cadre orange. Sur `sweyl.com`, c'est un lien vers `pro.sweyl.com` parmi
+les boutons du header, toujours visible ; il remplace le bandeau du handoff, qui disparaissait au
+premier défilement (*arbitrage d'Ismail du 19/10/2026*). Sur la page Pro, elle suit le logo, à la
+place du mot SWEYL.
+
+**Captures recomposées** : une capture peut réagencer les vrais composants de l'application (la
+capture d'analyse place le fil du match et l'adresse à gauche, la carte des tirs à droite), jamais
+inventer un écran ni une donnée.
 
 ## Formulaire de démo
 
