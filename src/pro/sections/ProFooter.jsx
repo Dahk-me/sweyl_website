@@ -1,5 +1,6 @@
 import React from 'react'
 import { COPY, CONTACT_EMAIL, LEGAL_URL, MAIN_SITE_URL } from '../copy'
+import { ProBrand } from './ProHeader'
 
 export default function ProFooter() {
   const F = COPY.footer
@@ -8,10 +9,7 @@ export default function ProFooter() {
       <div className="pro-in">
         <div className="pro-footer-grid">
           <div>
-            <span className="pro-brand">
-              <span className="pro-wordmark" style={{ fontSize: '16px' }}>SWEYL</span>
-              <span className="pro-badge">PRO</span>
-            </span>
+            <ProBrand />
             <p>{F.line}</p>
           </div>
           <div>

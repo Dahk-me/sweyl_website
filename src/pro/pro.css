@@ -8,12 +8,8 @@
 .pro-page section[id] { scroll-margin-top: 88px; }
 
 /* Marque */
-.pro-brand { display: flex; align-items: center; gap: 10px; }
-.pro-wordmark { font-family: 'Montserrat', sans-serif; font-weight: 600; letter-spacing: 0.3em; font-size: 18px; margin-right: -0.3em; color: var(--fg); }
-.pro-badge {
-  font: 600 10px 'JetBrains Mono', monospace; letter-spacing: 0.2em; line-height: 1;
-  padding: 4px 7px 4px 9px; border: 1px solid var(--primary); color: var(--primary); border-radius: 4px;
-}
+.pro-brand { display: flex; align-items: center; gap: 12px; }
+.pro-logo { height: 22px; width: auto; display: block; }
 
 /* Header fixe */
 .pro-header {
@@ -146,7 +142,6 @@
   .pro-short { display: inline; }
   .pro-theme { padding: 8px 10px; min-width: 44px; justify-content: center; }
   .pro-header .btn-primary { padding: 10px 14px; }
-  .pro-wordmark { font-size: 16px; }
 
   .pro-hero { min-height: 0; align-items: flex-start; }
   .pro-board { width: 118%; right: -40%; top: 7%; transform: none; opacity: 0.32; }

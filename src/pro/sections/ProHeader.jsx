@@ -1,13 +1,16 @@
 import React from 'react'
 import { useTheme } from '../../contexts/theme'
 import { IconArrow, IconSun, IconMoon } from '../../components/Icons'
+import SweylProMark from '../../components/SweylProMark'
 import { COPY, DEMO_ANCHOR, MAIN_SITE_URL } from '../copy'
 
-export function ProBrand() {
+// Le logo du site, puis la marque Pro dans son cadre.
+export function ProBrand({ size = 'md' }) {
+  const { theme } = useTheme()
   return (
     <span className="pro-brand">
-      <span className="pro-wordmark">SWEYL</span>
-      <span className="pro-badge">PRO</span>
+      <img src="/assets/LogoSweyl.svg" alt="" className="pro-logo" style={{ filter: theme === 'dark' ? 'brightness(0) invert(1)' : 'none' }} />
+      <SweylProMark size={size} />
     </span>
   )
 }
