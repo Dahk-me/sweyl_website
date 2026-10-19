@@ -93,6 +93,8 @@ au **staff d'une équipe de prénationale à N1**, pas aux clubs amateurs.
 - **Textes** dans `src/pro/copy.js`. **Routage** : `pro.html` est une seconde entrée Vite, servie
   sur l'hôte `pro.sweyl.com` par `middleware.js` (une réécriture de `vercel.json` passerait après
   le système de fichiers et servirait `index.html` sur « / »). `sweyl.com/pro` redirige.
+  Les liens entre les deux sites passent par `src/lib/siteUrls.js` : domaines de production sur
+  `sweyl.com` et `pro.sweyl.com`, même serveur partout ailleurs (local, prévisualisation).
 
 **La marque « SWEYL PRO »** (`src/components/SweylProMark.jsx`) : « SWEYL » dans la couleur du
 texte, « PRO » en orange, cadre orange. Sur `sweyl.com`, c'est un lien vers `pro.sweyl.com` parmi
