@@ -10,7 +10,8 @@ import { rewrite } from '@vercel/functions/middleware'
 export const PRO_HOST = 'pro.sweyl.com'
 
 export const config = {
-  matcher: ['/((?!assets/|api/|pro\\.html).*)'],
+  // _vercel/ porte le script et les envois de Vercel Analytics : les réécrire les casserait.
+  matcher: ['/((?!assets/|api/|_vercel/|pro\\.html).*)'],
 }
 
 export default function middleware(request) {

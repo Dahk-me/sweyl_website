@@ -93,7 +93,6 @@
 .pro-shot-img { width: 100%; height: auto; display: block; user-select: none; }
 .pro-shot-img--shadow { filter: drop-shadow(0 28px 50px rgba(0,0,0,0.45)); }
 [data-theme="light"] .pro-shot-img--shadow { filter: drop-shadow(0 22px 40px rgba(15,20,28,0.18)); }
-.pro-shot-ph { width: 100%; border-radius: 14px; }
 .pro-zoom-btn { display: block; width: 100%; padding: 0; text-align: left; cursor: default; }
 .pro-zoom {
   border: 0; padding: 0; margin: auto; max-width: 100vw; max-height: 100vh; width: 100vw;

@@ -12,11 +12,4 @@ export const DEVICE_SIZE = {
   laptop: { w: 1600, h: 951 },
 }
 
-/** Les captures produites. Une capture absente s'affiche en emplacement provisoire. */
-export const READY = new Set([
-  'fiche_laptop', 'fiche_tablet', 'fiche_phone',
-  'preparation_tablet', 'boxscore_tablet', 'analyse_tablet', 'video_tablet',
-])
-
-export const shotKey = (shot, device) => `${shot}_${device}`
 export const shotSrc = (shot, device, theme) => `/assets/pro/${shot}_${device}_${theme}.webp`

@@ -2,7 +2,7 @@ import React from 'react'
 import { useTheme } from '../../contexts/theme'
 import { useMobile } from '../../hooks/useMobile'
 import { COPY } from '../copy'
-import { DEVICE, DEVICE_SIZE, READY, shotKey, shotSrc } from '../proShots'
+import { DEVICE, DEVICE_SIZE, shotSrc } from '../proShots'
 
 /**
  * Une capture dans son cadre (ordinateur, tablette ou téléphone), qui suit le thème.
@@ -15,18 +15,13 @@ export default function DeviceShot({ shot, device }) {
   const dialogRef = React.useRef(null)
   const size = DEVICE_SIZE[device]
   const alt = COPY.shotsAlt[shot]
-  const ready = READY.has(shotKey(shot, device))
-  const zoomable = mobile && ready && device !== DEVICE.phone
+  const zoomable = mobile && device !== DEVICE.phone
 
-  const image = ready ? (
+  const image = (
     <img
       className="pro-shot-img pro-shot-img--shadow" src={shotSrc(shot, device, theme)} alt={alt}
       width={size.w} height={size.h} loading="lazy" decoding="async" draggable="false"
     />
-  ) : (
-    <div className="placeholder pro-shot-ph" style={{ aspectRatio: `${size.w} / ${size.h}` }} role="img" aria-label={alt}>
-      <span className="label">{shot} · {device}</span>
-    </div>
   )
 
   if (!zoomable) return image

@@ -6,12 +6,12 @@ import { COPY, DEMO_ANCHOR } from '../copy'
 import { mainSiteUrl } from '../../lib/siteUrls'
 
 // Le logo du site, puis la marque Pro dans son cadre.
-export function ProBrand({ size = 'md' }) {
+export function ProBrand() {
   const { theme } = useTheme()
   return (
     <span className="pro-brand">
       <img src="/assets/LogoSweyl.svg" alt="" className="pro-logo" style={{ filter: theme === 'dark' ? 'brightness(0) invert(1)' : 'none' }} />
-      <SweylProMark size={size} />
+      <SweylProMark />
     </span>
   )
 }
