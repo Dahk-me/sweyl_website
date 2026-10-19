@@ -34,6 +34,8 @@ export const PLAY = {
   shot: { t0: 5.2, t1: 6.1, by: 'o2', rim: [360, 62] },
   fadeOut: [7.4, 8.2],
   fadeIn: [8.2, 8.8],
+  /** Vitesse de lecture : 0,5 joue le système deux fois plus lentement que ses clés. */
+  speed: 0.5,
   /** Instant figé quand le mouvement est réduit : le schéma final, tir compris. */
   frozenAt: 7.0,
 }

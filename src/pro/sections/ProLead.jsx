@@ -7,6 +7,7 @@ import Honeypot from '../../components/lead/Honeypot'
 import { useLeadSubmit } from '../../components/lead/useLeadSubmit'
 import { OFFER } from '../../lib/leadOptions'
 import { COPY, DEMO_ANCHOR } from '../copy'
+import Accent from '../Accent'
 
 const L = COPY.lead
 const LEVEL_OPTIONS = L.levels.map(l => [l, l])
@@ -33,7 +34,7 @@ export default function ProLead() {
           <div className="pro-lead-title">
             <div className="eyebrow">{L.eyebrow}</div>
             <h2 className="display">
-              {L.titleLines[0]}<br />{L.titleLines[1]}<span className="pro-accent">{L.titleAccent}</span><br />{L.titleLines[2]}
+              <Accent text={L.title} />
             </h2>
           </div>
 

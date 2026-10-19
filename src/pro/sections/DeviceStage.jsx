@@ -2,6 +2,7 @@ import React from 'react'
 import { COPY } from '../copy'
 import { DEVICE } from '../proShots'
 import DeviceShot from './DeviceShot'
+import Accent from '../Accent'
 
 // La même capture sur les trois appareils, une seule fois sur la page.
 const STAGE_SHOT = 'fiche'
@@ -13,7 +14,7 @@ export default function DeviceStage() {
       <div className="pro-in">
         <div className="pro-sh" data-reveal>
           <div className="eyebrow">{T.eyebrow}</div>
-          <h2 className="display">{T.title}</h2>
+          <h2 className="display"><Accent text={T.title} /></h2>
           <p>{T.sub}</p>
         </div>
         <div className="pro-stage" data-reveal>

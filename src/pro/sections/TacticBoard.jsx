@@ -139,7 +139,8 @@ export default function TacticBoard() {
       // Le temps du système ne s'écoule que visible : pas de saut au retour.
       if (visible && !document.hidden) {
         acc += Math.min(dt, 0.1)
-        draw(acc < PLAY.start ? 0 : (acc - PLAY.start) % PLAY.period)
+        // Le terrain se trace en temps réel, le système se joue à PLAY.speed.
+        draw(acc < PLAY.start ? 0 : ((acc - PLAY.start) * PLAY.speed) % PLAY.period)
       }
       raf = requestAnimationFrame(frame)
     }

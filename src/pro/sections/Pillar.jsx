@@ -1,6 +1,7 @@
 import React from 'react'
 import { DEVICE } from '../proShots'
 import DeviceShot from './DeviceShot'
+import Accent from '../Accent'
 
 export default function Pillar({ section }) {
   return (
@@ -9,7 +10,7 @@ export default function Pillar({ section }) {
         <div className="pro-pillar-grid">
           <div className="pro-pillar-text pro-sh" data-reveal>
             <div className="eyebrow">{section.eyebrow}</div>
-            <h2 className="display">{section.title}</h2>
+            <h2 className="display"><Accent text={section.title} /></h2>
             <p>{section.sub}</p>
             <dl className="pro-spec">
               {section.spec.map(([k, v]) => <div key={k}><dt>{k}</dt><dd>{v}</dd></div>)}
