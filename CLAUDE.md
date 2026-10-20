@@ -152,7 +152,8 @@ Le site et `pro.sweyl.com` existent en **français (référence), anglais et esp
   Le lien envoyé après une démo en espagnol est `https://pro.sweyl.com/?lang=es`. Le choix vit dans
   un **cookie `sweyl-language` posé sur `sweyl.com`**, jamais dans `localStorage` : celui-ci est
   propre à chaque sous-domaine, et l'anglais choisi sur `sweyl.com` retombait en français sur
-  `pro.sweyl.com`.
+  `pro.sweyl.com`. Le thème suit la même règle (`sweyl-theme`) : **toute préférence du visiteur
+  passe par `src/lib/sharedCookie.js`**.
 - **Textes longs** (mentions légales, futurs articles) : un fichier par langue
   (`mentions-legales.en.md`), jamais dans le classeur. Une nouvelle langue de ce fichier s'ajoute
   aussi à l'exclusion de réécriture de `vercel.json`.
