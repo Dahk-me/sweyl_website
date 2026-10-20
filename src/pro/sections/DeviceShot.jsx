@@ -1,7 +1,7 @@
 import React from 'react'
+import { useTranslation } from 'react-i18next'
 import { useTheme } from '../../contexts/theme'
 import { useMobile } from '../../hooks/useMobile'
-import { COPY } from '../copy'
 import { DEVICE, DEVICE_SIZE, shotSrc } from '../proShots'
 
 /**
@@ -12,9 +12,10 @@ import { DEVICE, DEVICE_SIZE, shotSrc } from '../proShots'
 export default function DeviceShot({ shot, device }) {
   const { theme } = useTheme()
   const mobile = useMobile()
+  const { t } = useTranslation('pro')
   const dialogRef = React.useRef(null)
   const size = DEVICE_SIZE[device]
-  const alt = COPY.shotsAlt[shot]
+  const alt = t(`shotsAlt.${shot}`)
   const zoomable = mobile && device !== DEVICE.phone
 
   const image = (
@@ -32,7 +33,7 @@ export default function DeviceShot({ shot, device }) {
       <dialog ref={dialogRef} className="pro-zoom" onClick={() => dialogRef.current?.close()}>
         <div className="pro-zoom-inner">
           <img src={shotSrc(shot, device, theme)} alt={alt} width={size.w} height={size.h} />
-          <span className="pro-zoom-close">{COPY.zoomClose}</span>
+          <span className="pro-zoom-close">{t('zoomClose')}</span>
         </div>
       </dialog>
     </>

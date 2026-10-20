@@ -9,7 +9,7 @@
   ],
   "rewrites": [
     {
-      "source": "/((?!assets|api|pro.html|mentions-legales.md).*)",
+      "source": "/((?!assets|api|pro.html|mentions-legales.md|mentions-legales.en.md|mentions-legales.es.md).*)",
       "destination": "/index.html"
     }
   ],

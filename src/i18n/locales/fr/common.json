@@ -1,0 +1,21 @@
+{
+  "theme": {
+    "light": "Clair",
+    "dark": "Sombre"
+  },
+  "language": {
+    "label": "Langue"
+  },
+  "legal": {
+    "title": "Mentions légales",
+    "back": "Retour",
+    "backLong": "Retour à l'accueil"
+  },
+  "notFound": {
+    "eyebrow": "Erreur 404",
+    "title": "Page hors terrain.",
+    "text": "Cette page n'existe pas. Pas grave. Le match continue.",
+    "back": "Retour à l'accueil"
+  },
+  "madeIn": "CONÇU À REIMS"
+}

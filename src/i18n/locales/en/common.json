@@ -1,0 +1,21 @@
+{
+  "theme": {
+    "light": "Light",
+    "dark": "Dark"
+  },
+  "language": {
+    "label": "Language"
+  },
+  "legal": {
+    "title": "Legal notice",
+    "back": "Back",
+    "backLong": "Back to home"
+  },
+  "notFound": {
+    "eyebrow": "Error 404",
+    "title": "Out of bounds.",
+    "text": "This page doesn't exist. No big deal. The game goes on.",
+    "back": "Back to home"
+  },
+  "madeIn": "DESIGNED IN REIMS"
+}

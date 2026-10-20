@@ -5,6 +5,8 @@
 
 export const OFFER = { club: 'club', pro: 'pro' }
 
+export const CONTACT_EMAIL = 'contact@sweyl.com'
+
 /** Rôles du formulaire du site principal. */
 export const CLUB_ROLES = { president: 'Président', coach: 'Coach', other: 'Autre' }
 

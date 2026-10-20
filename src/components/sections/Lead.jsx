@@ -1,26 +1,26 @@
 import React from 'react'
+import { useTranslation } from 'react-i18next'
 import { IconArrow, IconCheck } from '../Icons'
 import { useMobile } from '../../hooks/useMobile'
 import FormField from '../lead/FormField'
 import ChipGroup from '../lead/ChipGroup'
 import Honeypot from '../lead/Honeypot'
 import { useLeadSubmit } from '../lead/useLeadSubmit'
-import { CLUB_ROLES, OFFER } from '../../lib/leadOptions'
+import { CLUB_ROLES, CONTACT_EMAIL, OFFER } from '../../lib/leadOptions'
+import { currentLanguage } from '../../i18n'
+import Accent from '../Accent'
 
-const perks = [
-  "Un échange avec l'équipe",
-  'Une démo sur ton club',
-  'Réponse sous 24h'
-]
+const perks = ['team', 'demo', 'reply']
 
 export default function Lead() {
   const mobile = useMobile()
+  const { t } = useTranslation()
   const [form, setForm] = React.useState({ name: '', email: '', club: '', role: 'president', message: '' })
   const { loading, sent, error, submit, honeypot, setHoneypot } = useLeadSubmit()
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    submit({ offer: OFFER.club, ...form })
+    submit({ offer: OFFER.club, language: currentLanguage(), ...form })
   }
 
   return (
@@ -30,21 +30,21 @@ export default function Lead() {
 
           {/* DOM first → mobile: title first. Desktop: order:2 → RIGHT 35%, sticky */}
           <div style={mobile ? {} : { order: 2, position: 'sticky', top: '120px' }}>
-            <div className="eyebrow" style={{ marginBottom: '20px', fontSize: mobile ? '11px' : '13px' }}>Rejoindre l&apos;expérience</div>
+            <div className="eyebrow" style={{ marginBottom: '20px', fontSize: mobile ? '11px' : '13px' }}>{t('lead.eyebrow')}</div>
             <h2 className="display" style={{ fontSize: mobile ? 'clamp(36px, 10vw, 56px)' : 'clamp(48px, 6vw, 80px)' }}>
-              Ton club<br />sur <span style={{ color: 'var(--primary)' }}>SWEYL</span><br />cette saison.
+              <Accent text={t('lead.title')} />
             </h2>
           </div>
 
           {/* DOM second → mobile: content below. Desktop: order:1 → LEFT 65% */}
           <div style={mobile ? {} : { order: 1 }}>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', marginBottom: '40px' }}>
-                {perks.map(h => (
-                  <div key={h} style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
+                {perks.map(perk => (
+                  <div key={perk} style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
                     <div style={{ width: '24px', height: '24px', border: '1px solid var(--primary)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--primary)', flexShrink: 0 }}>
                       <IconCheck size={12} stroke={2} />
                     </div>
-                    <span style={{ fontSize: '14px', color: 'var(--fg)' }}>{h}</span>
+                    <span style={{ fontSize: '14px', color: 'var(--fg)' }}>{t(`lead.perks.${perk}`)}</span>
                   </div>
                 ))}
               </div>
@@ -54,8 +54,8 @@ export default function Lead() {
                 <div style={{ width: '64px', height: '64px', border: '1px solid var(--primary)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 24px', color: 'var(--primary)' }}>
                   <IconCheck size={28} stroke={2} />
                 </div>
-                <div className="display" style={{ fontSize: '40px', marginBottom: '12px' }}>Reçu.</div>
-                <p style={{ color: 'var(--fg-2)' }}>On revient vers toi très vite.</p>
+                <div className="display" style={{ fontSize: '40px', marginBottom: '12px' }}>{t('lead.okTitle')}</div>
+                <p style={{ color: 'var(--fg-2)' }}>{t('lead.okText')}</p>
               </div>
             ) : (
               <>
@@ -63,30 +63,30 @@ export default function Lead() {
 
                 {/* Name + Email stacked on mobile */}
                 <div style={{ display: 'grid', gridTemplateColumns: mobile ? '1fr' : '1fr 1fr', gap: '14px', marginBottom: '14px' }}>
-                  <FormField label="Nom" value={form.name} onChange={v => setForm({ ...form, name: v })} required />
-                  <FormField label="Email" type="email" value={form.email} onChange={v => setForm({ ...form, email: v })} required />
+                  <FormField label={t('lead.fields.name')} value={form.name} onChange={v => setForm({ ...form, name: v })} required />
+                  <FormField label={t('lead.fields.email')} type="email" value={form.email} onChange={v => setForm({ ...form, email: v })} required />
                 </div>
 
                 <div style={{ marginBottom: '14px' }}>
-                  <FormField label="Club" value={form.club} onChange={v => setForm({ ...form, club: v })} required />
+                  <FormField label={t('lead.fields.club')} value={form.club} onChange={v => setForm({ ...form, club: v })} required />
                 </div>
 
                 <div style={{ marginBottom: '16px' }}>
-                  <label className="mono" id="lead-role" style={{ fontSize: '10px', color: 'var(--fg-3)', letterSpacing: '0.15em', marginBottom: '10px', display: 'block' }}>TON RÔLE</label>
-                  <ChipGroup labelledBy="lead-role" options={Object.entries(CLUB_ROLES)} value={form.role} onChange={k => setForm({ ...form, role: k })} />
+                  <label className="mono" id="lead-role" style={{ fontSize: '10px', color: 'var(--fg-3)', letterSpacing: '0.15em', marginBottom: '10px', display: 'block' }}>{t('lead.fields.role')}</label>
+                  <ChipGroup labelledBy="lead-role" options={Object.keys(CLUB_ROLES).map(role => [role, t(`lead.roles.${role}`)])} value={form.role} onChange={k => setForm({ ...form, role: k })} />
                 </div>
 
                   <div style={{ marginBottom: '20px' }}>
-                    <label className="mono" style={{ fontSize: '10px', color: 'var(--fg-3)', letterSpacing: '0.15em', marginBottom: '10px', display: 'block' }}>MESSAGE (OPTIONNEL)</label>
+                    <label className="mono" style={{ fontSize: '10px', color: 'var(--fg-3)', letterSpacing: '0.15em', marginBottom: '10px', display: 'block' }}>{t('lead.fields.message')}</label>
                     <textarea value={form.message} onChange={e => setForm({ ...form, message: e.target.value })} rows={3}
                       style={{ width: '100%', background: 'var(--bg)', border: '1px solid var(--line)', color: 'var(--fg)', padding: '14px', fontSize: '13px', fontFamily: 'inherit', resize: 'vertical', borderRadius: '2px', outline: 'none' }} />
                   </div>
 
                 <button type="submit" disabled={loading} className="btn-primary" style={{ width: '100%', justifyContent: 'center', padding: '16px', marginTop: '4px', opacity: loading ? 0.7 : 1 }}>
-                  {loading ? 'Envoi en cours…' : <>Envoyer ma demande<IconArrow size={14} /></>}
+                  {loading ? t('lead.sending') : <>{t('lead.submit')}<IconArrow size={14} /></>}
                 </button>
-                {error && <p style={{ fontSize: '12px', color: '#e55', marginTop: '10px', textAlign: 'center' }}>Une erreur est survenue. Réessaie ou écris-nous directement à contact@sweyl.com</p>}
-                <p className="mono" style={{ fontSize: '9px', color: 'var(--fg-3)', letterSpacing: '0.12em', marginTop: '12px', textAlign: 'center' }}>SANS ENGAGEMENT</p>
+                {error && <p style={{ fontSize: '12px', color: '#e55', marginTop: '10px', textAlign: 'center' }}>{t('lead.error', { email: CONTACT_EMAIL })}</p>}
+                <p className="mono" style={{ fontSize: '9px', color: 'var(--fg-3)', letterSpacing: '0.12em', marginTop: '12px', textAlign: 'center' }}>{t('lead.noCommitment')}</p>
               </>
             )}
           </form>

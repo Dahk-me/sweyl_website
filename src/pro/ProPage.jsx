@@ -1,6 +1,7 @@
 import React from 'react'
 import { useReveal } from '../hooks/useReveal'
-import { COPY } from './copy'
+import { PRO_SECTIONS } from './copy'
+import { useDocumentMeta } from '../hooks/useDocumentMeta'
 import ProHeader from './sections/ProHeader'
 import ProHero from './sections/ProHero'
 import DeviceStage from './sections/DeviceStage'
@@ -10,13 +11,14 @@ import ProFooter from './sections/ProFooter'
 
 export default function ProPage() {
   useReveal()
+  useDocumentMeta('pro')
   return (
     <div className="pro-page" id="top">
       <ProHeader />
       <main>
         <ProHero />
         <DeviceStage />
-        {COPY.sections.map(s => <Pillar key={s.id} section={s} />)}
+        {PRO_SECTIONS.map(s => <Pillar key={s.id} section={s} />)}
         <ProLead />
       </main>
       <ProFooter />

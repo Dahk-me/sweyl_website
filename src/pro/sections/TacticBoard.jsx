@@ -1,6 +1,5 @@
 import React from 'react'
 import { PLAY } from '../play'
-import { COPY } from '../copy'
 
 /**
  * Le demi-terrain se trace à l'arrivée, puis le système se joue en boucle comme sur un
@@ -162,7 +161,7 @@ export default function TacticBoard() {
           <path className="pro-court hero-line" pathLength="1" d="M300 610A60 60 0 0 1 420 610" />
         </g>
       </svg>
-      <div className="pro-board-caption">{COPY.play.caption}</div>
+      <div className="pro-board-caption">{PLAY.name}</div>
     </div>
   )
 }

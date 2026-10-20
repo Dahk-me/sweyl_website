@@ -1,4 +1,5 @@
 import { CLUB_ROLES, OFFER, PRO_ROLES } from '../../src/lib/leadOptions.js'
+import { DEFAULT_LANGUAGE, LANGUAGE_NATIVE_NAMES } from '../../src/i18n/languages.js'
 
 export const SPAM_PREFIX = '[Spam probable] '
 
@@ -18,7 +19,10 @@ export function escapeHtml(value) {
  * Le mail reçu sur contact@sweyl.com. Le sujet porte l'offre et, pour le Pro, le niveau
  * avant le club : le tri se fait dans la liste de la boîte, sans ouvrir.
  *
- * @param {object} lead demande validée ({ offer, name, email, club, role, level?, message? })
+ * Le mail reste en français, quelle que soit la langue de la page : il est lu par Sweyl. Une
+ * demande venue d'une page traduite porte sa langue, pour répondre dans celle du visiteur.
+ *
+ * @param {object} lead demande validée ({ offer, name, email, club, role, level?, message?, language? })
  * @param {{ suspect?: boolean, now?: Date }} options
  */
 export function buildLeadMail(lead, { suspect = false, now = new Date() } = {}) {
@@ -32,6 +36,7 @@ export function buildLeadMail(lead, { suspect = false, now = new Date() } = {}) 
   const rows = isPro
     ? [['Offre', 'Sweyl Pro'], ['Niveau', lead.level], ['Nom', lead.name], ['Email', lead.email], ['Club et équipe', lead.club], ['Rôle', roleLabel]]
     : [['Nom', lead.name], ['Email', lead.email], ['Club', lead.club], ['Rôle', roleLabel]]
+  if (lead.language && lead.language !== DEFAULT_LANGUAGE) rows.push(['Langue', LANGUAGE_NATIVE_NAMES[lead.language]])
   if (lead.message) rows.push(['Message', lead.message])
 
   const origin = isPro ? 'pro.sweyl.com' : 'sweyl.com'

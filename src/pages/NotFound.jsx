@@ -1,10 +1,12 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import { IconArrow } from '../components/Icons'
 import { useMobile } from '../hooks/useMobile'
 
 export default function NotFound() {
   const mobile = useMobile()
+  const { t } = useTranslation('common')
 
   React.useEffect(() => {
     window.scrollTo(0, 0)
@@ -27,7 +29,7 @@ export default function NotFound() {
       <div className="grain" />
 
       <div className="eyebrow" style={{ marginBottom: '24px', fontSize: mobile ? '11px' : '13px' }}>
-        Erreur 404
+        {t('notFound.eyebrow')}
       </div>
 
       <h1 className="display" style={{
@@ -44,7 +46,7 @@ export default function NotFound() {
         marginBottom: '20px',
         maxWidth: '720px',
       }}>
-        Page hors terrain.
+        {t('notFound.title')}
       </h2>
 
       <p style={{
@@ -54,11 +56,11 @@ export default function NotFound() {
         marginBottom: '40px',
         maxWidth: '460px',
       }}>
-        Cette page n&apos;existe pas. Pas grave. Le match continue.
+        {t('notFound.text')}
       </p>
 
       <Link to="/" className="btn-primary" style={{ padding: mobile ? '14px 22px' : '16px 28px', fontSize: mobile ? '13px' : '14px' }}>
-        Retour à l&apos;accueil
+        {t('notFound.back')}
         <IconArrow size={mobile ? 12 : 14} />
       </Link>
     </main>

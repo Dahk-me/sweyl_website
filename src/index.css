@@ -216,6 +216,26 @@ a.sweyl-pro-mark:hover { background: color-mix(in srgb, var(--primary) 10%, tran
   a.sweyl-pro-mark { padding-top: 0; padding-bottom: 0; }
 }
 
+/* Mot en orange d'un titre traduit (Accent.jsx). */
+.accent { color: var(--primary); }
+
+/* ── Sélecteur de langue (LanguageSwitch) ──
+   La pastille montre le code, un <select> transparent posé dessus porte le choix. */
+.lang-switch {
+  position: relative; display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0;
+  border: 1px solid var(--line-2); border-radius: 999px; color: var(--fg);
+  padding: 10px 14px; font: 600 11px 'JetBrains Mono', monospace; letter-spacing: 0.12em; line-height: 1;
+}
+.lang-switch--compact { padding: 8px 10px; }
+.lang-switch select {
+  position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer;
+  border: 0; font-size: 16px;
+}
+.lang-switch:focus-within { outline: 2px solid var(--primary); outline-offset: 2px; }
+@media (max-width: 768px) {
+  .lang-switch { min-height: 44px; min-width: 44px; }
+}
+
 ::-webkit-scrollbar { width: 10px; height: 10px; }
 ::-webkit-scrollbar-thumb { background: var(--fg-4); border-radius: 5px; }
 ::-webkit-scrollbar-track { background: transparent; }

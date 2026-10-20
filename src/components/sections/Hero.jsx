@@ -1,6 +1,8 @@
 import React from 'react'
+import { useTranslation } from 'react-i18next'
 import { IconArrow } from '../Icons'
 import { useMobile } from '../../hooks/useMobile'
+import Accent from '../Accent'
 
 /**
  * Entrée du site. Aucune vidéo ni média distant : tout est dessiné en SVG et
@@ -10,16 +12,17 @@ import { useMobile } from '../../hooks/useMobile'
  */
 
 // Le fil du match : un événement toutes les TICK_MS, le score suit.
+// `who` est un nom de joueur, ou une clé de hero.events quand `team` le signale.
 const TICK_MS = 2400
 const EVENTS = [
-  { who: '#7 Inès', what: '3 pts', home: 3 },
-  { who: '#12 Malik', what: 'Rebond' },
-  { who: 'Visiteurs', what: '2 pts', away: 2 },
-  { who: '#4 Léo', what: 'Interception' },
-  { who: '#4 Léo', what: '2 pts', home: 2 },
-  { who: '#23 Yanis', what: 'Contre' },
-  { who: '#9 Sarah', what: '1 pt', home: 1 },
-  { who: 'Coach', what: 'Temps mort' },
+  { who: '#7 Inès', what: 'threePoints', home: 3 },
+  { who: '#12 Malik', what: 'rebound' },
+  { team: 'visitors', what: 'twoPoints', away: 2 },
+  { who: '#4 Léo', what: 'steal' },
+  { who: '#4 Léo', what: 'twoPoints', home: 2 },
+  { who: '#23 Yanis', what: 'block' },
+  { who: '#9 Sarah', what: 'onePoint', home: 1 },
+  { team: 'coach', what: 'timeout' },
 ]
 const BASE_SCORE = { home: 58, away: 57 }
 
@@ -62,6 +65,7 @@ const Court = () => (
 )
 
 const LiveTicker = ({ mobile }) => {
+  const { t } = useTranslation()
   const { tick, event, score } = useLiveFeed()
   const scored = event.home || event.away
 
@@ -77,8 +81,8 @@ const LiveTicker = ({ mobile }) => {
       </span>
       <span className="hero-ticker-sep" />
       <span key={`e${tick}`} className="hero-event">
-        <span style={{ color: 'var(--fg)' }}>{event.who}</span>
-        <span style={{ color: scored ? 'var(--primary)' : 'var(--fg-3)' }}>{event.what}</span>
+        <span style={{ color: 'var(--fg)' }}>{event.team ? t(`hero.events.${event.team}`) : event.who}</span>
+        <span style={{ color: scored ? 'var(--primary)' : 'var(--fg-3)' }}>{t(`hero.events.${event.what}`)}</span>
       </span>
     </div>
   )
@@ -86,6 +90,7 @@ const LiveTicker = ({ mobile }) => {
 
 export default function Hero() {
   const mobile = useMobile()
+  const { t } = useTranslation()
 
   return (
     <section className="hero">
@@ -99,7 +104,7 @@ export default function Hero() {
           <div
             className="hero-logo"
             role="img"
-            aria-label="Logo SWEYL"
+            aria-label={t('hero.logoAlt')}
             style={{ width: mobile ? '64px' : '96px' }}
           />
           <div className="hero-wordmark" style={{ fontSize: mobile ? '18px' : '24px' }}>SWEYL</div>
@@ -113,7 +118,7 @@ export default function Hero() {
             animationDelay: '0.55s',
           }}
         >
-          Tes <span style={{ color: 'var(--primary)' }}>étoiles</span>.<br />Ton <span style={{ color: 'var(--primary)' }}>terrain</span>.
+          <Accent text={t('hero.title')} />
         </h1>
 
         <p
@@ -126,8 +131,7 @@ export default function Hero() {
             animationDelay: '0.75s',
           }}
         >
-          Le match, l&apos;entraînement, la saison.<br />
-          Tout ton club, vu comme chez les pros.
+          <Accent text={t('hero.sub')} />
         </p>
 
         <div className="hero-rise" style={{ animationDelay: '0.95s' }}>
@@ -136,11 +140,11 @@ export default function Hero() {
 
         <div className="hero-rise" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '12px', animationDelay: '1.1s' }}>
           <a href="#join" className="btn-primary hero-cta" style={{ padding: mobile ? '15px 26px' : '17px 32px', fontSize: mobile ? '14px' : '15px' }}>
-            J&apos;obtiens mes accès
+            {t('hero.cta')}
             <IconArrow size={mobile ? 12 : 14} />
           </a>
           <span className="mono" style={{ fontSize: '10px', letterSpacing: '0.18em', textTransform: 'uppercase', color: 'var(--fg-3)' }}>
-            Saison 2026/27 · accès ouverts
+            {t('hero.season')}
           </span>
         </div>
       </div>
