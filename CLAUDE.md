@@ -86,7 +86,8 @@ au **staff d'une équipe de prénationale à N1**, pas aux clubs amateurs.
   visage **généré** (aucune personne réelle), les vidéos des fiches des liens YouTube publics.
 - **Le hero tient en un seul écran** à l'arrivée, comme l'accueil de sweyl.com : logo animé et
   « SWEYL PRO », accroche, démo. Rien d'autre (l'index des piliers en est sorti pour aérer).
-- **Chaque titre porte son mot en orange**, écrit `*mot*` dans `copy.js` (rendu par `Accent.jsx`).
+- **Chaque titre porte son mot en orange**, écrit `*mot*` dans les fichiers de langue (rendu par
+  `src/components/Accent.jsx`).
 - ⛔ **Jamais l'écran de saisie** dans une capture du site, aujourd'hui comme demain : on montre ce
   que la saisie produit (box score, analyse), pas le geste. Le texte peut dire qu'elle se fait
   « sur le même écran que les vôtres ».
@@ -94,7 +95,8 @@ au **staff d'une équipe de prénationale à N1**, pas aux clubs amateurs.
   dans leur cadre par le mode composition de `brand-assets/screenshots` (`compose.mjs`).
 - Le hero joue un vrai système, nommé (Spain pick and roll) ; ses données vivent dans
   `src/pro/play.js`, un autre système se joue en changeant ce fichier seul.
-- **Textes** dans `src/pro/copy.js`. **Routage** : `pro.html` est une seconde entrée Vite, servie
+- **Textes** dans `src/i18n/locales/<langue>/pro.json`, **structure** (sections, captures, ordre)
+  dans `src/pro/copy.js`. **Routage** : `pro.html` est une seconde entrée Vite, servie
   sur l'hôte `pro.sweyl.com` par `middleware.js` (une réécriture de `vercel.json` passerait après
   le système de fichiers et servirait `index.html` sur « / »). `sweyl.com/pro` redirige.
   Les liens entre les deux sites passent par `src/lib/siteUrls.js` : domaines de production sur
@@ -124,3 +126,35 @@ par Mailjet (clés `MAILJET_API_KEY` et `MAILJET_SECRET_KEY` dans les variables 
   message faits d'un bloc de 12 caractères ou plus avec 3 passages minuscule-majuscule) part avec
   le préfixe `[Spam probable]`, sans être supprimé. Calibré le 19/10/2026 sur 29 demandes réelles :
   13 robots sur 13, 0 vrai contact sur 15.
+
+## Traduction
+
+Le site et `pro.sweyl.com` existent en **français (référence), anglais et espagnol** depuis le
+20/10/2026. Règles du domaine dans `specs/Internationalisation.md` §9 (dépôt racine).
+
+- **Aucun texte affiché en dur.** Il vit dans `src/i18n/locales/<langue>/<espace>.json` :
+  `common` (ce que partagent les deux sites), `home` (`sweyl.com`), `pro` (`pro.sweyl.com`). Une
+  clé naît en français, se nomme en anglais par ce qu'elle est à l'écran, et arrive avec son
+  anglais et son espagnol dans le même commit : `npm test` refuse une clé absente ou vide, un
+  paramètre `{{x}}` qui diffère, un nombre de `*mot*` qui change, et une clé appelée dans le code
+  qui n'existe pas en français.
+- **Jamais de tableau dans un fichier de langue** : l'outil Excel ne sait pas les réécrire. L'ordre
+  d'une liste vit dans le code (`faqs`, `PRO_SECTIONS`), ses textes dans un objet à clés nommées.
+- **Aucun `t()` au chargement d'un module** : une constante traduite figerait la langue. Les
+  composants appellent `useTranslation` et lisent leurs textes au rendu.
+- **Ismail corrige les textes sans Claude** par le classeur du front : `npm run i18n:export` dans
+  `gts-ui-react` (onglet « Site »), puis `npm run i18n:import -- <classeur>`, sur une branche du
+  site.
+- **Le ton suit le français** : tutoiement sur `sweyl.com` (*you*, *tú*), vouvoiement sur le Pro
+  (*you*, *usted*). Les marques ne se traduisent pas (Sweyl, Pro), les divisions françaises non
+  plus (PN, N3…), ni le nom du système du hero (Spain pick and roll).
+- **Langue d'arrivée** : `?lang=fr|en|es` dans l'adresse, puis le choix mémorisé (`sweyl-language`),
+  puis le navigateur. Le lien envoyé après une démo en espagnol est `https://pro.sweyl.com/?lang=es`.
+- **Textes longs** (mentions légales, futurs articles) : un fichier par langue
+  (`mentions-legales.en.md`), jamais dans le classeur. Une nouvelle langue de ce fichier s'ajoute
+  aussi à l'exclusion de réécriture de `vercel.json`.
+- **Les balises d'aperçu de lien (`index.html`, `pro.html`) restent en français** : elles sont lues
+  sans JavaScript. Les captures d'écran restent en français dans les trois langues (*arbitrage
+  d'Ismail, 20/10/2026*) : elles ne se refont pas par langue.
+- **Le mail de demande de démo reste en français** ; il porte une ligne « Langue » quand la page
+  n'était pas en français.

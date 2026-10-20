@@ -1,21 +1,38 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import ReactMarkdown from 'react-markdown'
 import { useTheme } from '../contexts/theme'
 import { useMobile } from '../hooks/useMobile'
 import { IconSun, IconMoon } from '../components/Icons'
 import logoSvg from '/assets/LogoSweyl.svg'
+import LanguageSwitch from '../components/LanguageSwitch'
+import { currentLanguage } from '../i18n'
+import { DEFAULT_LANGUAGE } from '../i18n/languages'
+
+/**
+ * Le texte long ne passe pas par le classeur de traduction (`specs/Internationalisation.md` §9) :
+ * un fichier Markdown par langue, le français sous son nom historique.
+ */
+const legalFile = language => (language === DEFAULT_LANGUAGE ? '/mentions-legales.md' : `/mentions-legales.${language}.md`)
 
 export default function MentionsLegales() {
   const { theme, toggleTheme } = useTheme()
   const mobile = useMobile()
   const [content, setContent] = useState('')
+  const { t, i18n } = useTranslation('common')
 
   useEffect(() => {
-    fetch('/mentions-legales.md')
+    let cancelled = false
+    fetch(legalFile(currentLanguage()))
       .then(r => r.text())
-      .then(setContent)
-  }, [])
+      .then(text => { if (!cancelled) setContent(text) })
+    return () => { cancelled = true }
+  }, [i18n.language])
+
+  useEffect(() => {
+    document.title = `${t('legal.title')} · SWEYL`
+  }, [t, i18n.language])
 
   useEffect(() => {
     window.scrollTo(0, 0)
@@ -45,6 +62,7 @@ export default function MentionsLegales() {
 
           {/* Actions à droite */}
           <div style={{ display: 'flex', alignItems: 'center', gap: mobile ? '8px' : '16px', flexShrink: 0 }}>
+            <LanguageSwitch compact={mobile} />
             <button
               onClick={toggleTheme}
               style={{
@@ -56,10 +74,10 @@ export default function MentionsLegales() {
               }}
             >
               {theme === 'dark' ? <IconSun size={14} /> : <IconMoon size={14} />}
-              {!mobile && (theme === 'dark' ? ' Clair' : ' Sombre')}
+              {!mobile && ` ${t(theme === 'dark' ? 'theme.light' : 'theme.dark')}`}
             </button>
             <Link to="/" className="btn-ghost" style={{ padding: mobile ? '10px 14px' : '10px 18px', fontSize: '12px', gap: '8px' }}>
-              <span aria-hidden="true">←</span>{mobile ? 'Retour' : "Retour à l'accueil"}
+              <span aria-hidden="true">←</span>{t(mobile ? 'legal.back' : 'legal.backLong')}
             </Link>
           </div>
         </div>

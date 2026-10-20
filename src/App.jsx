@@ -16,8 +16,10 @@ import FAQ from './components/sections/FAQ'
 import Footer from './components/sections/Footer'
 import MentionsLegales from './pages/MentionsLegales'
 import NotFound from './pages/NotFound'
+import { useDocumentMeta } from './hooks/useDocumentMeta'
 
 const Home = () => {
+  useDocumentMeta('home')
   React.useEffect(() => {
     const obs = new IntersectionObserver(entries => {
       entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in') })

@@ -134,6 +134,7 @@
   .pro-header-back, .pro-long, .pro-theme-label { display: none; }
   .pro-short { display: inline; }
   .pro-theme { padding: 8px 10px; min-width: 44px; justify-content: center; }
+  .pro-header .lang-switch { padding: 8px 10px; }
   .pro-header .btn-primary { padding: 10px 14px; }
 
   .pro-hero { min-height: 100svh; align-items: center; }

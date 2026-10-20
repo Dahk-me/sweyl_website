@@ -1,14 +1,17 @@
 import React from 'react'
+import { useTranslation } from 'react-i18next'
 import { useTheme } from '../../contexts/theme'
 import { IconArrow, IconSun, IconMoon } from '../Icons'
 import { useMobile } from '../../hooks/useMobile'
 import logoSvg from '/assets/LogoSweyl.svg'
 import SweylProMark from '../SweylProMark'
 import { proUrl } from '../../lib/siteUrls'
+import LanguageSwitch from '../LanguageSwitch'
 
 export default function Header() {
   const { theme, toggleTheme } = useTheme()
   const mobile = useMobile()
+  const { t } = useTranslation(['home', 'common'])
   return (
     <header style={{
       position: 'fixed',
@@ -40,9 +43,9 @@ export default function Header() {
           {/* Sur mobile, la marque Pro dit déjà SWEYL : pas de second mot au centre. */}
           {mobile ? null : (
             <nav style={{ display: 'flex', gap: '28px', fontSize: '13px', color: 'var(--fg)' }}>
-              <a href="#vision">Vision</a>
-              <a href="#season">Saison 26/27</a>
-              <a href="#join">Contact</a>
+              <a href="#vision">{t('header.nav.vision')}</a>
+              <a href="#season">{t('header.nav.season')}</a>
+              <a href="#join">{t('header.nav.contact')}</a>
             </nav>
           )}
         </div>
@@ -51,6 +54,7 @@ export default function Header() {
         <div style={{ display: 'flex', alignItems: 'center', gap: mobile ? '8px' : '16px', flexShrink: 0 }}>
           {/* L'offre Pro, toujours visible : un bandeau disparaissait au premier défilement. */}
           <SweylProMark href={proUrl()} />
+          <LanguageSwitch compact={mobile} />
           <button
             onClick={toggleTheme}
             style={{
@@ -61,10 +65,10 @@ export default function Header() {
             }}
           >
             {theme === 'dark' ? <IconSun size={14} /> : <IconMoon size={14} />}
-            {!mobile && (theme === 'dark' ? ' Clair' : ' Sombre')}
+            {!mobile && ` ${t(theme === 'dark' ? 'common:theme.light' : 'common:theme.dark')}`}
           </button>
           <a href="#join" className="btn-primary" style={{ padding: mobile ? '10px 14px' : '10px 18px', fontSize: '12px' }}>
-            {mobile ? 'Rejoindre' : "Rejoindre l'expérience"}{!mobile && <IconArrow size={12} />}
+            {t(mobile ? 'header.joinShort' : 'header.join')}{!mobile && <IconArrow size={12} />}
           </a>
         </div>
       </div>

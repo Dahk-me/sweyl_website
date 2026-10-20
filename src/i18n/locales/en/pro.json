@@ -1,0 +1,154 @@
+{
+  "meta": {
+    "title": "Sweyl Pro · Game preparation for coaching staffs",
+    "description": "Scouting, stats for both teams and video synced to every play. Coming soon, demo by appointment."
+  },
+  "header": {
+    "back": "Sweyl for clubs",
+    "cta": "Book a demo",
+    "ctaShort": "Demo"
+  },
+  "hero": {
+    "eyebrow": "Coming soon",
+    "title": "The game is\nwon *before*\nthe tip-off.",
+    "sub": "Your stats, theirs, the scouting and video synced to every play. The tool for coaching staffs, from regional to national level.",
+    "cta": "Book a demo",
+    "devices": "Computer · Tablet · Phone"
+  },
+  "trio": {
+    "eyebrow": "Computer · Tablet · Phone",
+    "title": "The same scouting, *everywhere.*",
+    "sub": "Prepared at the desk, opened courtside. Every player reads their report on their phone.",
+    "caption": "Opponent player report, published to the team"
+  },
+  "sections": {
+    "scouting": {
+      "eyebrow": "01 · Scouting · Before the game",
+      "title": "Their game. *Your matchups.*",
+      "sub": "Their plays, their defenses, their players, on a scouting report that grows season after season. You set the matchups, you publish: each of your players knows who they're guarding, and can study it at their own pace.",
+      "spec": {
+        "sheet": {
+          "label": "Scouting report",
+          "value": "Style of play, defenses, plays, players"
+        },
+        "duels": {
+          "label": "Matchups",
+          "value": "One opponent, one or more of yours"
+        },
+        "publication": {
+          "label": "Publishing",
+          "value": "You know who read it, and when"
+        }
+      }
+    },
+    "opponents": {
+      "eyebrow": "02 · Their stats · During the game",
+      "title": "Every opponent gets *their line.*",
+      "sub": "Their numbers, their shots, their turnovers, entered on the same screen as yours. At the buzzer, you know who hurt you.",
+      "spec": {
+        "entry": {
+          "label": "Entry",
+          "value": "Player by player, jersey numbers from the game sheet"
+        },
+        "reading": {
+          "label": "Reading",
+          "value": "Opponent EFF and +/-"
+        },
+        "when": {
+          "label": "When",
+          "value": "Live, after the fact or from the video"
+        }
+      }
+    },
+    "analysis": {
+      "eyebrow": "03 · Your stats · After the game",
+      "title": "The game, *explained.*",
+      "sub": "The runs, the droughts, the shooting of both teams. And every shot, right where it was taken.",
+      "spec": {
+        "flow": {
+          "label": "Game flow",
+          "value": "Runs and droughts, basket by basket"
+        },
+        "shooting": {
+          "label": "Shooting",
+          "value": "Yours, theirs, against your usual numbers"
+        },
+        "shotChart": {
+          "label": "Shot chart",
+          "value": "Makes and misses, by player"
+        }
+      }
+    },
+    "video": {
+      "eyebrow": "04 · Video · All week long",
+      "title": "Every play *replays* its *moment.*",
+      "sub": "One click on a stat and the film jumps right to it. Enter stats from the video: every play is born in sync.",
+      "spec": {
+        "videos": {
+          "label": "Videos",
+          "value": "Several angles per game"
+        },
+        "entry": {
+          "label": "Entry",
+          "value": "From the film, without leaving it"
+        },
+        "devices": {
+          "label": "Devices",
+          "value": "Tablet and computer, the film stays with you"
+        }
+      }
+    }
+  },
+  "shotsAlt": {
+    "fiche": "Opponent player report, with the matchup and how to defend them",
+    "preparation": "Game preparation published to the players, with the matchups and how to read them",
+    "boxscore": "Opponent stats, player by player, with EFF and +/-",
+    "analyse": "Game analysis: game flow, shooting and shot chart for both teams",
+    "video": "Video tool synced to a play from the game log"
+  },
+  "zoomClose": "Close",
+  "lead": {
+    "eyebrow": "Demo by appointment",
+    "title": "See it\non *your\ngames.*",
+    "perks": {
+      "demo": "A demo on one of your games",
+      "price": "Pricing, shared at the demo",
+      "reply": "Reply within 24 hours"
+    },
+    "fields": {
+      "name": "Name",
+      "email": "Email",
+      "club": "Club and team",
+      "clubPlaceholder": "E.g. Reims Université, SM1",
+      "level": "Team level",
+      "role": "Your role",
+      "message": "Message (optional)",
+      "messagePlaceholder": "Your next opponent, how you film…"
+    },
+    "levels": {
+      "PN": "PN",
+      "N3": "N3",
+      "N2": "N2",
+      "N1": "N1",
+      "Autre": "Other"
+    },
+    "roles": {
+      "coach": "Coach",
+      "staff": "Assistant or staff",
+      "dirigeant": "Club official"
+    },
+    "submit": "Request my demo",
+    "sending": "Sending…",
+    "noCommitment": "NO COMMITMENT",
+    "levelMissing": "Choose the team level.",
+    "error": "Sending failed. Try again, or write to us at {{email}}.",
+    "okTitle": "Got it.",
+    "okText": "We'll get back to you within 24 hours to set up the demo."
+  },
+  "footer": {
+    "line": "Game preparation for coaching staffs, from regional to national level.",
+    "backTitle": "BACK",
+    "back": "Sweyl for clubs",
+    "contactTitle": "CONTACT"
+  }
+}

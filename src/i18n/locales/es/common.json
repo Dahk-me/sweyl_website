@@ -1,0 +1,21 @@
+{
+  "theme": {
+    "light": "Claro",
+    "dark": "Oscuro"
+  },
+  "language": {
+    "label": "Idioma"
+  },
+  "legal": {
+    "title": "Aviso legal",
+    "back": "Volver",
+    "backLong": "Volver al inicio"
+  },
+  "notFound": {
+    "eyebrow": "Error 404",
+    "title": "Fuera de la pista.",
+    "text": "Esta página no existe. No pasa nada. El partido sigue.",
+    "back": "Volver al inicio"
+  },
+  "madeIn": "DISEÑADO EN REIMS"
+}

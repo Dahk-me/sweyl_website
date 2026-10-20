@@ -3,30 +3,31 @@
  *
  * Chaque emplacement du site a deux variantes possibles, A et B. Pour basculer
  * un emplacement, ne change QUE la valeur dans CHOSEN : rien d'autre à toucher.
- * Les 20 fichiers sont déjà déployés dans public/assets/app.
+ * Les 20 fichiers sont déjà déployés dans public/assets/app. Le texte alternatif de chaque
+ * capture vit dans shots.<name> des fichiers de langue (espace home).
  */
 
 /** Les deux variantes disponibles pour chaque emplacement. */
 export const VARIANTS = {
   clubLife: {
-    A: { name: 'live', alt: "Suivi d'un match en direct dans l'application Sweyl" },
-    B: { name: 'saisie', alt: "Saisie des statistiques pendant un match dans Sweyl" },
+    A: { name: 'live' },
+    B: { name: 'saisie' },
   },
   coachs: {
-    A: { name: 'coach', alt: "Analyse vidéo : l'action revue et rattachée au joueur" },
-    B: { name: 'coach2', alt: "Accueil du coach : la semaine de son équipe" },
+    A: { name: 'coach' },
+    B: { name: 'coach2' },
   },
   joueurs: {
-    A: { name: 'joueur', alt: "Fiche de match d'un joueur et ses points forts" },
-    B: { name: 'joueur2', alt: "Profil de saison d'un joueur et sa progression" },
+    A: { name: 'joueur' },
+    B: { name: 'joueur2' },
   },
   familles: {
-    A: { name: 'familles', alt: 'Calendrier des matchs et événements du club' },
-    B: { name: 'familles2', alt: "Accueil famille : résultat du week-end et prochain match" },
+    A: { name: 'familles' },
+    B: { name: 'familles2' },
   },
   dirigeants: {
-    A: { name: 'club', alt: "Assiduité aux entraînements, équipe par équipe" },
-    B: { name: 'club2', alt: 'Vue du club : toutes les équipes de la saison' },
+    A: { name: 'club' },
+    B: { name: 'club2' },
   },
 }
 

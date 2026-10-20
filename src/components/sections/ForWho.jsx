@@ -1,62 +1,45 @@
 import React from 'react'
+import { useTranslation } from 'react-i18next'
 import { useMobile } from '../../hooks/useMobile'
 import AppShot from '../AppShot'
+import Accent from '../Accent'
 
+// Les textes vivent dans forWho.cards.<id> des fichiers de langue.
 const CARDS = [
-  {
-    label: 'Coachs',
-    title: 'COACHER',
-    desc: 'Gère tes effectifs, prépare tes matchs et décide avec les données. Avant, pendant et après, tout est au même endroit.',
-    highlights: ['Vidéo synchronisée aux stats', 'Suivi de performances', 'Feedback joueur individualisé'],
-    slot: 'coachs',
-  },
-  {
-    label: 'Joueurs',
-    title: 'PROGRESSER',
-    desc: "Suis ta saison match après match. Partage tes meilleures perfs avec des visuels prêts à poster.",
-    highlights: ['Fiche joueur détaillée', 'Progression sur la saison', 'Partage social instantané'],
-    slot: 'joueurs',
-  },
-  {
-    label: 'Fans & parents',
-    title: 'VIVRE',
-    desc: 'Vis les matchs en direct depuis les tribunes ou de chez toi. Suis tes joueurs, reçois les notifications.',
-    highlights: ['Scores en temps réel', 'Notifications de match', 'Stats de tes joueurs préférés'],
-    slot: 'familles',
-  },
-  {
-    label: 'Présidents & dirigeants',
-    title: 'DIRIGER',
-    desc: "Pilote ta saison. Suis l'engagement de l'effectif, équipe par équipe.",
-    highlights: ['Tableau de bord club', 'Vue saison toutes équipes', 'Assiduité et engagement'],
-    slot: 'dirigeants',
-  },
+  { id: 'coaches', highlights: ['video', 'performance', 'feedback'], slot: 'coachs' },
+  { id: 'players', highlights: ['profile', 'progress', 'share'], slot: 'joueurs' },
+  { id: 'fans', highlights: ['live', 'notifications', 'favorites'], slot: 'familles' },
+  { id: 'leaders', highlights: ['dashboard', 'seasonView', 'attendance'], slot: 'dirigeants' },
 ]
 
-const Copy = ({ c, mobile }) => (
+const Copy = ({ c, mobile }) => {
+  const { t } = useTranslation()
+  const text = key => t(`forWho.cards.${c.id}.${key}`)
+  return (
   <>
     <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '16px' }}>
-      <span className="mono" style={{ fontSize: '11px', letterSpacing: '0.18em', textTransform: 'uppercase', color: 'var(--primary)' }}>{c.label}</span>
+      <span className="mono" style={{ fontSize: '11px', letterSpacing: '0.18em', textTransform: 'uppercase', color: 'var(--primary)' }}>{text('label')}</span>
     </div>
 
     <h3 className="display" style={{ fontSize: mobile ? 'clamp(48px, 15vw, 68px)' : 'clamp(52px, 5.6vw, 80px)', color: 'var(--fg)', marginBottom: '16px', lineHeight: 0.9 }}>
-      {c.title}
+      {text('title')}
     </h3>
 
     <p style={{ fontSize: mobile ? '13px' : '15px', color: 'var(--fg-2)', lineHeight: 1.55, maxWidth: '440px', marginBottom: '20px' }}>
-      {c.desc}
+      {text('desc')}
     </p>
 
     <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '8px' }}>
       {c.highlights.map(h => (
         <li key={h} style={{ display: 'flex', alignItems: 'center', gap: '10px', fontSize: '13px', color: 'var(--fg-3)' }}>
           <span style={{ width: '16px', height: '1px', background: 'var(--primary)', flexShrink: 0 }} />
-          {h}
+          {text(`highlights.${h}`)}
         </li>
       ))}
     </ul>
   </>
-)
+  )
+}
 
 /**
  * Le téléphone est montré en entier. Une version débordante avait été essayée :
@@ -102,15 +85,16 @@ const Card = ({ c, mobile, flip }) => {
 
 export default function ForWho() {
   const mobile = useMobile()
+  const { t } = useTranslation()
 
   const intro = (
     <>
-      <div className="eyebrow" style={{ marginBottom: '20px', fontSize: mobile ? '11px' : '13px' }}>Pour qui</div>
+      <div className="eyebrow" style={{ marginBottom: '20px', fontSize: mobile ? '11px' : '13px' }}>{t('forWho.eyebrow')}</div>
       <h2 className="display" style={{ fontSize: mobile ? 'clamp(36px, 10vw, 56px)' : 'clamp(48px, 6vw, 88px)', marginBottom: '24px' }}>
-        Chacun son<br /><span style={{ color: 'var(--primary)' }}>rôle</span>.
+        <Accent text={t('forWho.title')} />
       </h2>
       <p style={{ fontSize: mobile ? '14px' : '15px', color: 'var(--fg-2)', maxWidth: '400px', lineHeight: 1.6 }}>
-        Coach, joueur ou dirigeant, SWEYL s&apos;adapte à ton rôle et à ta saison.
+        {t('forWho.intro')}
       </p>
     </>
   )
@@ -118,7 +102,7 @@ export default function ForWho() {
   const cards = (
     <div style={{ display: 'flex', flexDirection: 'column', gap: mobile ? '16px' : '24px' }}>
       {CARDS.map((c, i) => (
-        <Card key={c.label} c={c} mobile={mobile} flip={i % 2 === 1} />
+        <Card key={c.id} c={c} mobile={mobile} flip={i % 2 === 1} />
       ))}
     </div>
   )

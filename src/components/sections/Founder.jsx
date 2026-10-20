@@ -1,8 +1,11 @@
 import React from 'react'
+import { useTranslation } from 'react-i18next'
 import { useMobile } from '../../hooks/useMobile'
+import Accent from '../Accent'
 
 export default function Founder() {
   const mobile = useMobile()
+  const { t } = useTranslation()
 
   return (
     <section id="founder" style={{ padding: mobile ? '80px 0' : '120px 0', background: 'var(--bg)', borderTop: '1px solid var(--line)' }}>
@@ -10,9 +13,9 @@ export default function Founder() {
         <div style={{ display: 'grid', gridTemplateColumns: mobile ? '1fr' : '35fr 65fr', gap: mobile ? '32px' : '80px', alignItems: 'flex-start' }}>
 
           <div style={{ position: mobile ? 'static' : 'sticky', top: '120px' }}>
-            <div className="eyebrow" style={{ marginBottom: '20px', fontSize: mobile ? '11px' : '13px' }}>L&apos;histoire</div>
+            <div className="eyebrow" style={{ marginBottom: '20px', fontSize: mobile ? '11px' : '13px' }}>{t('founder.eyebrow')}</div>
             <h2 className="display" style={{ fontSize: mobile ? 'clamp(36px, 10vw, 56px)' : 'clamp(48px, 6vw, 80px)' }}>
-              Né au bord<br />du <span style={{ color: 'var(--primary)' }}>terrain</span>.
+              <Accent text={t('founder.title')} />
             </h2>
           </div>
 
@@ -30,22 +33,22 @@ export default function Founder() {
 
             <div style={{ paddingLeft: mobile ? '20px' : '0' }}>
               <p className="serif" style={{ fontSize: mobile ? '17px' : '22px', lineHeight: 1.45, color: 'var(--fg)', marginBottom: '24px', fontWeight: 500 }}>
-                Pendant des années, le basket amateur a fait sans outil dédié. Les coachs se débrouillaient avec des feuilles volatiles ou un fichier Excel. Les clubs comptaient sur la mémoire.
+                {t('founder.lead')}
               </p>
               <p style={{ fontSize: mobile ? '14px' : '16px', lineHeight: 1.7, color: 'var(--fg-2)', marginBottom: '24px' }}>
-                SWEYL, c&apos;est l&apos;outil qu&apos;un coach amateur aurait voulu avoir depuis toujours.
+                {t('founder.p1')}
               </p>
               <p style={{ fontSize: mobile ? '14px' : '16px', lineHeight: 1.7, color: 'var(--fg-2)', marginBottom: '24px' }}>
-                Construit avec des coachs et des joueurs sur le terrain, qui ont vu ce qu&apos;il manquait et qui refusent que le sport amateur reste l&apos;angle mort de la tech.
+                {t('founder.p2')}
               </p>
               <p style={{ fontSize: mobile ? '14px' : '16px', lineHeight: 1.7, color: 'var(--fg-2)', marginBottom: '32px' }}>
-                Une seule application pour tout le club, faite pour celles et ceux qui le font vivre chaque week-end.
+                {t('founder.p3')}
               </p>
 
               <div style={{ display: 'flex', alignItems: 'center', gap: '14px', paddingTop: '20px', borderTop: '1px solid var(--line)' }}>
                 <div style={{ width: '32px', height: '1px', background: 'var(--primary)' }} />
                 <span className="mono" style={{ fontSize: '11px', color: 'var(--fg-3)', letterSpacing: '0.18em', textTransform: 'uppercase' }}>
-                  Le fondateur · SWEYL
+                  {t('founder.signature')}
                 </span>
               </div>
             </div>

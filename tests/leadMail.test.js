@@ -41,6 +41,21 @@ test('Pro : niveau et rôle exigés dans leur liste fermée', () => {
   assert.ok(validateLead({ ...PRO, role: 'joueur' }).error)
 })
 
+test('une demande en français ne porte pas de ligne de langue', () => {
+  const { lead } = validateLead(PRO)
+  assert.equal(lead.language, 'fr')
+  assert.doesNotMatch(buildLeadMail(lead, { now: NOW }).text, /Langue/)
+})
+
+test('une demande venue d\'une page traduite dit dans quelle langue répondre', () => {
+  const { lead } = validateLead({ ...PRO, language: 'es' })
+  assert.match(buildLeadMail(lead, { now: NOW }).text, /Rôle : Coach\nLangue : Español\nMessage/)
+})
+
+test('une langue inconnue retombe sur le français', () => {
+  assert.equal(validateLead({ ...CLUB, language: 'de' }).lead.language, 'fr')
+})
+
 test('site principal : les rôles du club, pas ceux du Pro', () => {
   assert.ok(validateLead({ ...CLUB, role: 'staff' }).error)
   assert.ok(validateLead({ ...CLUB, email: 'pas-un-mail' }).error)

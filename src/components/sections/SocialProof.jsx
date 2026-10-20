@@ -1,11 +1,13 @@
 import React from 'react'
+import { useTranslation } from 'react-i18next'
 import { useMobile } from '../../hooks/useMobile'
 import { useTheme } from '../../contexts/theme'
 import { CLUB_LOGOS, PARTNER_LOGOS } from '../../lib/logos'
+import Accent from '../Accent'
 
 // Chiffres réels du club, donnés par Ismail le 29/08/2026.
 // « MATCHS / SEM » est le seul reliquat à confirmer.
-const stats = [['1500', 'JOUEURS'], ['90', 'COACHS'], ['4', 'CLUBS'], ['100+', 'MATCHS / SEM']]
+const stats = [['1500', 'players'], ['90', 'coaches'], ['4', 'clubs'], ['100+', 'games']]
 
 function InteractiveMarquee({ items, renderItem, speed = 40, reverse = false }) {
   const ref = React.useRef(null)
@@ -153,12 +155,13 @@ function StatCell({ value, label, mobile }) {
 export default function SocialProof() {
   const mobile = useMobile()
   const { theme } = useTheme()
+  const { t } = useTranslation()
 
   const heading = (
     <>
-      <div className="eyebrow" style={{ marginBottom: '16px', fontSize: mobile ? '11px' : '13px' }}>Saison 2026/27</div>
+      <div className="eyebrow" style={{ marginBottom: '16px', fontSize: mobile ? '11px' : '13px' }}>{t('socialProof.eyebrow')}</div>
       <h2 className="display" style={{ fontSize: mobile ? 'clamp(28px, 8vw, 48px)' : 'clamp(36px, 4vw, 64px)', maxWidth: '700px', lineHeight: 1 }}>
-        Ils ont déjà <span style={{ color: 'var(--primary)' }}>signé</span>.
+        <Accent text={t('socialProof.title')} />
       </h2>
     </>
   )
@@ -166,7 +169,7 @@ export default function SocialProof() {
   const statsBlock = (
     <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, minmax(0, 1fr))', gap: '2px', marginBottom: '40px', alignItems: 'start' }}>
       {stats.map(([n, l]) => (
-        <StatCell key={l} value={n} label={l} mobile={mobile} />
+        <StatCell key={l} value={n} label={t(`socialProof.stats.${l}`)} mobile={mobile} />
       ))}
     </div>
   )
@@ -174,7 +177,7 @@ export default function SocialProof() {
   const logosBlock = (
     <>
       <div style={{ padding: mobile ? '24px 20px 12px' : '32px 0 16px' }}>
-        <div className="eyebrow" style={{ fontSize: mobile ? '11px' : '12px' }}>Les clubs</div>
+        <div className="eyebrow" style={{ fontSize: mobile ? '11px' : '12px' }}>{t('socialProof.clubs')}</div>
       </div>
       <div style={{ padding: mobile ? '20px 0' : '32px 0' }}>
         <InteractiveMarquee
@@ -197,7 +200,7 @@ export default function SocialProof() {
   const sponsorsBlock = (
     <>
       <div style={{ padding: mobile ? '24px 20px 12px' : '32px 0 16px' }}>
-        <div className="eyebrow" style={{ fontSize: mobile ? '11px' : '12px' }}>Nos partenaires</div>
+        <div className="eyebrow" style={{ fontSize: mobile ? '11px' : '12px' }}>{t('socialProof.partners')}</div>
       </div>
       <div style={{ padding: mobile ? '8px 0 20px' : '12px 0 32px' }}>
         <InteractiveMarquee

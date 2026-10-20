@@ -1,4 +1,5 @@
 import React from 'react'
+import { useTranslation } from 'react-i18next'
 import { useTheme } from '../contexts/theme'
 import { shotFor, SHOT_SIZE } from '../lib/appShots'
 
@@ -8,13 +9,14 @@ import { shotFor, SHOT_SIZE } from '../lib/appShots'
  */
 export default function AppShot({ slot, width, priority = false, style }) {
   const { theme } = useTheme()
+  const { t } = useTranslation('home')
   const shot = shotFor(slot)
   const ratio = SHOT_SIZE.h / SHOT_SIZE.w
 
   return (
     <img
       src={`/assets/app/${shot.name}_${theme}.webp`}
-      alt={shot.alt}
+      alt={t(`shots.${shot.name}`)}
       width={SHOT_SIZE.w}
       height={SHOT_SIZE.h}
       loading={priority ? 'eager' : 'lazy'}

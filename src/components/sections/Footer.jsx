@@ -1,8 +1,10 @@
 import React from 'react'
+import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
 import { useTheme } from '../../contexts/theme'
 import { useMobile } from '../../hooks/useMobile'
 import logoSvg from '/assets/LogoSweyl.svg'
+import { CONTACT_EMAIL } from '../../lib/leadOptions'
 
 const FooterLink = ({ href, children, style }) => {
   if (href.startsWith('/')) return <Link to={href} style={style}>{children}</Link>
@@ -18,26 +20,27 @@ const FooterLink = ({ href, children, style }) => {
   )
 }
 
+// Libellés dans footer.columns et footer.links ; `label` seul = texte non traduit (marque, adresse).
 const columns = [
   {
-    t: 'Produit',
+    id: 'product',
     l: [
-      { label: 'Vision', href: '#vision' },
-      { label: 'Pour qui ?', href: '#for-who' },
-      { label: 'Saison 26/27', href: '#season' },
-      { label: 'FAQ', href: '#faq' },
+      { id: 'vision', href: '#vision' },
+      { id: 'forWho', href: '#for-who' },
+      { id: 'season', href: '#season' },
+      { id: 'faq', href: '#faq' },
     ],
   },
   {
-    t: 'Contact',
+    id: 'contact',
     l: [
-      { label: "Rejoindre l'expérience", href: '#join' },
-      { label: 'contact@sweyl.com', href: 'mailto:contact@sweyl.com' },
-      { label: 'Mentions légales', href: '/mentions-legales' },
+      { id: 'join', href: '#join' },
+      { label: CONTACT_EMAIL, href: `mailto:${CONTACT_EMAIL}` },
+      { legal: true, href: '/mentions-legales' },
     ],
   },
   {
-    t: 'Suivre',
+    id: 'follow',
     l: [
       { label: 'Instagram', href: 'https://instagram.com/sweylapp' },
       { label: 'TikTok', href: 'https://tiktok.com/@sweylapp' },
@@ -48,6 +51,9 @@ const columns = [
 export default function Footer() {
   const { theme } = useTheme()
   const mobile = useMobile()
+  const { t } = useTranslation(['home', 'common'])
+  const columnTitle = c => t(`footer.columns.${c.id}`)
+  const linkLabel = li => li.label ?? (li.legal ? t('common:legal.title') : t(`footer.links.${li.id}`))
 
   return (
     <footer style={{ borderTop: '1px solid var(--line)', padding: mobile ? '48px 0 28px' : '56px 0 36px' }}>
@@ -58,14 +64,14 @@ export default function Footer() {
             <div style={{ marginBottom: '28px' }}>
               <img src={logoSvg} alt="SWEYL" style={{ height: '24px', width: 'auto', marginBottom: '12px', filter: theme === 'light' ? 'none' : 'brightness(0) invert(1)' }} />
               <p style={{ fontSize: '12px', color: 'var(--fg-3)', lineHeight: 1.6 }}>
-                La plateforme du basket amateur français.
+                {t('footer.tagline')}
               </p>
             </div>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: '16px' }}>
               {columns.map(c => (
-                <div key={c.t}>
-                  <div className="mono" style={{ fontSize: '9px', color: 'var(--fg-3)', letterSpacing: '0.15em', marginBottom: '12px' }}>{c.t.toUpperCase()}</div>
-                  {c.l.map(li => <FooterLink key={li.label} href={li.href} style={{ display: 'block', fontSize: '12px', color: 'var(--fg-2)', marginBottom: '8px', lineHeight: 1.3 }}>{li.label}</FooterLink>)}
+                <div key={c.id}>
+                  <div className="mono" style={{ fontSize: '9px', color: 'var(--fg-3)', letterSpacing: '0.15em', marginBottom: '12px' }}>{columnTitle(c).toUpperCase()}</div>
+                  {c.l.map(li => <FooterLink key={li.href} href={li.href} style={{ display: 'block', fontSize: '12px', color: 'var(--fg-2)', marginBottom: '8px', lineHeight: 1.3 }}>{linkLabel(li)}</FooterLink>)}
                 </div>
               ))}
             </div>
@@ -76,13 +82,13 @@ export default function Footer() {
             <div>
               <img src={logoSvg} alt="SWEYL" style={{ height: '28px', width: 'auto', marginBottom: '14px', filter: theme === 'light' ? 'none' : 'brightness(0) invert(1)' }} />
               <p style={{ fontSize: '13px', color: 'var(--fg-3)', lineHeight: 1.6, maxWidth: '280px' }}>
-                La plateforme du basket amateur français.
+                {t('footer.tagline')}
               </p>
             </div>
             {columns.map(c => (
-              <div key={c.t}>
-                <div className="mono" style={{ fontSize: '10px', color: 'var(--fg-3)', letterSpacing: '0.18em', marginBottom: '14px' }}>{c.t.toUpperCase()}</div>
-                {c.l.map(li => <FooterLink key={li.label} href={li.href} style={{ display: 'block', fontSize: '13px', color: 'var(--fg-2)', marginBottom: '8px', transition: 'color 0.15s' }}>{li.label}</FooterLink>)}
+              <div key={c.id}>
+                <div className="mono" style={{ fontSize: '10px', color: 'var(--fg-3)', letterSpacing: '0.18em', marginBottom: '14px' }}>{columnTitle(c).toUpperCase()}</div>
+                {c.l.map(li => <FooterLink key={li.href} href={li.href} style={{ display: 'block', fontSize: '13px', color: 'var(--fg-2)', marginBottom: '8px', transition: 'color 0.15s' }}>{linkLabel(li)}</FooterLink>)}
               </div>
             ))}
           </div>
@@ -91,9 +97,9 @@ export default function Footer() {
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', paddingTop: '16px', borderTop: '1px solid var(--line)', flexWrap: 'wrap', gap: '12px' }}>
           <span className="mono" style={{ fontSize: '10px', color: 'var(--fg-4)', letterSpacing: '0.12em' }}>© 2026 SWEYL</span>
           <span className="mono" style={{ fontSize: '10px', color: 'var(--fg-4)', letterSpacing: '0.12em', display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
-            CONÇU À REIMS
+            {t('common:madeIn')}
           </span>
-          <span className="mono" style={{ fontSize: '10px', color: 'var(--fg-4)', letterSpacing: '0.12em' }}>FAIT PAR LES CLUBS, POUR LES CLUBS</span>
+          <span className="mono" style={{ fontSize: '10px', color: 'var(--fg-4)', letterSpacing: '0.12em' }}>{t('footer.signature')}</span>
         </div>
       </div>
     </footer>

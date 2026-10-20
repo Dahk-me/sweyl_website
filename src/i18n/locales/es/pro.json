@@ -1,0 +1,154 @@
+{
+  "meta": {
+    "title": "Sweyl Pro · La preparación de los cuerpos técnicos",
+    "description": "Scouting, estadísticas de los dos equipos y vídeo sincronizado con cada acción. Próximamente, demo con cita previa."
+  },
+  "header": {
+    "back": "Sweyl para clubes",
+    "cta": "Reservar una demo",
+    "ctaShort": "Demo"
+  },
+  "hero": {
+    "eyebrow": "Próximamente",
+    "title": "El partido se\ngana *antes*\ndel salto inicial.",
+    "sub": "Sus estadísticas, las del rival, el scouting y el vídeo sincronizado con cada acción. La herramienta de los cuerpos técnicos, del nivel regional al nacional.",
+    "cta": "Reservar una demo",
+    "devices": "Ordenador · Tableta · Teléfono"
+  },
+  "trio": {
+    "eyebrow": "Ordenador · Tableta · Teléfono",
+    "title": "El mismo scouting, *en todas partes.*",
+    "sub": "Preparado en el despacho, abierto a pie de pista. Cada jugador lee su ficha en su teléfono.",
+    "caption": "Ficha de un jugador rival, publicada al equipo"
+  },
+  "sections": {
+    "scouting": {
+      "eyebrow": "01 · El scouting · Antes del partido",
+      "title": "El juego del rival. *Sus emparejamientos.*",
+      "sub": "Los sistemas, las defensas y los jugadores del rival, en una ficha que crece temporada tras temporada. Usted fija los emparejamientos y publica: cada uno de sus jugadores sabe a quién defiende, y puede estudiarlo con calma.",
+      "spec": {
+        "sheet": {
+          "label": "Ficha del rival",
+          "value": "Juego, defensas, sistemas, jugadores"
+        },
+        "duels": {
+          "label": "Emparejamientos",
+          "value": "Un rival, uno o varios de los suyos"
+        },
+        "publication": {
+          "label": "Publicación",
+          "value": "Sabe quién lo ha leído, y cuándo"
+        }
+      }
+    },
+    "opponents": {
+      "eyebrow": "02 · Estadísticas del rival · Durante el partido",
+      "title": "Cada rival tiene *su línea.*",
+      "sub": "Los dorsales, los tiros y las pérdidas del rival, registrados en la misma pantalla que los suyos. Al sonar la bocina, sabe quién le ha hecho daño.",
+      "spec": {
+        "entry": {
+          "label": "Registro",
+          "value": "Jugador a jugador, dorsales del acta"
+        },
+        "reading": {
+          "label": "Lectura",
+          "value": "VAL y +/- del rival"
+        },
+        "when": {
+          "label": "Cuándo",
+          "value": "En directo, en diferido o desde el vídeo"
+        }
+      }
+    },
+    "analysis": {
+      "eyebrow": "03 · Sus estadísticas · Después del partido",
+      "title": "El partido, *explicado.*",
+      "sub": "Las rachas, los parciales en blanco, el acierto de los dos equipos. Y cada tiro, en su sitio en la pista.",
+      "spec": {
+        "flow": {
+          "label": "Desarrollo del partido",
+          "value": "Rachas y sequías, canasta a canasta"
+        },
+        "shooting": {
+          "label": "Acierto",
+          "value": "El suyo, el del rival, frente a sus hábitos"
+        },
+        "shotChart": {
+          "label": "Mapa de tiro",
+          "value": "Anotados y fallados, por jugador"
+        }
+      }
+    },
+    "video": {
+      "eyebrow": "04 · El vídeo · Toda la semana",
+      "title": "Cada acción *revive* su *instante.*",
+      "sub": "Un clic en una estadística y la grabación se sitúa en ella. Registre desde el vídeo: cada acción nace sincronizada.",
+      "spec": {
+        "videos": {
+          "label": "Vídeos",
+          "value": "Varios ángulos por partido"
+        },
+        "entry": {
+          "label": "Registro",
+          "value": "Desde la grabación, sin salir de ella"
+        },
+        "devices": {
+          "label": "Dispositivos",
+          "value": "Tableta y ordenador, la grabación se queda con usted"
+        }
+      }
+    }
+  },
+  "shotsAlt": {
+    "fiche": "Ficha de un jugador rival, con el emparejamiento y la forma de defenderlo",
+    "preparation": "Preparación del partido publicada a los jugadores, con los emparejamientos y su lectura",
+    "boxscore": "Estadísticas del equipo rival, jugador a jugador, con la VAL y el +/-",
+    "analyse": "Análisis de un partido: el desarrollo, el acierto y el mapa de tiro de los dos equipos",
+    "video": "Herramienta de vídeo sincronizada con una acción del registro del partido"
+  },
+  "zoomClose": "Cerrar",
+  "lead": {
+    "eyebrow": "Demo con cita previa",
+    "title": "Véalo\nen *sus\npartidos.*",
+    "perks": {
+      "demo": "Una demo sobre uno de sus partidos",
+      "price": "La tarifa, comunicada en la demo",
+      "reply": "Respuesta en 24 h"
+    },
+    "fields": {
+      "name": "Nombre",
+      "email": "Email",
+      "club": "Club y equipo",
+      "clubPlaceholder": "Ej. Reims Université, SM1",
+      "level": "Nivel del equipo",
+      "role": "Su función",
+      "message": "Mensaje (opcional)",
+      "messagePlaceholder": "Su próximo rival, su forma de grabar…"
+    },
+    "levels": {
+      "PN": "PN",
+      "N3": "N3",
+      "N2": "N2",
+      "N1": "N1",
+      "Autre": "Otro"
+    },
+    "roles": {
+      "coach": "Entrenador",
+      "staff": "Ayudante o staff",
+      "dirigeant": "Directivo"
+    },
+    "submit": "Solicitar mi demo",
+    "sending": "Enviando…",
+    "noCommitment": "SIN COMPROMISO",
+    "levelMissing": "Elija el nivel del equipo.",
+    "error": "El envío ha fallado. Vuelva a intentarlo, o escríbanos a {{email}}.",
+    "okTitle": "Recibido.",
+    "okText": "Le respondemos en 24 h para fijar la demo."
+  },
+  "footer": {
+    "line": "La preparación de los cuerpos técnicos, del nivel regional al nacional.",
+    "backTitle": "VOLVER",
+    "back": "Sweyl para clubes",
+    "contactTitle": "CONTACTO"
+  }
+}
