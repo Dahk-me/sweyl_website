@@ -3,10 +3,11 @@ import { initReactI18next } from 'react-i18next'
 import {
   DEFAULT_LANGUAGE,
   LANGUAGE_QUERY_PARAM,
-  LANGUAGE_STORAGE_KEY,
   SITE_LANGUAGES,
   isSiteLanguage,
+  languageCookie,
   matchLanguage,
+  readLanguageCookie,
 } from './languages'
 
 /**
@@ -14,8 +15,9 @@ import {
  * un fichier JSON par espace de noms et par langue, sous `locales/<langue>/<espace>.json`.
  * Seuls le français (référence, et repli d'une clé absente) et la langue courante se chargent.
  *
- * La langue se choisit dans cet ordre : `?lang=` dans l'adresse, puis le choix mémorisé sur
- * l'appareil, puis la langue du navigateur. Le site n'a pas de compte : rien ne se range ailleurs.
+ * La langue se choisit dans cet ordre : `?lang=` dans l'adresse, puis le choix mémorisé (un
+ * cookie commun à sweyl.com et pro.sweyl.com), puis la langue du navigateur. Le site n'a pas de
+ * compte : rien ne se range ailleurs.
  */
 
 const loaders = import.meta.glob('./locales/*/*.json')
@@ -44,20 +46,11 @@ async function loadLanguage(language) {
 }
 
 function readStoredLanguage() {
-  try {
-    const stored = localStorage.getItem(LANGUAGE_STORAGE_KEY)
-    return isSiteLanguage(stored) ? stored : null
-  } catch {
-    return null
-  }
+  return readLanguageCookie(document.cookie)
 }
 
 function storeLanguage(language) {
-  try {
-    localStorage.setItem(LANGUAGE_STORAGE_KEY, language)
-  } catch {
-    // Stockage indisponible : la langue tient le temps de la visite, ce qui reste juste.
-  }
+  document.cookie = languageCookie(language, window.location.hostname)
 }
 
 function readQueryLanguage() {
