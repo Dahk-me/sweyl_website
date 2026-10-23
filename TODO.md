@@ -458,3 +458,39 @@ générées, et cette passe corrige tout ce qui ne demande pas d'input d'Ismail.
 > 📥 **À faire de ton côté** : supprimer le bucket `images/vision`, `images/club_logo` et
 > `images/sponsor_logo` du Storage une fois en prod (plus rien ne les lit). `LogoWitry.png` est
 > resté dans `public/assets/clubs/`, il n'est affiché nulle part.
+
+## Lot 14 · Refonte « conversion d'abord » de sweyl.com (23/10/2026, branche `feat/landing-conversion`)
+
+**Pourquoi** : brief d'Ismail du 23/10/2026 (« SWEYL Landing Page Brief »), une page qui crée le
+besoin, prouve la transformation, lève les freins et ne pousse qu'une action. Branche de test,
+**pas de PR** à ce stade : on itère d'abord sur les textes, les variantes et les animations.
+
+**Ce qui change** : l'accueil repart de zéro dans `src/home/` (même découpage que `src/pro/`).
+Ordre strict du brief : hero, problème, transformation, 3 gestes, pour qui, preuve, avant / après,
+FAQ, appel final avec formulaire. Les sections Fondateur, Vision (photos), Saison en 4 étapes et
+le bandeau défilant des logos sont **supprimés**, comme `Community.jsx` (code mort).
+
+- [x] Un seul appel à l'action partout, « Rejoindre la saison 26/27 », toujours suivi de
+  « Gratuit pour coachs & présidents · Sans engagement · Réponse sous 24h » (`JoinButton`).
+- [x] Hero : la question « Tu coaches encore à l'aveugle ? » et un tableau de match animé en CSS
+  (score, fil des actions, fiche du joueur qui se remplit). Aucune vidéo, aucun écran de saisie.
+- [x] La saison qui avance : barre calculée sur la vraie date (1er août au 31 juillet).
+- [x] Cartes « Pour qui » ouvrables, avec la vraie capture du rôle ; rejoindre depuis une carte
+  pré-remplit le rôle du formulaire.
+- [x] Chiffres qui montent à l'écran, témoignages (carrousel sur mobile), clubs qui ont signé.
+- [x] Comparatif avant / avec SWEYL : chaque ligne d'avant se barre en entrant dans l'écran.
+- [x] Barre d'appel collante sur mobile ; invitation de sortie sur ordinateur, une fois par session.
+- [x] Ancres `#vision`, `#season` et `#join` conservées (des liens envoyés y pointent).
+- [x] Trois langues, complètes (`npm test`).
+
+> ⚠️ **À trancher avant de passer en PR** : trois promesses du brief (déjà présentes sur l'ancien
+> site) ne collent pas aux specs. « Les joueurs testent un mois » : aucun essai n'existe dans
+> `SUBSCRIPTION.md`. « La famille suit le match en direct, même de chez elle » : le live public
+> sans compte n'existe pas (`gts-basketball-api/docs/SURFACE-PUBLIQUE.md`), il faut le compte du
+> joueur. La FAQ FFBB dit désormais « se resynchronise en un clic » (vrai) au lieu de
+> « synchronisation automatique » (faux, `specs/ImportSchedule.md`).
+
+> 📥 Non repris du brief : le « guide gratuit » de l'invitation de sortie (il n'existe pas, la
+> fenêtre promet une démo prioritaire), et la citation de Big Will reste en français dans la
+> version française (le brief la donnait en anglais). Les photos de `public/assets/vision/` ne
+> sont plus affichées nulle part.

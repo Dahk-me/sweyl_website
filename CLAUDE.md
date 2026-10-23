@@ -45,7 +45,11 @@ Modèle de référence : Nike. On parle à des compétiteurs. On élève le nive
 
 L'objectif est la **prise de contact déguisée en création de compte**.
 
-- Bouton principal : **"Créer mon compte"** ou **"Rejoindre SWEYL"** jamais "Contacter"
+- Bouton principal **unique et répété partout** : **« Rejoindre la saison 26/27 »** (brief du
+  23/10/2026), jamais « Contacter ». Variante permise dans un contexte précis : « Obtenir l'accès
+  club ». Tous les boutons et liens mènent au formulaire (`#join`).
+- **Sous chaque bouton principal**, sa réassurance : « Gratuit pour coachs & présidents · Sans
+  engagement · Réponse sous 24h » (`cta.micro`, posée par `src/home/components/JoinButton.jsx`).
 - Formulaire : capture nom + email + club + rôle → déclenche une prise de contact manuelle
 - Message implicite : le compte est prêt à être activé, l'équipe valide et accompagne l'onboarding
 - Jamais montrer que c'est manuel côté back-office
@@ -62,6 +66,30 @@ L'objectif est la **prise de contact déguisée en création de compte**.
 ## Vision long terme
 
 Multi-sport. Handball, volleyball, football, rugby… Le basket est le sport d'entrée. Le copy doit rester suffisamment ouvert pour ne pas enfermer SWEYL dans "la plateforme basket".
+
+## L'accueil sweyl.com
+
+Refondu le 23/10/2026 sur le brief « conversion d'abord » d'Ismail (`TODO.md`, lot 14). Il vit
+dans `src/home/`, sur le modèle de `src/pro/` : **textes** dans `src/i18n/locales/<langue>/home.json`,
+**structure** (ordre des listes, chiffres, captures, ancres) dans `src/home/copy.js`, styles dans
+`src/home/home.css` (préfixe `.h-`, mobile d'abord, jamais chargé par le Pro).
+
+- **L'ordre des sections est celui du brief** : hero, problème, transformation, 3 gestes, pour
+  qui, preuve, avant / après, FAQ, appel final et formulaire. Chaque section pousse vers le
+  bouton suivant.
+- **Les ancres `#vision`, `#season` et `#join` ne se renomment pas** : des liens déjà envoyés aux
+  clubs y pointent (`ANCHORS` dans `copy.js`).
+- **Le hero montre ce que la saisie produit**, dessiné en CSS (`LiveBoard.jsx` : score, fil,
+  fiche du joueur), jamais l'écran de saisie. Noms inventés, aucun vrai club.
+- **Les chiffres vivent une fois**, dans `STATS` de `copy.js`, et se formatent selon la langue
+  (`formatStat`) ; le hero et la preuve les lisent au même endroit.
+- **Rejoindre depuis une carte « Pour qui » pré-remplit le rôle** du formulaire (joueur et parent
+  passent par « Autre », seuls rôles acceptés par `api/_lib/leadValidation.js`).
+- **Barre collante sur mobile** (`StickyJoin`), cachée sur le hero, le formulaire et le pied de
+  page ; **invitation de sortie sur ordinateur** (`ExitIntent`), une fois par session, jamais avant
+  huit secondes de lecture ni quand le formulaire est à l'écran.
+- `src/index.css` reste partagé avec le Pro : ses classes `hero-line`, `hero-logo`, `hero-rise`,
+  `hero-wordmark` servent aux deux sites, la mise en page de chaque hero vit dans sa feuille.
 
 ## pro.sweyl.com, l'offre Pro
 
@@ -114,7 +142,7 @@ inventer un écran ni une donnée.
 
 ## Formulaire de démo
 
-Les deux formulaires (`Lead.jsx`, `src/pro/sections/ProLead.jsx`) partagent `src/components/lead/`
+Les deux formulaires (`src/home/sections/Join.jsx`, `src/pro/sections/ProLead.jsx`) partagent `src/components/lead/`
 et postent sur `api/submit-lead.js`, une fonction Vercel déployée avec le site. Elle envoie un mail
 par Mailjet (clés `MAILJET_API_KEY` et `MAILJET_SECRET_KEY` dans les variables du projet Vercel) et
 **ne stocke rien** : le suivi des réponses se fait dans la boîte mail.
