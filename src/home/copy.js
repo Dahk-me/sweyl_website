@@ -21,6 +21,9 @@ export const ANCHORS = {
   footer: 'footer',
 }
 
+/** Les deux destinations des boutons : l'inscription d'un club, ou l'application pour qui y a déjà un compte. */
+export const CTA = { signup: 'signup', app: 'app' }
+
 /** Le menu du header ; libellés dans header.nav.<id>. */
 export const NAV = [
   { id: 'vision', anchor: ANCHORS.vision },
@@ -39,14 +42,14 @@ export const STEPS = ['activate', 'bench', 'everyone']
 
 /**
  * Les rôles du sélecteur « Pour qui », dans forWho.roles.<id>. `shot` est l'emplacement de capture
- * (`lib/appShots.js`), `leadRole` le rôle pré-rempli dans le formulaire quand on rejoint depuis
- * ce rôle : un joueur ou un parent n'a pas de rôle à lui, il passe par « Autre ».
+ * (`lib/appShots.js`), `cta` la destination de son bouton : le coach et le président créent leur
+ * club, le joueur et le parent ne créent rien, leur club les invite, ils accèdent à l'app.
  */
 export const ROLES = [
-  { id: 'coach', shot: 'coachs', leadRole: 'coach', proofs: ['video', 'sheet', 'feedback'] },
-  { id: 'president', shot: 'dirigeants', leadRole: 'president', proofs: ['teams', 'attendance', 'import'] },
-  { id: 'player', shot: 'joueurs', leadRole: 'other', proofs: ['season', 'progress', 'career'] },
-  { id: 'parent', shot: 'familles', leadRole: 'other', proofs: ['live', 'weekend', 'next'] },
+  { id: 'coach', shot: 'coachs', cta: CTA.signup, proofs: ['video', 'sheet', 'feedback'] },
+  { id: 'president', shot: 'dirigeants', cta: CTA.signup, proofs: ['teams', 'attendance', 'import'] },
+  { id: 'player', shot: 'joueurs', cta: CTA.app, proofs: ['season', 'progress', 'career'] },
+  { id: 'parent', shot: 'familles', cta: CTA.app, proofs: ['live', 'weekend', 'next'] },
 ]
 
 /**

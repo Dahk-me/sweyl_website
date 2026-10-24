@@ -504,6 +504,10 @@ mobile était trop condensé. Les règles du lot 12, qui l'interdisaient déjà,
 - [x] Le Pro devient symétrique : « SWEYL CLUB » en vrai bouton tout à droite, plus de « Réserver
   une démo » dans le header mais une barre du bas qui s'affiche dès qu'on défile. Bouton de passage
   (`SiteSwitch`) et barre (`StickyCta`) partagés par les deux sites.
+- [x] Le bouton principal devient « Créer mon club », vers l'inscription publique de l'application
+  (`app.sweyl.com/inscription-club`) : le club s'inscrit seul, sans attendre d'être rappelé (critère
+  du chemin critique). « Accéder à l'app » en lien discret du header et sur les rôles joueur et
+  parent ; le formulaire reste en secours, « Tu préfères une démo ? On t'appelle. »
 - [x] Deux phrases du brief réécrites (« Une seule app. Tout le club. Toute la saison. » et
   « Plus d'impressions. Des faits. »), formes bannies, avec l'accord d'Ismail.
 
@@ -513,6 +517,10 @@ mobile était trop condensé. Les règles du lot 12, qui l'interdisaient déjà,
 > sans compte n'existe pas (`gts-basketball-api/docs/SURFACE-PUBLIQUE.md`), il faut le compte du
 > joueur. La FAQ FFBB dit désormais « se resynchronise en un clic » (vrai) au lieu de
 > « synchronisation automatique » (faux, `specs/ImportSchedule.md`).
+
+> ⚠️ **À vérifier avant la PR** : avec l'inscription directe, plus aucun mail n'annonce un nouveau
+> club. Confirmer qu'Ismail est prévenu d'une inscription spontanée (back-office plateforme ou
+> mail), sans quoi ces clubs passent inaperçus.
 
 > 📥 Non repris du brief : le « guide gratuit » de l'invitation de sortie (il n'existe pas, la
 > fenêtre promet une démo prioritaire), et la citation de Big Will reste en français dans la

@@ -15,20 +15,18 @@ import Join from './sections/Join'
 import Footer from './sections/Footer'
 import ExitIntent from './sections/ExitIntent'
 import StickyCta from '../components/StickyCta'
-import { ANCHORS } from './copy'
+import { clubSignupUrl } from '../lib/siteUrls'
 import './home.css'
 
 /**
  * sweyl.com, pensé pour convertir (brief du 23/10/2026) : créer le besoin, prouver la
- * transformation, lever les freins, une seule action. L'ordre des sections est celui du brief.
+ * transformation, lever les freins, une seule action, créer son club dans l'application.
+ * L'ordre des sections est celui du brief.
  */
 export default function HomePage() {
   const { t } = useTranslation()
   useDocumentMeta('home')
   useReveal()
-  // Le rôle choisi sur une carte « Pour qui » ; `at` relance le pré-remplissage au même rôle.
-  const [intent, setIntent] = React.useState(null)
-  const join = React.useCallback(role => { if (role) setIntent({ role, at: Date.now() }) }, [])
 
   return (
     <>
@@ -38,14 +36,14 @@ export default function HomePage() {
         <Problem />
         <Transformation />
         <HowItWorks />
-        <ForWho onJoin={join} />
+        <ForWho />
         <Proof />
         <BeforeAfter />
         <FAQ />
-        <Join intent={intent} />
+        <Join />
       </main>
       <Footer />
-      <StickyCta href={`#${ANCHORS.join}`} label={t('cta.label')} micro={t('cta.micro')} microShort={t('cta.microShort')} />
+      <StickyCta href={clubSignupUrl()} label={t('cta.label')} micro={t('cta.micro')} microShort={t('cta.microShort')} />
       <ExitIntent />
     </>
   )

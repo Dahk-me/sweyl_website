@@ -11,9 +11,11 @@
     }
   },
   "cta": {
-    "label": "Join the 26/27 season",
-    "micro": "Free for coaches & presidents · No commitment · Reply within 24h",
-    "microShort": "Free for coaches & presidents · Reply within 24h",
+    "label": "Create my club",
+    "micro": "Free for coaches & presidents · No commitment · Ready in 2 minutes",
+    "microShort": "Free for coaches & presidents · Ready in 2 minutes",
+    "app": "Open the app",
+    "appMicro": "With your club's invitation",
     "badge": "Season 2026/27 · Access open"
   },
   "hero": {
@@ -244,7 +246,7 @@
       },
       "onboarding": {
         "q": "How long until we're up and running?",
-        "a": "A demo, setting up the club, a few tests. We're with you from A to Z, and your first game comes fast."
+        "a": "Your club is set up in 2 minutes. Then you import your teams and your FFBB schedule, and we're with you if you want."
       },
       "devices": {
         "q": "Which devices does it work on?",
@@ -257,7 +259,7 @@
     "question": "Will your club play it with data… or still blind?",
     "sub": "Join the clubs that decided to stop coaching on instinct.",
     "trust": "Already used by French clubs from regional to local leagues",
-    "formTitle": "Your club access, in 30 seconds",
+    "formTitle": "Rather see a demo? We'll call you.",
     "fields": {
       "name": "Name",
       "email": "Email",
@@ -276,16 +278,16 @@
       "coach": "Coach",
       "other": "Other"
     },
+    "submit": "Request a demo",
     "sending": "Sending…",
     "error": "Something went wrong. Try again or email us directly at {{email}}",
     "micro": "No commitment · We're with you from A to Z · Reply within 24h",
     "okTitle": "Got it.",
-    "okText": "Your club access is being prepared. We'll reply within 24h to activate it with you."
+    "okText": "We'll call you within 24h to show you SWEYL on your club."
   },
   "exit": {
     "title": "Leaving *already*?",
-    "text": "Leave your club now: your demo gets priority.",
-    "cta": "Get club access",
+    "text": "Your club can be ready in 2 minutes. It's free for coaches and presidents.",
     "dismiss": "Later",
     "close": "Close"
   },
@@ -313,7 +315,9 @@
       "forWho": "Who it's for",
       "season": "Season 26/27",
       "faq": "FAQ",
-      "join": "Join the season"
+      "signup": "Create my club",
+      "app": "Open the app",
+      "demo": "Request a demo"
     },
     "signature": "Made by clubs, for clubs"
   }

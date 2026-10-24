@@ -8,10 +8,10 @@ import { ANCHORS, ROLES } from '../copy'
 /**
  * Les quatre rôles en grands mots, comme les noms d'équipes d'un tableau d'affichage : le mot
  * choisi s'allume, les autres restent en retrait. Dessous, la vraie capture de ce rôle, ce que
- * SWEYL lui apporte, et le bouton qui pré-remplit son rôle dans le formulaire. Le coach, cible
- * principale, est choisi à l'arrivée.
+ * SWEYL lui apporte, et son bouton : créer son club, ou accéder à l'app pour qui y est invité.
+ * Le coach, cible principale, est choisi à l'arrivée.
  */
-export default function ForWho({ onJoin }) {
+export default function ForWho() {
   const { t } = useTranslation()
   const [current, setCurrent] = React.useState(ROLES[0].id)
   const tabs = React.useRef([])
@@ -68,7 +68,7 @@ export default function ForWho({ onJoin }) {
             <ul className="h-role-proofs">
               {role.proofs.map(p => <li key={p}>{text(`proofs.${p}`)}</li>)}
             </ul>
-            <JoinButton role={role.leadRole} onJoin={onJoin} />
+            <JoinButton kind={role.cta} />
           </div>
           <div className="h-role-shot">
             <AppShot slot={role.shot} width="clamp(200px, 20vw, 250px)" />

@@ -4,12 +4,13 @@ import { Link } from 'react-router-dom'
 import { useTheme } from '../../contexts/theme'
 import logoSvg from '/assets/LogoSweyl.svg'
 import { CONTACT_EMAIL } from '../../lib/leadOptions'
+import { appUrl, clubSignupUrl } from '../../lib/siteUrls'
 import { ANCHORS } from '../copy'
 
-const FooterLink = ({ href, children }) => {
+// Les réseaux s'ouvrent dans un nouvel onglet (`newTab`) ; l'application, dans le même.
+const FooterLink = ({ href, newTab, children }) => {
   if (href.startsWith('/')) return <Link to={href}>{children}</Link>
-  const external = href.startsWith('http')
-  return <a href={href} {...(external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}>{children}</a>
+  return <a href={href} {...(newTab ? { target: '_blank', rel: 'noopener noreferrer' } : {})}>{children}</a>
 }
 
 // Libellés dans footer.columns et footer.links ; `label` seul = texte non traduit (marque, adresse).
@@ -26,7 +27,9 @@ const columns = [
   {
     id: 'contact',
     l: [
-      { id: 'join', href: `#${ANCHORS.join}` },
+      { id: 'signup', href: clubSignupUrl() },
+      { id: 'app', href: appUrl() },
+      { id: 'demo', href: `#${ANCHORS.join}` },
       { label: CONTACT_EMAIL, href: `mailto:${CONTACT_EMAIL}` },
       { legal: true, href: '/mentions-legales' },
     ],
@@ -34,8 +37,8 @@ const columns = [
   {
     id: 'follow',
     l: [
-      { label: 'Instagram', href: 'https://instagram.com/sweylapp' },
-      { label: 'TikTok', href: 'https://tiktok.com/@sweylapp' },
+      { label: 'Instagram', href: 'https://instagram.com/sweylapp', newTab: true },
+      { label: 'TikTok', href: 'https://tiktok.com/@sweylapp', newTab: true },
     ],
   },
 ]
@@ -56,7 +59,7 @@ export default function Footer() {
           {columns.map(c => (
             <div key={c.id} className="h-footer-col">
               <p className="mono">{t(`footer.columns.${c.id}`)}</p>
-              {c.l.map(li => <FooterLink key={li.href} href={li.href}>{linkLabel(li)}</FooterLink>)}
+              {c.l.map(li => <FooterLink key={li.href} href={li.href} newTab={li.newTab}>{linkLabel(li)}</FooterLink>)}
             </div>
           ))}
         </div>

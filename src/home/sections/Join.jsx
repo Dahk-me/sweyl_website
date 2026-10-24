@@ -8,22 +8,19 @@ import Honeypot from '../../components/lead/Honeypot'
 import { useLeadSubmit } from '../../components/lead/useLeadSubmit'
 import { CLUB_ROLES, CONTACT_EMAIL, OFFER } from '../../lib/leadOptions'
 import { currentLanguage } from '../../i18n'
+import JoinButton from '../components/JoinButton'
 import { ANCHORS } from '../copy'
 
 /**
- * La décision. Une prise de contact déguisée en création de compte : le visiteur demande son accès
- * club, l'équipe le rappelle et l'active avec lui. Rien ne dit que la validation est manuelle.
- * `intent` porte le rôle choisi sur une carte « Pour qui », pour pré-remplir le formulaire.
+ * La décision. Le bouton principal crée le club dans l'application, seul et tout de suite. Le
+ * formulaire reste à côté, en secours, pour qui préfère une démo avant de se lancer : l'équipe le
+ * rappelle sous 24h (*Ismail, 24/10/2026*).
  */
-export default function Join({ intent }) {
+export default function Join() {
   const { t } = useTranslation()
   const [form, setForm] = React.useState({ name: '', email: '', club: '', role: 'coach', message: '' })
   const { loading, sent, error, submit, honeypot, setHoneypot } = useLeadSubmit()
   const set = key => value => setForm(f => ({ ...f, [key]: value }))
-
-  React.useEffect(() => {
-    if (intent?.role && CLUB_ROLES[intent.role]) setForm(f => ({ ...f, role: intent.role }))
-  }, [intent])
 
   const handleSubmit = e => {
     e.preventDefault()
@@ -38,6 +35,7 @@ export default function Join({ intent }) {
           <h2 className="display h-final-title"><Accent text={t('join.title')} /></h2>
           <p className="h-final-question">{t('join.question')}</p>
           <p className="h-final-sub">{t('join.sub')}</p>
+          <JoinButton className="h-final-cta" />
           <p className="h-final-trust">{t('join.trust')}</p>
         </div>
 
@@ -50,7 +48,7 @@ export default function Join({ intent }) {
             </div>
           ) : (
             <>
-              <p className="h-form-title mono">{t('join.formTitle')}</p>
+              <p className="h-form-title">{t('join.formTitle')}</p>
               <Honeypot value={honeypot} onChange={setHoneypot} />
 
               <div className="h-form-row">
@@ -85,8 +83,8 @@ export default function Join({ intent }) {
                 />
               </div>
 
-              <button type="submit" disabled={loading} className="btn-primary h-join-btn h-form-submit">
-                {loading ? t('join.sending') : <>{t('cta.label')}<IconArrow size={15} stroke={2} /></>}
+              <button type="submit" disabled={loading} className="h-form-submit">
+                {loading ? t('join.sending') : <>{t('join.submit')}<IconArrow size={15} stroke={2} /></>}
               </button>
               {error && <p className="h-form-error" role="alert">{t('join.error', { email: CONTACT_EMAIL })}</p>}
               <p className="h-micro h-micro--center">{t('join.micro')}</p>

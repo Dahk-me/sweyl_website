@@ -43,16 +43,23 @@ Modèle de référence : Nike. On parle à des compétiteurs. On élève le nive
 
 ## Stratégie CTA
 
-L'objectif est la **prise de contact déguisée en création de compte**.
+Depuis le 24/10/2026 (*Ismail*), le site **envoie le club s'inscrire seul dans l'application**,
+au lieu de déguiser une prise de contact en création de compte. C'est le critère du chemin
+critique, « est-ce que ça me retire de la boucle ? » (`CHEMIN-CRITIQUE.md`, cold start).
 
-- Bouton principal **unique et répété partout** : **« Rejoindre la saison 26/27 »** (brief du
-  23/10/2026), jamais « Contacter ». Variante permise dans un contexte précis : « Obtenir l'accès
-  club ». Tous les boutons et liens mènent au formulaire (`#join`).
+- Bouton principal **unique et répété partout** : **« Créer mon club »**, vers le funnel public
+  `app.sweyl.com/inscription-club` (`clubSignupUrl`, `src/lib/siteUrls.js`), jamais « Contacter ».
 - **Sous chaque bouton principal**, sa réassurance : « Gratuit pour coachs & présidents · Sans
-  engagement · Réponse sous 24h » (`cta.micro`, posée par `src/home/components/JoinButton.jsx`).
-- Formulaire : capture nom + email + club + rôle → déclenche une prise de contact manuelle
-- Message implicite : le compte est prêt à être activé, l'équipe valide et accompagne l'onboarding
-- Jamais montrer que c'est manuel côté back-office
+  engagement · Prêt en 2 minutes » (`cta.micro`, posée par `src/home/components/JoinButton.jsx`).
+  Plus de « Réponse sous 24h » sous ce bouton : personne n'attend de réponse pour s'inscrire.
+- **« Accéder à l'app »** (`appUrl`) sert qui a déjà un compte : lien discret du header (icône
+  seule sur mobile), et bouton des rôles joueur et parent, que leur club invite (ils ne créent
+  pas de club).
+- **Le formulaire reste, en secours** : « Tu préfères une démo ? On t'appelle. » Son bouton est
+  secondaire (cadré, jamais orange) pour ne pas disputer la place de « Créer mon club » ; il
+  déclenche une prise de contact manuelle, réponse sous 24h.
+- Les liens vers l'application s'ouvrent dans le même onglet et visent toujours la production :
+  l'application n'est servie ni par le site local ni par une prévisualisation Vercel.
 
 ## Règles de rédaction pour le site
 
@@ -116,9 +123,8 @@ dans `src/home/`, sur le modèle de `src/pro/` : **textes** dans `src/i18n/local
 - **Les chiffres vivent une fois**, dans `STATS` de `copy.js`, et se formatent selon la langue
   (`formatStat`) ; le hero et la preuve les lisent au même endroit.
 - **« Pour qui » est un sélecteur de grands mots**, comme les noms d'équipes d'un tableau
-  d'affichage, pas une grille de cartes. Rejoindre depuis un rôle pré-remplit le rôle du
-  formulaire (joueur et parent passent par « Autre », seuls rôles acceptés par
-  `api/_lib/leadValidation.js`).
+  d'affichage, pas une grille de cartes. Chaque rôle a son bouton (`cta` dans `ROLES`) : coach et
+  président « Créer mon club », joueur et parent « Accéder à l'app ».
 - **Les logos défilent** (`Marquee`) : sur mobile, aucune ligne ne les tient tous
   (*Ismail, 24/10/2026*).
 - **Les 3 gestes gardent leur fil** : trois points reliés par une ligne qui se remplit,
@@ -128,9 +134,10 @@ dans `src/home/`, sur le modèle de `src/pro/` : **textes** dans `src/i18n/local
   les pros », qui parle des équipes professionnelles, et les citations des clubs restent permis.
 - **La barre d'appel du bas** (`src/components/StickyCta.jsx`, partagée avec le Pro) s'affiche
   dès qu'on commence à défiler, sur mobile comme sur ordinateur, et reste jusqu'au pied de page,
-  qui lui réserve sa hauteur (`--sticky-cta-h`). C'est elle qui porte « Rejoindre » : **le header
-  n'a plus de bouton Rejoindre** (*Ismail, 24/10/2026*) ; **invitation de sortie sur ordinateur** (`ExitIntent`), une fois par session, jamais avant
-  huit secondes de lecture ni quand le formulaire est à l'écran.
+  qui lui réserve sa hauteur (`--sticky-cta-h`). C'est elle qui porte « Créer mon club » : **le
+  header n'a pas de bouton d'appel à l'action** (*Ismail, 24/10/2026*).
+- **Invitation de sortie sur ordinateur** (`ExitIntent`), une fois par session, jamais avant huit
+  secondes de lecture ni quand le formulaire est à l'écran ; elle mène à l'inscription.
 - `src/index.css` reste partagé avec le Pro : ses classes `hero-line`, `hero-logo`, `hero-rise`,
   `hero-wordmark` servent aux deux sites, la mise en page de chaque hero vit dans sa feuille.
 
@@ -182,11 +189,11 @@ premier défilement (*arbitrage d'Ismail du 19/10/2026*).
 ⚠️ **Les deux headers sont symétriques** (*Ismail, 24/10/2026*). Tout à droite, un **vrai bouton
 de passage vers l'autre site** (`src/components/SiteSwitch.jsx` : pastille cadrée d'orange,
 flèche, survol plein) : « SWEYL PRO » sur `sweyl.com`, « SWEYL CLUB » sur `pro.sweyl.com`. Aucun
-bouton d'appel à l'action dans le header : « Rejoindre la saison 26/27 » et « Réserver une démo »
-vivent dans la barre du bas (`StickyCta`), affichée dès qu'on défile. Sur mobile, les deux headers
-ne gardent que le logo à gauche, pour laisser la place au bouton. Toucher à l'un, c'est toucher à
-l'autre. Sur la page Pro, elle suit le logo, à la
-place du mot SWEYL.
+bouton d'appel à l'action dans le header : « Créer mon club » et « Réserver une démo » vivent dans
+la barre du bas (`StickyCta`), affichée dès qu'on défile ; seul `sweyl.com` y ajoute le lien
+discret « Accéder à l'app ». Sur mobile, les deux headers ne gardent que le logo à gauche, pour
+laisser la place au bouton. Toucher à l'un, c'est toucher à l'autre. Sur la page Pro, la marque
+suit le logo, à la place du mot SWEYL.
 
 **Captures recomposées** : une capture peut réagencer les vrais composants de l'application (la
 capture d'analyse place le fil du match et l'adresse à gauche, la carte des tirs à droite), jamais

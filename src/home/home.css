@@ -47,6 +47,9 @@
 .h-header-nav a { transition: color 0.15s; }
 .h-header-nav a:hover { color: var(--fg); }
 .h-header-actions { margin-left: auto; display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
+.h-header-app { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-width: 44px; font-size: 13px; color: var(--fg-2); transition: color 0.15s; }
+.h-header-app:hover { color: var(--fg); }
+.h-header-app:focus-visible { outline: 2px solid var(--primary); outline-offset: 3px; border-radius: 6px; }
 .h-header-theme {
   display: inline-flex; align-items: center; justify-content: center; gap: 6px;
   border: 1px solid var(--line-2); color: var(--fg); padding: 8px 10px; font-size: 11px; border-radius: 999px;
@@ -223,7 +226,7 @@
 .h-final-trust { margin-top: 28px; padding-top: 18px; border-top: 1px solid var(--line); font-size: 13.5px; line-height: 1.45; color: var(--fg-3); max-width: 30em; }
 .h-form { display: grid; gap: 16px; padding: 24px 20px; border-radius: 20px; background: var(--bg-2); border: 1px solid var(--line-2); }
 [data-theme="light"] .h-form { background: #fff; }
-.h-form-title { font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--primary); }
+.h-form-title { font-size: 19px; font-weight: 700; line-height: 1.3; letter-spacing: -0.01em; color: var(--fg); }
 .h-form-row { display: grid; gap: 16px; }
 .h-form-label { display: block; margin-bottom: 8px; font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--fg-3); }
 /* Les champs partagés avec le Pro (components/lead) portent leur style en ligne : on n'arrondit qu'ici. */
@@ -231,8 +234,16 @@
 .h-form input:focus, .h-form-textarea:focus { border-color: var(--primary) !important; }
 .h-form [role="radio"] { border-radius: 999px !important; }
 .h-form-textarea { width: 100%; background: var(--bg); color: var(--fg); padding: 14px; font-size: 16px; font-family: inherit; resize: vertical; outline: none; }
-.btn-primary.h-form-submit { width: 100%; margin-top: 4px; padding: 18px; }
-.btn-primary.h-form-submit:disabled { opacity: 0.7; cursor: default; transform: none; }
+/* Le formulaire est le chemin de secours : son bouton est secondaire, cadré, pour ne pas disputer
+   la première place à « Créer mon club ». */
+.h-form-submit {
+  width: 100%; margin-top: 4px; padding: 16px; display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+  border: 1.5px solid var(--fg); border-radius: 999px; color: var(--fg); font-size: 15px; font-weight: 700;
+  transition: background 0.2s, color 0.2s;
+}
+.h-form-submit:hover { background: var(--fg); color: var(--bg); }
+.h-form-submit:disabled { opacity: 0.6; cursor: default; }
+.h-final-cta { margin-top: 30px; }
 .h-form-error { font-size: 13px; color: var(--h-bad); text-align: center; }
 .h-form-ok { padding: 36px 8px; text-align: center; }
 .h-form-ok-icon { width: 64px; height: 64px; margin: 0 auto 22px; border-radius: 50%; display: grid; place-items: center; color: #fff; background: var(--primary); }
@@ -285,6 +296,7 @@
   .h-header-bar { height: 72px; padding: 0 32px; gap: 24px; }
   .h-header-actions { margin-left: 0; gap: 12px; }
   .h-header-theme { padding: 10px 14px; }
+  .h-header-app { min-width: 0; margin-right: 8px; }
 
   .h-hero { min-height: 100svh; display: flex; align-items: center; padding: 120px 0 72px; }
   .h-hero .hero-spot { background:
@@ -374,6 +386,7 @@
 @media (max-width: 360px) {
   .h-header-bar { padding: 0 14px; gap: 10px; }
   .h-header-actions { gap: 6px; }
+  .h-header-app { min-width: 36px; }
   .h-board { padding: 14px; }
   .h-board-points { font-size: 44px; }
   .h-board-feed li { gap: 8px; padding: 0 10px; }

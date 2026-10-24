@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next'
 import Accent from '../../components/Accent'
 import { IconArrow, IconX } from '../../components/Icons'
 import { useMobile } from '../../hooks/useMobile'
+import { clubSignupUrl } from '../../lib/siteUrls'
 import { ANCHORS } from '../copy'
 
 /** Une fois par session : le drapeau vit dans sessionStorage, qui peut manquer ou refuser l'écriture. */
@@ -62,8 +63,8 @@ export default function ExitIntent() {
         <p className="eyebrow h-season-tag">{t('cta.badge')}</p>
         <p className="display h-exit-title" id="exit-title"><Accent text={t('exit.title')} /></p>
         <p className="h-exit-text">{t('exit.text')}</p>
-        <a ref={ctaRef} href={`#${ANCHORS.join}`} className="btn-primary h-join-btn" onClick={() => setOpen(false)}>
-          {t('exit.cta')}
+        <a ref={ctaRef} href={clubSignupUrl()} className="btn-primary h-join-btn">
+          {t('cta.label')}
           <IconArrow size={15} stroke={2} />
         </a>
         <button type="button" className="h-exit-dismiss" onClick={() => setOpen(false)}>{t('exit.dismiss')}</button>

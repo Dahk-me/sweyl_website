@@ -11,9 +11,11 @@
     }
   },
   "cta": {
-    "label": "Únete a la temporada 26/27",
-    "micro": "Gratis para entrenadores y presidentes · Sin compromiso · Respuesta en 24 h",
-    "microShort": "Gratis para entrenadores y presidentes · Respuesta en 24 h",
+    "label": "Crear mi club",
+    "micro": "Gratis para entrenadores y presidentes · Sin compromiso · Listo en 2 minutos",
+    "microShort": "Gratis para entrenadores y presidentes · Listo en 2 minutos",
+    "app": "Acceder a la app",
+    "appMicro": "Con la invitación de tu club",
     "badge": "Temporada 2026/27 · Acceso abierto"
   },
   "hero": {
@@ -244,7 +246,7 @@
       },
       "onboarding": {
         "q": "¿Cuánto tiempo para estar operativos?",
-        "a": "Una demo, la puesta en marcha del club, unas pruebas. Te acompañamos de la A a la Z, y tu primer partido llega rápido."
+        "a": "Tu club queda creado en 2 minutos. Luego importas tus equipos y tu calendario FFBB, y te acompañamos si quieres."
       },
       "devices": {
         "q": "¿En qué dispositivos funciona?",
@@ -257,7 +259,7 @@
     "question": "¿Tu club la jugará con datos… o todavía a ciegas?",
     "sub": "Únete a los clubes que decidieron dejar de entrenar por instinto.",
     "trust": "Ya lo usan clubes franceses, de ligas regionales a locales",
-    "formTitle": "Tu acceso de club, en 30 segundos",
+    "formTitle": "¿Prefieres una demo? Te llamamos.",
     "fields": {
       "name": "Nombre",
       "email": "Email",
@@ -276,16 +278,16 @@
       "coach": "Entrenador",
       "other": "Otro"
     },
+    "submit": "Pedir una demo",
     "sending": "Enviando…",
     "error": "Se ha producido un error. Vuelve a intentarlo o escríbenos directamente a {{email}}",
     "micro": "Sin compromiso · Te acompañamos de la A a la Z · Respuesta en 24 h",
     "okTitle": "Recibido.",
-    "okText": "Tu acceso de club se está preparando. Te respondemos en 24 h para activarlo contigo."
+    "okText": "Te llamamos en 24 h para enseñarte SWEYL en tu club."
   },
   "exit": {
     "title": "¿Te vas *ya*?",
-    "text": "Deja tu club ahora: tu demo pasa a ser prioritaria.",
-    "cta": "Obtener el acceso de club",
+    "text": "Tu club puede estar listo en 2 minutos. Es gratis para entrenadores y presidentes.",
     "dismiss": "Más tarde",
     "close": "Cerrar"
   },
@@ -313,7 +315,9 @@
       "forWho": "¿Para quién?",
       "season": "Temporada 26/27",
       "faq": "FAQ",
-      "join": "Únete a la temporada"
+      "signup": "Crear mi club",
+      "app": "Acceder a la app",
+      "demo": "Pedir una demo"
     },
     "signature": "Hecho por los clubes, para los clubes"
   }

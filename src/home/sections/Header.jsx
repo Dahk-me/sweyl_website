@@ -1,12 +1,12 @@
 import React from 'react'
 import { useTranslation } from 'react-i18next'
 import { useTheme } from '../../contexts/theme'
-import { IconSun, IconMoon } from '../../components/Icons'
+import { IconSun, IconMoon, IconUser } from '../../components/Icons'
 import { useMobile } from '../../hooks/useMobile'
 import logoSvg from '/assets/LogoSweyl.svg'
 import LanguageSwitch from '../../components/LanguageSwitch'
 import SiteSwitch from '../../components/SiteSwitch'
-import { proUrl } from '../../lib/siteUrls'
+import { appUrl, proUrl } from '../../lib/siteUrls'
 import { ANCHORS, NAV } from '../copy'
 
 export default function Header() {
@@ -38,6 +38,11 @@ export default function Header() {
         )}
 
         <div className="h-header-actions">
+          {/* Pour qui a déjà un compte : un lien discret, le bouton principal reste « Créer mon club ». */}
+          <a href={appUrl()} className="h-header-app" aria-label={t('cta.app')}>
+            <IconUser size={15} />
+            {!mobile && <span>{t('cta.app')}</span>}
+          </a>
           <LanguageSwitch compact={mobile} />
           <button
             type="button"
