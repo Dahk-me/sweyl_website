@@ -1,12 +1,11 @@
 import React from 'react'
 import { useTranslation } from 'react-i18next'
 import { useTheme } from '../../contexts/theme'
-import { IconArrow, IconSun, IconMoon } from '../../components/Icons'
+import { IconSun, IconMoon } from '../../components/Icons'
 import { useMobile } from '../../hooks/useMobile'
 import logoSvg from '/assets/LogoSweyl.svg'
-import SweylProMark from '../../components/SweylProMark'
 import LanguageSwitch from '../../components/LanguageSwitch'
-import { proUrl } from '../../lib/siteUrls'
+import ProButton from '../components/ProButton'
 import { ANCHORS, NAV } from '../copy'
 
 export default function Header() {
@@ -38,8 +37,6 @@ export default function Header() {
         )}
 
         <div className="h-header-actions">
-          {/* L'offre Pro, toujours visible : un bandeau disparaissait au premier défilement. */}
-          <SweylProMark href={proUrl()} />
           <LanguageSwitch compact={mobile} />
           <button
             type="button"
@@ -50,10 +47,9 @@ export default function Header() {
             {theme === 'dark' ? <IconSun size={14} /> : <IconMoon size={14} />}
             {!mobile && <span>{t(theme === 'dark' ? 'common:theme.light' : 'common:theme.dark')}</span>}
           </button>
-          <a href={`#${ANCHORS.join}`} className="btn-primary h-header-cta">
-            {mobile ? t('cta.short') : t('cta.label')}
-            {!mobile && <IconArrow size={12} stroke={2} />}
-          </a>
+          {/* L'offre Pro, toujours visible et tout à droite. Le bouton « Rejoindre » est parti dans
+              la barre du bas, affichée dès qu'on défile (Ismail, 24/10/2026). */}
+          <ProButton />
         </div>
       </div>
     </header>

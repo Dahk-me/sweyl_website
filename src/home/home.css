@@ -51,7 +51,18 @@
   display: inline-flex; align-items: center; justify-content: center; gap: 6px;
   border: 1px solid var(--line-2); color: var(--fg); padding: 8px 10px; font-size: 11px; border-radius: 999px;
 }
-.btn-primary.h-header-cta { padding: 10px 14px; font-size: 12.5px; font-weight: 700; }
+.h-pro-btn {
+  display: inline-flex; align-items: center; gap: 8px; flex-shrink: 0; padding: 9px 14px; border-radius: 999px;
+  border: 1.5px solid var(--primary); background: color-mix(in srgb, var(--primary) 10%, transparent);
+  color: var(--fg); font-size: 12px; line-height: 1; transition: background 0.2s, color 0.2s;
+}
+.h-pro-btn .sweyl-pro-mark-word { letter-spacing: 0.18em; margin-right: -0.18em; }
+.h-pro-btn .sweyl-pro-mark-pro { font-size: 11px; transition: color 0.2s; }
+.h-pro-btn svg { color: var(--primary); transition: color 0.2s, transform 0.2s; }
+.h-pro-btn:hover { background: var(--primary); color: #fff; }
+.h-pro-btn:hover .sweyl-pro-mark-pro, .h-pro-btn:hover svg { color: #fff; }
+.h-pro-btn:hover svg { transform: translateX(2px); }
+.h-pro-btn:focus-visible { outline: 2px solid var(--primary); outline-offset: 3px; }
 
 /* ── Hero ──
    Sur le téléphone, le premier écran ne porte que la question, une phrase et le bouton : le
@@ -252,17 +263,22 @@
 .h-footer-col a:hover { color: var(--fg); }
 .h-footer-bottom { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; padding-top: 16px; border-top: 1px solid var(--line); font-size: 10px; letter-spacing: 0.12em; color: var(--fg-4); text-transform: uppercase; }
 
-/* ── Barre collante (mobile) ── */
+/* ── Barre d'appel du bas ──
+   Affichée dès qu'on commence à défiler, sur mobile comme sur ordinateur, jusqu'au pied de page :
+   le pied de page lui laisse donc sa hauteur pour que rien ne passe dessous. */
+:root { --h-sticky-h: 96px; }
 .h-sticky {
   position: fixed; left: 0; right: 0; bottom: 0; z-index: 60;
-  padding: 10px 16px calc(10px + env(safe-area-inset-bottom));
+  padding: 10px 0 calc(10px + env(safe-area-inset-bottom));
   background: var(--bg-glass); border-top: 1px solid var(--line);
   backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
   transform: translateY(110%); transition: transform 0.35s cubic-bezier(.2,.8,.2,1);
 }
 .h-sticky.is-on { transform: none; }
+.h-sticky-bar { max-width: 1240px; margin: 0 auto; padding: 0 16px; }
 .btn-primary.h-sticky-btn { width: 100%; justify-content: center; padding: 14px; font-size: 15px; font-weight: 700; }
 .h-sticky-micro { margin-top: 6px; text-align: center; font-size: 11px; color: var(--fg-3); }
+.h-footer { padding-bottom: calc(32px + var(--h-sticky-h) + env(safe-area-inset-bottom)); }
 
 /* ── Intention de départ (ordinateur) ── */
 .h-exit { position: fixed; inset: 0; z-index: 80; display: grid; place-items: center; padding: 20px; background: rgba(0,0,0,0.62); animation: hFade 0.25s ease-out; }
@@ -297,7 +313,8 @@
   .h-header-bar { height: 72px; padding: 0 32px; gap: 24px; }
   .h-header-actions { margin-left: 0; gap: 12px; }
   .h-header-theme { padding: 10px 14px; }
-  .btn-primary.h-header-cta { padding: 11px 18px; font-size: 13px; }
+  .h-pro-btn { padding: 11px 18px; font-size: 13px; gap: 10px; }
+  .h-pro-btn .sweyl-pro-mark-pro { font-size: 12px; }
 
   .h-hero { min-height: 100svh; display: flex; align-items: center; padding: 120px 0 72px; }
   .h-hero .hero-spot { background:
@@ -376,7 +393,12 @@
   .h-form { padding: 36px; gap: 18px; }
   .h-form-row { grid-template-columns: 1fr 1fr; }
 
-  .h-footer { padding: 64px 0 36px; }
+  :root { --h-sticky-h: 76px; }
+  .h-sticky { padding: 12px 0; }
+  .h-sticky-bar { display: flex; flex-direction: row-reverse; align-items: center; justify-content: space-between; gap: 24px; padding: 0 32px; }
+  .btn-primary.h-sticky-btn { width: auto; padding: 14px 28px; }
+  .h-sticky-micro { margin-top: 0; font-size: 13px; text-align: left; }
+  .h-footer { padding: 64px 0 calc(36px + var(--h-sticky-h)); }
   .h-footer-grid { grid-template-columns: 2fr 1fr 1fr 1fr; gap: 60px; margin-bottom: 48px; }
   .h-footer-brand { grid-column: auto; }
   .h-footer-brand img { height: 28px; }
@@ -387,7 +409,8 @@
 @media (max-width: 360px) {
   .h-header-bar { padding: 0 14px; gap: 10px; }
   .h-header-actions { gap: 6px; }
-  .btn-primary.h-header-cta { padding: 10px 11px; }
+  .h-pro-btn { padding: 9px 11px; gap: 6px; }
+  .h-pro-btn .sweyl-pro-mark-word { letter-spacing: 0.12em; margin-right: -0.12em; }
   .h-board { padding: 14px; }
   .h-board-points { font-size: 44px; }
   .h-board-feed li { gap: 8px; padding: 0 10px; }

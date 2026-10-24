@@ -126,8 +126,9 @@ dans `src/home/`, sur le modèle de `src/pro/` : **textes** dans `src/i18n/local
 - ⚠️ **Le mot « pro » n'est jamais un niveau sur `sweyl.com`** (« ton club passe pro », « goes
   pro ») : le visiteur le confond avec l'offre **SWEYL PRO** (*Ismail, 24/10/2026*). « Comme chez
   les pros », qui parle des équipes professionnelles, et les citations des clubs restent permis.
-- **Barre collante sur mobile** (`StickyJoin`), cachée dès qu'un bouton « Rejoindre », le
-  formulaire ou le pied de page est à l'écran : elle ne double jamais un bouton visible ; **invitation de sortie sur ordinateur** (`ExitIntent`), une fois par session, jamais avant
+- **La barre d'appel du bas** (`StickyJoin`) s'affiche dès qu'on commence à défiler, sur mobile
+  comme sur ordinateur, et reste jusqu'au pied de page, qui lui réserve sa hauteur. C'est elle qui
+  porte « Rejoindre » : **le header n'a plus de bouton Rejoindre** (*Ismail, 24/10/2026*) ; **invitation de sortie sur ordinateur** (`ExitIntent`), une fois par session, jamais avant
   huit secondes de lecture ni quand le formulaire est à l'écran.
 - `src/index.css` reste partagé avec le Pro : ses classes `hero-line`, `hero-logo`, `hero-rise`,
   `hero-wordmark` servent aux deux sites, la mise en page de chaque hero vit dans sa feuille.
@@ -172,9 +173,11 @@ au **staff d'une équipe de prénationale à N1**, pas aux clubs amateurs.
   `sweyl.com` et `pro.sweyl.com`, même serveur partout ailleurs (local, prévisualisation).
 
 **La marque « SWEYL PRO »** (`src/components/SweylProMark.jsx`) : « SWEYL » dans la couleur du
-texte, « PRO » en orange, cadre orange. Sur `sweyl.com`, c'est un lien vers `pro.sweyl.com` parmi
-les boutons du header, toujours visible ; il remplace le bandeau du handoff, qui disparaissait au
-premier défilement (*arbitrage d'Ismail du 19/10/2026*). Sur la page Pro, elle suit le logo, à la
+texte, « PRO » en orange, cadre orange. Sur `sweyl.com`, elle devient un **vrai bouton, tout à
+droite du header** (`src/home/components/ProButton.jsx` : pastille, flèche, survol plein orange),
+toujours visible ; elle remplace le bandeau du handoff, qui disparaissait au premier défilement
+(*arbitrage d'Ismail du 19/10/2026*), et la marque seule ne se lisait pas comme cliquable
+(*Ismail, 24/10/2026*). Sur la page Pro, elle suit le logo, à la
 place du mot SWEYL.
 
 **Captures recomposées** : une capture peut réagencer les vrais composants de l'application (la

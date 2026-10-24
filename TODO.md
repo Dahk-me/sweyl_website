@@ -498,6 +498,9 @@ mobile était trop condensé. Les règles du lot 12, qui l'interdisaient déjà,
 - [x] « Ton club passe pro » devient « ton club change de niveau » (*levels up*, *sube de
   nivel*) : « pro » se confondait avec l'offre SWEYL PRO. Les 3 gestes retrouvent leur fil à trois
   points, vertical sur mobile.
+- [x] La barre « Rejoindre la saison 26/27 » s'affiche dès qu'on défile, sur mobile et ordinateur,
+  jusqu'au pied de page ; le bouton « Rejoindre » du header est retiré, et SWEYL PRO devient un
+  vrai bouton tout à droite.
 - [x] Deux phrases du brief réécrites (« Une seule app. Tout le club. Toute la saison. » et
   « Plus d'impressions. Des faits. »), formes bannies, avec l'accord d'Ismail.
 
