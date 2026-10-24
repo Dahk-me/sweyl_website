@@ -5,7 +5,8 @@ import { IconSun, IconMoon } from '../../components/Icons'
 import { useMobile } from '../../hooks/useMobile'
 import logoSvg from '/assets/LogoSweyl.svg'
 import LanguageSwitch from '../../components/LanguageSwitch'
-import ProButton from '../components/ProButton'
+import SiteSwitch from '../../components/SiteSwitch'
+import { proUrl } from '../../lib/siteUrls'
 import { ANCHORS, NAV } from '../copy'
 
 export default function Header() {
@@ -47,9 +48,9 @@ export default function Header() {
             {theme === 'dark' ? <IconSun size={14} /> : <IconMoon size={14} />}
             {!mobile && <span>{t(theme === 'dark' ? 'common:theme.light' : 'common:theme.dark')}</span>}
           </button>
-          {/* L'offre Pro, toujours visible et tout à droite. Le bouton « Rejoindre » est parti dans
-              la barre du bas, affichée dès qu'on défile (Ismail, 24/10/2026). */}
-          <ProButton />
+          {/* L'offre Pro, toujours visible et tout à droite, symétrique du « SWEYL CLUB » du Pro.
+              Le bouton « Rejoindre » est parti dans la barre du bas (Ismail, 24/10/2026). */}
+          <SiteSwitch href={proUrl()} suffix="PRO" label="Sweyl Pro" />
         </div>
       </div>
     </header>

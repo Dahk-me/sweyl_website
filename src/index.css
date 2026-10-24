@@ -142,6 +142,53 @@ a.sweyl-pro-mark:hover { background: color-mix(in srgb, var(--primary) 10%, tran
   a.sweyl-pro-mark { padding-top: 0; padding-bottom: 0; }
 }
 
+/* ── Passage d'un site à l'autre (SiteSwitch) ──
+   Tout à droite du header, symétrique : « SWEYL PRO » sur sweyl.com, « SWEYL CLUB » sur le Pro. */
+.site-switch {
+  display: inline-flex; align-items: center; gap: 8px; flex-shrink: 0; padding: 9px 14px; border-radius: 999px;
+  border: 1.5px solid var(--primary); background: color-mix(in srgb, var(--primary) 10%, transparent);
+  color: var(--fg); font-size: 12px; line-height: 1; transition: background 0.2s, color 0.2s;
+}
+.site-switch .sweyl-pro-mark-word { letter-spacing: 0.18em; margin-right: -0.18em; }
+.site-switch .sweyl-pro-mark-pro { font-size: 11px; transition: color 0.2s; }
+.site-switch svg { color: var(--primary); transition: color 0.2s, transform 0.2s; }
+.site-switch:hover { background: var(--primary); color: #fff; }
+.site-switch:hover .sweyl-pro-mark-pro, .site-switch:hover svg { color: #fff; }
+.site-switch:hover svg { transform: translateX(2px); }
+.site-switch:focus-visible { outline: 2px solid var(--primary); outline-offset: 3px; }
+@media (min-width: 769px) {
+  .site-switch { padding: 11px 18px; font-size: 13px; gap: 10px; }
+  .site-switch .sweyl-pro-mark-pro { font-size: 12px; }
+}
+@media (max-width: 360px) {
+  .site-switch { padding: 9px 11px; gap: 6px; }
+  .site-switch .sweyl-pro-mark-word { letter-spacing: 0.12em; margin-right: -0.12em; }
+}
+
+/* ── Barre d'appel du bas (StickyCta) ──
+   Affichée dès qu'on défile, sur les deux sites, jusqu'au pied de page : chaque pied de page
+   réserve --sticky-cta-h pour que rien ne passe dessous. */
+:root { --sticky-cta-h: 96px; }
+.sticky-cta {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 60;
+  padding: 10px 0 calc(10px + env(safe-area-inset-bottom));
+  background: var(--bg-glass); border-top: 1px solid var(--line);
+  backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+  transform: translateY(110%); transition: transform 0.35s cubic-bezier(.2,.8,.2,1);
+}
+.sticky-cta.is-on { transform: none; }
+.sticky-cta-bar { max-width: 1240px; margin: 0 auto; padding: 0 16px; }
+.btn-primary.sticky-cta-btn { width: 100%; justify-content: center; padding: 14px; font-size: 15px; font-weight: 700; }
+.sticky-cta-micro { margin-top: 6px; text-align: center; font-size: 11px; color: var(--fg-3); }
+@media (min-width: 769px) {
+  :root { --sticky-cta-h: 76px; }
+  .sticky-cta { padding: 12px 0; }
+  .sticky-cta-bar { display: flex; flex-direction: row-reverse; align-items: center; justify-content: space-between; gap: 24px; padding: 0 32px; }
+  .btn-primary.sticky-cta-btn { width: auto; padding: 14px 28px; }
+  .sticky-cta-micro { margin-top: 0; font-size: 13px; text-align: left; }
+}
+@media (prefers-reduced-motion: reduce) { .sticky-cta { transition: none; } }
+
 /* Mot en orange d'un titre traduit (Accent.jsx). */
 .accent { color: var(--primary); }
 

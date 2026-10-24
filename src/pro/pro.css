@@ -20,14 +20,10 @@
 .pro-header-row { display: flex; align-items: center; gap: 16px; height: 72px; max-width: 1300px; margin: 0 auto; padding: 0 32px; }
 .pro-header-sp { flex: 1; }
 .pro-header-row > a:first-child { display: flex; align-items: center; }
-.pro-header-back { font-size: 13px; color: var(--fg-2); transition: color 0.2s; }
-.pro-header-back:hover { color: var(--fg); }
 .pro-theme {
   display: inline-flex; align-items: center; gap: 6px; border: 1px solid var(--line-2);
   color: var(--fg); padding: 10px 14px; font-size: 11px; border-radius: 999px;
 }
-.pro-header .btn-primary { padding: 10px 18px; font-size: 12px; }
-.pro-short { display: none; }
 
 /* Hero */
 .pro-hero { position: relative; overflow: hidden; min-height: 100svh; display: flex; align-items: center; isolation: isolate; }
@@ -114,7 +110,7 @@
 .pro-check { width: 24px; height: 24px; border: 1px solid var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--primary); flex: none; }
 
 /* Pied */
-.pro-footer { border-top: 1px solid var(--line); padding: 56px 0 36px; }
+.pro-footer { border-top: 1px solid var(--line); padding: 56px 0 calc(36px + var(--sticky-cta-h)); }
 .pro-footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 60px; margin-bottom: 44px; }
 .pro-footer p { font-size: 13px; color: var(--fg-3); line-height: 1.6; max-width: 300px; margin-top: 14px; }
 .pro-footer h6 { font: 500 10px 'JetBrains Mono', monospace; letter-spacing: 0.18em; color: var(--fg-3); margin-bottom: 14px; }
@@ -131,11 +127,11 @@
 @media (max-width: 768px) {
   .pro-in { padding: 0 20px; }
   .pro-header-row { height: 56px; padding: 0 16px; gap: 10px; }
-  .pro-header-back, .pro-long, .pro-theme-label { display: none; }
-  .pro-short { display: inline; }
+  .pro-theme-label { display: none; }
+  /* Comme sur sweyl.com, le header mobile ne garde que le logo : la place va au bouton de passage. */
+  .pro-header .pro-brand .sweyl-pro-mark { display: none; }
   .pro-theme { padding: 8px 10px; min-width: 44px; justify-content: center; }
   .pro-header .lang-switch { padding: 8px 10px; }
-  .pro-header .btn-primary { padding: 10px 14px; }
 
   .pro-hero { min-height: 100svh; align-items: center; }
   .pro-board { width: 118%; right: -40%; top: 7%; transform: none; opacity: 0.32; }
@@ -172,7 +168,7 @@
   .pro-lead-title { order: 0; position: static; }
   .pro-lead h2 { font-size: clamp(36px, 10vw, 56px); }
 
-  .pro-footer { padding: 48px 0 28px; }
+  .pro-footer { padding: 48px 0 calc(28px + var(--sticky-cta-h) + env(safe-area-inset-bottom)); }
   .pro-footer-grid { grid-template-columns: 1fr 1fr; gap: 24px; }
   .pro-footer-grid > div:first-child { grid-column: 1 / -1; }
 }

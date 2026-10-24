@@ -501,6 +501,9 @@ mobile était trop condensé. Les règles du lot 12, qui l'interdisaient déjà,
 - [x] La barre « Rejoindre la saison 26/27 » s'affiche dès qu'on défile, sur mobile et ordinateur,
   jusqu'au pied de page ; le bouton « Rejoindre » du header est retiré, et SWEYL PRO devient un
   vrai bouton tout à droite.
+- [x] Le Pro devient symétrique : « SWEYL CLUB » en vrai bouton tout à droite, plus de « Réserver
+  une démo » dans le header mais une barre du bas qui s'affiche dès qu'on défile. Bouton de passage
+  (`SiteSwitch`) et barre (`StickyCta`) partagés par les deux sites.
 - [x] Deux phrases du brief réécrites (« Une seule app. Tout le club. Toute la saison. » et
   « Plus d'impressions. Des faits. »), formes bannies, avec l'accord d'Ismail.
 

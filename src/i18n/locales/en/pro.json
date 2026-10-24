@@ -4,9 +4,7 @@
     "description": "Scouting, stats for both teams and video synced to every play. Coming soon, demo by appointment."
   },
   "header": {
-    "back": "Sweyl for clubs",
-    "cta": "Book a demo",
-    "ctaShort": "Demo"
+    "back": "Sweyl for clubs"
   },
   "hero": {
     "eyebrow": "Coming soon",

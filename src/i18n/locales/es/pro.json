@@ -4,9 +4,7 @@
     "description": "Scouting, estadísticas de los dos equipos y vídeo sincronizado con cada acción. Próximamente, demo con cita previa."
   },
   "header": {
-    "back": "Sweyl para clubes",
-    "cta": "Reservar una demo",
-    "ctaShort": "Demo"
+    "back": "Sweyl para clubes"
   },
   "hero": {
     "eyebrow": "Próximamente",
