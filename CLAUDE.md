@@ -121,6 +121,11 @@ dans `src/home/`, sur le modèle de `src/pro/` : **textes** dans `src/i18n/local
   `api/_lib/leadValidation.js`).
 - **Les logos défilent** (`Marquee`) : sur mobile, aucune ligne ne les tient tous
   (*Ismail, 24/10/2026*).
+- **Les 3 gestes gardent leur fil** : trois points reliés par une ligne qui se remplit,
+  horizontal sur ordinateur, vertical sur mobile (*Ismail, 24/10/2026*).
+- ⚠️ **Le mot « pro » n'est jamais un niveau sur `sweyl.com`** (« ton club passe pro », « goes
+  pro ») : le visiteur le confond avec l'offre **SWEYL PRO** (*Ismail, 24/10/2026*). « Comme chez
+  les pros », qui parle des équipes professionnelles, et les citations des clubs restent permis.
 - **Barre collante sur mobile** (`StickyJoin`), cachée dès qu'un bouton « Rejoindre », le
   formulaire ou le pied de page est à l'écran : elle ne double jamais un bouton visible ; **invitation de sortie sur ordinateur** (`ExitIntent`), une fois par session, jamais avant
   huit secondes de lecture ni quand le formulaire est à l'écran.

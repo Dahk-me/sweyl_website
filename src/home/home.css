@@ -131,9 +131,17 @@
 .h-benefit-text { margin-top: 6px; font-size: 15.5px; line-height: 1.5; color: var(--fg-2); }
 
 /* ── Les trois gestes ── */
-.h-steps { list-style: none; display: grid; gap: 36px; }
-.h-step { padding-top: 20px; border-top: 2px solid var(--fg); }
-.h-step-label { font-size: 10.5px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--fg-3); }
+/* Le fil : un point par geste, une ligne de l'un au suivant (vertical ici, horizontal sur ordinateur).
+   L'anneau du point prend la couleur du fond pour couper la ligne proprement. */
+.h-steps { list-style: none; display: grid; }
+.h-step { position: relative; padding: 0 0 44px 36px; }
+.h-step:last-child { padding-bottom: 0; }
+.h-step-node { position: absolute; z-index: 1; left: 0; top: 1px; width: 14px; height: 14px; border-radius: 50%; background: var(--primary); box-shadow: 0 0 0 5px var(--bg); }
+.h-step::before, .h-step::after { content: ''; position: absolute; left: 6px; top: 8px; width: 2px; height: 100%; background: var(--line-2); }
+.h-step::after { background: var(--primary); transform: scaleY(0); transform-origin: top; transition: transform 0.9s cubic-bezier(.2,.8,.2,1) 0.35s; }
+.h-step.in::after { transform: scaleY(1); }
+.h-step:last-child::before, .h-step:last-child::after { display: none; }
+.h-step-label { font-size: 10.5px; line-height: 16px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--fg-3); }
 .h-step h3 { margin-top: 10px; font-size: 23px; font-weight: 700; line-height: 1.2; letter-spacing: -0.01em; color: var(--fg); }
 .h-step-text { margin-top: 8px; font-size: 16px; line-height: 1.5; color: var(--fg-2); }
 .h-how-end { margin-top: 72px; }
@@ -317,7 +325,11 @@
   .h-benefit-text { font-size: 17px; }
 
   .h-steps { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 48px; }
-  .h-step { padding-top: 26px; }
+  .h-step { padding: 38px 0 0; }
+  .h-step-node { top: 0; }
+  .h-step::before, .h-step::after { left: 7px; top: 6px; width: calc(100% + 48px); height: 2px; }
+  .h-step::after { transform: scaleX(0); transform-origin: left; }
+  .h-step.in::after { transform: scaleX(1); }
   .h-step h3 { font-size: 26px; }
   .h-step-text { font-size: 17px; }
   .h-how-end { margin-top: 112px; }
@@ -384,6 +396,6 @@
 @media (prefers-reduced-motion: reduce) {
   [data-reveal] { opacity: 1 !important; transform: none !important; transition: none !important; }
   .h-bump, .h-board-feed li:first-child, .h-role-panel, .h-exit, .h-exit-dialog { animation: none !important; }
-  .h-season-fill { transition: none !important; }
+  .h-season-fill, .h-step::after { transition: none !important; }
   .h-sticky { transition: none; }
 }

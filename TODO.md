@@ -495,6 +495,9 @@ mobile était trop condensé. Les règles du lot 12, qui l'interdisaient déjà,
 - [x] Gestes, comparatif et FAQ sans ronds, croix, coches ni cartes ; en-têtes alignés à gauche.
 - [x] Logos de nouveau en bandeau défilant ; chiffres fixes ; citations sans guillemet géant ni
   avatar ; barre collante qui ne double plus un bouton visible.
+- [x] « Ton club passe pro » devient « ton club change de niveau » (*levels up*, *sube de
+  nivel*) : « pro » se confondait avec l'offre SWEYL PRO. Les 3 gestes retrouvent leur fil à trois
+  points, vertical sur mobile.
 - [x] Deux phrases du brief réécrites (« Une seule app. Tout le club. Toute la saison. » et
   « Plus d'impressions. Des faits. »), formes bannies, avec l'accord d'Ismail.
 
