@@ -19,7 +19,8 @@
   },
   "hero": {
     "title": "Tu coaches encore\n*à l'aveugle* ?",
-    "sub": "Pendant que les pros décident avec des données, tu notes encore sur un bout de papier ou sur Excel. SWEYL transforme ton club amateur en machine qui progresse vraiment.",
+    "sub": "Pendant que les pros décident avec des données, tu notes encore sur un bout de papier ou sur Excel.",
+    "subMore": "SWEYL transforme ton club amateur en machine qui progresse vraiment.",
     "proof": "Déjà {{players}} joueurs · {{coaches}} coachs",
     "board": {
       "live": "Live",
@@ -68,12 +69,12 @@
   "vision": {
     "eyebrow": "Coachs · Joueurs · Familles · Dirigeants",
     "title": "Le club entier,\n*enfin connecté.*",
-    "intro": "Une seule app. Tout le club. Toute la saison. Comme chez les pros, mais fait pour l'amateur.",
+    "intro": "Tout le club, toute la saison, dans la même app. Comme chez les pros, mais fait pour l'amateur.",
     "benefits": {
       "coach": {
         "label": "Coach",
         "title": "Le coach décide enfin avec des données",
-        "text": "Plus d'impressions. Des faits, avant, pendant et après le match."
+        "text": "Tu décides sur des faits, avant, pendant et après le match."
       },
       "players": {
         "label": "Joueurs",
@@ -95,6 +96,7 @@
   "steps": {
     "eyebrow": "Mise en route",
     "title": "En 3 gestes, ton club *passe pro.*",
+    "label": "Geste {{number}}",
     "items": {
       "activate": {
         "title": "Tu actives ton club",
@@ -119,8 +121,6 @@
       "coach": {
         "label": "Coach",
         "text": "Prépare tes matchs, décide en live, analyse après. Plus jamais de « j'ai l'impression que… ».",
-        "more": "Voir ce que SWEYL change pour les coachs",
-        "headline": "Prépare. Décide.\nAnalyse.",
         "proofs": {
           "video": "La vidéo calée sur les stats",
           "sheet": "La feuille de match remplie toute seule",
@@ -130,8 +130,6 @@
       "president": {
         "label": "Président",
         "text": "Ton club en un coup d'œil. Engagement, présences, progression de chaque équipe.",
-        "more": "Voir la vision club",
-        "headline": "Tout ton club,\nd'un coup d'œil.",
         "proofs": {
           "teams": "Toutes les équipes sur un écran",
           "attendance": "Les présences aux entraînements",
@@ -141,8 +139,6 @@
       "player": {
         "label": "Joueur",
         "text": "Ton profil, tes stats, ta progression. Ton histoire te suit, même si tu changes de club.",
-        "more": "Voir mon futur profil",
-        "headline": "Ton histoire\nte suit.",
         "proofs": {
           "season": "Ta fiche de saison et tes moyennes",
           "progress": "Ta courbe, match après match",
@@ -152,8 +148,6 @@
       "parent": {
         "label": "Parent",
         "text": "Le live et les notifications. Tu suis vraiment le match, même loin des tribunes.",
-        "more": "Suivre mon enfant, mon équipe",
-        "headline": "Tu suis vraiment\nle match.",
         "proofs": {
           "live": "Le match en direct",
           "weekend": "Le résultat du week-end",

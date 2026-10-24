@@ -108,13 +108,21 @@ dans `src/home/`, sur le modèle de `src/pro/` : **textes** dans `src/i18n/local
 - **Les ancres `#vision`, `#season` et `#join` ne se renomment pas** : des liens déjà envoyés aux
   clubs y pointent (`ANCHORS` dans `copy.js`).
 - **Le hero montre ce que la saisie produit**, dessiné en CSS (`LiveBoard.jsx` : score, fil,
-  fiche du joueur), jamais l'écran de saisie. Noms inventés, aucun vrai club.
+  fiche du joueur), jamais l'écran de saisie. Noms inventés, aucun vrai club. À plat : ni
+  inclinaison, ni flottement, ni lueur orange.
+- **Sur le téléphone, le premier écran ne porte que la question, une phrase et le bouton** ; le
+  tableau dépasse du bas de l'écran pour appeler le défilement, la suite du texte vient sous lui
+  (*retour d'Ismail du 24/10/2026 : « trop condensé, ça ne donne pas envie d'aller plus loin »*).
 - **Les chiffres vivent une fois**, dans `STATS` de `copy.js`, et se formatent selon la langue
   (`formatStat`) ; le hero et la preuve les lisent au même endroit.
-- **Rejoindre depuis une carte « Pour qui » pré-remplit le rôle** du formulaire (joueur et parent
-  passent par « Autre », seuls rôles acceptés par `api/_lib/leadValidation.js`).
-- **Barre collante sur mobile** (`StickyJoin`), cachée sur le hero, le formulaire et le pied de
-  page ; **invitation de sortie sur ordinateur** (`ExitIntent`), une fois par session, jamais avant
+- **« Pour qui » est un sélecteur de grands mots**, comme les noms d'équipes d'un tableau
+  d'affichage, pas une grille de cartes. Rejoindre depuis un rôle pré-remplit le rôle du
+  formulaire (joueur et parent passent par « Autre », seuls rôles acceptés par
+  `api/_lib/leadValidation.js`).
+- **Les logos défilent** (`Marquee`) : sur mobile, aucune ligne ne les tient tous
+  (*Ismail, 24/10/2026*).
+- **Barre collante sur mobile** (`StickyJoin`), cachée dès qu'un bouton « Rejoindre », le
+  formulaire ou le pied de page est à l'écran : elle ne double jamais un bouton visible ; **invitation de sortie sur ordinateur** (`ExitIntent`), une fois par session, jamais avant
   huit secondes de lecture ni quand le formulaire est à l'écran.
 - `src/index.css` reste partagé avec le Pro : ses classes `hero-line`, `hero-logo`, `hero-rise`,
   `hero-wordmark` servent aux deux sites, la mise en page de chaque hero vit dans sa feuille.

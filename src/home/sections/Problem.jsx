@@ -4,7 +4,11 @@ import Accent from '../../components/Accent'
 import SectionHead from '../components/SectionHead'
 import { ANCHORS, PROBLEMS, seasonProgress } from '../copy'
 
-/** Faire ressentir la douleur : coacher et diriger sans données. Puis la saison qui file. */
+/**
+ * Faire ressentir la douleur : coacher et diriger sans données. Un manifeste plutôt que des
+ * cartes : chaque douleur est une phrase en grand, son explication dessous, un filet entre elles.
+ * Ni icône ni numéro (CLAUDE.md, « Ne jamais avoir l'air fait par une IA »).
+ */
 export default function Problem() {
   const { t, i18n } = useTranslation()
   const { season, ratio } = seasonProgress()
@@ -15,13 +19,11 @@ export default function Problem() {
       <div className="h-wrap">
         <SectionHead eyebrow={t('problem.eyebrow')} title={t('problem.title')} sub={t('problem.intro')} />
 
-        <div className="h-problem-grid">
-          {PROBLEMS.map(({ id, Icon }, i) => (
-            <article key={id} className="h-problem-card" data-reveal style={{ transitionDelay: `${i * 90}ms` }}>
-              <span className="h-problem-num display" aria-hidden="true">0{i + 1}</span>
-              <span className="h-problem-icon"><Icon size={22} stroke={1.8} /></span>
-              <h3>{t(`problem.cards.${id}.title`)}</h3>
-              <p>{t(`problem.cards.${id}.text`)}</p>
+        <div className="h-pains">
+          {PROBLEMS.map(id => (
+            <article key={id} className="h-pain" data-reveal>
+              <h3 className="display h-pain-title">{t(`problem.cards.${id}.title`)}</h3>
+              <p className="h-pain-text">{t(`problem.cards.${id}.text`)}</p>
             </article>
           ))}
         </div>

@@ -5,7 +5,7 @@ import SectionHead from '../components/SectionHead'
 import JoinButton from '../components/JoinButton'
 import { ANCHORS, STEPS } from '../copy'
 
-/** Trois gestes, du club activé au match que tout le monde suit. */
+/** Trois gestes, du club activé au match que tout le monde suit. Le numéro est un repère écrit, pas un rond décoratif. */
 export default function HowItWorks() {
   const { t } = useTranslation()
   return (
@@ -15,19 +15,17 @@ export default function HowItWorks() {
 
         <ol className="h-steps">
           {STEPS.map((id, i) => (
-            <li key={id} className="h-step" data-reveal style={{ transitionDelay: `${i * 140}ms` }}>
-              <span className="h-step-num" aria-hidden="true">{i + 1}</span>
-              <div>
-                <h3>{t(`steps.items.${id}.title`)}</h3>
-                <p>{t(`steps.items.${id}.text`)}</p>
-              </div>
+            <li key={id} className="h-step" data-reveal style={{ transitionDelay: `${i * 120}ms` }}>
+              <p className="h-step-label mono">{t('steps.label', { number: i + 1 })}</p>
+              <h3>{t(`steps.items.${id}.title`)}</h3>
+              <p className="h-step-text">{t(`steps.items.${id}.text`)}</p>
             </li>
           ))}
         </ol>
 
         <div className="h-how-end" data-reveal>
           <p className="display h-how-closing"><Accent text={t('steps.closing')} /></p>
-          <JoinButton align="center" />
+          <JoinButton />
         </div>
       </div>
     </section>

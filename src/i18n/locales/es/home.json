@@ -19,7 +19,8 @@
   },
   "hero": {
     "title": "¿Sigues entrenando\n*a ciegas*?",
-    "sub": "Mientras los profesionales deciden con datos, tú sigues apuntando en un papel o en Excel. SWEYL convierte tu club amateur en una máquina que progresa de verdad.",
+    "sub": "Mientras los profesionales deciden con datos, tú sigues apuntando en un papel o en Excel.",
+    "subMore": "SWEYL convierte tu club amateur en una máquina que progresa de verdad.",
     "proof": "Ya {{players}} jugadores · {{coaches}} entrenadores",
     "board": {
       "live": "Live",
@@ -68,12 +69,12 @@
   "vision": {
     "eyebrow": "Entrenadores · Jugadores · Familias · Directivos",
     "title": "Todo el club,\n*por fin conectado.*",
-    "intro": "Una sola app. Todo el club. Toda la temporada. Como los profesionales, pero hecha para el amateur.",
+    "intro": "Todo el club, toda la temporada, en la misma app. Como los profesionales, pero hecha para el amateur.",
     "benefits": {
       "coach": {
         "label": "Entrenador",
         "title": "El entrenador por fin decide con datos",
-        "text": "Se acabaron las impresiones. Hechos, antes, durante y después del partido."
+        "text": "Decides con hechos, antes, durante y después del partido."
       },
       "players": {
         "label": "Jugadores",
@@ -95,6 +96,7 @@
   "steps": {
     "eyebrow": "Puesta en marcha",
     "title": "En 3 pasos, tu club *se vuelve pro.*",
+    "label": "Paso {{number}}",
     "items": {
       "activate": {
         "title": "Activas tu club",
@@ -119,8 +121,6 @@
       "coach": {
         "label": "Entrenador",
         "text": "Prepara tus partidos, decide en directo, analiza después. Nunca más «me da la impresión de que…».",
-        "more": "Ver lo que SWEYL cambia para los entrenadores",
-        "headline": "Prepara. Decide.\nAnaliza.",
         "proofs": {
           "video": "El vídeo sincronizado con las estadísticas",
           "sheet": "El acta que se rellena sola",
@@ -130,8 +130,6 @@
       "president": {
         "label": "Presidente",
         "text": "Tu club de un vistazo. Compromiso, asistencia, progresión de cada equipo.",
-        "more": "Ver la visión del club",
-        "headline": "Todo tu club,\nde un vistazo.",
         "proofs": {
           "teams": "Todos los equipos en una pantalla",
           "attendance": "La asistencia a los entrenamientos",
@@ -141,8 +139,6 @@
       "player": {
         "label": "Jugador",
         "text": "Tu perfil, tus estadísticas, tu progresión. Tu historia te sigue, aunque cambies de club.",
-        "more": "Ver mi futuro perfil",
-        "headline": "Tu historia\nte sigue.",
         "proofs": {
           "season": "Tu ficha de temporada y tus promedios",
           "progress": "Tu curva, partido tras partido",
@@ -152,8 +148,6 @@
       "parent": {
         "label": "Padre o madre",
         "text": "El directo y las notificaciones. Sigues de verdad el partido, incluso lejos de la grada.",
-        "more": "Seguir a mi hijo, a mi equipo",
-        "headline": "Sigues de verdad\nel partido.",
         "proofs": {
           "live": "El partido en directo",
           "weekend": "El resultado del fin de semana",

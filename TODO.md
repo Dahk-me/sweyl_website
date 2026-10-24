@@ -483,6 +483,21 @@ le bandeau défilant des logos sont **supprimés**, comme `Community.jsx` (code 
 - [x] Ancres `#vision`, `#season` et `#join` conservées (des liens envoyés y pointent).
 - [x] Trois langues, complètes (`npm test`).
 
+**Retours d'Ismail du 24/10/2026, traités le jour même** : la première version faisait « site
+fait par une IA » (cartes à petites icônes et numéros, pastilles, halos, compteurs) et le hero
+mobile était trop condensé. Les règles du lot 12, qui l'interdisaient déjà, sont passées dans
+`CLAUDE.md` (« Ne jamais avoir l'air fait par une IA ») pour ne plus être ignorées.
+
+- [x] Hero mobile : le premier écran ne porte que la question, une phrase et le bouton, le tableau
+  de match dépasse du bas ; tableau à plat, sans inclinaison ni lueur.
+- [x] Le problème en manifeste (une phrase en grand par douleur, filets), les bénéfices en liste
+  à côté de la vraie capture, les rôles en sélecteur de grands mots.
+- [x] Gestes, comparatif et FAQ sans ronds, croix, coches ni cartes ; en-têtes alignés à gauche.
+- [x] Logos de nouveau en bandeau défilant ; chiffres fixes ; citations sans guillemet géant ni
+  avatar ; barre collante qui ne double plus un bouton visible.
+- [x] Deux phrases du brief réécrites (« Une seule app. Tout le club. Toute la saison. » et
+  « Plus d'impressions. Des faits. »), formes bannies, avec l'accord d'Ismail.
+
 > ⚠️ **À trancher avant de passer en PR** : trois promesses du brief (déjà présentes sur l'ancien
 > site) ne collent pas aux specs. « Les joueurs testent un mois » : aucun essai n'existe dans
 > `SUBSCRIPTION.md`. « La famille suit le match en direct, même de chez elle » : le live public

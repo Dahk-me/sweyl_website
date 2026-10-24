@@ -7,7 +7,6 @@ import ChipGroup from '../../components/lead/ChipGroup'
 import Honeypot from '../../components/lead/Honeypot'
 import { useLeadSubmit } from '../../components/lead/useLeadSubmit'
 import { CLUB_ROLES, CONTACT_EMAIL, OFFER } from '../../lib/leadOptions'
-import { CLUB_LOGOS } from '../../lib/logos'
 import { currentLanguage } from '../../i18n'
 import { ANCHORS } from '../copy'
 
@@ -39,12 +38,7 @@ export default function Join({ intent }) {
           <h2 className="display h-final-title"><Accent text={t('join.title')} /></h2>
           <p className="h-final-question">{t('join.question')}</p>
           <p className="h-final-sub">{t('join.sub')}</p>
-          <div className="h-final-trust">
-            <div className="h-final-logos" aria-hidden="true">
-              {CLUB_LOGOS.map(c => <img key={c.src} src={c.src} alt="" loading="lazy" decoding="async" />)}
-            </div>
-            <p>{t('join.trust')}</p>
-          </div>
+          <p className="h-final-trust">{t('join.trust')}</p>
         </div>
 
         <form className="h-form" onSubmit={handleSubmit} data-reveal>

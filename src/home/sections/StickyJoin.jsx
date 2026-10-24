@@ -5,9 +5,18 @@ import { useMobile } from '../../hooks/useMobile'
 import { ANCHORS } from '../copy'
 
 /**
- * Sur mobile, l'appel à l'action reste sous le pouce. Il apparaît quand le bouton du hero sort de
- * l'écran, et s'efface sur le formulaire et le pied de page, où il ferait doublon.
+ * Ce qui, une fois à l'écran, rend la barre inutile : un bouton « Rejoindre » de la page, le
+ * formulaire, le pied de page. Relu à chaque défilement plutôt qu'observé une fois, parce que le
+ * bouton du sélecteur « Pour qui » renaît à chaque changement de rôle.
  */
+const COVERED_BY = `.h-join, #${ANCHORS.join}, #${ANCHORS.footer}`
+
+const anyInView = () => [...document.querySelectorAll(COVERED_BY)].some(el => {
+  const r = el.getBoundingClientRect()
+  return r.bottom > 0 && r.top < window.innerHeight
+})
+
+/** Sur mobile, l'appel à l'action reste sous le pouce, sans jamais doubler un bouton déjà visible. */
 export default function StickyJoin() {
   const mobile = useMobile()
   const { t } = useTranslation()
@@ -15,14 +24,15 @@ export default function StickyJoin() {
 
   React.useEffect(() => {
     if (!mobile) return
-    const targets = [ANCHORS.heroJoin, ANCHORS.join, ANCHORS.footer].map(id => document.getElementById(id)).filter(Boolean)
-    const visible = new Set()
-    const obs = new IntersectionObserver(entries => {
-      entries.forEach(e => (e.isIntersecting ? visible.add(e.target.id) : visible.delete(e.target.id)))
-      setShow(visible.size === 0)
-    })
-    targets.forEach(el => obs.observe(el))
-    return () => obs.disconnect()
+    // Quelques lectures de position, sans écriture : pas de quoi étaler sur une image d'animation.
+    const check = () => setShow(!anyInView())
+    check()
+    window.addEventListener('scroll', check, { passive: true })
+    window.addEventListener('resize', check)
+    return () => {
+      window.removeEventListener('scroll', check)
+      window.removeEventListener('resize', check)
+    }
   }, [mobile])
 
   if (!mobile) return null

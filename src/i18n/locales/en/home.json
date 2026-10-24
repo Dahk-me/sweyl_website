@@ -19,7 +19,8 @@
   },
   "hero": {
     "title": "Still coaching\n*blind*?",
-    "sub": "The pros make decisions with data. You're still taking notes on scrap paper or in Excel. SWEYL turns your grassroots club into a machine that really gets better.",
+    "sub": "The pros make decisions with data. You're still taking notes on scrap paper or in Excel.",
+    "subMore": "SWEYL turns your grassroots club into a machine that really gets better.",
     "proof": "Already {{players}} players · {{coaches}} coaches",
     "board": {
       "live": "Live",
@@ -68,12 +69,12 @@
   "vision": {
     "eyebrow": "Coaches · Players · Families · Club leaders",
     "title": "The whole club,\n*finally connected.*",
-    "intro": "One app. The whole club. The whole season. Like the pros, but built for grassroots.",
+    "intro": "The whole club, the whole season, in one app. Like the pros, but built for grassroots.",
     "benefits": {
       "coach": {
         "label": "Coach",
         "title": "The coach finally decides with data",
-        "text": "No more hunches. Facts, before, during and after the game."
+        "text": "You decide on facts, before, during and after the game."
       },
       "players": {
         "label": "Players",
@@ -95,6 +96,7 @@
   "steps": {
     "eyebrow": "Getting started",
     "title": "3 moves and your club *goes pro.*",
+    "label": "Move {{number}}",
     "items": {
       "activate": {
         "title": "You activate your club",
@@ -119,8 +121,6 @@
       "coach": {
         "label": "Coach",
         "text": "Prepare your games, decide live, analyze after. No more \"I have a feeling that…\".",
-        "more": "See what SWEYL changes for coaches",
-        "headline": "Prepare. Decide.\nAnalyze.",
         "proofs": {
           "video": "Video synced with the stats",
           "sheet": "The box score fills itself in",
@@ -130,8 +130,6 @@
       "president": {
         "label": "President",
         "text": "Your club at a glance. Commitment, attendance, progress of every team.",
-        "more": "See the club view",
-        "headline": "Your whole club,\nat a glance.",
         "proofs": {
           "teams": "Every team on one screen",
           "attendance": "Practice attendance",
@@ -141,8 +139,6 @@
       "player": {
         "label": "Player",
         "text": "Your profile, your stats, your progress. Your story follows you, even if you change clubs.",
-        "more": "See my future profile",
-        "headline": "Your story\nfollows you.",
         "proofs": {
           "season": "Your season page and averages",
           "progress": "Your curve, game after game",
@@ -152,8 +148,6 @@
       "parent": {
         "label": "Parent",
         "text": "Live updates and notifications. You really follow the game, even far from the stands.",
-        "more": "Follow my child, my team",
-        "headline": "You really follow\nthe game.",
         "proofs": {
           "live": "The game, live",
           "weekend": "The weekend's result",

@@ -1,6 +1,7 @@
 import React from 'react'
 import { useTranslation } from 'react-i18next'
 import Accent from '../../components/Accent'
+import { useMobile } from '../../hooks/useMobile'
 import JoinButton from '../components/JoinButton'
 import LiveBoard from './LiveBoard'
 import { ANCHORS, formatStat, statById } from '../copy'
@@ -9,6 +10,9 @@ import { ANCHORS, formatStat, statById } from '../copy'
  * Le choc de reconnaissance : la question qui arrête le défilement, le produit en action à côté.
  * Aucune vidéo ni média distant, tout est dessiné en SVG et en CSS (zéro egress, accroche
  * immédiate). Il suit le thème : la salle lumières éteintes en sombre, le parquet de jour en clair.
+ * Sur mobile, le premier écran ne porte que la question, une phrase et le bouton : le tableau de
+ * match dépasse du bas pour appeler le défilement, la suite du texte vient sous lui (retour
+ * d'Ismail du 24/10/2026, « trop condensé, ça ne donne pas envie d'aller plus loin »).
  */
 
 // Le parquet vu depuis les tribunes : lignes du terrain, tracées à l'arrivée (.hero-line, partagée avec le Pro).
@@ -33,8 +37,10 @@ const Court = () => (
 
 export default function Hero() {
   const { t, i18n } = useTranslation()
+  const mobile = useMobile()
   const players = formatStat(statById('players'), i18n.language)
   const coaches = formatStat(statById('coaches'), i18n.language)
+  const proof = <p className="h-hero-proof mono">{t('hero.proof', { players, coaches })}</p>
 
   return (
     <section id={ANCHORS.top} className="h-hero">
@@ -48,17 +54,23 @@ export default function Hero() {
           <h1 className="display h-hero-title hero-rise" style={{ animationDelay: '0.35s' }}>
             <Accent text={t('hero.title')} />
           </h1>
-          <p className="h-hero-sub hero-rise" style={{ animationDelay: '0.55s' }}>{t('hero.sub')}</p>
+          <p className="h-hero-sub hero-rise" style={{ animationDelay: '0.55s' }}>
+            {mobile ? t('hero.sub') : `${t('hero.sub')} ${t('hero.subMore')}`}
+          </p>
           <div className="hero-rise" style={{ animationDelay: '0.75s' }}>
             <JoinButton id={ANCHORS.heroJoin} />
           </div>
-          <p className="h-hero-proof mono hero-rise" style={{ animationDelay: '0.95s' }}>
-            {t('hero.proof', { players, coaches })}
-          </p>
+          {!mobile && <div className="hero-rise" style={{ animationDelay: '0.95s' }}>{proof}</div>}
         </div>
 
         <div className="h-hero-visual hero-rise" style={{ animationDelay: '0.6s' }}>
           <LiveBoard />
+          {mobile && (
+            <>
+              <p className="h-hero-more">{t('hero.subMore')}</p>
+              {proof}
+            </>
+          )}
         </div>
       </div>
     </section>

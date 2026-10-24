@@ -64,52 +64,50 @@ export default function LiveBoard() {
   const feed = [0, 1, 2].map(back => tick - back).filter(n => n >= 0).map(n => ({ n, index: n % EVENTS.length }))
 
   return (
-    <div className="h-board-float">
-      <div className="h-board" aria-hidden="true">
-        <div className="h-board-top mono">
-          <span className="h-board-live"><span className="live-dot" /> {t('hero.board.live')}</span>
-          <span className="h-board-clock">{t('hero.board.quarter')} · {clockAt(index)}</span>
+    <div className="h-board" aria-hidden="true">
+      <div className="h-board-top mono">
+        <span className="h-board-live"><span className="live-dot" /> {t('hero.board.live')}</span>
+        <span className="h-board-clock">{t('hero.board.quarter')} · {clockAt(index)}</span>
+      </div>
+
+      <div className="h-board-score">
+        <span className="h-board-team">{t('hero.board.home')}</span>
+        <span className="h-board-points display">
+          <span key={`h${event.home ? tick : 'x'}`} className={`is-home${event.home ? ' h-bump' : ''}`}>{state.home}</span>
+          <span className="h-board-colon">:</span>
+          <span key={`a${event.away ? tick : 'x'}`} className={event.away ? 'h-bump' : ''}>{state.away}</span>
+        </span>
+        <span className="h-board-team h-board-team--away">{t('hero.board.visitors')}</span>
+      </div>
+
+      <ul className="h-board-feed">
+        {feed.map(({ n, index: i }) => {
+          const e = EVENTS[i]
+          const scored = e.home || e.away
+          return (
+            <li key={n}>
+              <span className="h-board-feed-time mono">{clockAt(i)}</span>
+              <span className="h-board-feed-who">{e.team ? t(`hero.events.${e.team}`) : e.who}</span>
+              <span className={`h-board-feed-what mono${scored ? ' is-scored' : ''}`}>{t(`hero.events.${e.what}`)}</span>
+            </li>
+          )
+        })}
+      </ul>
+
+      <div className="h-board-star">
+        <div className="h-board-star-head">
+          <span className="h-board-avatar">{STAR.number}</span>
+          <span>{STAR.name}</span>
+          <span className="h-board-sheet mono"><IconCheck size={12} stroke={2.4} />{t('hero.board.sheet')}</span>
         </div>
-
-        <div className="h-board-score">
-          <span className="h-board-team">{t('hero.board.home')}</span>
-          <span className="h-board-points display">
-            <span key={`h${event.home ? tick : 'x'}`} className={`is-home${event.home ? ' h-bump' : ''}`}>{state.home}</span>
-            <span className="h-board-colon">:</span>
-            <span key={`a${event.away ? tick : 'x'}`} className={event.away ? 'h-bump' : ''}>{state.away}</span>
-          </span>
-          <span className="h-board-team h-board-team--away">{t('hero.board.visitors')}</span>
-        </div>
-
-        <ul className="h-board-feed">
-          {feed.map(({ n, index: i }) => {
-            const e = EVENTS[i]
-            const scored = e.home || e.away
-            return (
-              <li key={n}>
-                <span className="h-board-feed-time mono">{clockAt(i)}</span>
-                <span className="h-board-feed-who">{e.team ? t(`hero.events.${e.team}`) : e.who}</span>
-                <span className={`h-board-feed-what mono${scored ? ' is-scored' : ''}`}>{t(`hero.events.${e.what}`)}</span>
-              </li>
-            )
-          })}
-        </ul>
-
-        <div className="h-board-star">
-          <div className="h-board-star-head">
-            <span className="h-board-avatar">{STAR.number}</span>
-            <span>{STAR.name}</span>
-            <span className="h-board-sheet mono"><IconCheck size={12} stroke={2.4} />{t('hero.board.sheet')}</span>
-          </div>
-          <div className="h-board-bars">
-            {Object.keys(STAR_SCALE).map(key => (
-              <div key={key} className="h-board-bar">
-                <span className="mono">{t(`hero.board.${key}`)}</span>
-                <span className="h-board-track"><span className="h-board-fill" style={{ width: `${Math.min(100, (state[key] / STAR_SCALE[key]) * 100)}%` }} /></span>
-                <span className="h-board-val">{state[key]}</span>
-              </div>
-            ))}
-          </div>
+        <div className="h-board-bars">
+          {Object.keys(STAR_SCALE).map(key => (
+            <div key={key} className="h-board-bar">
+              <span className="mono">{t(`hero.board.${key}`)}</span>
+              <span className="h-board-track"><span className="h-board-fill" style={{ width: `${Math.min(100, (state[key] / STAR_SCALE[key]) * 100)}%` }} /></span>
+              <span className="h-board-val">{state[key]}</span>
+            </div>
+          ))}
         </div>
       </div>
     </div>

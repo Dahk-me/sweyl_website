@@ -1,81 +1,79 @@
 import React from 'react'
 import { useTranslation } from 'react-i18next'
-import { IconCheck, IconChevron } from '../../components/Icons'
-import { useMobile } from '../../hooks/useMobile'
 import AppShot from '../../components/AppShot'
-import Accent from '../../components/Accent'
 import SectionHead from '../components/SectionHead'
 import JoinButton from '../components/JoinButton'
 import { ANCHORS, ROLES } from '../copy'
 
-/** Le détail d'un rôle : trois preuves, la vraie capture, et le bouton qui pré-remplit son rôle. */
-const Panel = ({ role, onJoin }) => {
-  const { t } = useTranslation()
-  const text = key => t(`forWho.roles.${role.id}.${key}`)
-  return (
-    <div className="h-role-panel" id={`role-${role.id}`} key={role.id}>
-      <div className="h-role-panel-copy">
-        <p className="eyebrow h-eyebrow">{text('label')}</p>
-        <p className="display h-role-panel-title"><Accent text={text('headline')} /></p>
-        <ul className="h-role-proofs">
-          {role.proofs.map(p => (
-            <li key={p}><span className="h-check"><IconCheck size={13} stroke={2.4} /></span>{text(`proofs.${p}`)}</li>
-          ))}
-        </ul>
-        <JoinButton role={role.leadRole} onJoin={onJoin} />
-      </div>
-      <div className="h-role-shot">
-        <AppShot slot={role.shot} width="clamp(190px, 20vw, 250px)" />
-      </div>
-    </div>
-  )
-}
-
 /**
- * Quatre cartes, une par rôle. Ouvrir une carte montre ce que SWEYL change pour ce rôle : sous la
- * grille sur ordinateur, sous la carte elle-même sur mobile. Le coach, cible principale, est ouvert
- * à l'arrivée.
+ * Les quatre rôles en grands mots, comme les noms d'équipes d'un tableau d'affichage : le mot
+ * choisi s'allume, les autres restent en retrait. Dessous, la vraie capture de ce rôle, ce que
+ * SWEYL lui apporte, et le bouton qui pré-remplit son rôle dans le formulaire. Le coach, cible
+ * principale, est choisi à l'arrivée.
  */
 export default function ForWho({ onJoin }) {
   const { t } = useTranslation()
-  const mobile = useMobile()
-  const [open, setOpen] = React.useState(ROLES[0].id)
-  const current = ROLES.find(r => r.id === open)
+  const [current, setCurrent] = React.useState(ROLES[0].id)
+  const tabs = React.useRef([])
+  const role = ROLES.find(r => r.id === current)
+  const text = key => t(`forWho.roles.${role.id}.${key}`)
+
+  const select = index => {
+    const next = ROLES[(index + ROLES.length) % ROLES.length]
+    setCurrent(next.id)
+    tabs.current[ROLES.indexOf(next)]?.focus()
+  }
+  const onKeyDown = index => e => {
+    if (e.key === 'ArrowRight') { e.preventDefault(); select(index + 1) }
+    if (e.key === 'ArrowLeft') { e.preventDefault(); select(index - 1) }
+  }
 
   return (
     <section id={ANCHORS.forWho} className="h-section h-section--alt h-forwho">
       <div className="h-wrap">
         <SectionHead eyebrow={t('forWho.eyebrow')} title={t('forWho.title')} sub={t('forWho.sub')} />
 
-        <div className="h-roles" data-reveal>
-          {ROLES.map(role => {
-            const isOpen = role.id === open
+        <div className="h-role-tabs" role="tablist" aria-label={t('forWho.eyebrow')} data-reveal>
+          {ROLES.map((r, i) => {
+            const on = r.id === current
             return (
-              <React.Fragment key={role.id}>
-                <button
-                  type="button"
-                  className={`h-role${isOpen ? ' is-open' : ''}`}
-                  aria-expanded={isOpen}
-                  aria-controls={`role-${role.id}`}
-                  onClick={() => setOpen(mobile && isOpen ? null : role.id)}
-                >
-                  <span className="h-role-top">
-                    <span className="h-role-icon"><role.Icon size={20} stroke={1.8} /></span>
-                    <span className="h-role-label">{t(`forWho.roles.${role.id}.label`)}</span>
-                  </span>
-                  <span className="h-role-text">{t(`forWho.roles.${role.id}.text`)}</span>
-                  <span className="h-role-more">
-                    {t(`forWho.roles.${role.id}.more`)}
-                    <IconChevron size={16} stroke={2} />
-                  </span>
-                </button>
-                {mobile && isOpen && <Panel role={role} onJoin={onJoin} />}
-              </React.Fragment>
+              <button
+                key={r.id}
+                ref={el => { tabs.current[i] = el }}
+                type="button"
+                role="tab"
+                id={`role-tab-${r.id}`}
+                aria-selected={on}
+                aria-controls={`role-panel-${r.id}`}
+                tabIndex={on ? 0 : -1}
+                className={`display h-role-tab${on ? ' is-on' : ''}`}
+                onClick={() => setCurrent(r.id)}
+                onKeyDown={onKeyDown(i)}
+              >
+                {t(`forWho.roles.${r.id}.label`)}
+              </button>
             )
           })}
         </div>
 
-        {!mobile && current && <Panel role={current} onJoin={onJoin} />}
+        <div
+          key={role.id}
+          className="h-role-panel"
+          role="tabpanel"
+          id={`role-panel-${role.id}`}
+          aria-labelledby={`role-tab-${role.id}`}
+        >
+          <div className="h-role-copy">
+            <p className="h-role-lead">{text('text')}</p>
+            <ul className="h-role-proofs">
+              {role.proofs.map(p => <li key={p}>{text(`proofs.${p}`)}</li>)}
+            </ul>
+            <JoinButton role={role.leadRole} onJoin={onJoin} />
+          </div>
+          <div className="h-role-shot">
+            <AppShot slot={role.shot} width="clamp(200px, 20vw, 250px)" />
+          </div>
+        </div>
       </div>
     </section>
   )

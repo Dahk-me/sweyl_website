@@ -4,11 +4,6 @@
  * Tutoiement, phrases courtes, un seul appel à l'action répété partout (`cta.label`), qui mène
  * toujours au formulaire. Dans les titres, « *mot* » passe en orange et « \n » revient à la ligne.
  */
-import {
-  IconBroadcast, IconBuilding, IconClipboard, IconEye, IconEyeOff, IconFog, IconHeart, IconHelp,
-  IconTrend, IconUser,
-} from '../components/Icons'
-
 /**
  * Les ancres de la page. `vision`, `season` et `join` existaient avant la refonte du 23/10/2026 :
  * des liens déjà envoyés aux clubs y pointent, elles ne se renomment pas.
@@ -34,33 +29,24 @@ export const NAV = [
 ]
 
 /** Les trois douleurs, dans problem.cards.<id>. */
-export const PROBLEMS = [
-  { id: 'instinct', Icon: IconEyeOff },
-  { id: 'blind', Icon: IconHelp },
-  { id: 'fog', Icon: IconFog },
-]
+export const PROBLEMS = ['instinct', 'blind', 'fog']
 
-/** Les quatre bénéfices, deux de chaque côté du téléphone sur ordinateur. Textes dans vision.benefits.<id>. */
-export const BENEFITS = [
-  { id: 'coach', Icon: IconClipboard },
-  { id: 'players', Icon: IconTrend },
-  { id: 'family', Icon: IconBroadcast },
-  { id: 'president', Icon: IconEye },
-]
+/** Les quatre bénéfices, en liste à côté du téléphone. Textes dans vision.benefits.<id>. */
+export const BENEFITS = ['coach', 'players', 'family', 'president']
 
 /** Les trois gestes de la mise en route, dans steps.items.<id>. */
 export const STEPS = ['activate', 'bench', 'everyone']
 
 /**
- * Les cartes « Pour qui », dans forWho.roles.<id>. `shot` est l'emplacement de capture
+ * Les rôles du sélecteur « Pour qui », dans forWho.roles.<id>. `shot` est l'emplacement de capture
  * (`lib/appShots.js`), `leadRole` le rôle pré-rempli dans le formulaire quand on rejoint depuis
- * la carte : un joueur ou un parent n'a pas de rôle à lui, il passe par « Autre ».
+ * ce rôle : un joueur ou un parent n'a pas de rôle à lui, il passe par « Autre ».
  */
 export const ROLES = [
-  { id: 'coach', Icon: IconClipboard, shot: 'coachs', leadRole: 'coach', proofs: ['video', 'sheet', 'feedback'] },
-  { id: 'president', Icon: IconBuilding, shot: 'dirigeants', leadRole: 'president', proofs: ['teams', 'attendance', 'import'] },
-  { id: 'player', Icon: IconUser, shot: 'joueurs', leadRole: 'other', proofs: ['season', 'progress', 'career'] },
-  { id: 'parent', Icon: IconHeart, shot: 'familles', leadRole: 'other', proofs: ['live', 'weekend', 'next'] },
+  { id: 'coach', shot: 'coachs', leadRole: 'coach', proofs: ['video', 'sheet', 'feedback'] },
+  { id: 'president', shot: 'dirigeants', leadRole: 'president', proofs: ['teams', 'attendance', 'import'] },
+  { id: 'player', shot: 'joueurs', leadRole: 'other', proofs: ['season', 'progress', 'career'] },
+  { id: 'parent', shot: 'familles', leadRole: 'other', proofs: ['live', 'weekend', 'next'] },
 ]
 
 /**
