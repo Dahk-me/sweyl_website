@@ -67,6 +67,34 @@ L'objectif est la **prise de contact déguisée en création de compte**.
 
 Multi-sport. Handball, volleyball, football, rugby… Le basket est le sport d'entrée. Le copy doit rester suffisamment ouvert pour ne pas enfermer SWEYL dans "la plateforme basket".
 
+## ⛔ Ne jamais avoir l'air « fait par une IA »
+
+Règle absolue (*Ismail, 04/10/2026 puis 24/10/2026*) : un visiteur qui se dit « encore un site
+fait avec de l'IA » ne signe pas. Elle vaut pour `sweyl.com` comme pour `pro.sweyl.com`, et
+**prime sur tout brief** qui demanderait l'un des tics ci-dessous. Elle vivait jusqu'ici dans le
+lot 12 de `TODO.md`, d'où la refonte du 23/10/2026 l'a ignorée : elle fait désormais partie de la
+Doctrine.
+
+**Bannis à l'écran :**
+- les cartes « petite icône dans un carré arrondi + titre + texte » en grille de 3 ou 4, la forme
+  la plus reconnaissable des pages générées (constat d'Ismail sur la refonte, 24/10/2026) ;
+- la numérotation décorative (01 / 02 / 03, UN / DEUX), y compris en chiffres détourés ;
+- les halos flous, le grain, le texte lumineux, les lueurs derrière un téléphone ou un bloc ;
+- les compteurs qui montent, les points qui clignotent hors du vrai direct, les pastilles
+  « badge » à point pulsé ;
+- le guillemet géant décoratif et les avatars à initiales inventés ;
+- les emoji dans l'interface, le préfixe « —— » sur les eyebrows ;
+- les coches dans des ronds et les listes de « bénéfices » à puces décoratives.
+
+**Bannis à l'écrit :** la formule « Pas X. Y. », « Plus qu'un outil », les triplets de
+fragments (« Prépare. Décide. Analyse. »), les tournures molles.
+
+**À la place :** la typographie et l'espace font la hiérarchie, pas les boîtes (filets fins,
+grands titres, texte aligné à gauche) ; de **vraies** captures de l'application et de vraies
+photos ; le vocabulaire visuel du basket (tableau d'affichage, feuille de match, box score).
+Avant de livrer une section, se demander : *un designer l'aurait-il dessinée pour Sweyl, ou
+est-ce la section par défaut de n'importe quelle page de lancement ?*
+
 ## L'accueil sweyl.com
 
 Refondu le 23/10/2026 sur le brief « conversion d'abord » d'Ismail (`TODO.md`, lot 14). Il vit

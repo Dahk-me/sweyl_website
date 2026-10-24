@@ -59,7 +59,7 @@ export default function ExitIntent() {
         <button type="button" className="h-exit-close" onClick={() => setOpen(false)} aria-label={t('exit.close')}>
           <IconX size={18} stroke={2} />
         </button>
-        <p className="h-badge mono"><span className="h-dot" />{t('cta.badge')}</p>
+        <p className="eyebrow h-season-tag">{t('cta.badge')}</p>
         <p className="display h-exit-title" id="exit-title"><Accent text={t('exit.title')} /></p>
         <p className="h-exit-text">{t('exit.text')}</p>
         <a ref={ctaRef} href={`#${ANCHORS.join}`} className="btn-primary h-join-btn" onClick={() => setOpen(false)}>

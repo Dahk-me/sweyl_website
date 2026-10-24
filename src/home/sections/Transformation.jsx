@@ -37,7 +37,6 @@ export default function Transformation() {
             {left.map((b, i) => <Benefit key={b.id} {...b} side="left" delay={i * 90} />)}
           </div>
           <div className="h-vision-phone" data-reveal>
-            <span className="h-vision-halo" aria-hidden="true" />
             <AppShot slot="vision" width="clamp(210px, 22vw, 280px)" />
           </div>
           <div className="h-benefits">

@@ -33,10 +33,9 @@ export default function Join({ intent }) {
 
   return (
     <section id={ANCHORS.join} className="h-final">
-      <div className="h-final-glow" aria-hidden="true" />
       <div className="h-wrap h-final-grid">
         <div className="h-final-copy" data-reveal>
-          <p className="h-badge mono"><span className="h-dot" />{t('cta.badge')}</p>
+          <p className="eyebrow h-season-tag">{t('cta.badge')}</p>
           <h2 className="display h-final-title"><Accent text={t('join.title')} /></h2>
           <p className="h-final-question">{t('join.question')}</p>
           <p className="h-final-sub">{t('join.sub')}</p>

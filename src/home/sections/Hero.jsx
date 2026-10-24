@@ -44,9 +44,7 @@ export default function Hero() {
 
       <div className="h-wrap h-hero-grid">
         <div className="h-hero-copy">
-          <p className="h-badge mono hero-rise" style={{ animationDelay: '0.2s' }}>
-            <span className="h-dot" />{t('cta.badge')}
-          </p>
+          <p className="eyebrow h-season-tag hero-rise" style={{ animationDelay: '0.2s' }}>{t('cta.badge')}</p>
           <h1 className="display h-hero-title hero-rise" style={{ animationDelay: '0.35s' }}>
             <Accent text={t('hero.title')} />
           </h1>
