@@ -43,12 +43,23 @@ Modèle de référence : Nike. On parle à des compétiteurs. On élève le nive
 
 ## Stratégie CTA
 
-L'objectif est la **prise de contact déguisée en création de compte**.
+Depuis le 24/10/2026 (*Ismail*), le site **envoie le club s'inscrire seul dans l'application**,
+au lieu de déguiser une prise de contact en création de compte. C'est le critère du chemin
+critique, « est-ce que ça me retire de la boucle ? » (`CHEMIN-CRITIQUE.md`, cold start).
 
-- Bouton principal : **"Créer mon compte"** ou **"Rejoindre SWEYL"** jamais "Contacter"
-- Formulaire : capture nom + email + club + rôle → déclenche une prise de contact manuelle
-- Message implicite : le compte est prêt à être activé, l'équipe valide et accompagne l'onboarding
-- Jamais montrer que c'est manuel côté back-office
+- Bouton principal **unique et répété partout** : **« Créer mon club »**, vers le funnel public
+  `app.sweyl.com/inscription-club` (`clubSignupUrl`, `src/lib/siteUrls.js`), jamais « Contacter ».
+- **Sous chaque bouton principal**, sa réassurance : « Gratuit pour coachs & présidents · Sans
+  engagement · Prêt en 2 minutes » (`cta.micro`, posée par `src/home/components/JoinButton.jsx`).
+  Plus de « Réponse sous 24h » sous ce bouton : personne n'attend de réponse pour s'inscrire.
+- **« Accéder à l'app »** (`appUrl`) sert qui a déjà un compte : lien discret du header (icône
+  seule sur mobile), et bouton des rôles joueur et parent, que leur club invite (ils ne créent
+  pas de club).
+- **Le formulaire reste, en secours** : « Tu préfères une démo ? On t'appelle. » Son bouton est
+  secondaire (cadré, jamais orange) pour ne pas disputer la place de « Créer mon club » ; il
+  déclenche une prise de contact manuelle, réponse sous 24h.
+- Les liens vers l'application s'ouvrent dans le même onglet et visent toujours la production :
+  l'application n'est servie ni par le site local ni par une prévisualisation Vercel.
 
 ## Règles de rédaction pour le site
 
@@ -63,6 +74,73 @@ L'objectif est la **prise de contact déguisée en création de compte**.
 
 Multi-sport. Handball, volleyball, football, rugby… Le basket est le sport d'entrée. Le copy doit rester suffisamment ouvert pour ne pas enfermer SWEYL dans "la plateforme basket".
 
+## ⛔ Ne jamais avoir l'air « fait par une IA »
+
+Règle absolue (*Ismail, 04/10/2026 puis 24/10/2026*) : un visiteur qui se dit « encore un site
+fait avec de l'IA » ne signe pas. Elle vaut pour `sweyl.com` comme pour `pro.sweyl.com`, et
+**prime sur tout brief** qui demanderait l'un des tics ci-dessous. Elle vivait jusqu'ici dans le
+lot 12 de `TODO.md`, d'où la refonte du 23/10/2026 l'a ignorée : elle fait désormais partie de la
+Doctrine.
+
+**Bannis à l'écran :**
+- les cartes « petite icône dans un carré arrondi + titre + texte » en grille de 3 ou 4, la forme
+  la plus reconnaissable des pages générées (constat d'Ismail sur la refonte, 24/10/2026) ;
+- la numérotation décorative (01 / 02 / 03, UN / DEUX), y compris en chiffres détourés ;
+- les halos flous, le grain, le texte lumineux, les lueurs derrière un téléphone ou un bloc ;
+- les compteurs qui montent, les points qui clignotent hors du vrai direct, les pastilles
+  « badge » à point pulsé ;
+- le guillemet géant décoratif et les avatars à initiales inventés ;
+- les emoji dans l'interface, le préfixe « —— » sur les eyebrows ;
+- les coches dans des ronds et les listes de « bénéfices » à puces décoratives.
+
+**Bannis à l'écrit :** la formule « Pas X. Y. », « Plus qu'un outil », les triplets de
+fragments (« Prépare. Décide. Analyse. »), les tournures molles.
+
+**À la place :** la typographie et l'espace font la hiérarchie, pas les boîtes (filets fins,
+grands titres, texte aligné à gauche) ; de **vraies** captures de l'application et de vraies
+photos ; le vocabulaire visuel du basket (tableau d'affichage, feuille de match, box score).
+Avant de livrer une section, se demander : *un designer l'aurait-il dessinée pour Sweyl, ou
+est-ce la section par défaut de n'importe quelle page de lancement ?*
+
+## L'accueil sweyl.com
+
+Refondu le 23/10/2026 sur le brief « conversion d'abord » d'Ismail (`TODO.md`, lot 14). Il vit
+dans `src/home/`, sur le modèle de `src/pro/` : **textes** dans `src/i18n/locales/<langue>/home.json`,
+**structure** (ordre des listes, chiffres, captures, ancres) dans `src/home/copy.js`, styles dans
+`src/home/home.css` (préfixe `.h-`, mobile d'abord, jamais chargé par le Pro).
+
+- **L'ordre des sections est celui du brief** : hero, problème, transformation, 3 gestes, pour
+  qui, preuve, avant / après, FAQ, appel final et formulaire. Chaque section pousse vers le
+  bouton suivant.
+- **Les ancres `#vision`, `#season` et `#join` ne se renomment pas** : des liens déjà envoyés aux
+  clubs y pointent (`ANCHORS` dans `copy.js`).
+- **Le hero montre ce que la saisie produit**, dessiné en CSS (`LiveBoard.jsx` : score, fil,
+  fiche du joueur), jamais l'écran de saisie. Noms inventés, aucun vrai club. À plat : ni
+  inclinaison, ni flottement, ni lueur orange.
+- **Sur le téléphone, le premier écran ne porte que la question, une phrase et le bouton** ; le
+  tableau dépasse du bas de l'écran pour appeler le défilement, la suite du texte vient sous lui
+  (*retour d'Ismail du 24/10/2026 : « trop condensé, ça ne donne pas envie d'aller plus loin »*).
+- **Les chiffres vivent une fois**, dans `STATS` de `copy.js`, et se formatent selon la langue
+  (`formatStat`) ; le hero et la preuve les lisent au même endroit.
+- **« Pour qui » est un sélecteur de grands mots**, comme les noms d'équipes d'un tableau
+  d'affichage, pas une grille de cartes. Chaque rôle a son bouton (`cta` dans `ROLES`) : coach et
+  président « Créer mon club », joueur et parent « Accéder à l'app ».
+- **Les logos défilent** (`Marquee`) : sur mobile, aucune ligne ne les tient tous
+  (*Ismail, 24/10/2026*).
+- **Les 3 gestes gardent leur fil** : trois points reliés par une ligne qui se remplit,
+  horizontal sur ordinateur, vertical sur mobile (*Ismail, 24/10/2026*).
+- ⚠️ **Le mot « pro » n'est jamais un niveau sur `sweyl.com`** (« ton club passe pro », « goes
+  pro ») : le visiteur le confond avec l'offre **SWEYL PRO** (*Ismail, 24/10/2026*). « Comme chez
+  les pros », qui parle des équipes professionnelles, et les citations des clubs restent permis.
+- **La barre d'appel du bas** (`src/components/StickyCta.jsx`, partagée avec le Pro) s'affiche
+  dès qu'on commence à défiler, sur mobile comme sur ordinateur, et reste jusqu'au pied de page,
+  qui lui réserve sa hauteur (`--sticky-cta-h`). C'est elle qui porte « Créer mon club » : **le
+  header n'a pas de bouton d'appel à l'action** (*Ismail, 24/10/2026*).
+- **Invitation de sortie sur ordinateur** (`ExitIntent`), une fois par session, jamais avant huit
+  secondes de lecture ni quand le formulaire est à l'écran ; elle mène à l'inscription.
+- `src/index.css` reste partagé avec le Pro : ses classes `hero-line`, `hero-logo`, `hero-rise`,
+  `hero-wordmark` servent aux deux sites, la mise en page de chaque hero vit dans sa feuille.
+
 ## pro.sweyl.com, l'offre Pro
 
 Page de teasing de l'offre Pro (une équipe : scouting, stats des deux camps, analyse du match,
@@ -75,7 +153,9 @@ au **staff d'une équipe de prénationale à N1**, pas aux clubs amateurs.
   des indicateurs d'analyse (*arbitrage d'Ismail du 19/10/2026*) : la page montre le fil du match,
   l'adresse et la carte des tirs, elle n'explique pas la méthode.
 - **Aucun prix**, ni chiffre ni fourchette. La seule phrase tarifaire permise est « Le tarif,
-  communiqué à la démo ». Un seul appel à l'action : « Réserver une démo ».
+  communiqué à la démo ». Un seul appel à l'action : « Réserver une démo » (hero, barre du bas,
+  formulaire). La réassurance de la barre reprend les atouts du formulaire (`LEAD_PERKS`), sans
+  en écrire de nouveaux.
 - **Rien n'y est promis qui ne soit dans les specs** (`OpposingTeams.md` §3, `OpponentStats.md` §3,
   `VideoAnalysis.md`, `LectureDesChiffres.md` §3.1), et **aucun mot d'exclusivité** (« réservé »,
   « exclusif », « uniquement ») : la carte des tirs existe aussi hors du Pro.
@@ -103,10 +183,17 @@ au **staff d'une équipe de prénationale à N1**, pas aux clubs amateurs.
   `sweyl.com` et `pro.sweyl.com`, même serveur partout ailleurs (local, prévisualisation).
 
 **La marque « SWEYL PRO »** (`src/components/SweylProMark.jsx`) : « SWEYL » dans la couleur du
-texte, « PRO » en orange, cadre orange. Sur `sweyl.com`, c'est un lien vers `pro.sweyl.com` parmi
-les boutons du header, toujours visible ; il remplace le bandeau du handoff, qui disparaissait au
-premier défilement (*arbitrage d'Ismail du 19/10/2026*). Sur la page Pro, elle suit le logo, à la
-place du mot SWEYL.
+texte, « PRO » en orange, cadre orange. Elle remplace le bandeau du handoff, qui disparaissait au
+premier défilement (*arbitrage d'Ismail du 19/10/2026*).
+
+⚠️ **Les deux headers sont symétriques** (*Ismail, 24/10/2026*). Tout à droite, un **vrai bouton
+de passage vers l'autre site** (`src/components/SiteSwitch.jsx` : pastille cadrée d'orange,
+flèche, survol plein) : « SWEYL PRO » sur `sweyl.com`, « SWEYL CLUB » sur `pro.sweyl.com`. Aucun
+bouton d'appel à l'action dans le header : « Créer mon club » et « Réserver une démo » vivent dans
+la barre du bas (`StickyCta`), affichée dès qu'on défile ; seul `sweyl.com` y ajoute le lien
+discret « Accéder à l'app ». Sur mobile, les deux headers ne gardent que le logo à gauche, pour
+laisser la place au bouton. Toucher à l'un, c'est toucher à l'autre. Sur la page Pro, la marque
+suit le logo, à la place du mot SWEYL.
 
 **Captures recomposées** : une capture peut réagencer les vrais composants de l'application (la
 capture d'analyse place le fil du match et l'adresse à gauche, la carte des tirs à droite), jamais
@@ -114,7 +201,7 @@ inventer un écran ni une donnée.
 
 ## Formulaire de démo
 
-Les deux formulaires (`Lead.jsx`, `src/pro/sections/ProLead.jsx`) partagent `src/components/lead/`
+Les deux formulaires (`src/home/sections/Join.jsx`, `src/pro/sections/ProLead.jsx`) partagent `src/components/lead/`
 et postent sur `api/submit-lead.js`, une fonction Vercel déployée avec le site. Elle envoie un mail
 par Mailjet (clés `MAILJET_API_KEY` et `MAILJET_SECRET_KEY` dans les variables du projet Vercel) et
 **ne stocke rien** : le suivi des réponses se fait dans la boîte mail.

@@ -1,9 +1,9 @@
 import React from 'react'
 import { useTranslation } from 'react-i18next'
 import { useTheme } from '../../contexts/theme'
-import { IconArrow, IconSun, IconMoon } from '../../components/Icons'
+import { IconSun, IconMoon } from '../../components/Icons'
 import SweylProMark from '../../components/SweylProMark'
-import { DEMO_ANCHOR } from '../copy'
+import SiteSwitch from '../../components/SiteSwitch'
 import { mainSiteUrl } from '../../lib/siteUrls'
 import LanguageSwitch from '../../components/LanguageSwitch'
 
@@ -19,6 +19,8 @@ export function ProBrand() {
 }
 
 // Le logo remonte en haut de la page Pro : un logo qui quitte la page perd le lead.
+// À droite, symétrique de sweyl.com : le passage vers l'autre site, « SWEYL CLUB ». « Réserver une
+// démo » est parti dans la barre du bas, affichée dès qu'on défile (Ismail, 24/10/2026).
 export default function ProHeader() {
   const { theme, toggleTheme } = useTheme()
   const { t } = useTranslation(['pro', 'common'])
@@ -27,17 +29,12 @@ export default function ProHeader() {
       <div className="pro-header-row">
         <a href="#top" aria-label="Sweyl Pro" className="pro-header-brand"><ProBrand /></a>
         <span className="pro-header-sp" />
-        <a className="pro-header-back" href={mainSiteUrl()}>{t('header.back')}</a>
         <LanguageSwitch />
         <button type="button" className="pro-theme" onClick={toggleTheme}>
           {theme === 'dark' ? <IconSun size={14} /> : <IconMoon size={14} />}
           <span className="pro-theme-label">{t(theme === 'dark' ? 'common:theme.light' : 'common:theme.dark')}</span>
         </button>
-        <a className="btn-primary" href={`#${DEMO_ANCHOR}`}>
-          <span className="pro-long">{t('header.cta')}</span>
-          <span className="pro-short">{t('header.ctaShort')}</span>
-          <IconArrow size={12} />
-        </a>
+        <SiteSwitch href={mainSiteUrl()} suffix="CLUB" label={t('header.back')} />
       </div>
     </header>
   )

@@ -9,7 +9,7 @@
 
 /** Les deux variantes disponibles pour chaque emplacement. */
 export const VARIANTS = {
-  clubLife: {
+  vision: {
     A: { name: 'live' },
     B: { name: 'saisie' },
   },
@@ -33,7 +33,7 @@ export const VARIANTS = {
 
 /** La variante retenue pour chaque emplacement. Bascule A vers B ici. */
 export const CHOSEN = {
-  clubLife: 'A',   // live      · le match en direct
+  vision: 'A',     // live      · le match en direct, au centre des quatre bénéfices
   coachs: 'A',     // coach     · l'analyse vidéo
   joueurs: 'B',    // joueur2   · le profil de saison
   familles: 'B',   // familles2 · l'accueil famille

@@ -1,141 +1,295 @@
 {
   "meta": {
-    "title": "SWEYL · La plataforma del baloncesto amateur",
-    "description": "SWEYL es la primera plataforma pensada para los entrenadores amateurs. Estadísticas en tiempo real, vida del club, temporada completa. Una sola herramienta para la pista."
+    "title": "SWEYL · La primera herramienta hecha para el baloncesto amateur",
+    "description": "Estadísticas en directo, acta automática, la progresión de cada jugador. SWEYL hace progresar a todo el club: entrenadores, jugadores, directivos y padres. Gratis para entrenadores y presidentes."
   },
   "header": {
     "nav": {
       "vision": "Visión",
       "season": "Temporada 26/27",
       "contact": "Contacto"
-    },
-    "join": "Únete a la experiencia",
-    "joinShort": "Únete"
+    }
+  },
+  "cta": {
+    "label": "Crear mi club",
+    "micro": "Gratis para entrenadores y presidentes · Sin compromiso · Listo en 2 minutos",
+    "microShort": "Gratis para entrenadores y presidentes · Listo en 2 minutos",
+    "app": "Acceder a la app",
+    "appMicro": "Con la invitación de tu club",
+    "badge": "Temporada 2026/27 · Acceso abierto"
   },
   "hero": {
-    "logoAlt": "Logo de SWEYL",
-    "title": "Tus *estrellas*.\nTu *pista*.",
-    "sub": "El partido, el entrenamiento, la temporada.\nTodo tu club, visto como en el profesional.",
-    "cta": "Consigo mi acceso",
-    "season": "Temporada 2026/27 · acceso abierto",
+    "title": "¿Sigues entrenando\n*a ciegas*?",
+    "sub": "Mientras los profesionales deciden con datos, tú sigues apuntando en un papel o en Excel.",
+    "subMore": "SWEYL convierte tu club amateur en una máquina que progresa de verdad.",
+    "proof": "Ya {{players}} jugadores · {{coaches}} entrenadores",
+    "board": {
+      "live": "Live",
+      "quarter": "C4",
+      "home": "Tu equipo",
+      "visitors": "Visitantes",
+      "sheet": "Acta al día",
+      "pts": "Pts",
+      "reb": "Reb",
+      "ast": "Asis"
+    },
     "events": {
-      "visitors": "Visitante",
+      "visitors": "Visitantes",
       "coach": "Entrenador",
       "threePoints": "3 pts",
       "twoPoints": "2 pts",
       "onePoint": "1 pt",
       "rebound": "Rebote",
-      "steal": "Recuperación",
+      "steal": "Robo",
       "block": "Tapón",
+      "assist": "Asistencia",
       "timeout": "Tiempo muerto"
     }
   },
-  "clubLife": {
-    "eyebrow": "La plataforma",
-    "title": "El *club*\ncobra vida.",
-    "intro": "SWEYL une a entrenadores, jugadores y directivos en torno a un proyecto común: la vida del club, durante toda la temporada.",
-    "claims": {
-      "guided": {
-        "label": "Registro guiado",
-        "text": "Basta con un jugador que no juegue. Sin formación, sin hojas de cálculo."
+  "problem": {
+    "eyebrow": "Cada fin de semana, en cada pabellón",
+    "title": "El verdadero problema del *baloncesto amateur*",
+    "intro": "Lo das todo cada fin de semana. Pero sigues entrenando casi siempre por instinto.",
+    "cards": {
+      "instinct": {
+        "title": "Entrenas por instinto",
+        "text": "Recuerdas vagamente que «X jugó bien». Ningún dato para demostrarlo, corregirlo o hacerle progresar."
       },
-      "live": {
-        "label": "Tiempo real",
-        "text": "El banquillo, la grada y la casa ven el mismo partido."
+      "blind": {
+        "title": "Tus jugadores no saben dónde están",
+        "text": "Vienen a entrenar sin ningún feedback en cifras. ¿Cómo progresar sin espejo?"
       },
-      "after": {
-        "label": "Después del partido",
-        "text": "El acta ya está rellenada. Las estadísticas también."
+      "fog": {
+        "title": "El club vive en la niebla",
+        "text": "El presidente no sabe qué pasa en la pista. Los padres tampoco. Todo depende de la memoria del vestuario."
       }
-    }
-  },
-  "socialProof": {
-    "eyebrow": "Temporada 2026/27",
-    "title": "Ya han *firmado*.",
-    "stats": {
-      "players": "JUGADORES",
-      "coaches": "ENTRENADORES",
-      "clubs": "CLUBES",
-      "games": "PARTIDOS / SEM"
     },
-    "clubs": "Los clubes",
-    "partners": "Nuestros socios"
-  },
-  "founder": {
-    "eyebrow": "La historia",
-    "title": "Nacido a pie\nde *pista*.",
-    "lead": "Durante años, el baloncesto amateur se las arregló sin una herramienta propia. Los entrenadores se apañaban con hojas sueltas o un archivo Excel. Los clubes confiaban en la memoria.",
-    "p1": "SWEYL es la herramienta que cualquier entrenador amateur siempre quiso tener.",
-    "p2": "Construida con entrenadores y jugadores sobre la pista, que vieron lo que faltaba y se niegan a que el deporte amateur siga siendo el punto ciego de la tecnología.",
-    "p3": "Una sola aplicación para todo el club, hecha para quienes le dan vida cada fin de semana.",
-    "signature": "El fundador · SWEYL"
+    "transition": "Y mientras tanto,\n*la temporada avanza.*",
+    "season": "{{percent}} de la temporada {{season}} ya quedó atrás"
   },
   "vision": {
-    "eyebrow": "La visión",
-    "title": "No medimos\nsolo\n*puntos*.",
-    "lead": "Ninguna herramienta se ha pensado nunca para el entrenador amateur. No existe ningún estándar.\nSWEYL es el primero.",
-    "body": "Una sola herramienta para el entrenador, los jugadores y los directivos. Cada uno con su visión, todos en la misma dirección.",
-    "pillars": {
-      "club": {
-        "title": "Todo el club",
-        "desc": "Entrenadores, jugadores, directivos y familias en un mismo lugar."
-      },
-      "season": {
-        "title": "Toda la temporada",
-        "desc": "Un partido aislado es solo una cifra. Lo que cuenta es el camino recorrido durante la temporada."
-      },
-      "roles": {
-        "title": "A cada uno su papel",
-        "desc": "Cada uno ve lo que le concierne, y nada más."
-      }
-    }
-  },
-  "forWho": {
-    "eyebrow": "Para quién",
-    "title": "A cada uno\nsu *papel*.",
-    "intro": "Entrenador, jugador o directivo, SWEYL se adapta a tu papel y a tu temporada.",
-    "cards": {
-      "coaches": {
-        "label": "Entrenadores",
-        "title": "ENTRENAR",
-        "desc": "Gestiona tus plantillas, prepara tus partidos y decide con datos. Antes, durante y después, todo está en el mismo lugar.",
-        "highlights": {
-          "video": "Vídeo sincronizado con las estadísticas",
-          "performance": "Seguimiento del rendimiento",
-          "feedback": "Feedback individual a cada jugador"
-        }
+    "eyebrow": "Entrenadores · Jugadores · Familias · Directivos",
+    "title": "Todo el club,\n*por fin conectado.*",
+    "intro": "Todo el club, toda la temporada, en la misma app. Como los profesionales, pero hecha para el amateur.",
+    "benefits": {
+      "coach": {
+        "label": "Entrenador",
+        "title": "El entrenador por fin decide con datos",
+        "text": "Decides con hechos, antes, durante y después del partido."
       },
       "players": {
         "label": "Jugadores",
-        "title": "PROGRESAR",
-        "desc": "Sigue tu temporada partido a partido. Comparte tus mejores actuaciones con imágenes listas para publicar.",
-        "highlights": {
-          "profile": "Ficha de jugador detallada",
-          "progress": "Progresión durante la temporada",
-          "share": "Compartir en redes al instante"
+        "title": "Los jugadores ven su progresión",
+        "text": "Partido tras partido, en tiempo real. Y eso lo cambia todo en su motivación."
+      },
+      "family": {
+        "label": "Padres y aficionados",
+        "title": "La familia sigue el partido en directo",
+        "text": "Incluso desde casa. El marcador, las estadísticas, las notificaciones."
+      },
+      "president": {
+        "label": "Presidente",
+        "title": "El presidente ve todo el club",
+        "text": "Sin perseguir a los entrenadores. Asistencia, compromiso, progresión."
+      }
+    }
+  },
+  "steps": {
+    "eyebrow": "Puesta en marcha",
+    "title": "En 3 pasos, tu club *sube de nivel.*",
+    "label": "Paso {{number}}",
+    "items": {
+      "activate": {
+        "title": "Activas tu club",
+        "text": "2 minutos. Te acompañamos."
+      },
+      "bench": {
+        "title": "Un jugador en el banquillo registra las estadísticas",
+        "text": "Guiado. Cero formación."
+      },
+      "everyone": {
+        "title": "Todos lo ven todo",
+        "text": "El directo durante el partido, el acta que se rellena sola, el historial de la temporada."
+      }
+    },
+    "closing": "Hasta un U15 puede llevar las estadísticas.\n*Está hecho para eso.*"
+  },
+  "forWho": {
+    "eyebrow": "Para quién",
+    "title": "Tú *eres…*",
+    "sub": "Entrenador, presidente, jugador o padre: cada uno ve lo que le importa.",
+    "roles": {
+      "coach": {
+        "label": "Entrenador",
+        "text": "Prepara tus partidos, decide en directo, analiza después. Nunca más «me da la impresión de que…».",
+        "proofs": {
+          "video": "El vídeo sincronizado con las estadísticas",
+          "sheet": "El acta que se rellena sola",
+          "feedback": "Un balance para cada jugador"
         }
       },
-      "fans": {
-        "label": "Aficionados y padres",
-        "title": "VIVIR",
-        "desc": "Vive los partidos en directo desde la grada o desde casa. Sigue a tus jugadores, recibe las notificaciones.",
-        "highlights": {
-          "live": "Marcadores en tiempo real",
-          "notifications": "Notificaciones de partido",
-          "favorites": "Estadísticas de tus jugadores favoritos"
+      "president": {
+        "label": "Presidente",
+        "text": "Tu club de un vistazo. Compromiso, asistencia, progresión de cada equipo.",
+        "proofs": {
+          "teams": "Todos los equipos en una pantalla",
+          "attendance": "La asistencia a los entrenamientos",
+          "import": "Plantillas y calendario importados de golpe"
         }
       },
-      "leaders": {
-        "label": "Presidentes y directivos",
-        "title": "DIRIGIR",
-        "desc": "Pilota tu temporada. Sigue el compromiso de la plantilla, equipo por equipo.",
-        "highlights": {
-          "dashboard": "Panel del club",
-          "seasonView": "Vista de la temporada de todos los equipos",
-          "attendance": "Asistencia y compromiso"
+      "player": {
+        "label": "Jugador",
+        "text": "Tu perfil, tus estadísticas, tu progresión. Tu historia te sigue, aunque cambies de club.",
+        "proofs": {
+          "season": "Tu ficha de temporada y tus promedios",
+          "progress": "Tu curva, partido tras partido",
+          "career": "Un solo perfil, de club en club"
+        }
+      },
+      "parent": {
+        "label": "Padre o madre",
+        "text": "El directo y las notificaciones. Sigues de verdad el partido, incluso lejos de la grada.",
+        "proofs": {
+          "live": "El partido en directo",
+          "weekend": "El resultado del fin de semana",
+          "next": "La próxima cita"
         }
       }
     }
+  },
+  "proof": {
+    "eyebrow": "Temporada 2026/27",
+    "title": "Dejaron de entrenar\n*a ciegas.*",
+    "stats": {
+      "players": "Jugadores",
+      "coaches": "Entrenadores",
+      "clubs": "Clubes socios",
+      "games": "Partidos por semana"
+    },
+    "quotes": {
+      "amaury": {
+        "role": "Entrenador, Départemental 1",
+        "quote": "Mi hijo de 14 años llevó las estadísticas esta noche. Lo gestionó todo."
+      },
+      "luc": {
+        "role": "Presidente de club",
+        "quote": "Por primera vez, tengo una visión real de mi club."
+      },
+      "aniss": {
+        "role": "Jugador, Région 2",
+        "quote": "Nunca pensé tener estadísticas de nivel pro a mi nivel."
+      },
+      "will": {
+        "role": "Entrenador ayudante, Pré-Nationale",
+        "quote": "Una app fácil de usar, de verdad muy buena."
+      }
+    },
+    "signed": "Ya han firmado para la temporada 26/27",
+    "partners": "Nos acompañan"
+  },
+  "beforeAfter": {
+    "eyebrow": "La diferencia",
+    "title": "Antes de SWEYL.\n*Con SWEYL.*",
+    "label": "Comparativa antes y con SWEYL",
+    "before": "Antes",
+    "after": "Con SWEYL",
+    "rows": {
+      "sheet": {
+        "before": "Hoja suelta o Excel",
+        "after": "Estadísticas en directo y acta automática"
+      },
+      "memory": {
+        "before": "Estadísticas olvidadas tras el partido",
+        "after": "Historial completo de cada jugador"
+      },
+      "feeling": {
+        "before": "Decisiones por intuición",
+        "after": "Decisiones basadas en hechos"
+      },
+      "feedback": {
+        "before": "Jugadores sin feedback",
+        "after": "Jugadores que ven su progresión"
+      },
+      "president": {
+        "before": "Presidente a oscuras",
+        "after": "Un club totalmente transparente"
+      },
+      "transfer": {
+        "before": "Historial perdido al cambiar de club",
+        "after": "Las estadísticas siguen al jugador a todas partes"
+      }
+    }
+  },
+  "faq": {
+    "eyebrow": "FAQ",
+    "title": "Las preguntas reales\n*que nos hacen.*",
+    "items": {
+      "free": {
+        "q": "¿De verdad es gratis para entrenadores y presidentes?",
+        "a": "Sí. Los jugadores lo prueban un mes y luego eligen. Sin tarjeta bancaria para empezar."
+      },
+      "tech": {
+        "q": "¿Y si en mi club nadie es «de tecnología»?",
+        "a": "Basta con un jugador en el banquillo. Todo está guiado, cero formación."
+      },
+      "ffbb": {
+        "q": "¿Funciona con la FFBB?",
+        "a": "Sí. Basta con un enlace: tu calendario FFBB se importa y luego se resincroniza con un clic."
+      },
+      "mistakes": {
+        "q": "¿Y si nos equivocamos con las estadísticas durante el partido?",
+        "a": "Cada acción se corrige, en directo o después del partido. El historial queda limpio."
+      },
+      "transfer": {
+        "q": "¿Mis jugadores conservan sus estadísticas si cambian de club?",
+        "a": "Sí. El perfil del jugador es único. Sus estadísticas viajan con él."
+      },
+      "onboarding": {
+        "q": "¿Cuánto tiempo para estar operativos?",
+        "a": "Tu club queda creado en 2 minutos. Luego importas tus equipos y tu calendario FFBB, y te acompañamos si quieres."
+      },
+      "devices": {
+        "q": "¿En qué dispositivos funciona?",
+        "a": "iPhone, Android y ordenador, desde el navegador. Se instala como una app."
+      }
+    }
+  },
+  "join": {
+    "title": "La temporada 26/27\n*ya ha empezado.*",
+    "question": "¿Tu club la jugará con datos… o todavía a ciegas?",
+    "sub": "Únete a los clubes que decidieron dejar de entrenar por instinto.",
+    "trust": "Ya lo usan clubes franceses, de ligas regionales a locales",
+    "formTitle": "¿Prefieres una demo? Te llamamos.",
+    "fields": {
+      "name": "Nombre",
+      "email": "Email",
+      "club": "Club",
+      "role": "Tu rol",
+      "message": "Unas palabras para nosotros (opcional)"
+    },
+    "placeholders": {
+      "name": "Nombre y apellido",
+      "email": "tu@club.es",
+      "club": "El nombre de tu club",
+      "message": "Tus equipos, tu nivel, tu pregunta…"
+    },
+    "roles": {
+      "president": "Presidente",
+      "coach": "Entrenador",
+      "other": "Otro"
+    },
+    "submit": "Pedir una demo",
+    "sending": "Enviando…",
+    "error": "Se ha producido un error. Vuelve a intentarlo o escríbenos directamente a {{email}}",
+    "micro": "Sin compromiso · Te acompañamos de la A a la Z · Respuesta en 24 h",
+    "okTitle": "Recibido.",
+    "okText": "Te llamamos en 24 h para enseñarte SWEYL en tu club."
+  },
+  "exit": {
+    "title": "¿Te vas *ya*?",
+    "text": "Tu club puede estar listo en 2 minutos. Es gratis para entrenadores y presidentes.",
+    "dismiss": "Más tarde",
+    "close": "Cerrar"
   },
   "shots": {
     "live": "Seguimiento de un partido en directo en la aplicación Sweyl",
@@ -149,124 +303,8 @@
     "club": "Asistencia a los entrenamientos, equipo por equipo",
     "club2": "Vista del club: todos los equipos de la temporada"
   },
-  "testimonials": {
-    "eyebrow": "Testimonios",
-    "title": "La pista\n*habla*.",
-    "sub": "Lo que dicen después de unos cuantos partidos.",
-    "items": {
-      "will": {
-        "role": "Entrenador ayudante, Pré-nationale",
-        "quote": "Una app fácil de usar, de verdad muy buena."
-      },
-      "amaury": {
-        "role": "Entrenador, Départemental 1",
-        "quote": "Mi hijo de 14 años se encargó esta noche de las estadísticas con la app, y lo bordó."
-      },
-      "luc": {
-        "role": "Presidente de club",
-        "quote": "Una visión clara de lo que pasa en todos los equipos. Sé cómo está el club sin tener que perseguir a los entrenadores."
-      },
-      "aniss": {
-        "role": "Jugador, Région 2",
-        "quote": "Nunca pensé tener estadísticas de profesional a mi nivel. Una pasada. Con ganas de ver lo que viene."
-      }
-    }
-  },
-  "season": {
-    "eyebrow": "TEMPORADA 2026 / 2027 · INSCRIPCIONES ABIERTAS",
-    "title": "La temporada\n*ha empezado*",
-    "intro": "Plantillas, calendario de la FFBB, accesos, formación de los entrenadores: te acompañamos hasta el primer partido.",
-    "step": "Paso {{number}}",
-    "steps": {
-      "kickoff": "Puesta en marcha del club, formación de los entrenadores",
-      "setup": "Configuración de plantillas y socios",
-      "tests": "Pruebas internas, ajustes",
-      "firstGame": "Primer partido registrado"
-    }
-  },
-  "lead": {
-    "eyebrow": "Únete a la experiencia",
-    "title": "Tu club\nen *SWEYL*\nesta temporada.",
-    "perks": {
-      "team": "Una conversación con el equipo",
-      "demo": "Una demo sobre tu club",
-      "reply": "Respuesta en 24 h"
-    },
-    "fields": {
-      "name": "Nombre",
-      "email": "Email",
-      "club": "Club",
-      "role": "TU PAPEL",
-      "message": "MENSAJE (OPCIONAL)"
-    },
-    "roles": {
-      "president": "Presidente",
-      "coach": "Entrenador",
-      "other": "Otro"
-    },
-    "submit": "Enviar mi solicitud",
-    "sending": "Enviando…",
-    "error": "Se ha producido un error. Vuelve a intentarlo o escríbenos directamente a {{email}}",
-    "noCommitment": "SIN COMPROMISO",
-    "okTitle": "Recibido.",
-    "okText": "Te respondemos muy pronto."
-  },
-  "faq": {
-    "eyebrow": "FAQ",
-    "title": "Preguntas *frecuentes.*",
-    "items": {
-      "different": {
-        "q": "¿De verdad es distinto de una herramienta de estadísticas?",
-        "a": "La estadística es solo una parte. SWEYL sigue toda la vida del club: calendario, temporada, compartir."
-      },
-      "price": {
-        "q": "¿Cuánto cuesta?",
-        "a": "Gratis para entrenadores y presidentes. Los jugadores lo prueban un mes y luego eligen. No se pide tarjeta al registrarse."
-      },
-      "statistician": {
-        "q": "¿Hace falta un estadístico?",
-        "a": "No hace falta. Basta con un jugador que no juegue, la app le guía paso a paso."
-      },
-      "duration": {
-        "q": "¿Cuánto se tarda en registrar un partido?",
-        "a": "Lo que dura el partido. El registro se hace en directo, no hay nada que recuperar después."
-      },
-      "mistakes": {
-        "q": "¿Qué pasa si quien registra se equivoca?",
-        "a": "Cada acción se puede corregir durante y después del partido. El historial sigue siendo fiel."
-      },
-      "teams": {
-        "q": "¿Un entrenador puede gestionar varios equipos?",
-        "a": "Todos tus equipos están en el mismo espacio, pasas de uno a otro con un solo gesto."
-      },
-      "parents": {
-        "q": "¿Mis padres pueden seguir el partido sin cuenta?",
-        "a": "El partido en directo es público: basta con compartir un enlace."
-      },
-      "transfer": {
-        "q": "¿Mi historial me sigue si cambio de club?",
-        "a": "Sí. Tu perfil de jugador es único, tus estadísticas viajan contigo."
-      },
-      "devices": {
-        "q": "¿Qué dispositivos?",
-        "a": "SWEYL se instala desde el navegador en iPhone, Android y ordenador, y se usa como una app."
-      },
-      "ffbb": {
-        "q": "¿Y el calendario de la FFBB?",
-        "a": "Basta con un enlace. La importación y la sincronización son automáticas."
-      },
-      "history": {
-        "q": "¿Qué pasa con mis partidos anteriores?",
-        "a": "Arrastra tus actas en PDF. SWEYL extrae las estadísticas y reconstruye el historial en unos segundos."
-      },
-      "onboarding": {
-        "q": "¿Cómo es la puesta en marcha?",
-        "a": "Una demo, la configuración de tu club, unas pruebas, y a jugar. Te acompañamos en cada paso."
-      }
-    }
-  },
   "footer": {
-    "tagline": "La plataforma del baloncesto amateur francés.",
+    "tagline": "La primera herramienta hecha de verdad para el baloncesto amateur.",
     "columns": {
       "product": "Producto",
       "contact": "Contacto",
@@ -277,8 +315,10 @@
       "forWho": "¿Para quién?",
       "season": "Temporada 26/27",
       "faq": "FAQ",
-      "join": "Únete a la experiencia"
+      "signup": "Crear mi club",
+      "app": "Acceder a la app",
+      "demo": "Pedir una demo"
     },
-    "signature": "HECHO POR LOS CLUBES, PARA LOS CLUBES"
+    "signature": "Hecho por los clubes, para los clubes"
   }
 }
