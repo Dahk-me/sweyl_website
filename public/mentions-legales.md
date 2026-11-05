@@ -30,7 +30,7 @@ Contact : legal@fly.io • Site web : https://fly.io
 **Hébergeur de la base de données :**
 Supabase Pte. Ltd., 65 Chulia Street #38-02/03, OCBC Centre, Singapour 049513.
 Contact : privacy@supabase.com • Site web : https://supabase.com
-Région d'hébergement des données : Francfort, Allemagne (Union européenne). [[À VÉRIFIER : région réelle du projet Supabase de production]]
+Région d'hébergement des données : Paris, France (Union européenne).
 
 **Hébergeur des fichiers :**
 Cloudflare, Inc., 101 Townsend Street, San Francisco, CA 94107, États-Unis, stockage cantonné à l'Union européenne.

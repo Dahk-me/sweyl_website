@@ -85,7 +85,9 @@ Supprimer son compte Sweyl ne résilie pas un abonnement souscrit auprès d'Appl
 
 ### 9.3 Droit de rétractation
 
-Le joueur consommateur dispose d'un délai de quatorze jours pour se rétracter d'un abonnement souscrit à distance. En demandant l'accès immédiat aux fonctionnalités, il reconnaît que le service commence pendant ce délai. [[À VÉRIFIER : modalités du droit de rétractation (renonciation expresse ou remboursement au prorata) pour un service numérique exécuté immédiatement, et leur articulation avec les conditions d'Apple et de Google, à faire valider]]
+Un abonnement souscrit dans l'Application installée relève des conditions d'Apple ou de Google, qui traitent les demandes de remboursement.
+
+Pour un abonnement souscrit sur le site, le joueur consommateur dispose d'un délai de quatorze jours pour se rétracter. S'il demande l'accès immédiat aux fonctionnalités puis se rétracte pendant ce délai, il paie la part du service déjà fournie (article L221-25 du Code de la consommation). [[À VÉRIFIER : rédaction du droit de rétractation à faire valider par un conseil]]
 
 ## 10. Disponibilité et responsabilité
 

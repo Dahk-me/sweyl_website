@@ -116,7 +116,7 @@ Une grande partie des joueurs inscrits sur Sweyl ont moins de 18 ans. Leurs donn
 
 ## 5. Qui peut voir vos données
 
-- **Au sein de votre club**, selon votre rôle. Les données d'un club ne sont jamais accessibles à un autre club. Les coachs voient les joueurs de leurs équipes, l'administrateur du club voit l'ensemble du club. [[À VÉRIFIER : ce qu'un joueur voit des statistiques de ses coéquipiers]]
+- **Au sein de votre club**, selon votre rôle. Les données d'un club ne sont jamais accessibles à un autre club. Les coachs voient les joueurs de leurs équipes, l'administrateur du club voit l'ensemble du club. Un joueur voit la feuille de match complète de son équipe, statistiques de ses coéquipiers comprises.
 - **L'éditeur**, pour faire fonctionner le service, traiter les demandes d'abonnement et répondre aux demandes d'assistance. L'accès au back-office est réservé à l'éditeur, et chaque action y est journalisée.
 - **Nos sous-traitants techniques**, dans la stricte limite de leur mission (section 7).
 - **Les autorités**, uniquement sur demande légalement fondée.
@@ -135,7 +135,7 @@ Aucune décision produisant des effets juridiques ou affectant de manière signi
 
 Chaque prestataire n'accède qu'aux données nécessaires à sa mission et est lié par un contrat conforme à l'article 28 du RGPD. [[À VÉRIFIER : contrats de sous-traitance (DPA) signés ou acceptés avec chacun]]
 
-- **Supabase** : base de données, authentification, envoi des e-mails liés au compte, temps réel. [[À VÉRIFIER : région d'hébergement de la base]]
+- **Supabase** : base de données, authentification, envoi des e-mails liés au compte, temps réel, à Paris.
 - **Mailjet** (France) : acheminement des e-mails liés au compte, et du formulaire de demande de démonstration du site.
 - **Fly.io** : serveur de l'application, à Paris.
 - **Vercel** : hébergement du site et de l'application web, servis depuis un réseau mondial ; les requêtes de l'application sont transmises au serveur de Paris.
