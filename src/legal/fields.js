@@ -10,12 +10,12 @@
  */
 export const LEGAL_FIELDS = {
   // Éditeur et responsable du traitement
-  publisherName: "Ismail J.",
+  publisherName: "Ismail JABBOUR",
   publisherLegalForm: 'entrepreneur individuel (micro-entreprise)',
   publisherAddress: "rue de l'Abreuvoir, 51100 Reims",
   publisherRegistration: '899 457 899 RCS Reims',
   publisherVat: 'TVA non applicable, article 293 B du CGI',
-  publicationDirector: "Ismail J.",
+  publicationDirector: "Ismail JABBOUR",
 
   // Contacts
   contactEmail: 'contact@sweyl.com',

@@ -118,7 +118,7 @@ Les présentes CGU sont soumises au droit français.
 
 En cas de litige, l'utilisateur consommateur peut recourir gratuitement à un médiateur de la consommation : [[À COMPLÉTER : nom, adresse et site du médiateur de la consommation désigné]]
 
-À défaut de résolution amiable : [[À COMPLÉTER : juridiction compétente pour les litiges avec un professionnel ; pour un consommateur, rappeler les règles de compétence légales]]
+À défaut de résolution amiable : un litige avec un professionnel relève des tribunaux de Reims. Un consommateur peut saisir, à son choix, la juridiction du lieu où il demeurait au moment de la conclusion du contrat ou de la survenance du fait dommageable, ou l'une des juridictions territorialement compétentes en vertu du Code de procédure civile (article R. 631-3 du Code de la consommation).
 
 ## 16. Contact
 

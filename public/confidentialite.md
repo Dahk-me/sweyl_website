@@ -149,15 +149,15 @@ Chaque prestataire n'accède qu'aux données nécessaires à sa mission et est l
 
 ## 8. Durées de conservation
 
-- Compte et profil : [[À COMPLÉTER : durée pendant la vie du compte et après sa suppression ou une longue inactivité]]
-- Statistiques et historique sportif après le départ d'un club : [[À COMPLÉTER : durée et éventuelle anonymisation]]
-- Appréciations, enregistrements vocaux et suivis : [[À COMPLÉTER : durées, en particulier pour les données de santé]]
-- Vidéos de match : [[À COMPLÉTER : durée de conservation, la lecture étant coupée 90 jours après la fin de l'option vidéo]]
+- Compte et profil : conservés tant que le compte existe, effacés dans les 30 jours suivant la demande de suppression. Un compte inactif depuis 3 ans est supprimé, après un e-mail de prévenance.
+- Statistiques et historique sportif après le départ d'un club : conservés avec la feuille de match, qui fait partie de l'historique du club.
+- Appréciations, enregistrements vocaux et suivis : les appréciations et les enregistrements vocaux sont conservés avec le match ; les suivis, qui peuvent contenir des données de santé, sont supprimés au départ du joueur du club ou à la suppression de son compte.
+- Vidéos de match : conservées tant que l'option vidéo de l'équipe est active, puis supprimées 90 jours après sa fin.
 - Fiches de scouting adverse : leurs vidéos sont supprimées trois mois après l'archivage de l'équipe adverse ou la fin de l'option Pro.
 - Notifications : supprimées trois jours après leur expiration.
 - Copies de sauvegarde de la base : 90 jours.
-- Demandes d'abonnement et pièces comptables : [[À COMPLÉTER : durée, en tenant compte des obligations comptables]]
-- Journal du back-office : [[À COMPLÉTER : durée]]
+- Demandes d'abonnement et pièces comptables : 10 ans, durée de conservation légale des pièces comptables.
+- Journal du back-office : 1 an.
 
 Au-delà, les données sont supprimées ou anonymisées de façon irréversible.
 
