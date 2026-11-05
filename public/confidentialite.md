@@ -98,7 +98,7 @@ Ni localisation, ni carnet de contacts, ni appareil photo, ni identifiant public
 - **Fournir le service** (comptes, clubs, équipes, statistiques, entraînements, vidéos, suivis, notifications) : exécution du contrat qui lie l'utilisateur, ou son club, à l'éditeur.
 - **Assurer la sécurité** (authentification, limitation des abus, suivi des erreurs, journal du back-office) : intérêt légitime de l'éditeur à protéger le service et ses utilisateurs.
 - **Gérer les abonnements** : exécution du contrat et obligations comptables.
-- **Produire le bilan de saison** : [[À COMPLÉTER : base légale du bilan de saison, ou mention de sa désactivation (décision D8)]]
+- **Produire le bilan de saison** : fonction suspendue, plus aucun bilan n'est produit (section 6).
 - **Envoyer les messages liés au compte** (invitation, réinitialisation du mot de passe, changement d'adresse) : exécution du contrat.
 
 Aucune donnée n'est vendue, louée ni utilisée à des fins publicitaires.
@@ -109,7 +109,7 @@ Une grande partie des joueurs inscrits sur Sweyl ont moins de 18 ans. Leurs donn
 
 - **Inscription par le club.** Lorsqu'un club inscrit un joueur mineur, il s'engage à disposer de l'accord de ses représentants légaux pour le faire figurer dans l'application.
 - **Âge du consentement numérique.** En France, un mineur de moins de 15 ans ne peut consentir seul au traitement de ses données lorsque ce traitement repose sur le consentement : l'accord de l'un des titulaires de l'autorité parentale est alors requis (article 45 de la loi Informatique et Libertés).
-- **Recueil de l'accord parental.** [[À COMPLÉTER : paliers d'âge et mécanisme retenus pour recueillir et conserver l'accord d'un représentant légal (décision D6)]]
+- **Recueil de l'accord parental.** moins de 13 ans, le profil du joueur est porté par le compte d'un représentant légal ; de 13 à 14 ans, le joueur peut avoir son propre compte avec l'accord d'un représentant légal, enregistré et conservé ; à partir de 15 ans, il utilise seul son compte. L'âge vient de la date de naissance saisie par le club, ou est déclaré à l'inscription et ne peut ensuite pas être modifié par le joueur.
 - **Un parent pour plusieurs enfants.** Un parent peut porter sur son adresse e-mail le profil de chacun de ses enfants.
 - **Droits exercés par les parents.** Les représentants légaux d'un joueur mineur peuvent exercer en son nom l'ensemble des droits décrits à la section 9, à l'adresse {{privacyContact}}.
 - **Pas de profil public.** Les données d'un joueur ne sont accessibles qu'aux membres autorisés de ses clubs. Les seules pages publiques sont le calendrier des matchs d'un club, sans donnée personnelle, et l'écran de classement d'une journée de mesure (section 2.4).
@@ -123,11 +123,11 @@ Une grande partie des joueurs inscrits sur Sweyl ont moins de 18 ans. Leurs donn
 
 ## 6. Intelligence artificielle
 
-[[À COMPLÉTER : section à conserver si le bilan de saison reste actif (décision D8), à retirer sinon]]
+**La production du bilan de saison est suspendue** : plus aucune donnée n'est transmise à un service d'intelligence artificielle. Les bilans déjà produits restent consultables dans l'application.
 
-Pour rédiger le bilan de saison, l'application transmet à un service d'intelligence artificielle : pour un joueur, son prénom (jamais son nom ni sa date de naissance), son club, son équipe, la saison, ses statistiques et jusqu'à dix évaluations écrites par ses coachs ; pour un coach, son prénom, son club, son équipe et le bilan de la saison. Le texte produit est conservé dans l'application.
+Tant qu'elle était active, pour rédiger le bilan de saison, l'application transmettait à un service d'intelligence artificielle : pour un joueur, son prénom (jamais son nom ni sa date de naissance), son club, son équipe, la saison, ses statistiques et jusqu'à dix évaluations écrites par ses coachs ; pour un coach, son prénom, son club, son équipe et le bilan de la saison. Le texte produit est conservé dans l'application.
 
-Fournisseur : Anthropic PBC, États-Unis. [[À VÉRIFIER : garanties contractuelles du fournisseur (encadrement du transfert, absence d'entraînement des modèles sur les données transmises)]]
+Fournisseur : Anthropic PBC, États-Unis.
 
 Aucune décision produisant des effets juridiques ou affectant de manière significative une personne n'est prise de manière automatisée.
 
@@ -149,7 +149,7 @@ Chaque prestataire n'accède qu'aux données nécessaires à sa mission et est l
 
 ## 8. Durées de conservation
 
-- Compte et profil : conservés tant que le compte existe, effacés dans les 30 jours suivant la demande de suppression. Un compte inactif depuis 3 ans est supprimé, après un e-mail de prévenance.
+- Compte et profil : conservés tant que le compte existe, effacés dans les 30 jours suivant la demande de suppression, à l'exception du prénom, du nom et de l'historique sportif tenus par le club (section 9). Un compte inactif depuis 3 ans est supprimé, après un e-mail de prévenance.
 - Statistiques et historique sportif après le départ d'un club : conservés avec la feuille de match, qui fait partie de l'historique du club.
 - Appréciations, enregistrements vocaux et suivis : les appréciations et les enregistrements vocaux sont conservés avec le match ; les suivis, qui peuvent contenir des données de santé, sont supprimés au départ du joueur du club ou à la suppression de son compte.
 - Vidéos de match : conservées tant que l'option vidéo de l'équipe est active, puis supprimées 90 jours après sa fin.
@@ -167,7 +167,7 @@ Vous disposez d'un droit d'accès, de rectification, d'effacement, de limitation
 
 **Pour les exercer**, écrivez à {{privacyContact}}. Une réponse vous est apportée dans un délai d'un mois, qui peut être prolongé de deux mois en cas de demande complexe. Une preuve d'identité peut vous être demandée en cas de doute raisonnable.
 
-**Suppression du compte.** [[À COMPLÉTER : parcours de suppression du compte depuis l'application, et ce qu'il advient des statistiques de match après suppression (décisions D4 et D5)]] Supprimer son compte ne résilie pas un abonnement souscrit auprès d'Apple ou de Google : il se résilie dans les réglages du compte Apple ou Google.
+**Suppression du compte.** Le parcours se trouve dans les réglages de l'application. La suppression efface le compte, l'adresse e-mail, la photo, la date de naissance, les mesures, les pièces jointes des suivis et tout ce que l'utilisateur a créé lui-même (exercices personnels, clips, montages). Le prénom, le nom et l'historique sportif tenu par le club (statistiques, présences, appréciations et enregistrements vocaux des coachs) restent dans le club, rattachés à un joueur sans compte, que l'administrateur du club peut inviter à nouveau. L'administrateur d'un club transmet d'abord l'administration à un coach du club, qui en est informé ; si le club n'a aucun coach, la suppression du compte entraîne la clôture du club. Supprimer son compte ne résilie pas un abonnement souscrit auprès d'Apple ou de Google : il se résilie dans les réglages du compte Apple ou Google.
 
 **Réclamation.** Si vous estimez que vos droits ne sont pas respectés, vous pouvez saisir la Commission nationale de l'informatique et des libertés (CNIL), sur www.cnil.fr.
 

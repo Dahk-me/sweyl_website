@@ -33,7 +33,8 @@ L'utilisateur s'engage à fournir des informations exactes, à garder ses identi
 
 Une grande partie des joueurs sont mineurs.
 
-- Un mineur utilise l'Application sous la responsabilité de ses représentants légaux, qui acceptent les présentes CGU pour son compte. [[À COMPLÉTER : âge à partir duquel un mineur peut utiliser seul son compte, et mécanisme d'accord parental en dessous (décision D6)]]
+- Un mineur utilise l'Application sous la responsabilité de ses représentants légaux, qui acceptent les présentes CGU pour son compte. Un joueur de moins de 13 ans n'a pas de compte propre : son profil est porté par le compte d'un représentant légal. De 13 à 14 ans, il peut avoir son propre compte avec l'accord d'un représentant légal, qui est enregistré. À partir de 15 ans, il utilise seul son compte.
+- Les comptes des journées de mesure (Combine) sont réservés aux personnes majeures.
 - Le club qui inscrit un joueur mineur garantit disposer de l'accord de ses représentants légaux pour le faire figurer dans l'Application et y saisir ses données, y compris sa photo, ses vidéos et ses suivis.
 - Les représentants légaux peuvent à tout moment exercer les droits du mineur sur ses données, dans les conditions décrites dans la [politique de confidentialité](/confidentialite).
 
@@ -102,7 +103,7 @@ Le traitement des données personnelles est décrit dans la [politique de confid
 
 ## 13. Suspension, résiliation et suppression du compte
 
-L'utilisateur peut cesser d'utiliser l'Application et demander la suppression de son compte à tout moment. [[À COMPLÉTER : parcours de suppression du compte depuis l'Application et sort des statistiques de match après suppression (décisions D4 et D5)]] Supprimer son compte ne résilie pas un abonnement souscrit auprès d'Apple ou de Google (section 9.2).
+L'utilisateur peut cesser d'utiliser l'Application et demander la suppression de son compte à tout moment. Le parcours se trouve dans les réglages de l'Application. La suppression efface le compte, l'adresse e-mail, la photo, la date de naissance, les mesures, les pièces jointes des suivis et tout ce que l'utilisateur a créé lui-même (exercices personnels, clips, montages). Le prénom, le nom et l'historique sportif tenu par le club (statistiques, présences, appréciations et enregistrements vocaux des coachs) restent dans le club, rattachés à un joueur sans compte, que l'administrateur du club peut inviter à nouveau. L'administrateur d'un club transmet d'abord l'administration à un coach du club, qui en est informé ; si le club n'a aucun coach, la suppression du compte entraîne la clôture du club. Supprimer son compte ne résilie pas un abonnement souscrit auprès d'Apple ou de Google (section 9.2).
 
 L'éditeur peut suspendre ou fermer un compte en cas de manquement grave aux présentes CGU, après avoir invité l'utilisateur à s'expliquer, sauf urgence.
 
