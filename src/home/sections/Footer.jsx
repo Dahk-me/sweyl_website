@@ -6,6 +6,7 @@ import logoSvg from '/assets/LogoSweyl.svg'
 import { CONTACT_EMAIL } from '../../lib/leadOptions'
 import { appUrl, clubSignupUrl } from '../../lib/siteUrls'
 import { ANCHORS } from '../copy'
+import { LEGAL_DOCUMENTS } from '../../legal/documents'
 
 // Les réseaux s'ouvrent dans un nouvel onglet (`newTab`) ; l'application, dans le même.
 const FooterLink = ({ href, newTab, children }) => {
@@ -31,7 +32,7 @@ const columns = [
       { id: 'app', href: appUrl() },
       { id: 'demo', href: `#${ANCHORS.join}` },
       { label: CONTACT_EMAIL, href: `mailto:${CONTACT_EMAIL}` },
-      { legal: true, href: '/mentions-legales' },
+      ...Object.values(LEGAL_DOCUMENTS).map(document => ({ legal: document.id, href: document.route })),
     ],
   },
   {
@@ -46,7 +47,7 @@ const columns = [
 export default function Footer() {
   const { theme } = useTheme()
   const { t } = useTranslation(['home', 'common'])
-  const linkLabel = li => li.label ?? (li.legal ? t('common:legal.title') : t(`footer.links.${li.id}`))
+  const linkLabel = li => li.label ?? (li.legal ? t(`common:legal.documents.${li.legal}`) : t(`footer.links.${li.id}`))
 
   return (
     <footer id={ANCHORS.footer} className="h-footer">

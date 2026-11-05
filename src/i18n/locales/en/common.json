@@ -7,9 +7,14 @@
     "label": "Language"
   },
   "legal": {
-    "title": "Legal notice",
+    "documents": {
+      "legalNotice": "Legal notice",
+      "terms": "Terms of use",
+      "privacy": "Privacy"
+    },
     "back": "Back",
-    "backLong": "Back to home"
+    "backLong": "Back to home",
+    "pending": "Document being finalised, fields still open: {{count}}"
   },
   "notFound": {
     "eyebrow": "Error 404",

@@ -7,9 +7,14 @@
     "label": "Idioma"
   },
   "legal": {
-    "title": "Aviso legal",
+    "documents": {
+      "legalNotice": "Aviso legal",
+      "terms": "Condiciones de uso",
+      "privacy": "Privacidad"
+    },
     "back": "Volver",
-    "backLong": "Volver al inicio"
+    "backLong": "Volver al inicio",
+    "pending": "Documento en preparación, campos aún abiertos: {{count}}"
   },
   "notFound": {
     "eyebrow": "Error 404",
