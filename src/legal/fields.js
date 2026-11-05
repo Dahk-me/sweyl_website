@@ -10,20 +10,20 @@
  */
 export const LEGAL_FIELDS = {
   // Éditeur et responsable du traitement
-  publisherName: "[[À COMPLÉTER : raison sociale de l'éditeur]]",
-  publisherLegalForm: '[[À COMPLÉTER : forme juridique et capital social (ou mention « entreprise individuelle »)]]',
-  publisherAddress: "[[À COMPLÉTER : adresse postale du siège de l'éditeur]]",
-  publisherRegistration: '[[À COMPLÉTER : numéro SIREN et ville du RCS, ou mention équivalente]]',
-  publisherVat: '[[À COMPLÉTER : numéro de TVA intracommunautaire, ou mention « non applicable »]]',
-  publicationDirector: '[[À COMPLÉTER : nom et qualité du directeur de la publication]]',
+  publisherName: "Ismail J.",
+  publisherLegalForm: 'entrepreneur individuel (micro-entreprise)',
+  publisherAddress: "rue de l'Abreuvoir, 51100 Reims",
+  publisherRegistration: '899 457 899 RCS Reims',
+  publisherVat: 'TVA non applicable, article 293 B du CGI',
+  publicationDirector: "Ismail J.",
 
   // Contacts
-  contactEmail: '[[À COMPLÉTER : adresse e-mail de contact générale]]',
-  privacyContact: "[[À COMPLÉTER : adresse (e-mail et/ou postale) à laquelle exercer ses droits sur ses données]]",
-  dpo: '[[À COMPLÉTER : délégué à la protection des données (nom ou fonction, et contact), ou mention « aucun DPO désigné »]]',
+  contactEmail: 'contact@sweyl.com',
+  privacyContact: 'contact@sweyl.com',
+  dpo: 'aucun délégué désigné',
 
   // Versions des documents
-  termsVersion: '[[À COMPLÉTER : numéro de version des CGU (identique à celui enregistré en base par le back-office)]]',
+  termsVersion: '1.0',
   termsEffectiveDate: "[[À COMPLÉTER : date d'entrée en vigueur des CGU]]",
   privacyEffectiveDate: "[[À COMPLÉTER : date d'entrée en vigueur de la politique de confidentialité]]",
 }

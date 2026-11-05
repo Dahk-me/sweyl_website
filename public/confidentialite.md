@@ -8,7 +8,7 @@ Elle s'applique au site www.sweyl.com et à l'application Sweyl, dans sa version
 
 ## 1. Responsable du traitement
 
-Les données sont traitées par **{{publisherName}}**, {{publisherLegalForm}}, dont le siège est situé {{publisherAddress}}, immatriculée sous le numéro {{publisherRegistration}}.
+Les données sont traitées par **{{publisherName}}**, {{publisherLegalForm}}, dont le siège est situé {{publisherAddress}}, immatriculé sous le numéro {{publisherRegistration}}.
 
 Contact pour toute question relative à vos données : {{privacyContact}}.
 

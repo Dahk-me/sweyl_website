@@ -10,7 +10,7 @@ Utiliser l'Application vaut acceptation des CGU en vigueur. L'acceptation de cha
 
 ## 2. Éditeur
 
-L'Application est éditée par **{{publisherName}}**, {{publisherLegalForm}}, dont le siège est situé {{publisherAddress}}, immatriculée sous le numéro {{publisherRegistration}}, TVA : {{publisherVat}}.
+L'Application est éditée par **{{publisherName}}**, {{publisherLegalForm}}, dont le siège est situé {{publisherAddress}}, immatriculé sous le numéro {{publisherRegistration}}, TVA : {{publisherVat}}.
 
 Directeur de la publication : {{publicationDirector}}.
 
