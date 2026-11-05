@@ -19,24 +19,22 @@ Le directeur de la publication est **{{publicationDirector}}**, joignable à l'a
 ## 3. Hébergement
 
 **Hébergeur du site et de l'application web :**
-Vercel Inc., États-Unis.
-Site web : https://vercel.com
+Vercel Inc., 440 N Barranca Avenue #4133, Covina, CA 91723, États-Unis.
+Contact : privacy@vercel.com • Site web : https://vercel.com
 Vercel Inc. est certifié au titre de l'EU-US Data Privacy Framework, cadre encadrant le transfert des données vers les États-Unis.
 
 **Hébergeur du serveur de l'application :**
-Fly.io (Fly.io, Inc.), États-Unis, serveur situé à Paris (France).
-Site web : https://fly.io
+Fly.io, Inc., 2261 Market Street #4990, San Francisco, CA 94114, États-Unis, serveur situé à Paris (France).
+Contact : legal@fly.io • Site web : https://fly.io
 
 **Hébergeur de la base de données :**
-Supabase Inc.
-Site web : https://supabase.com
+Supabase Pte. Ltd., 65 Chulia Street #38-02/03, OCBC Centre, Singapour 049513.
+Contact : privacy@supabase.com • Site web : https://supabase.com
 Région d'hébergement des données : Francfort, Allemagne (Union européenne). [[À VÉRIFIER : région réelle du projet Supabase de production]]
 
 **Hébergeur des fichiers :**
-Cloudflare, Inc., stockage cantonné à l'Union européenne.
-Site web : https://www.cloudflare.com
-
-[[À VÉRIFIER : adresse postale et téléphone de chaque hébergeur, exigés par la loi pour la confiance dans l'économie numérique, à recopier depuis leurs pages légales]]
+Cloudflare, Inc., 101 Townsend Street, San Francisco, CA 94107, États-Unis, stockage cantonné à l'Union européenne.
+Téléphone : +1 888 993 5273 • Site web : https://www.cloudflare.com
 
 ## 4. Propriété intellectuelle
 

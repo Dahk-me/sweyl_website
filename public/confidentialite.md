@@ -135,9 +135,10 @@ Aucune décision produisant des effets juridiques ou affectant de manière signi
 
 Chaque prestataire n'accède qu'aux données nécessaires à sa mission et est lié par un contrat conforme à l'article 28 du RGPD. [[À VÉRIFIER : contrats de sous-traitance (DPA) signés ou acceptés avec chacun]]
 
-- **Supabase** : base de données, authentification, envoi des e-mails liés au compte, temps réel. [[À COMPLÉTER : région d'hébergement de la base, et prestataire d'envoi des e-mails s'il est configuré]]
+- **Supabase** : base de données, authentification, envoi des e-mails liés au compte, temps réel. [[À VÉRIFIER : région d'hébergement de la base]]
+- **Mailjet** (France) : acheminement des e-mails liés au compte, et du formulaire de demande de démonstration du site.
 - **Fly.io** : serveur de l'application, à Paris.
-- **Vercel** : hébergement du site et de l'application web. [[À VÉRIFIER : région de service de l'application web]]
+- **Vercel** : hébergement du site et de l'application web, servis depuis un réseau mondial ; les requêtes de l'application sont transmises au serveur de Paris.
 - **Cloudflare** : stockage des fichiers (vidéos, voix, photos, pièces jointes), dans des espaces cantonnés à l'Union européenne.
 - **Sentry** (États-Unis) : suivi des erreurs techniques.
 - **GitHub** (États-Unis) : copies de sauvegarde de la base.
@@ -151,7 +152,7 @@ Chaque prestataire n'accède qu'aux données nécessaires à sa mission et est l
 
 - Compte et profil : conservés tant que le compte existe, effacés dans les 30 jours suivant la demande de suppression, à l'exception du prénom, du nom et de l'historique sportif tenus par le club (section 9). Un compte inactif depuis 3 ans est supprimé, après un e-mail de prévenance.
 - Statistiques et historique sportif après le départ d'un club : conservés avec la feuille de match, qui fait partie de l'historique du club.
-- Appréciations, enregistrements vocaux et suivis : les appréciations et les enregistrements vocaux sont conservés avec le match ; les suivis, qui peuvent contenir des données de santé, sont supprimés au départ du joueur du club ou à la suppression de son compte.
+- Appréciations, enregistrements vocaux et suivis : les appréciations et les enregistrements vocaux sont conservés avec le match ; les suivis sont conservés avec l'historique du club, et leurs pièces jointes concernant le joueur, qui peuvent contenir des données de santé, sont supprimées à la suppression de son compte.
 - Vidéos de match : conservées tant que l'option vidéo de l'équipe est active, puis supprimées 90 jours après sa fin.
 - Fiches de scouting adverse : leurs vidéos sont supprimées trois mois après l'archivage de l'équipe adverse ou la fin de l'option Pro.
 - Notifications : supprimées trois jours après leur expiration.
