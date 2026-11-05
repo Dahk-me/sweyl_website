@@ -6,7 +6,7 @@ import logoSvg from '/assets/LogoSweyl.svg'
 import { CONTACT_EMAIL } from '../../lib/leadOptions'
 import { appUrl, clubSignupUrl } from '../../lib/siteUrls'
 import { ANCHORS } from '../copy'
-import { LEGAL_DOCUMENTS } from '../../legal/documents'
+import { PUBLISHED_LEGAL_DOCUMENTS } from '../../legal/documents'
 
 // Les réseaux s'ouvrent dans un nouvel onglet (`newTab`) ; l'application, dans le même.
 const FooterLink = ({ href, newTab, children }) => {
@@ -32,7 +32,7 @@ const columns = [
       { id: 'app', href: appUrl() },
       { id: 'demo', href: `#${ANCHORS.join}` },
       { label: CONTACT_EMAIL, href: `mailto:${CONTACT_EMAIL}` },
-      ...Object.values(LEGAL_DOCUMENTS).map(document => ({ legal: document.id, href: document.route })),
+      ...PUBLISHED_LEGAL_DOCUMENTS.map(document => ({ legal: document.id, href: document.route })),
     ],
   },
   {

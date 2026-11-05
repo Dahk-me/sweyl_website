@@ -1,6 +1,6 @@
 # Mentions légales
 
-_Dernière mise à jour : {{privacyEffectiveDate}}_
+_Dernière mise à jour : {{legalNoticeDate}}_
 
 ## 1. Éditeur du site
 
@@ -56,7 +56,7 @@ L'éditeur attache une importance particulière à la protection des données pe
 
 **Destinataires :** ces informations sont reçues et traitées exclusivement par l'éditeur. Elles transitent par le service d'envoi de courriels Mailjet (Union européenne), qui achemine la demande jusqu'à notre boîte mail, sans la conserver dans le site. Elles ne sont ni cédées, ni vendues, ni communiquées à des tiers à des fins commerciales.
 
-**Transferts hors Union européenne :** le site étant hébergé par Vercel Inc. (États-Unis), certaines données techniques (notamment les adresses IP) peuvent être traitées aux États-Unis. Ce transfert est encadré par la certification EU-US Data Privacy Framework de Vercel. L'utilisation de l'application est décrite dans la [politique de confidentialité](/confidentialite).
+**Transferts hors Union européenne :** le site étant hébergé par Vercel Inc. (États-Unis), certaines données techniques (notamment les adresses IP) peuvent être traitées aux États-Unis. Ce transfert est encadré par la certification EU-US Data Privacy Framework de Vercel.
 
 **Durée de conservation :** vos données sont conservées le temps nécessaire au traitement de votre demande, puis supprimées au plus tard 12 mois après notre dernier échange.
 

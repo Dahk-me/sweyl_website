@@ -24,6 +24,7 @@ export const LEGAL_FIELDS = {
 
   // Versions des documents
   termsVersion: '1.0',
+  legalNoticeDate: '05/11/2026',
   termsEffectiveDate: "[[À COMPLÉTER : date d'entrée en vigueur des CGU]]",
   privacyEffectiveDate: "[[À COMPLÉTER : date d'entrée en vigueur de la politique de confidentialité]]",
 }
