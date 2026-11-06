@@ -1,6 +1,6 @@
 # Legal notice
 
-_Last updated: 05/06/2026_
+_Last updated: {{legalNoticeDate}}_
 
 _This translation is provided for convenience. Only the French version is legally binding._
 
@@ -8,25 +8,35 @@ _This translation is provided for convenience. Only the French version is legall
 
 The website **www.sweyl.com** is published by:
 
-**SWEYL** •
-Address: 28 rue Thiers, 51100 Reims, France •
-Email: contact@sweyl.com
+**{{publisherName}}**, {{publisherLegalForm}} •
+Registered office: {{publisherAddress}} •
+Registration: {{publisherRegistration}} •
+VAT: {{publisherVat}} •
+Email: {{contactEmail}}
 
 ## 2. Publication director
 
-The publication director is **Sweyl**, reachable at contact@sweyl.com.
+The publication director is **{{publicationDirector}}**, reachable at {{contactEmail}}.
 
 ## 3. Hosting
 
-**Website host (front end and application):**
-Vercel Inc.
-Website: https://vercel.com
-Hosting region: Washington D.C. (United States). Vercel Inc. is certified under the EU-US Data Privacy Framework, which governs data transfers to the United States.
+**Host of the website and the web application:**
+Vercel Inc., 440 N Barranca Avenue #4133, Covina, CA 91723, United States.
+Contact: privacy@vercel.com • Website: https://vercel.com
+Vercel Inc. is certified under the EU-US Data Privacy Framework, which governs data transfers to the United States.
 
-**Data infrastructure and file host:**
-Supabase Inc.
-Website: https://supabase.com
-Data hosting region: Frankfurt, Germany (European Union).
+**Host of the application server:**
+Fly.io, Inc., 2261 Market Street #4990, San Francisco, CA 94114, United States, server located in Paris (France).
+Contact: legal@fly.io • Website: https://fly.io
+
+**Database host:**
+Supabase Pte. Ltd., 65 Chulia Street #38-02/03, OCBC Centre, Singapore 049513.
+Contact: privacy@supabase.com • Website: https://supabase.com
+Data hosting region: Paris, France (European Union).
+
+**File host:**
+Cloudflare, Inc., 101 Townsend Street, San Francisco, CA 94107, United States, storage restricted to the European Union.
+Phone: +1 888 993 5273 • Website: https://www.cloudflare.com
 
 ## 4. Intellectual property
 
@@ -38,7 +48,7 @@ Any reproduction, representation, modification, publication or adaptation of all
 
 The publisher places particular importance on the protection of personal data, in accordance with Regulation (EU) 2016/679 (GDPR) and the amended French Data Protection Act ("Informatique et Libertés") of 6 January 1978.
 
-**Data controller:** Sweyl, reachable at contact@sweyl.com.
+**Data controller:** {{publisherName}}, reachable at {{contactEmail}}.
 
 **Data collected:** when you request a demo, your name, email address and the name of your club or organisation may be collected.
 
@@ -46,21 +56,21 @@ The publisher places particular importance on the protection of personal data, i
 
 **Legal basis:** your voluntary request and the publisher's legitimate interest in responding to it (pre-contractual measures).
 
-**Recipients:** this information is received and processed exclusively by the publisher. It is never transferred, sold or disclosed to third parties for commercial purposes.
+**Recipients:** this information is received and processed exclusively by the publisher. It passes through the Mailjet email service (European Union), which delivers the request to our mailbox without the website storing it. It is never transferred, sold or disclosed to third parties for commercial purposes.
 
-**Transfers outside the European Union:** as the website is hosted by Vercel Inc. (United States), some technical data (in particular IP addresses) may be processed in the United States. This transfer is covered by Vercel's EU-US Data Privacy Framework certification. Application data managed through Supabase is hosted within the European Union (Frankfurt).
+**Transfers outside the European Union:** as the website is hosted by Vercel Inc. (United States), some technical data (in particular IP addresses) may be processed in the United States. This transfer is covered by Vercel's EU-US Data Privacy Framework certification.
 
 **Retention period:** your data is kept for as long as needed to process your request, then deleted no later than 12 months after our last exchange.
 
-**Your rights:** you have the right to access, rectify, erase, object to and restrict the processing of your data. To exercise these rights, write to contact@sweyl.com. You may also lodge a complaint with the CNIL, the French data protection authority (www.cnil.fr).
+**Your rights:** you have the right to access, rectify, erase, object to and restrict the processing of your data. To exercise these rights, write to {{contactEmail}}. You may also lodge a complaint with the CNIL, the French data protection authority (www.cnil.fr).
 
 ## 6. Cookies and audience measurement
 
-The website www.sweyl.com **does not set any** advertising or tracking cookies.
+The website www.sweyl.com **does not set any** advertising or tracking cookies. It only sets two preference cookies, strictly necessary and exempt from prior consent: the language and the theme (light or dark) chosen by the visitor.
 
 For audience measurement, the website uses **Vercel Web Analytics**, a **cookie-free** statistics tool that collects no directly identifying data and does not track visitors from one site to another. The statistics produced are aggregated and anonymous, and are used solely to understand how the website is visited. In line with the CNIL's recommendations on audience measurement tools, this setup is exempt from prior consent.
 
-You can opt out of this audience measurement by enabling your browser's "Do Not Track" signal or by writing to contact@sweyl.com.
+You can opt out of this audience measurement by writing to {{contactEmail}}.
 
 ## 7. Governing law
 

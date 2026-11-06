@@ -3,6 +3,7 @@ import assert from 'node:assert/strict'
 import { existsSync, readdirSync, readFileSync } from 'node:fs'
 import path from 'node:path'
 import { DEFAULT_LANGUAGE, SITE_LANGUAGES } from '../src/i18n/languages.js'
+import { LEGAL_DOCUMENTS, legalFileName } from '../src/legal/documents.js'
 
 /**
  * Complétude des traductions du site (`specs/Internationalisation.md` §5.4 et §9) : rien ne part
@@ -45,10 +46,19 @@ for (const language of SITE_LANGUAGES.filter(l => l !== DEFAULT_LANGUAGE)) {
   }
 }
 
-test('les mentions légales existent dans chaque langue', () => {
-  for (const language of SITE_LANGUAGES) {
-    const file = language === DEFAULT_LANGUAGE ? 'mentions-legales.md' : `mentions-legales.${language}.md`
-    assert.ok(existsSync(path.join(ROOT, 'public', file)), file)
+test('chaque document juridique existe dans chaque langue', () => {
+  for (const document of Object.values(LEGAL_DOCUMENTS)) {
+    for (const language of SITE_LANGUAGES) {
+      const file = legalFileName(document, language)
+      assert.ok(existsSync(path.join(ROOT, 'public', file)), file)
+    }
+  }
+})
+
+test('chaque document juridique échappe à la réécriture SPA de vercel.json', () => {
+  const rewrite = JSON.parse(readFileSync(path.join(ROOT, 'vercel.json'), 'utf8')).rewrites[0].source
+  for (const document of Object.values(LEGAL_DOCUMENTS)) {
+    for (const language of SITE_LANGUAGES) assert.ok(rewrite.includes(legalFileName(document, language)), legalFileName(document, language))
   }
 })
 

@@ -3,7 +3,8 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { Analytics } from '@vercel/analytics/react'
 import { ThemeProvider } from './contexts/theme'
 import HomePage from './home/HomePage'
-import MentionsLegales from './pages/MentionsLegales'
+import LegalPage from './pages/LegalPage'
+import { LEGAL_DOCUMENTS } from './legal/documents'
 import NotFound from './pages/NotFound'
 
 export default function App() {
@@ -12,7 +13,9 @@ export default function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/mentions-legales" element={<MentionsLegales />} />
+          {Object.values(LEGAL_DOCUMENTS).map(document => (
+            <Route key={document.id} path={document.route} element={<LegalPage document={document} />} />
+          ))}
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

@@ -11,7 +11,8 @@ const onProduction = () => typeof window !== 'undefined' && PRODUCTION_HOSTS.inc
 
 export const proUrl = () => (onProduction() ? 'https://pro.sweyl.com' : '/pro.html')
 export const mainSiteUrl = () => (onProduction() ? 'https://sweyl.com' : '/')
-export const legalUrl = () => (onProduction() ? 'https://sweyl.com/mentions-legales' : '/mentions-legales')
+/** Un document juridique (`LEGAL_DOCUMENTS`), toujours servi par sweyl.com, y compris depuis le Pro. */
+export const legalUrl = document => (onProduction() ? `https://sweyl.com${document.route}` : document.route)
 
 /**
  * L'application. Elle n'existe qu'en production : le site local ou une prévisualisation Vercel ne
