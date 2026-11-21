@@ -1,6 +1,6 @@
 # Conditions générales d'utilisation
 
-_Version 1.0, entrée en vigueur le 21/11/2026_
+_Version 20261121, entrée en vigueur le 21/11/2026_
 
 ## 1. Objet
 
