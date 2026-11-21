@@ -48,6 +48,8 @@ Queda prohibida cualquier reproducción, representación, modificación, publica
 
 El editor concede especial importancia a la protección de los datos personales, de conformidad con el Reglamento (UE) 2016/679 (RGPD) y la ley francesa «Informatique et Libertés» del 6 de enero de 1978, en su versión modificada.
 
+Los datos tratados por la aplicación Sweyl se describen en la [política de privacidad](/confidentialite). Esta sección solo se refiere al sitio.
+
 **Responsable del tratamiento:** {{publisherName}}, con quien puedes contactar en {{contactEmail}}.
 
 **Datos recogidos:** al solicitar una demostración, pueden recogerse tu nombre, tu dirección de correo electrónico y el nombre de tu club o entidad.

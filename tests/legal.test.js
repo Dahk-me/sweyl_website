@@ -23,8 +23,8 @@ test('les deux marqueurs sont comptés, et eux seuls', () => {
 })
 
 /**
- * Un document publié est lié depuis le site : il doit être complet. Les CGU et la politique de
- * confidentialité restent servies non publiées tant que `TODO-CGU.md` n'est pas soldé.
+ * Un document publié est lié depuis le site : il doit être complet. Les CGU restent servies non
+ * publiées : seule l'application y renvoie.
  */
 const ROOT = path.resolve(import.meta.dirname, '..')
 const read = file => readFileSync(path.join(ROOT, 'public', file), 'utf8')

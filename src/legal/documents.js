@@ -9,16 +9,16 @@ import { DEFAULT_LANGUAGE, SITE_LANGUAGES } from '../i18n/languages.js'
  * document est la clé `legal.documents.<id>` de `common`.
  *
  * `published` décide seul des liens : un document non publié reste servi à son URL, mais aucun pied
- * de page n'y renvoie, et aucun document publié ne peut y renvoyer non plus (test). Il ne passe à
- * vrai que quand `TODO-CGU.md` (dépôt racine) est soldé, en même temps que
- * `LEGAL_DOCUMENTS_PUBLISHED` du front.
+ * de page n'y renvoie, et aucun document publié ne peut y renvoyer non plus (test). Les CGU restent
+ * à faux pour de bon : elles ne concernent que l'application, qui y renvoie avec les stores, et le
+ * site n'a pas à les afficher en pied de page.
  *
  * `languages` liste les traductions présentes ; une autre langue lit le français.
  */
 export const LEGAL_DOCUMENTS = {
   legalNotice: { id: 'legalNotice', route: '/mentions-legales', file: 'mentions-legales', published: true, languages: SITE_LANGUAGES },
   terms: { id: 'terms', route: '/cgu', file: 'cgu', published: false, languages: [DEFAULT_LANGUAGE] },
-  privacy: { id: 'privacy', route: '/confidentialite', file: 'confidentialite', published: false, languages: [DEFAULT_LANGUAGE] },
+  privacy: { id: 'privacy', route: '/confidentialite', file: 'confidentialite', published: true, languages: SITE_LANGUAGES },
 }
 
 export const PUBLISHED_LEGAL_DOCUMENTS = Object.values(LEGAL_DOCUMENTS).filter(document => document.published)

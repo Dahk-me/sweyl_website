@@ -46,6 +46,8 @@ Toute reproduction, représentation, modification, publication ou adaptation de 
 
 L'éditeur attache une importance particulière à la protection des données personnelles, conformément au Règlement (UE) 2016/679 (RGPD) et à la loi « Informatique et Libertés » du 6 janvier 1978 modifiée.
 
+Les données traitées par l'application Sweyl sont décrites dans la [politique de confidentialité](/confidentialite). Cette section ne concerne que le site.
+
 **Responsable du traitement :** {{publisherName}}, joignable à {{contactEmail}}.
 
 **Données collectées :** lors d'une demande de démonstration, sont susceptibles d'être collectés vos nom, adresse e-mail et le nom de votre club ou structure.

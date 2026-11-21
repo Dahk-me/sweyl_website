@@ -48,6 +48,8 @@ Any reproduction, representation, modification, publication or adaptation of all
 
 The publisher places particular importance on the protection of personal data, in accordance with Regulation (EU) 2016/679 (GDPR) and the amended French Data Protection Act ("Informatique et Libertés") of 6 January 1978.
 
+The data processed by the Sweyl application is described in the [privacy policy](/confidentialite). This section covers the website only.
+
 **Data controller:** {{publisherName}}, reachable at {{contactEmail}}.
 
 **Data collected:** when you request a demo, your name, email address and the name of your club or organisation may be collected.
