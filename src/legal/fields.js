@@ -1,6 +1,10 @@
 /**
- * Les données d'identité et de contact citées par les textes juridiques (`public/cgu.md`,
- * `public/confidentialite.md`), appelées dans le texte par `{{cle}}`.
+ * Les données d'identité et de contact citées par les textes juridiques, appelées dans le texte par
+ * `{{cle}}`.
+ *
+ * `public/cgu.md` n'en appelle aucune : c'est le fichier téléchargé tel quel depuis
+ * `/platform/terms` de l'application, où la version qui fait foi est importée. Il se remplace en
+ * entier, sans rien retoucher ici.
  *
  * Une donnée qui revient à plusieurs endroits ne s'écrit qu'ici : la changer ici la change partout.
  * Les champs propres à une seule phrase restent dans le texte, avec le même marqueur.
@@ -23,8 +27,6 @@ export const LEGAL_FIELDS = {
   dpo: 'aucun délégué désigné',
 
   // Versions des documents
-  termsVersion: '1.0',
   legalNoticeDate: '05/11/2026',
-  termsEffectiveDate: "[[À COMPLÉTER : date d'entrée en vigueur des CGU]]",
-  privacyEffectiveDate: "[[À COMPLÉTER : date d'entrée en vigueur de la politique de confidentialité]]",
+  privacyEffectiveDate: '21/11/2026',
 }

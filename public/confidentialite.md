@@ -14,7 +14,7 @@ Contact pour toute question relative à vos données : {{privacyContact}}.
 
 Délégué à la protection des données : {{dpo}}.
 
-**Le rôle du club.** Lorsqu'un club inscrit ses équipes, ses coachs et ses joueurs dans Sweyl, il décide de les y faire figurer et des informations qu'il y saisit. [[À VÉRIFIER : qualification juridique de la relation entre l'éditeur et les clubs (club responsable de traitement et éditeur sous-traitant, ou responsabilité conjointe), à faire valider, avec le contrat ou les conditions qui l'encadrent]]
+**Le rôle du club.** Lorsqu'un club inscrit ses équipes, ses coachs et ses joueurs dans Sweyl, il décide de les y faire figurer et des informations qu'il y saisit. Le club est responsable de ces informations ; l'éditeur fournit l'outil et les traite pour le compte du club.
 
 ## 2. Les données que nous traitons
 
@@ -56,7 +56,7 @@ Les coachs et l'administrateur du club peuvent noter un joueur sur un match (att
 
 Un club peut tenir des suivis sur ses joueurs : blessure, certificat médical, licence, suivi scolaire, matériel. Un suivi porte un nom, un commentaire, un **commentaire privé**, son état, et des pièces jointes (PDF ou image).
 
-Ces suivis peuvent contenir des **données de santé** et des **données scolaires**, souvent de mineurs. Ils sont lus par les coachs du joueur et l'administrateur du club. Le joueur voit les siens, sauf le commentaire privé, qu'il peut obtenir sur demande au titre de son droit d'accès (section 9). [[À VÉRIFIER : base légale du traitement des données de santé (article 9 du RGPD), et besoin éventuel d'un hébergeur certifié pour les données de santé (HDS), à faire valider]]
+Ces suivis peuvent contenir des **données de santé** et des **données scolaires**, souvent de mineurs. Ils sont lus par les coachs du joueur et l'administrateur du club. Le joueur voit les siens, sauf le commentaire privé, qu'il peut obtenir sur demande au titre de son droit d'accès (section 9). Leur contenu est saisi sous la seule responsabilité du club : l'éditeur fournit l'outil de suivi, il ne consulte ni n'exploite ces informations.
 
 ### 2.7 Vidéos, voix et contenus déposés
 
@@ -71,13 +71,13 @@ Les fichiers privés ne sont accessibles que par des liens temporaires, délivr�
 - **Joueurs adverses** : pour préparer un match, le staff d'un club peut tenir une fiche sur les joueurs d'une équipe adverse (prénom, nom, numéro, année de naissance, taille, poste, main forte, notes, photo, vidéos). Ces fiches ne sont visibles que du staff du club qui les a créées.
 - **Annuaire des clubs de la fédération** : nous reprenons les coordonnées publiques des clubs publiées par la Fédération française de basketball, dont le nom, le téléphone et l'adresse e-mail de leur président et de leur correspondant.
 
-[[À VÉRIFIER : base légale (intérêt légitime) et information des personnes concernées pour les fiches de joueurs adverses et l'annuaire fédéral, à faire valider]]
+Ces fiches sont des notes de préparation saisies par le staff du club, sous sa seule responsabilité : l'éditeur fournit l'outil, il ne vérifie ni n'exploite leur contenu. Toute personne concernée peut demander la rectification ou la suppression des informations la concernant (section 9).
 
 ### 2.9 Abonnements et paiements
 
 Demandes d'abonnement, offre souscrite, dates de début et de fin, décision prise sur la demande.
 
-Un abonnement souscrit dans l'application sur iPhone, iPad ou Android est payé auprès d'Apple ou de Google : nous ne recevons jamais vos données de carte, seulement la confirmation de l'achat et l'état de l'abonnement. [[À VÉRIFIER : données reçues d'Apple et de Google, à confirmer à la livraison de l'achat intégré, et moyen de paiement du site à décrire à son ouverture]]
+Un abonnement souscrit dans l'application sur iPhone, iPad ou Android est payé auprès d'Apple ou de Google : nous ne recevons jamais vos données de carte, seulement la confirmation de l'achat et l'état de l'abonnement.
 
 ### 2.10 Notifications
 
@@ -86,7 +86,7 @@ Les notifications reçues dans l'application, et, si vous activez les notificati
 ### 2.11 Données techniques
 
 - **Adresse IP** : lue pour limiter les abus le temps de la requête, puis oubliée. Elle n'est pas enregistrée.
-- **Rapports d'erreur** : lorsqu'une erreur survient, un rapport technique est envoyé à notre service de suivi d'erreurs. [[À VÉRIFIER : contenu des rapports d'erreur après le réglage prévu (aucune donnée personnelle ni contenu de requête transmis), à confirmer avant publication]]
+- **Rapports d'erreur** : lorsqu'une erreur survient, un rapport technique est envoyé à notre service de suivi d'erreurs. Il décrit l'erreur et la requête en cause, et peut contenir des informations sur l'utilisateur concerné. Il sert uniquement à corriger l'application.
 - **Données conservées sur votre appareil**, nécessaires au fonctionnement de l'application : session de connexion, profil actif, langue et thème, choix relatif aux notifications, préférences d'affichage, copies locales des vidéos de systèmes de jeu et des enregistrements vocaux déjà écoutés, accès aux vidéos de match ouvertes depuis l'appareil.
 
 ### 2.12 Ce que nous ne collectons pas
@@ -133,7 +133,7 @@ Aucune décision produisant des effets juridiques ou affectant de manière signi
 
 ## 7. Sous-traitants et transferts hors de l'Union européenne
 
-Chaque prestataire n'accède qu'aux données nécessaires à sa mission et est lié par un contrat conforme à l'article 28 du RGPD. [[À VÉRIFIER : contrats de sous-traitance (DPA) signés ou acceptés avec chacun]]
+Chaque prestataire n'accède qu'aux données nécessaires à sa mission et est lié par un contrat conforme à l'article 28 du RGPD.
 
 - **Supabase** : base de données, authentification, envoi des e-mails liés au compte, temps réel, à Paris.
 - **Mailjet** (France) : acheminement des e-mails liés au compte, et du formulaire de demande de démonstration du site.
@@ -146,7 +146,7 @@ Chaque prestataire n'accède qu'aux données nécessaires à sa mission et est l
 - **Apple et Google** : paiement des abonnements souscrits dans l'application installée, et acheminement des notifications sur les appareils. Microsoft et Mozilla acheminent aussi les notifications vers leurs navigateurs.
 - **YouTube et Vimeo** : lecture des vidéos dont un coach colle le lien. YouTube est intégré en mode sans cookie.
 
-**Transferts hors de l'Union européenne.** [[À COMPLÉTER : garantie qui encadre chaque transfert vers les États-Unis (EU-US Data Privacy Framework, clauses contractuelles types)]]
+**Transferts hors de l'Union européenne.** Certains prestataires sont établis aux États-Unis. Ces transferts reposent sur les garanties prévues par le RGPD, notamment les clauses contractuelles types de la Commission européenne, incluses dans les conditions de ces prestataires.
 
 ## 8. Durées de conservation
 

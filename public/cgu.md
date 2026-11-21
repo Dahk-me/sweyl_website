@@ -1,20 +1,20 @@
 # Conditions générales d'utilisation
 
-_Version {{termsVersion}}, entrée en vigueur le {{termsEffectiveDate}}_
+_Version 1.0, entrée en vigueur le 21/11/2026_
 
 ## 1. Objet
 
 Les présentes conditions générales d'utilisation (« CGU ») encadrent l'accès et l'utilisation de l'application Sweyl (« l'Application ») et du site www.sweyl.com. Sweyl permet aux clubs de basket amateur, à leurs dirigeants, leurs coachs et leurs joueurs de gérer leurs équipes, de saisir et de suivre des statistiques de match, d'organiser les entraînements et d'analyser les performances.
 
-Utiliser l'Application vaut acceptation des CGU en vigueur. L'acceptation de chaque version est enregistrée avec sa date. [[À VÉRIFIER : écran d'acceptation des CGU, dont l'enregistrement existe côté serveur sans être encore appelé par l'Application]]
+Utiliser l'Application vaut acceptation des CGU en vigueur. L'acceptation de chaque version est enregistrée avec sa date.
 
 ## 2. Éditeur
 
-L'Application est éditée par **{{publisherName}}**, {{publisherLegalForm}}, dont le siège est situé {{publisherAddress}}, immatriculé sous le numéro {{publisherRegistration}}, TVA : {{publisherVat}}.
+L'Application est éditée par **Ismail JABBOUR**, entrepreneur individuel (micro-entreprise), dont le siège est situé rue de l'Abreuvoir, 51100 Reims, immatriculé sous le numéro 899 457 899 RCS Reims, TVA : TVA non applicable, article 293 B du CGI.
 
-Directeur de la publication : {{publicationDirector}}.
+Directeur de la publication : Ismail JABBOUR.
 
-Contact : {{contactEmail}}.
+Contact : contact@sweyl.com.
 
 ## 3. Définitions
 
@@ -27,7 +27,7 @@ Contact : {{contactEmail}}.
 
 L'accès aux fonctionnalités nécessite un compte. Un compte est créé soit par l'utilisateur lui-même, soit à l'initiative de son club, qui l'invite ou l'inscrit avec ses équipes.
 
-L'utilisateur s'engage à fournir des informations exactes, à garder ses identifiants confidentiels et à ne pas usurper l'identité d'un tiers. Il est responsable de l'activité réalisée depuis son compte et signale sans délai toute utilisation qu'il n'a pas autorisée, à l'adresse {{contactEmail}}.
+L'utilisateur s'engage à fournir des informations exactes, à garder ses identifiants confidentiels et à ne pas usurper l'identité d'un tiers. Il est responsable de l'activité réalisée depuis son compte et signale sans délai toute utilisation qu'il n'a pas autorisée, à l'adresse contact@sweyl.com.
 
 ## 5. Mineurs
 
@@ -63,7 +63,7 @@ L'utilisateur reste titulaire des droits sur les contenus qu'il dépose (vidéos
 
 Les extraits et montages vidéo affichés ou exportés depuis l'Application portent un filigrane Sweyl.
 
-L'éditeur peut retirer un contenu manifestement illicite qui lui est signalé à l'adresse {{contactEmail}}. L'administrateur du club et le coach de l'équipe concernée peuvent retirer de la diffusion un montage publié dans leur club.
+L'éditeur peut retirer un contenu manifestement illicite qui lui est signalé à l'adresse contact@sweyl.com. L'administrateur du club et le coach de l'équipe concernée peuvent retirer de la diffusion un montage publié dans leur club.
 
 ## 9. Abonnements
 
@@ -71,7 +71,7 @@ L'Application propose un accès gratuit et des fonctionnalités soumises à abon
 
 ### 9.1 Offres pour les clubs et les équipes
 
-Le forfait club et les options d'équipe (analyse vidéo, Pro) sont réservés aux clubs, qui les souscrivent en tant que structure, en dehors des versions de l'Application installées depuis l'App Store ou Google Play. Leurs conditions (durée, facturation, résiliation) sont précisées lors de la souscription. [[À COMPLÉTER : durée, facturation (dix mois par saison), renouvellement et résiliation du forfait club et des options d'équipe]]
+Le forfait club et les options d'équipe (analyse vidéo, Pro) sont réservés aux clubs, qui les souscrivent en tant que structure, en dehors des versions de l'Application installées depuis l'App Store ou Google Play. Ils sont souscrits pour une saison sportive et facturés sur dix mois, de septembre à juin. Ils se renouvellent tacitement à chaque saison. Le club peut les résilier par e-mail à contact@sweyl.com au plus tard un mois avant la fin de la saison en cours ; la résiliation prend effet au terme de cette saison.
 
 ### 9.2 Abonnement joueur
 
@@ -79,15 +79,11 @@ L'abonnement joueur est personnel : il vaut pour le joueur qui le souscrit, dans
 
 **Souscrit dans l'Application sur iPhone, iPad ou Android**, il est vendu et encaissé par Apple (App Store) ou Google (Google Play), selon leurs conditions. Il se renouvelle automatiquement à chaque échéance, au prix affiché lors de la souscription, sauf résiliation au moins 24 heures avant la fin de la période en cours. Il se gère et se résilie depuis les réglages d'abonnement du compte Apple ou Google. Le paiement est débité sur ce compte à la confirmation de l'achat. Les demandes de remboursement relèvent d'Apple ou de Google.
 
-**Souscrit sur le site**, il est encaissé par l'éditeur. [[À COMPLÉTER : moyen de paiement en ligne, durée, renouvellement et résiliation de l'abonnement joueur souscrit sur le site, à rédiger à l'ouverture du paiement en ligne]]
-
 Supprimer son compte Sweyl ne résilie pas un abonnement souscrit auprès d'Apple ou de Google : il faut le résilier chez eux.
 
 ### 9.3 Droit de rétractation
 
 Un abonnement souscrit dans l'Application installée relève des conditions d'Apple ou de Google, qui traitent les demandes de remboursement.
-
-Pour un abonnement souscrit sur le site, le joueur consommateur dispose d'un délai de quatorze jours pour se rétracter. S'il demande l'accès immédiat aux fonctionnalités puis se rétracte pendant ce délai, il paie la part du service déjà fournie (article L221-25 du Code de la consommation). [[À VÉRIFIER : rédaction du droit de rétractation à faire valider par un conseil]]
 
 ## 10. Disponibilité et responsabilité
 
@@ -119,10 +115,8 @@ L'éditeur peut faire évoluer les CGU. La nouvelle version est publiée sur cet
 
 Les présentes CGU sont soumises au droit français.
 
-En cas de litige, l'utilisateur consommateur peut recourir gratuitement à un médiateur de la consommation : [[À COMPLÉTER : nom, adresse et site du médiateur de la consommation désigné]]
-
-À défaut de résolution amiable : un litige avec un professionnel relève des tribunaux de Reims. Un consommateur peut saisir, à son choix, la juridiction du lieu où il demeurait au moment de la conclusion du contrat ou de la survenance du fait dommageable, ou l'une des juridictions territorialement compétentes en vertu du Code de procédure civile (article R. 631-3 du Code de la consommation).
+En cas de litige, l'utilisateur est invité à contacter d'abord l'éditeur pour rechercher une solution amiable. À défaut : un litige avec un professionnel relève des tribunaux de Reims. Un consommateur peut saisir, à son choix, la juridiction du lieu où il demeurait au moment de la conclusion du contrat ou de la survenance du fait dommageable, ou l'une des juridictions territorialement compétentes en vertu du Code de procédure civile (article R. 631-3 du Code de la consommation).
 
 ## 16. Contact
 
-{{publisherName}}, {{publisherAddress}}, {{contactEmail}}.
+Ismail JABBOUR, rue de l'Abreuvoir, 51100 Reims, contact@sweyl.com.
