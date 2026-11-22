@@ -4,119 +4,77 @@ _Version 20261121, entrée en vigueur le 21/11/2026_
 
 ## 1. Objet
 
-Les présentes conditions générales d'utilisation (« CGU ») encadrent l'accès et l'utilisation de l'application Sweyl (« l'Application ») et du site www.sweyl.com. Sweyl permet aux clubs de basket amateur, à leurs dirigeants, leurs coachs et leurs joueurs de gérer leurs équipes, de saisir et de suivre des statistiques de match, d'organiser les entraînements et d'analyser les performances.
+Les présentes conditions générales d'utilisation (« CGU ») encadrent l'accès et l'utilisation de l'application Sweyl (« l'Application ») et du site www.sweyl.com. Sweyl est un outil de suivi sportif destiné aux clubs de basket amateur, à leurs dirigeants, leurs coachs et leurs joueurs.
 
-Utiliser l'Application vaut acceptation des CGU en vigueur. L'acceptation de chaque version est enregistrée avec sa date.
+Utiliser l'Application vaut acceptation des CGU en vigueur.
 
 ## 2. Éditeur
 
-L'Application est éditée par **Ismail JABBOUR**, entrepreneur individuel (micro-entreprise), dont le siège est situé rue de l'Abreuvoir, 51100 Reims, immatriculé sous le numéro 899 457 899 RCS Reims, TVA : TVA non applicable, article 293 B du CGI.
+L'Application est éditée par **Ismail JABBOUR**, entrepreneur individuel, rue de l'Abreuvoir, 51100 Reims, immatriculé sous le numéro 899 457 899 RCS Reims. Contact : contact@sweyl.com.
 
-Directeur de la publication : Ismail JABBOUR.
+## 3. Compte
 
-Contact : contact@sweyl.com.
+L'accès au service nécessite un compte, créé par l'utilisateur ou à l'initiative de son club. Un compte peut porter plusieurs profils (joueur, coach, administrateur de club, spectateur).
 
-## 3. Définitions
+L'utilisateur fournit des informations exactes, garde ses identifiants confidentiels et répond de l'activité de son compte.
 
-- **Utilisateur** : toute personne qui accède à l'Application, avec ou sans compte.
-- **Compte** : l'accès personnel d'un utilisateur, protégé par une adresse e-mail et un mot de passe.
-- **Profil** : le rôle tenu par un compte dans l'Application (joueur, coach, administrateur de club, spectateur). Un compte peut porter plusieurs profils.
-- **Club** : la structure sportive inscrite dans l'Application, représentée par son ou ses administrateurs.
+## 4. Mineurs
 
-## 4. Accès au service et compte
+Un mineur utilise l'Application sous la responsabilité de ses représentants légaux, qui acceptent les CGU pour son compte. Selon son âge, son profil est porté par le compte d'un représentant légal ou ouvert avec son accord.
 
-L'accès aux fonctionnalités nécessite un compte. Un compte est créé soit par l'utilisateur lui-même, soit à l'initiative de son club, qui l'invite ou l'inscrit avec ses équipes.
+Le club qui inscrit un joueur mineur garantit disposer de l'accord de ses représentants légaux.
 
-L'utilisateur s'engage à fournir des informations exactes, à garder ses identifiants confidentiels et à ne pas usurper l'identité d'un tiers. Il est responsable de l'activité réalisée depuis son compte et signale sans délai toute utilisation qu'il n'a pas autorisée, à l'adresse contact@sweyl.com.
+## 5. Le club
 
-## 5. Mineurs
+Les données d'un club ne sont accessibles qu'à ses membres, selon leur rôle. L'administrateur du club est responsable des personnes qu'il inscrit, des rôles qu'il attribue et des informations saisies dans son club.
 
-Une grande partie des joueurs sont mineurs.
+## 6. Règles d'utilisation
 
-- Un mineur utilise l'Application sous la responsabilité de ses représentants légaux, qui acceptent les présentes CGU pour son compte. Un joueur de moins de 13 ans n'a pas de compte propre : son profil est porté par le compte d'un représentant légal. De 13 à 14 ans, il peut avoir son propre compte avec l'accord d'un représentant légal, qui est enregistré. À partir de 15 ans, il utilise seul son compte.
-- Les comptes des journées de mesure (Combine) sont réservés aux personnes majeures.
-- Le club qui inscrit un joueur mineur garantit disposer de l'accord de ses représentants légaux pour le faire figurer dans l'Application et y saisir ses données, y compris sa photo, ses vidéos et ses suivis.
-- Les représentants légaux peuvent à tout moment exercer les droits du mineur sur ses données, dans les conditions décrites dans la [politique de confidentialité](/confidentialite).
+L'utilisateur s'interdit notamment de :
 
-## 6. Rôles et isolement des clubs
+- saisir des contenus faux, injurieux, diffamatoires ou discriminatoires ;
+- accéder ou tenter d'accéder aux données d'un club dont il n'est pas membre ;
+- perturber le service, en extraire les données ou en contourner les protections ;
+- déposer un contenu dont il ne détient pas les droits, ou diffuser hors de l'Application les contenus d'un club.
 
-Chaque profil dispose de droits propres. L'administrateur d'un club agit sur l'ensemble de son club ; un coach gère ses équipes ; un joueur consulte ses données et celles que son club partage avec l'effectif.
+## 7. Contenus des utilisateurs
 
-Les données d'un club ne sont accessibles qu'aux membres de ce club, selon leur rôle. Aucun autre club n'y a accès.
+L'utilisateur reste titulaire des droits sur ce qu'il dépose. Il accorde à l'éditeur, pour les seuls besoins du service, une licence gratuite et non exclusive pour l'héberger et l'afficher aux membres autorisés.
 
-L'administrateur du club est responsable des personnes qu'il inscrit, des rôles qu'il attribue et des informations qu'il saisit ou importe sur ses membres.
+L'éditeur peut retirer un contenu illicite ou contraire aux CGU.
 
-## 7. Règles d'utilisation
+## 8. Abonnements
 
-L'utilisateur s'interdit notamment :
+L'Application propose un accès gratuit et des offres payantes. Le contenu, le prix, la durée et les modalités de paiement de chaque offre sont présentés au moment de la souscription. Les fonctionnalités de chaque offre peuvent évoluer.
 
-- de saisir des informations fausses, injurieuses, diffamatoires ou discriminatoires, en particulier dans les commentaires et appréciations portant sur un joueur ;
-- d'accéder ou de tenter d'accéder aux données d'un club dont il n'est pas membre ;
-- de perturber le fonctionnement de l'Application, d'en extraire massivement les données ou d'en contourner les restrictions d'accès ;
-- de déposer un contenu dont il ne détient pas les droits, ou une vidéo filmée sans l'accord des personnes qui y figurent lorsque cet accord est requis ;
-- d'extraire ou de diffuser hors de l'Application les vidéos, extraits et montages d'un club, ou d'en retirer le filigrane ;
-- de saisir dans un suivi ou une fiche de joueur adverse des informations sans rapport avec l'activité sportive.
+Les offres destinées aux clubs se souscrivent auprès de l'éditeur, en dehors des versions de l'Application installées depuis l'App Store ou Google Play.
 
-## 8. Contenus des utilisateurs
+Un abonnement souscrit dans l'Application sur iPhone, iPad ou Android est vendu par Apple ou Google, selon leurs conditions. Il se renouvelle automatiquement sauf résiliation au moins 24 heures avant la fin de la période en cours, depuis les réglages du compte Apple ou Google, qui traitent aussi les remboursements. Supprimer son compte Sweyl ne le résilie pas.
 
-L'utilisateur reste titulaire des droits sur les contenus qu'il dépose (vidéos, enregistrements vocaux, photos, textes, logos, pièces jointes). Il accorde à l'éditeur, pour la seule durée et les seuls besoins du service, une licence non exclusive et gratuite permettant de les héberger, de les reproduire et de les afficher aux membres autorisés de son club.
+## 9. Service et responsabilité
 
-Les extraits et montages vidéo affichés ou exportés depuis l'Application portent un filigrane Sweyl.
+Le service est fourni en l'état. L'éditeur le fait évoluer librement, et peut modifier, suspendre ou retirer tout ou partie de ses fonctionnalités. Il ne garantit ni une disponibilité continue ni l'absence d'erreur.
 
-L'éditeur peut retirer un contenu manifestement illicite qui lui est signalé à l'adresse contact@sweyl.com. L'administrateur du club et le coach de l'équipe concernée peuvent retirer de la diffusion un montage publié dans leur club.
+Les informations sont saisies par les utilisateurs et les clubs, sous leur responsabilité : l'éditeur n'en garantit pas l'exactitude et ne répond pas de l'usage qui en est fait.
 
-## 9. Abonnements
+## 10. Propriété intellectuelle
 
-L'Application propose un accès gratuit et des fonctionnalités soumises à abonnement. Le contenu de chaque offre et son prix sont présentés sur le site www.sweyl.com et, pour l'abonnement joueur, dans l'Application au moment de la souscription.
+L'Application, sa marque, son logo, son interface et son code appartiennent à l'éditeur. Toute reproduction ou exploitation non autorisée est interdite.
 
-### 9.1 Offres pour les clubs et les équipes
+## 11. Données personnelles
 
-Le forfait club et les options d'équipe (analyse vidéo, Pro) sont réservés aux clubs, qui les souscrivent en tant que structure, en dehors des versions de l'Application installées depuis l'App Store ou Google Play. Ils sont souscrits pour une saison sportive et facturés sur dix mois, de septembre à juin. Ils se renouvellent tacitement à chaque saison. Le club peut les résilier par e-mail à contact@sweyl.com au plus tard un mois avant la fin de la saison en cours ; la résiliation prend effet au terme de cette saison.
+Le traitement des données personnelles est décrit dans la [politique de confidentialité](/confidentialite).
 
-### 9.2 Abonnement joueur
+## 12. Suspension et suppression du compte
 
-L'abonnement joueur est personnel : il vaut pour le joueur qui le souscrit, dans tous les clubs dont il est membre.
+L'utilisateur peut supprimer son compte à tout moment depuis les réglages de l'Application. L'historique sportif tenu par le club reste dans le club.
 
-**Souscrit dans l'Application sur iPhone, iPad ou Android**, il est vendu et encaissé par Apple (App Store) ou Google (Google Play), selon leurs conditions. Il se renouvelle automatiquement à chaque échéance, au prix affiché lors de la souscription, sauf résiliation au moins 24 heures avant la fin de la période en cours. Il se gère et se résilie depuis les réglages d'abonnement du compte Apple ou Google. Le paiement est débité sur ce compte à la confirmation de l'achat. Les demandes de remboursement relèvent d'Apple ou de Google.
+L'éditeur peut suspendre ou fermer un compte en cas de manquement aux CGU.
 
-Supprimer son compte Sweyl ne résilie pas un abonnement souscrit auprès d'Apple ou de Google : il faut le résilier chez eux.
+## 13. Modification des CGU
 
-### 9.3 Droit de rétractation
+L'éditeur peut modifier les CGU. La nouvelle version est publiée sur cette page avec sa date d'entrée en vigueur, et proposée à l'acceptation dans l'Application.
 
-Un abonnement souscrit dans l'Application installée relève des conditions d'Apple ou de Google, qui traitent les demandes de remboursement.
+## 14. Droit applicable et litiges
 
-## 10. Disponibilité et responsabilité
-
-L'éditeur met en œuvre les moyens raisonnables pour assurer l'accès à l'Application, sans garantir une disponibilité continue ni l'absence d'erreur. Le service peut être interrompu pour maintenance ou évolution.
-
-Les statistiques sont saisies par les utilisateurs : l'éditeur n'en garantit pas l'exactitude et ne saurait être tenu responsable des décisions sportives prises sur leur fondement.
-
-## 11. Propriété intellectuelle
-
-L'Application, sa marque, son logo, son interface et son code sont la propriété de l'éditeur. Toute reproduction ou exploitation non autorisée est interdite.
-
-## 12. Données personnelles
-
-Le traitement des données personnelles est décrit dans la [politique de confidentialité](/confidentialite), qui fait partie intégrante des présentes CGU.
-
-## 13. Suspension, résiliation et suppression du compte
-
-L'utilisateur peut cesser d'utiliser l'Application et demander la suppression de son compte à tout moment. Le parcours se trouve dans les réglages de l'Application. La suppression efface le compte, l'adresse e-mail, la photo, la date de naissance, les mesures, les pièces jointes des suivis et tout ce que l'utilisateur a créé lui-même (exercices personnels, clips, montages). Le prénom, le nom et l'historique sportif tenu par le club (statistiques, présences, appréciations et enregistrements vocaux des coachs) restent dans le club, rattachés à un joueur sans compte, que l'administrateur du club peut inviter à nouveau. L'administrateur d'un club transmet d'abord l'administration à un coach du club, qui en est informé ; si le club n'a aucun coach, la suppression du compte entraîne la clôture du club. Supprimer son compte ne résilie pas un abonnement souscrit auprès d'Apple ou de Google (section 9.2).
-
-L'éditeur peut suspendre ou fermer un compte en cas de manquement grave aux présentes CGU, après avoir invité l'utilisateur à s'expliquer, sauf urgence.
-
-Lorsqu'un club retire un membre, celui-ci perd l'accès aux données de ce club, et sa photo de licence dans ce club est supprimée. Son compte subsiste, ainsi que les matchs qu'il a joués.
-
-## 14. Modification des CGU
-
-L'éditeur peut faire évoluer les CGU. La nouvelle version est publiée sur cette page avec sa date d'entrée en vigueur, et les utilisateurs sont invités à l'accepter dans l'Application lors de leur connexion suivante.
-
-## 15. Droit applicable et litiges
-
-Les présentes CGU sont soumises au droit français.
-
-En cas de litige, l'utilisateur est invité à contacter d'abord l'éditeur pour rechercher une solution amiable. À défaut : un litige avec un professionnel relève des tribunaux de Reims. Un consommateur peut saisir, à son choix, la juridiction du lieu où il demeurait au moment de la conclusion du contrat ou de la survenance du fait dommageable, ou l'une des juridictions territorialement compétentes en vertu du Code de procédure civile (article R. 631-3 du Code de la consommation).
-
-## 16. Contact
-
-Ismail JABBOUR, rue de l'Abreuvoir, 51100 Reims, contact@sweyl.com.
+Les CGU sont soumises au droit français. En cas de litige, l'utilisateur contacte d'abord l'éditeur pour rechercher une solution amiable. À défaut, les tribunaux de Reims sont compétents, sous réserve des règles protégeant le consommateur.
