@@ -27,6 +27,6 @@ export const LEGAL_FIELDS = {
   dpo: 'aucun délégué désigné',
 
   // Versions des documents
-  legalNoticeDate: '05/11/2026',
+  legalNoticeDate: '22/11/2026',
   privacyEffectiveDate: '21/11/2026',
 }

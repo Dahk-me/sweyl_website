@@ -20,23 +20,7 @@ El director de la publicación es **{{publicationDirector}}**, con quien puedes 
 
 ## 3. Alojamiento
 
-**Alojamiento del sitio y de la aplicación web:**
-Vercel Inc., 440 N Barranca Avenue #4133, Covina, CA 91723, Estados Unidos.
-Contacto: privacy@vercel.com • Sitio web: https://vercel.com
-Vercel Inc. está certificada en el marco del EU-US Data Privacy Framework, que regula la transferencia de datos a Estados Unidos.
-
-**Alojamiento del servidor de la aplicación:**
-Fly.io, Inc., 2261 Market Street #4990, San Francisco, CA 94114, Estados Unidos, servidor situado en París (Francia).
-Contacto: legal@fly.io • Sitio web: https://fly.io
-
-**Alojamiento de la base de datos:**
-Supabase Pte. Ltd., 65 Chulia Street #38-02/03, OCBC Centre, Singapur 049513.
-Contacto: privacy@supabase.com • Sitio web: https://supabase.com
-Región de alojamiento de los datos: París, Francia (Unión Europea).
-
-**Alojamiento de los archivos:**
-Cloudflare, Inc., 101 Townsend Street, San Francisco, CA 94107, Estados Unidos, almacenamiento limitado a la Unión Europea.
-Teléfono: +1 888 993 5273 • Sitio web: https://www.cloudflare.com
+El sitio y la aplicación web están alojados por Vercel Inc., 440 N Barranca Avenue #4133, Covina, CA 91723, Estados Unidos (https://vercel.com).
 
 ## 4. Propiedad intelectual
 
@@ -58,9 +42,9 @@ Los datos tratados por la aplicación Sweyl se describen en la [política de pri
 
 **Base jurídica:** tu solicitud voluntaria y el interés legítimo del editor en responderla (medidas precontractuales).
 
-**Destinatarios:** esta información la recibe y la trata exclusivamente el editor. Transita por el servicio de envío de correos Mailjet (Unión Europea), que hace llegar la solicitud a nuestro buzón sin que el sitio la conserve. Nunca se cede, vende ni comunica a terceros con fines comerciales.
+**Destinatarios:** esta información la recibe y la trata exclusivamente el editor. Transita por un servicio de envío de correos (Unión Europea), que hace llegar la solicitud a nuestro buzón sin que el sitio la conserve. Nunca se cede, vende ni comunica a terceros con fines comerciales.
 
-**Transferencias fuera de la Unión Europea:** al estar el sitio alojado por Vercel Inc. (Estados Unidos), algunos datos técnicos (en particular las direcciones IP) pueden tratarse en Estados Unidos. Esta transferencia está amparada por la certificación EU-US Data Privacy Framework de Vercel.
+**Transferencias fuera de la Unión Europea:** al estar el sitio alojado en Estados Unidos, algunos datos técnicos (en particular las direcciones IP) pueden tratarse allí, con las garantías previstas por el RGPD.
 
 **Plazo de conservación:** tus datos se conservan el tiempo necesario para tramitar tu solicitud y se eliminan, como máximo, 12 meses después de nuestro último intercambio.
 
