@@ -2,14 +2,23 @@
   "redirects": [
     {
       "source": "/pro",
-      "missing": [{ "type": "host", "value": "pro.sweyl.com" }],
+      "missing": [
+        {
+          "type": "host",
+          "value": "pro.sweyl.com"
+        }
+      ],
       "destination": "https://pro.sweyl.com/",
       "permanent": false
     }
   ],
   "rewrites": [
     {
-      "source": "/((?!assets|api|pro.html|mentions-legales.md|mentions-legales.en.md|mentions-legales.es.md|cgu.md|confidentialite.md).*)",
+      "source": "/legal-api/terms/current",
+      "destination": "https://gts-basketball-api.fly.dev/api/v2/terms/current"
+    },
+    {
+      "source": "/((?!assets|api|pro.html|mentions-legales.md|mentions-legales.en.md|mentions-legales.es.md|confidentialite.md|confidentialite.en.md|confidentialite.es.md).*)",
       "destination": "/index.html"
     }
   ],

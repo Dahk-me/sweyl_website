@@ -18,23 +18,7 @@ Le directeur de la publication est **{{publicationDirector}}**, joignable à l'a
 
 ## 3. Hébergement
 
-**Hébergeur du site et de l'application web :**
-Vercel Inc., 440 N Barranca Avenue #4133, Covina, CA 91723, États-Unis.
-Contact : privacy@vercel.com • Site web : https://vercel.com
-Vercel Inc. est certifié au titre de l'EU-US Data Privacy Framework, cadre encadrant le transfert des données vers les États-Unis.
-
-**Hébergeur du serveur de l'application :**
-Fly.io, Inc., 2261 Market Street #4990, San Francisco, CA 94114, États-Unis, serveur situé à Paris (France).
-Contact : legal@fly.io • Site web : https://fly.io
-
-**Hébergeur de la base de données :**
-Supabase Pte. Ltd., 65 Chulia Street #38-02/03, OCBC Centre, Singapour 049513.
-Contact : privacy@supabase.com • Site web : https://supabase.com
-Région d'hébergement des données : Paris, France (Union européenne).
-
-**Hébergeur des fichiers :**
-Cloudflare, Inc., 101 Townsend Street, San Francisco, CA 94107, États-Unis, stockage cantonné à l'Union européenne.
-Téléphone : +1 888 993 5273 • Site web : https://www.cloudflare.com
+Le site et l'application web sont hébergés par Vercel Inc., 440 N Barranca Avenue #4133, Covina, CA 91723, États-Unis (https://vercel.com).
 
 ## 4. Propriété intellectuelle
 
@@ -46,6 +30,8 @@ Toute reproduction, représentation, modification, publication ou adaptation de 
 
 L'éditeur attache une importance particulière à la protection des données personnelles, conformément au Règlement (UE) 2016/679 (RGPD) et à la loi « Informatique et Libertés » du 6 janvier 1978 modifiée.
 
+Les données traitées par l'application Sweyl sont décrites dans la [politique de confidentialité](/confidentialite). Cette section ne concerne que le site.
+
 **Responsable du traitement :** {{publisherName}}, joignable à {{contactEmail}}.
 
 **Données collectées :** lors d'une demande de démonstration, sont susceptibles d'être collectés vos nom, adresse e-mail et le nom de votre club ou structure.
@@ -54,9 +40,9 @@ L'éditeur attache une importance particulière à la protection des données pe
 
 **Base légale :** votre démarche volontaire et l'intérêt légitime de l'éditeur à répondre à votre sollicitation (mesures précontractuelles).
 
-**Destinataires :** ces informations sont reçues et traitées exclusivement par l'éditeur. Elles transitent par le service d'envoi de courriels Mailjet (Union européenne), qui achemine la demande jusqu'à notre boîte mail, sans la conserver dans le site. Elles ne sont ni cédées, ni vendues, ni communiquées à des tiers à des fins commerciales.
+**Destinataires :** ces informations sont reçues et traitées exclusivement par l'éditeur. Elles transitent par un service d'envoi de courriels (Union européenne), qui achemine la demande jusqu'à notre boîte mail, sans la conserver dans le site. Elles ne sont ni cédées, ni vendues, ni communiquées à des tiers à des fins commerciales.
 
-**Transferts hors Union européenne :** le site étant hébergé par Vercel Inc. (États-Unis), certaines données techniques (notamment les adresses IP) peuvent être traitées aux États-Unis. Ce transfert est encadré par la certification EU-US Data Privacy Framework de Vercel.
+**Transferts hors Union européenne :** le site étant hébergé aux États-Unis, certaines données techniques (notamment les adresses IP) peuvent y être traitées, avec les garanties prévues par le RGPD.
 
 **Durée de conservation :** vos données sont conservées le temps nécessaire au traitement de votre demande, puis supprimées au plus tard 12 mois après notre dernier échange.
 
