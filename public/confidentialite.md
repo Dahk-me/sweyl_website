@@ -18,7 +18,7 @@ Les données sont traitées par **{{publisherName}}**, {{publisherLegalForm}}, {
 - **Activité sportive** : matchs, statistiques, entraînements, présences, mesures physiques, et les appréciations écrites ou vocales des coachs.
 - **Suivis du joueur** : un club peut tenir des suivis sur ses joueurs, qui peuvent contenir des **données de santé** ou scolaires. Ils sont lus par le staff du joueur ; le joueur voit les siens. Leur contenu est saisi sous la seule responsabilité du club.
 - **Contenus déposés** : vidéos, enregistrements vocaux, photos et documents, accessibles aux seuls membres autorisés.
-- **Personnes extérieures à Sweyl** : le staff d'un club peut prendre des notes sur des joueurs adverses, visibles de lui seul et sous sa responsabilité. Nous reprenons aussi les coordonnées publiques des clubs publiées par la Fédération française de basketball.
+- **Personnes extérieures à Sweyl** : le staff d'un club peut prendre des notes sur des joueurs adverses, visibles de lui seul et sous sa responsabilité. Nous reprenons aussi les coordonnées publiques des clubs publiées par les fédérations sportives, comme la Fédération française de basketball.
 - **Abonnements** : l'offre souscrite et ses dates. Un achat dans l'application est payé auprès d'Apple ou de Google : nous ne recevons jamais vos données de carte.
 - **Données techniques** : rapports d'erreur servant à corriger l'application, et éléments conservés sur votre appareil pour son fonctionnement (session, préférences).
 
@@ -44,6 +44,7 @@ Aucune donnée n'est vendue ni louée. Sweyl peut s'associer à des plateformes 
 - **Votre club**, selon votre rôle. Les données d'un club ne sont jamais accessibles à un autre club.
 - **L'éditeur**, pour faire fonctionner le service et répondre aux demandes d'assistance.
 - **Nos prestataires techniques** (hébergement, stockage, envoi d'e-mails, notifications, suivi des erreurs, paiement), dans la stricte limite de leur mission et sous contrat.
+- **Les plateformes sportives partenaires**, uniquement avec votre accord, donné depuis les paramètres de votre compte (voir la section 3).
 - **Les autorités**, uniquement sur demande légalement fondée.
 
 Certains prestataires sont situés hors de l'Union européenne. Ces transferts sont encadrés par les garanties prévues par le RGPD, notamment les clauses contractuelles types de la Commission européenne.

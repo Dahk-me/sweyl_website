@@ -20,7 +20,7 @@ Los datos son tratados por **{{publisherName}}**, {{publisherLegalForm}}, {{publ
 - **Actividad deportiva**: partidos, estadísticas, entrenamientos, asistencias, medidas físicas y las valoraciones escritas o de voz de los entrenadores.
 - **Seguimientos del jugador**: un club puede llevar seguimientos de sus jugadores, que pueden contener **datos de salud** o escolares. Los lee el cuerpo técnico del jugador; el jugador ve los suyos. Su contenido se introduce bajo la exclusiva responsabilidad del club.
 - **Contenidos subidos**: vídeos, grabaciones de voz, fotos y documentos, accesibles solo para los miembros autorizados.
-- **Personas ajenas a Sweyl**: el cuerpo técnico de un club puede tomar notas sobre jugadores rivales, visibles solo para él y bajo su responsabilidad. También reutilizamos los datos de contacto públicos de los clubes publicados por la Federación Francesa de Baloncesto.
+- **Personas ajenas a Sweyl**: el cuerpo técnico de un club puede tomar notas sobre jugadores rivales, visibles solo para él y bajo su responsabilidad. También reutilizamos los datos de contacto públicos de los clubes publicados por las federaciones deportivas, como la Federación Francesa de Baloncesto.
 - **Suscripciones**: la oferta contratada y sus fechas. Una compra en la aplicación se paga a Apple o a Google: nunca recibimos los datos de su tarjeta.
 - **Datos técnicos**: informes de error que sirven para corregir la aplicación, y elementos conservados en su dispositivo para su funcionamiento (sesión, preferencias).
 
@@ -46,6 +46,7 @@ Ningún dato se vende ni se alquila. Sweyl puede asociarse con plataformas depor
 - **Su club**, según su función. Los datos de un club nunca son accesibles para otro club.
 - **El editor**, para hacer funcionar el servicio y responder a las solicitudes de asistencia.
 - **Nuestros proveedores técnicos** (alojamiento, almacenamiento, envío de correos, notificaciones, seguimiento de errores, pago), dentro del estricto límite de su misión y bajo contrato.
+- **Las plataformas deportivas asociadas**, únicamente con su consentimiento, dado en los ajustes de su cuenta (véase la sección 3).
 - **Las autoridades**, únicamente previa solicitud legalmente fundada.
 
 Algunos proveedores están situados fuera de la Unión Europea. Estas transferencias están amparadas por las garantías previstas por el RGPD, en particular las cláusulas contractuales tipo de la Comisión Europea.

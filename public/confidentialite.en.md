@@ -20,7 +20,7 @@ Data is processed by **{{publisherName}}**, {{publisherLegalForm}}, {{publisherA
 - **Sporting activity**: games, statistics, practices, attendance, physical measurements, and the coaches' written or voice assessments.
 - **Player follow-ups**: a club can keep follow-ups on its players, which may contain **health** or school data. They are read by the player's staff; the player sees their own. Their content is entered under the club's sole responsibility.
 - **Uploaded content**: videos, voice recordings, photos and documents, accessible only to authorised members.
-- **People outside Sweyl**: a club's staff can take notes on opposing players, visible to that staff only and under its responsibility. We also reuse the public contact details of clubs published by the French Basketball Federation.
+- **People outside Sweyl**: a club's staff can take notes on opposing players, visible to that staff only and under its responsibility. We also reuse the public contact details of clubs published by sports federations, such as the French Basketball Federation.
 - **Subscriptions**: the plan subscribed and its dates. An in-app purchase is paid to Apple or Google: we never receive your card details.
 - **Technical data**: error reports used to fix the application, and items kept on your device for it to work (session, preferences).
 
@@ -46,6 +46,7 @@ No data is sold or rented. Sweyl may partner with sports platforms, for example 
 - **Your club**, depending on your role. A club's data is never accessible to another club.
 - **The publisher**, to run the service and answer support requests.
 - **Our technical providers** (hosting, storage, email delivery, notifications, error tracking, payment), strictly within the limits of their task and under contract.
+- **Partner sports platforms**, only with your consent, given in your account settings (see section 3).
 - **The authorities**, only on a legally grounded request.
 
 Some providers are located outside the European Union. These transfers are covered by the safeguards provided by the GDPR, in particular the European Commission's standard contractual clauses.
