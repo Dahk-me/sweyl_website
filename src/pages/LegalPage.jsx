@@ -8,7 +8,7 @@ import { IconSun, IconMoon } from '../components/Icons'
 import logoSvg from '/assets/LogoSweyl.svg'
 import LanguageSwitch from '../components/LanguageSwitch'
 import { currentLanguage } from '../i18n'
-import { legalFileName } from '../legal/documents'
+import { legalFileName, termsApiUrl } from '../legal/documents'
 import { interpolateLegalText } from '../legal/interpolate'
 import { countMarkers } from '../legal/markers.js'
 import { withMarkers } from '../legal/markers.jsx'
@@ -17,21 +17,26 @@ import { withMarkers } from '../legal/markers.jsx'
  * Page de texte juridique : mentions légales, CGU, politique de confidentialité
  * (`LEGAL_DOCUMENTS`).
  *
- * Le texte vit en Markdown dans `public/`, un fichier par langue, et passe par
- * `interpolateLegalText` pour recevoir les champs de `legal/fields.js`. Tant qu'un champ reste
- * ouvert, il est surligné et un bandeau en donne le compte.
+ * Mentions légales et confidentialité vivent en Markdown dans `public/`, un fichier par langue,
+ * et passent par `interpolateLegalText` pour recevoir les champs de `legal/fields.js`. Tant qu'un
+ * champ reste ouvert, il est surligné et un bandeau en donne le compte.
+ *
+ * Les CGU se lisent dans l'API (`api: true`), seule source du texte : il arrive complet, ligne de
+ * version comprise. Si l'API ne répond pas, la page le dit au lieu de rester vide.
  */
 export default function LegalPage({ document: legalDocument }) {
   const { theme, toggleTheme } = useTheme()
   const mobile = useMobile()
   const [content, setContent] = useState('')
+  const [unavailable, setUnavailable] = useState(false)
   const { t, i18n } = useTranslation('common')
 
   useEffect(() => {
     let cancelled = false
-    fetch(`/${legalFileName(legalDocument, currentLanguage())}`)
-      .then(r => r.text())
-      .then(text => { if (!cancelled) setContent(interpolateLegalText(text)) })
+    setUnavailable(false)
+    loadLegalText(legalDocument, currentLanguage())
+      .then(text => { if (!cancelled) setContent(text) })
+      .catch(() => { if (!cancelled) { setContent(''); setUnavailable(true) } })
     return () => { cancelled = true }
   }, [legalDocument, i18n.language])
 
@@ -91,6 +96,9 @@ export default function LegalPage({ document: legalDocument }) {
       </header>
 
       <main style={{ maxWidth: '760px', margin: '0 auto', padding: mobile ? '60px 20px 100px' : '80px 32px 120px' }}>
+        {unavailable && (
+          <p className="legal-pending-banner mono" role="status">{t('legal.unavailable')}</p>
+        )}
         {openFields > 0 && (
           <p className="legal-pending-banner mono" role="status">{t('legal.pending', { count: openFields })}</p>
         )}
@@ -119,4 +127,15 @@ export default function LegalPage({ document: legalDocument }) {
       </footer>
     </>
   )
+}
+
+async function loadLegalText(legalDocument, language) {
+  if (legalDocument.api) {
+    const response = await fetch(termsApiUrl(language))
+    if (!response.ok) throw new Error(`CGU indisponibles (${response.status})`)
+    return (await response.json()).content
+  }
+  const response = await fetch(`/${legalFileName(legalDocument, language)}`)
+  if (!response.ok) throw new Error(`${legalDocument.id} indisponible (${response.status})`)
+  return interpolateLegalText(await response.text())
 }

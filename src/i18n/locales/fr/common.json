@@ -14,7 +14,8 @@
     },
     "back": "Retour",
     "backLong": "Retour à l'accueil",
-    "pending": "Document en cours de finalisation, champs encore ouverts : {{count}}"
+    "pending": "Document en cours de finalisation, champs encore ouverts : {{count}}",
+    "unavailable": "Ce texte est momentanément indisponible. Réessayez dans quelques minutes."
   },
   "notFound": {
     "eyebrow": "Erreur 404",

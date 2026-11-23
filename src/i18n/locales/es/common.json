@@ -14,7 +14,8 @@
     },
     "back": "Volver",
     "backLong": "Volver al inicio",
-    "pending": "Documento en preparación, campos aún abiertos: {{count}}"
+    "pending": "Documento en preparación, campos aún abiertos: {{count}}",
+    "unavailable": "Este texto no está disponible en este momento. Inténtelo de nuevo en unos minutos."
   },
   "notFound": {
     "eyebrow": "Error 404",

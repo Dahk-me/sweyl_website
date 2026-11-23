@@ -2,9 +2,8 @@
  * Les données d'identité et de contact citées par les textes juridiques, appelées dans le texte par
  * `{{cle}}`.
  *
- * `public/cgu.md` n'en appelle aucune : c'est le fichier téléchargé tel quel depuis
- * `/platform/terms` de l'application, où la version qui fait foi est importée. Il se remplace en
- * entier, sans rien retoucher ici.
+ * Les CGU n'en appellent aucune : elles ne sont pas un fichier du site, la page les lit dans l'API
+ * (`TERMS_API_PATH`, `documents.js`), telles qu'importées depuis `/platform/terms`.
  *
  * Une donnée qui revient à plusieurs endroits ne s'écrit qu'ici : la changer ici la change partout.
  * Les champs propres à une seule phrase restent dans le texte, avec le même marqueur.
