@@ -4,7 +4,7 @@ _Entrada en vigor: {{privacyEffectiveDate}}_
 
 _Esta traducción se ofrece a título informativo. Solo la versión francesa tiene valor jurídico._
 
-Sweyl es una aplicación de seguimiento deportivo para el baloncesto amateur, utilizada por clubes, sus directivos, sus entrenadores y sus jugadores, **muchos de ellos menores de edad**. Esta política explica qué datos tratamos, por qué, durante cuánto tiempo y cómo ejercer sus derechos.
+Sweyl es una aplicación de seguimiento deportivo para clubes deportivos, utilizada por esos clubes, sus directivos, sus entrenadores y sus jugadores, **muchos de ellos menores de edad**. Esta política explica qué datos tratamos, por qué, durante cuánto tiempo y cómo ejercer sus derechos.
 
 Se aplica al sitio www.sweyl.com y a la aplicación Sweyl, en la web, el App Store y Google Play.
 
@@ -24,7 +24,7 @@ Los datos son tratados por **{{publisherName}}**, {{publisherLegalForm}}, {{publ
 - **Suscripciones**: la oferta contratada y sus fechas. Una compra en la aplicación se paga a Apple o a Google: nunca recibimos los datos de su tarjeta.
 - **Datos técnicos**: informes de error que sirven para corregir la aplicación, y elementos conservados en su dispositivo para su funcionamiento (sesión, preferencias).
 
-No recogemos ni ubicación, ni contactos, ni identificador publicitario. El micrófono solo sirve para grabar un comentario de voz. La aplicación no integra ninguna herramienta de publicidad ni de seguimiento.
+No recogemos ni ubicación, ni contactos, ni identificador publicitario. El micrófono solo sirve para grabar un comentario de voz.
 
 ## 3. Por qué los tratamos
 
@@ -32,7 +32,7 @@ No recogemos ni ubicación, ni contactos, ni identificador publicitario. El micr
 - **Garantizar la seguridad** y corregir errores: interés legítimo del editor.
 - **Cumplir nuestras obligaciones legales**, en particular las contables.
 
-Ningún dato se vende, se alquila ni se utiliza con fines publicitarios.
+Ningún dato se vende ni se alquila. Sweyl puede asociarse con plataformas deportivas, por ejemplo para jornadas de detección: sus datos solo se les transmiten con su consentimiento, dado en los ajustes de su cuenta y revocable en cualquier momento.
 
 ## 4. Los menores
 

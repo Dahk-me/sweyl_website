@@ -2,7 +2,7 @@
 
 _Entrée en vigueur : {{privacyEffectiveDate}}_
 
-Sweyl est une application de suivi sportif pour le basket amateur, utilisée par des clubs, leurs dirigeants, leurs coachs et leurs joueurs, **dont beaucoup sont mineurs**. Cette politique explique quelles données nous traitons, pourquoi, combien de temps, et comment exercer vos droits.
+Sweyl est une application de suivi sportif pour les clubs de sport, utilisée par ces clubs, leurs dirigeants, leurs coachs et leurs joueurs, **dont beaucoup sont mineurs**. Cette politique explique quelles données nous traitons, pourquoi, combien de temps, et comment exercer vos droits.
 
 Elle s'applique au site www.sweyl.com et à l'application Sweyl, sur le web, l'App Store et Google Play.
 
@@ -22,7 +22,7 @@ Les données sont traitées par **{{publisherName}}**, {{publisherLegalForm}}, {
 - **Abonnements** : l'offre souscrite et ses dates. Un achat dans l'application est payé auprès d'Apple ou de Google : nous ne recevons jamais vos données de carte.
 - **Données techniques** : rapports d'erreur servant à corriger l'application, et éléments conservés sur votre appareil pour son fonctionnement (session, préférences).
 
-Nous ne collectons ni localisation, ni contacts, ni identifiant publicitaire. Le micro ne sert qu'à l'enregistrement d'un commentaire vocal. Aucun outil de publicité ou de suivi n'est intégré à l'application.
+Nous ne collectons ni localisation, ni contacts, ni identifiant publicitaire. Le micro ne sert qu'à l'enregistrement d'un commentaire vocal.
 
 ## 3. Pourquoi nous les traitons
 
@@ -30,7 +30,7 @@ Nous ne collectons ni localisation, ni contacts, ni identifiant publicitaire. Le
 - **Assurer la sécurité** et corriger les erreurs : intérêt légitime de l'éditeur.
 - **Respecter nos obligations légales**, notamment comptables.
 
-Aucune donnée n'est vendue, louée ni utilisée à des fins publicitaires.
+Aucune donnée n'est vendue ni louée. Sweyl peut s'associer à des plateformes sportives partenaires, par exemple pour des journées de détection : vos données ne leur sont transmises qu'avec votre accord, donné depuis les paramètres de votre compte et retirable à tout moment.
 
 ## 4. Les mineurs
 

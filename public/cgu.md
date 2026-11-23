@@ -4,7 +4,7 @@ _Version 20261121, entrée en vigueur le 21/11/2026_
 
 ## 1. Objet
 
-Les présentes conditions générales d'utilisation (« CGU ») encadrent l'accès et l'utilisation de l'application Sweyl (« l'Application ») et du site www.sweyl.com. Sweyl est un outil de suivi sportif destiné aux clubs de basket amateur, à leurs dirigeants, leurs coachs et leurs joueurs.
+Les présentes conditions générales d'utilisation (« CGU ») encadrent l'accès et l'utilisation de l'application Sweyl (« l'Application ») et du site www.sweyl.com. Sweyl est un outil de suivi sportif destiné aux clubs de sport, à leurs dirigeants, leurs coachs et leurs joueurs.
 
 Utiliser l'Application vaut acceptation des CGU en vigueur.
 
@@ -47,7 +47,7 @@ L'éditeur peut retirer un contenu illicite ou contraire aux CGU.
 
 L'Application propose un accès gratuit et des offres payantes. Le contenu, le prix, la durée et les modalités de paiement de chaque offre sont présentés au moment de la souscription. Les fonctionnalités de chaque offre peuvent évoluer.
 
-Les offres destinées aux clubs se souscrivent auprès de l'éditeur, en dehors des versions de l'Application installées depuis l'App Store ou Google Play.
+Les offres destinées aux clubs, ainsi que le forfait Pro, se souscrivent auprès de l'éditeur, en dehors des versions de l'Application installées depuis l'App Store ou Google Play.
 
 Un abonnement souscrit dans l'Application sur iPhone, iPad ou Android est vendu par Apple ou Google, selon leurs conditions. Il se renouvelle automatiquement sauf résiliation au moins 24 heures avant la fin de la période en cours, depuis les réglages du compte Apple ou Google, qui traitent aussi les remboursements. Supprimer son compte Sweyl ne le résilie pas.
 

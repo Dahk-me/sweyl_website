@@ -4,7 +4,7 @@ _Effective date: {{privacyEffectiveDate}}_
 
 _This translation is provided for convenience. Only the French version is legally binding._
 
-Sweyl is a sports tracking application for amateur basketball, used by clubs, their officials, their coaches and their players, **many of whom are minors**. This policy explains what data we process, why, for how long, and how to exercise your rights.
+Sweyl is a sports tracking application for sports clubs, used by those clubs, their officials, their coaches and their players, **many of whom are minors**. This policy explains what data we process, why, for how long, and how to exercise your rights.
 
 It applies to the www.sweyl.com website and to the Sweyl application, on the web, the App Store and Google Play.
 
@@ -24,7 +24,7 @@ Data is processed by **{{publisherName}}**, {{publisherLegalForm}}, {{publisherA
 - **Subscriptions**: the plan subscribed and its dates. An in-app purchase is paid to Apple or Google: we never receive your card details.
 - **Technical data**: error reports used to fix the application, and items kept on your device for it to work (session, preferences).
 
-We collect no location, no contacts and no advertising identifier. The microphone is used only to record a voice comment. No advertising or tracking tool is built into the application.
+We collect no location, no contacts and no advertising identifier. The microphone is used only to record a voice comment.
 
 ## 3. Why we process it
 
@@ -32,7 +32,7 @@ We collect no location, no contacts and no advertising identifier. The microphon
 - **Ensuring security** and fixing errors: the publisher's legitimate interest.
 - **Meeting our legal obligations**, in particular accounting ones.
 
-No data is sold, rented or used for advertising purposes.
+No data is sold or rented. Sweyl may partner with sports platforms, for example for scouting events: your data is shared with them only with your consent, given in your account settings and revocable at any time.
 
 ## 4. Minors
 
